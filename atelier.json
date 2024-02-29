@@ -4,7 +4,7 @@
   },
   "git": {
     "commit": "Auto-commit",
-    "include": ["src/", "index.html"],
+    "include": ["**/*.js", "index.html"],
     "exclude": [".atelier/", "node_modules/", "dist/"]
   },
   "screenshot": {
@@ -14,9 +14,5 @@
     "type": "png",
     "width": 2560,
     "height": 1440
-  },
-  "watch": {
-    "patterns": ["src/**/*", "index.html"],
-    "debounceTime": 500
   }
 }
