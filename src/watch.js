@@ -49,6 +49,11 @@ const watch = async () => {
         // Check if screenshot taking is configured
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
+        await page.setViewport({
+          width: config.screenshot.width || 2560,
+          height: config.screenshot.height || 1440,
+          deviceScaleFactor: config.screenshot.deviceScaleFactor || 2, // Make sure this is being applied
+        });
         await page.goto(url); // Use the server URL from Vite
         const screenshotPath = `${screenshotDir}/${hash}.${
           config.screenshot.type || "png"
