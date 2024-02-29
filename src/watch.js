@@ -54,11 +54,16 @@ const watch = async () => {
           height: config.screenshot.height || 1440,
           deviceScaleFactor: config.screenshot.deviceScaleFactor || 2, // Make sure this is being applied
         });
-        await page.goto(url); // Use the server URL from Vite
+        // Use the server URL from Vite
+        await page.goto(url, { waitUntil: "networkidle0" });
         const screenshotPath = `${screenshotDir}/${hash}.${
           config.screenshot.type || "png"
         }`;
-        await page.screenshot({ path: screenshotPath });
+        await page.screenshot({
+          path: screenshotPath,
+          fullPage: config.screenshot.fullPage || true,
+        });
+
         await browser.close();
         console.log(`Screenshot taken and saved to ${screenshotPath}`);
       }
