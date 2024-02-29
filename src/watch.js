@@ -11,9 +11,7 @@ const watch = async () => {
   const server = await createServer(config.vite); // Pass Vite-specific configurations from loaded config
 
   await server.listen();
-  const url = `http://${config.server?.host || "localhost"}:${
-    config.server?.port || 3000
-  }`;
+  const url = server.resolvedUrls.local[0]; // Get the local server URL
   console.log(`Atelier running at ${url}`);
 
   const git = simpleGit();
