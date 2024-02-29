@@ -9,7 +9,7 @@ const watch = async () => {
   const config = await loadConfig();
 
   // Start Vite server with custom configuration
-  const server = await createServer(config.server);
+  const server = await createServer({ server: config.server });
 
   await server.listen(config.server?.port || 3000); // Use the port from the config, default to 3000 if not specified
   const url = server.resolvedUrls.local[0]; // Get the local server URL
