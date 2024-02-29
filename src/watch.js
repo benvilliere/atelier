@@ -12,8 +12,8 @@ const watch = async () => {
     // Commit changes
     try {
       await git.add(".");
-      await git.commit("Auto-commit");
-      console.log("Changes committed");
+      const commit = await git.commit("Auto-commit");
+      console.log("Changes committed", commit);
 
       // Take a screenshot
       const browser = await puppeteer.launch();
