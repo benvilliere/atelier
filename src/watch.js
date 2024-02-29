@@ -19,8 +19,8 @@ const watch = async () => {
   server.watcher.on("change", async (path) => {
     console.log(`File ${path} has been changed`);
 
-    // Commit changes
     try {
+      // Commit changes
       await git.add(".");
       const { commit: hash } = await git.commit("Auto-commit");
       console.log("Changes committed", hash);
