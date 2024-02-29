@@ -15,7 +15,7 @@
       "message": "Atelier auto-commit"
     }
   },
-  "screenshot": {
+  "screenshots": {
     "basePath": ".atelier/screenshots",
     "fullPage": true,
     "deviceScaleFactor": 2,
