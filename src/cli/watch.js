@@ -31,7 +31,7 @@ const watch = async () => {
 
     try {
       // Commit changes
-      await git.add(config.git?.include || "."); // Add either specific paths or everything
+      await git.add(".");
       const { commit: hash } = await git.commit(
         config.git?.commit || "Auto-commit"
       );
