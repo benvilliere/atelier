@@ -64,11 +64,10 @@ const watch = async () => {
       if (config.features.git) {
         // Commit changes
         await git.add(".");
-        const commit = await git.commit(
+        const { commit: hash } = await git.commit(
           config.git?.commit?.message || "Atelier auto-commit"
         );
-        console.log(commit);
-        // console.log("Changes committed", hash);
+        console.log("Changes committed", hash);
       }
     } catch (err) {
       console.error("Failed to commit changes or take screenshot:", err);
