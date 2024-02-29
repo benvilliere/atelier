@@ -15,8 +15,8 @@
     "atelier": "./src/cli/index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "atelier": "node ./src/cli/index.js"
+    "atelier": "node ./src/cli/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "chokidar": "^3.6.0",
