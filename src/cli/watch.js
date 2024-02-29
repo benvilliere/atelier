@@ -30,6 +30,8 @@ const watch = async () => {
     }
 
     try {
+      const timestamp = new Date();
+
       if (config.features.git) {
         // Commit changes
         await git.add(".");
