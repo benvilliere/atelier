@@ -1,15 +1,25 @@
 {
-  "url": null,
   "features": {
+    "preview": false,
     "server": true,
     "screenshots": true,
-    "git": true
+    "git": true,
+    "ui": true
+  },
+  "hooks": {
+    "start": "npm run dev"
+  },
+  "preview": {
+    "url": null,
+    "script": "npm run dev"
+  },
+  "watch": {
+    "include": ["**/*.js", "index.html"],
+    "exclude": [".atelier/", "node_modules/", "dist/"]
   },
   "server": {
     "open": true
   },
-  "include": ["**/*.js", "index.html"],
-  "exclude": [".atelier/", "node_modules/", "dist/"],
   "git": {
     "commit": {
       "message": "Atelier auto-commit"
