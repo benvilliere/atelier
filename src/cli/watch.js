@@ -4,13 +4,13 @@ import simpleGit from "simple-git";
 import puppeteer from "puppeteer";
 import { mkdir } from "fs/promises";
 import { loadConfig } from "./config.js";
+import match from "micromatch";
 
 const watch = async () => {
   const config = await loadConfig();
 
   // Start Vite server with custom configuration
   const server = await createServer({ server: config.server });
-
   await server.listen(config.server?.port || 3000); // Use the port from the config, default to 3000 if not specified
   const url = server.resolvedUrls.local[0]; // Get the local server URL
   console.log(`Atelier running at ${url}`);
@@ -21,12 +21,13 @@ const watch = async () => {
   server.watcher.on("change", async (path) => {
     console.log(`File ${path} has been changed`);
 
-    // Filtering out files based on 'include' and 'exclude' patterns from config
-    if (
-      config.git?.exclude?.some((pattern) => path.includes(pattern)) ||
-      (config.git?.include &&
-        !config.git.include.some((pattern) => path.includes(pattern)))
-    ) {
+    const isExcluded = match.isMatch(path, config.git.exclude);
+    const isIncluded = match.isMatch(path, config.git.include);
+
+    console.log(isExcluded, config.git.exclude);
+    console.log(isIncluded, config.git.include);
+
+    if (isExcluded || !isIncluded) {
       console.log("Change not tracked due to config settings.");
       return;
     }
