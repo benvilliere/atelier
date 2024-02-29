@@ -1,0 +1,20 @@
+{
+  "server": {
+    "port": 3000,
+    "host": "localhost",
+    "root": "./public"
+  },
+  "git": {
+    "autoCommitMessage": "Auto-commit",
+    "include": ["src/", "index.html"],
+    "exclude": [".atelier/", "node_modules/", "dist/"]
+  },
+  "screenshot": {
+    "path": ".atelier/screenshots",
+    "format": "png"
+  },
+  "watch": {
+    "patterns": ["src/**/*", "index.html"],
+    "debounceTime": 500
+  }
+}
