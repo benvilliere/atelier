@@ -9,8 +9,8 @@ const watch = require("./watch");
 
 // Check the command provided
 if (args.length > 0 && args[0] === "start") {
-  console.log("Starting artelier...");
+  console.log("Starting genart...");
   watch(); // This will start the file watching
 } else {
-  console.log("Usage: artelier start");
+  console.log("Usage: genart start");
 }
