@@ -10,13 +10,13 @@
   "license": "MIT",
   "author": "Ben Villiere",
   "type": "module",
-  "main": "src/index.js",
+  "main": "src/cli/index.js",
   "bin": {
-    "atelier": "./src/index.js"
+    "atelier": "./src/cli/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "atelier": "node ./src/index.js"
+    "atelier": "node ./src/cli/index.js"
   },
   "dependencies": {
     "chokidar": "^3.6.0",
