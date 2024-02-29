@@ -1,17 +1,18 @@
 {
   "server": {
-    "port": 3000,
     "host": "localhost",
     "root": "./public"
   },
   "git": {
-    "autoCommitMessage": "Auto-commit",
+    "commit": "Auto-commit",
     "include": ["src/", "index.html"],
     "exclude": [".atelier/", "node_modules/", "dist/"]
   },
   "screenshot": {
     "path": ".atelier/screenshots",
-    "format": "png"
+    "format": "png",
+    "width": 1280,
+    "height": 720
   },
   "watch": {
     "patterns": ["src/**/*", "index.html"],
