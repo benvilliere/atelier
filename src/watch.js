@@ -26,8 +26,6 @@ const watch = async () => {
       const { commit: hash } = await git.commit("Auto-commit");
       console.log("Changes committed", hash);
 
-      return;
-
       // Ensure the screenshots directory exists
       await mkdir(".atelier/screenshots", { recursive: true });
 
