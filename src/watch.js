@@ -40,7 +40,8 @@ const watch = async () => {
       console.log("Changes committed", hash);
 
       // Ensure the screenshots directory exists
-      const screenshotDir = config.screenshot?.path || ".atelier/screenshots";
+      const screenshotDir =
+        config.screenshot?.basePath || ".atelier/screenshots";
       await mkdir(screenshotDir, { recursive: true });
 
       // Take a screenshot
@@ -52,7 +53,7 @@ const watch = async () => {
         const screenshotPath = `${screenshotDir}/${hash}.${
           config.screenshot.type || "png"
         }`;
-        await page.screenshot({ path: screenshotPath, ...config.screenshot });
+        await page.screenshot({ path: screenshotPath });
         await browser.close();
         console.log(`Screenshot taken and saved to ${screenshotPath}`);
       }
