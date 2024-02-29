@@ -31,6 +31,8 @@ const watch = async () => {
 
     try {
       const timestamp = new Date();
+      console.log(timestamp);
+      process.exit();
 
       if (config.features.git) {
         // Commit changes
