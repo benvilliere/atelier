@@ -52,7 +52,7 @@ const watch = async () => {
         const screenshotPath = `${screenshotDir}/${hash}.${
           config.screenshot.type || "png"
         }`;
-        await page.screenshot({ ...config.screenshot, path: screenshotPath });
+        await page.screenshot({ path: screenshotPath });
         await browser.close();
         console.log(`Screenshot taken and saved to ${screenshotPath}`);
       }
