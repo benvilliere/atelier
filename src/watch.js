@@ -35,7 +35,7 @@ const watch = async () => {
       // Commit changes
       await git.add(config.git?.include || "."); // Add either specific paths or everything
       const { commit: hash } = await git.commit(
-        config.git?.autoCommitMessage || "Auto-commit"
+        config.git?.commit || "Auto-commit"
       );
       console.log("Changes committed", hash);
 
