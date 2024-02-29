@@ -16,13 +16,13 @@ const watch = async () => {
       console.log("Changes committed", commit);
 
       // Take a screenshot
-      const browser = await puppeteer.launch();
-      const page = await browser.newPage();
-      await page.goto("http://localhost:8080"); // Change this if your local server runs on a different port
-      await page.screenshot({ path: `.atelier/screenshots/${Date.now()}.png` }); // Save screenshot with timestamp
-      await browser.close();
+      // const browser = await puppeteer.launch();
+      // const page = await browser.newPage();
+      // await page.goto("http://localhost:8080"); // Change this if your local server runs on a different port
+      // await page.screenshot({ path: `.atelier/screenshots/${Date.now()}.png` }); // Save screenshot with timestamp
+      // await browser.close();
 
-      console.log("Screenshot taken");
+      // console.log("Screenshot taken");
     } catch (err) {
       console.error("Failed to commit changes or take screenshot:", err);
     }
