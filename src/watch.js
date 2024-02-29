@@ -4,9 +4,7 @@ import simpleGit from "simple-git";
 import puppeteer from "puppeteer";
 
 const watch = async () => {
-  const viteServer = await createServer({
-    // You can put Vite-specific configurations here
-  });
+  const viteServer = await createServer({});
   await viteServer.listen();
   const serverUrl = viteServer.resolvedUrls.local[0]; // Get the local server URL
   console.log(`Vite server running at ${serverUrl}`);
