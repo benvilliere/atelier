@@ -22,8 +22,8 @@ const watch = async () => {
     // Commit changes
     try {
       await git.add(".");
-      const { commit } = await git.commit("Auto-commit");
-      console.log("Changes committed", commit);
+      const result = await git.commit("Auto-commit");
+      console.log("Changes committed", result.commit);
 
       return;
 
