@@ -6,7 +6,7 @@ import { mkdir } from "fs/promises";
 
 const watch = async () => {
   const viteServer = await createServer({
-    // Vite specific configurations can go here
+    // TODO: Add vite configuration from optional atelier.config.js file
   });
   await viteServer.listen();
   const serverUrl = viteServer.resolvedUrls.local[0]; // Get the local server URL
