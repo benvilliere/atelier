@@ -1,5 +1,6 @@
 {
   "name": "@genart/atelier",
+  "private": false,
   "version": "1.0.0",
   "description": "Tool for managing ever-changing generative art projects",
   "main": "src/index.js",
