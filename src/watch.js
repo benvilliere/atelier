@@ -34,7 +34,7 @@ const watch = async () => {
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
       await page.goto(serverUrl); // Use the server URL from Vite
-      const screenshotPath = `.atelier/screenshots/${commitHash}.png`;
+      const screenshotPath = `.atelier/screenshots/${commit}.png`;
       await page.screenshot({ path: screenshotPath });
       await browser.close();
       console.log(`Screenshot taken and saved to ${screenshotPath}`);
