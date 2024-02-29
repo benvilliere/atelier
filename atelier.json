@@ -1,11 +1,19 @@
 {
+  "url": null,
+  "features": {
+    "server": true,
+    "screenshots": true,
+    "git": true
+  },
   "server": {
     "open": true
   },
+  "include": ["**/*.js", "index.html"],
+  "exclude": [".atelier/", "node_modules/", "dist/"],
   "git": {
-    "commit": "Auto-commit",
-    "include": ["**/*.js", "index.html"],
-    "exclude": [".atelier/", "node_modules/", "dist/"]
+    "commit": {
+      "message": "Atelier auto-commit"
+    }
   },
   "screenshot": {
     "basePath": ".atelier/screenshots",

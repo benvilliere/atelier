@@ -21,8 +21,8 @@ const watch = async () => {
   server.watcher.on("change", async (path) => {
     console.log(`File ${path} has been changed`);
 
-    const isExcluded = match.isMatch(path, config.git.exclude);
-    const isIncluded = match.isMatch(path, config.git.include);
+    const isExcluded = match.isMatch(path, config.exclude);
+    const isIncluded = match.isMatch(path, config.include);
 
     if (isExcluded || !isIncluded) {
       console.log("Change not tracked due to config settings.");
@@ -30,12 +30,14 @@ const watch = async () => {
     }
 
     try {
-      // Commit changes
-      await git.add(".");
-      const { commit: hash } = await git.commit(
-        config.git?.commit || "Auto-commit"
-      );
-      console.log("Changes committed", hash);
+      if (config.features.git) {
+        // Commit changes
+        await git.add(".");
+        const { commit: hash } = await git.commit(
+          config.git?.commit?.message || "Atelier auto-commit"
+        );
+        console.log("Changes committed", hash);
+      }
 
       // Ensure the screenshots directory exists
       const screenshotDir =
