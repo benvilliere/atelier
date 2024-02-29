@@ -2,11 +2,10 @@ import { readFile } from "fs/promises";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 
-// Recreate __dirname for use in ES Module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const projectRoot = path.resolve(__dirname, ".."); // Go up from current directory (src) to project root
+const projectRoot = path.resolve(__dirname, "..");
 
 export async function loadConfig() {
   const possibleConfigFiles = ["atelier.json", "atelier.config.json"];
