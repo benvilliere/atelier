@@ -12,8 +12,9 @@ const watch = async () => {
   const server = await createServer(config.vite); // Pass Vite-specific configurations from loaded config
 
   await server.listen();
+  console.log(server);
   const url = `http://${config.server?.host || "localhost"}:${
-    config.server?.port || null
+    config.server?.port || 3000
   }`;
   console.log(`Atelier running at ${url}`);
 
