@@ -13,7 +13,7 @@ const watch = async () => {
 
   await server.listen();
   const url = `http://${config.server?.host || "localhost"}:${
-    config.server?.port
+    config.server?.port || null
   }`;
   console.log(`Atelier running at ${url}`);
 
