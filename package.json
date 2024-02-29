@@ -1,25 +1,27 @@
 {
   "name": "@genart/atelier",
-  "private": false,
   "version": "1.0.0",
+  "private": false,
   "description": "Tool for managing ever-changing generative art projects",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/benvilliere/atelier.git"
   },
+  "license": "MIT",
+  "author": "Ben Villiere",
+  "type": "module",
   "main": "src/index.js",
+  "bin": {
+    "atelier": "./src/index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "node ./src/index.js"
+    "atelier": "node ./src/index.js"
   },
-  "bin": {
-    "artelier": "./src/index.js"
-  },
-  "author": "Ben Villiere",
-  "license": "MIT",
   "dependencies": {
     "chokidar": "^3.6.0",
     "puppeteer": "^22.3.0",
-    "simple-git": "^3.22.0"
+    "simple-git": "^3.22.0",
+    "vite": "^5.1.4"
   }
 }
