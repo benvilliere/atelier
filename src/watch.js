@@ -10,7 +10,7 @@ const watch = async () => {
   });
   await viteServer.listen();
   const serverUrl = viteServer.resolvedUrls.local[0]; // Get the local server URL
-  console.log(`Vite server running at ${serverUrl}`);
+  console.log(`Atelier running at ${serverUrl}`);
 
   const watcher = chokidar.watch(".", {
     ignored: /(^|[\/\\])\.(?!atelier\/screenshots)/,
