@@ -23,9 +23,7 @@ const watch = async () => {
     try {
       await git.add(".");
       const { commit } = await git.commit("Auto-commit");
-      const commitHash = commitResult.commit; // Adjust based on simple-git's return structure
-      console.log("Changes committed", commitHash);
-      console.log(commitResult);
+      console.log("Changes committed", commit);
 
       return;
 
@@ -36,7 +34,7 @@ const watch = async () => {
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
       await page.goto(serverUrl); // Use the server URL from Vite
-      const screenshotPath = `.atelier/screenshots/${commitHash}.png`;
+      const screenshotPath = `.atelier/screenshots/${commit}.png`;
       await page.screenshot({ path: screenshotPath });
       await browser.close();
       console.log(`Screenshot taken and saved to ${screenshotPath}`);
