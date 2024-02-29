@@ -3,6 +3,10 @@
   "private": false,
   "version": "1.0.0",
   "description": "Tool for managing ever-changing generative art projects",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benvilliere/atelier.git"
+  },
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
