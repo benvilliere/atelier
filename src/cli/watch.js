@@ -24,9 +24,6 @@ const watch = async () => {
     const isExcluded = match.isMatch(path, config.git.exclude);
     const isIncluded = match.isMatch(path, config.git.include);
 
-    console.log(isExcluded, config.git.exclude);
-    console.log(isIncluded, config.git.include);
-
     if (isExcluded || !isIncluded) {
       console.log("Change not tracked due to config settings.");
       return;
