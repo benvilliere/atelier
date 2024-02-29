@@ -43,18 +43,18 @@ const watch = async () => {
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
         await page.setViewport({
-          width: config.screenshot.width || 2560,
-          height: config.screenshot.height || 1440,
-          deviceScaleFactor: config.screenshot.deviceScaleFactor || 2, // Make sure this is being applied
+          width: config.screenshots.width || 2560,
+          height: config.screenshots.height || 1440,
+          deviceScaleFactor: config.screenshots.deviceScaleFactor || 2, // Make sure this is being applied
         });
         // Use the server URL from Vite
         await page.goto(url, { waitUntil: "networkidle0" });
         const screenshotPath = `${screenshotDir}/${timestamp}.${
-          config.screenshot.type || "png"
+          config.screenshots.type || "png"
         }`;
         await page.screenshot({
           path: screenshotPath,
-          fullPage: config.screenshot.fullPage || true,
+          fullPage: config.screenshots.fullPage || true,
         });
 
         await browser.close();
