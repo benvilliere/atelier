@@ -1,14 +1,17 @@
 {
-  "name": "atelier",
+  "name": "@genart/atelier",
   "version": "1.0.0",
-  "description": "Tool for managing ever changing generative art projects",
+  "description": "Tool for managing ever-changing generative art projects",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "node ./src/watch.js"
+    "watch": "node ./src/index.js"
   },
-  "author": "",
-  "license": "ISC",
+  "bin": {
+    "artelier": "./src/index.js"
+  },
+  "author": "Ben Villiere",
+  "license": "MIT",
   "dependencies": {
     "chokidar": "^3.6.0",
     "simple-git": "^3.22.0"
