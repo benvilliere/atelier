@@ -25,6 +25,9 @@ const watch = async () => {
       const commitResult = await git.commit("Auto-commit");
       const commitHash = commitResult.summary.commit; // Adjust based on simple-git's return structure
       console.log("Changes committed", commitHash);
+      console.log(commitResult);
+
+      return;
 
       // Ensure the screenshots directory exists
       await mkdir(".atelier/screenshots", { recursive: true });
