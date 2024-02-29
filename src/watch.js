@@ -35,10 +35,10 @@ const watch = async () => {
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
       await page.goto(url); // Use the server URL from Vite
-      const screenshotPath = `.atelier/screenshots/${hash}.png`;
-      await page.screenshot({ path: screenshotPath });
+      const screenshot = `.atelier/screenshots/${hash}.png`;
+      await page.screenshot({ path: screenshot });
       await browser.close();
-      console.log(`Screenshot taken and saved to ${screenshotPath}`);
+      console.log(`Screenshot taken and saved to ${screenshot}`);
     } catch (err) {
       console.error("Failed to commit changes or take screenshot:", err);
     }
