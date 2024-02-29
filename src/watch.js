@@ -13,10 +13,7 @@ const watch = async () => {
 
   await server.listen();
   console.log(server);
-  const url = `http://${config.server?.host || "localhost"}:${
-    config.server?.port || 3000
-  }`;
-  console.log(`Atelier running at ${url}`);
+  // console.log(`Atelier running at ${url}`);
 
   const git = simpleGit();
 
