@@ -22,8 +22,8 @@ const watch = async () => {
     // Commit changes
     try {
       await git.add(".");
-      const commitResult = await git.commit("Auto-commit");
-      const commitHash = commitResult.summary.commit; // Adjust based on simple-git's return structure
+      const { commit } = await git.commit("Auto-commit");
+      const commitHash = commitResult.commit; // Adjust based on simple-git's return structure
       console.log("Changes committed", commitHash);
       console.log(commitResult);
 
