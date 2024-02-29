@@ -1,3 +1,4 @@
+// watch.js
 import { createServer } from "vite";
 import simpleGit from "simple-git";
 import puppeteer from "puppeteer";
@@ -10,8 +11,8 @@ const watch = async () => {
   // Start Vite server with custom configuration
   const server = await createServer(config.vite); // Pass Vite-specific configurations from loaded config
 
-  await server.listen();
-  const url = server.resolvedUrls.local[0];
+  await server.listen(config.server?.port || 3000); // Use the port from the config, default to 3000 if not specified
+  const url = server.resolvedUrls.local[0]; // Get the local server URL
   console.log(`Atelier running at ${url}`);
 
   const git = simpleGit();
@@ -20,9 +21,19 @@ const watch = async () => {
   server.watcher.on("change", async (path) => {
     console.log(`File ${path} has been changed`);
 
+    // Filtering out files based on 'include' and 'exclude' patterns from config
+    if (
+      config.git?.exclude?.some((pattern) => path.includes(pattern)) ||
+      (config.git?.include &&
+        !config.git.include.some((pattern) => path.includes(pattern)))
+    ) {
+      console.log("Change not tracked due to config settings.");
+      return;
+    }
+
     try {
       // Commit changes
-      await git.add(config.git?.include || ".");
+      await git.add(config.git?.include || "."); // Add either specific paths or everything
       const { commit: hash } = await git.commit(
         config.git?.autoCommitMessage || "Auto-commit"
       );
@@ -34,16 +45,10 @@ const watch = async () => {
 
       // Take a screenshot
       if (config.screenshot) {
+        // Check if screenshot taking is configured
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
-
-        // Set viewport size based on configuration or use defaults
-        await page.setViewport({
-          width: config.screenshot?.width || 1280,
-          height: config.screenshot?.height || 720,
-        });
-
-        await page.goto(url);
+        await page.goto(url); // Use the server URL from Vite
         const screenshotPath = `${screenshotDir}/${hash}.${
           config.screenshot.format || "png"
         }`;
