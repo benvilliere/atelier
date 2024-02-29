@@ -30,26 +30,15 @@ const watch = async () => {
     }
 
     try {
-      const timestamp = new Date();
-      console.log(timestamp);
-      process.exit();
-
-      if (config.features.git) {
-        // Commit changes
-        await git.add(".");
-        const { commit: hash } = await git.commit(
-          config.git?.commit?.message || "Atelier auto-commit"
-        );
-        console.log("Changes committed", hash);
-      }
-
-      // Ensure the screenshots directory exists
-      const screenshotDir =
-        config.screenshot?.basePath || ".atelier/screenshots";
-      await mkdir(screenshotDir, { recursive: true });
+      const timestamp = Date.now();
 
       // Take a screenshot
-      if (config.screenshot) {
+      if (config.features.screenshot) {
+        // Ensure the screenshots directory exists
+        const screenshotDir =
+          config.screenshot?.basePath || ".atelier/screenshots";
+        await mkdir(screenshotDir, { recursive: true });
+
         // Check if screenshot taking is configured
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
@@ -60,7 +49,7 @@ const watch = async () => {
         });
         // Use the server URL from Vite
         await page.goto(url, { waitUntil: "networkidle0" });
-        const screenshotPath = `${screenshotDir}/${hash}.${
+        const screenshotPath = `${screenshotDir}/${timestamp}.${
           config.screenshot.type || "png"
         }`;
         await page.screenshot({
@@ -70,6 +59,15 @@ const watch = async () => {
 
         await browser.close();
         console.log(`Screenshot taken and saved to ${screenshotPath}`);
+      }
+
+      if (config.features.git) {
+        // Commit changes
+        await git.add(".");
+        const { commit: hash } = await git.commit(
+          config.git?.commit?.message || "Atelier auto-commit"
+        );
+        console.log("Changes committed", hash);
       }
     } catch (err) {
       console.error("Failed to commit changes or take screenshot:", err);
