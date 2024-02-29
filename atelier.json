@@ -6,8 +6,10 @@
     "exclude": [".atelier/", "node_modules/", "dist/"]
   },
   "screenshot": {
-    "path": ".atelier/screenshots",
-    "format": "png",
+    "basePath": ".atelier/screenshots",
+    "fullPage": true,
+    "deviceScaleFactor": 2,
+    "type": "png",
     "width": 2560,
     "height": 1440
   },
