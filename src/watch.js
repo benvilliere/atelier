@@ -9,6 +9,7 @@ const watch = async () => {
   const server = await createServer({
     // Vite-specific configurations go here
   });
+
   await server.listen();
   const serverUrl = server.resolvedUrls.local[0]; // Get the local server URL
   console.log(`Atelier running at ${serverUrl}`);
