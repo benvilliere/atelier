@@ -4,7 +4,7 @@ const simpleGit = require("simple-git");
 // Set up file watcher
 const watcher = chokidar.watch(".", {
   ignored: /(^|[\/\\])\../,
-}); // adjust the path and ignore pattern
+});
 
 // Function to handle the 'change' event
 const onChange = (path) => {
