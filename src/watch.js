@@ -1,4 +1,3 @@
-// watch.js
 import { createServer } from "vite";
 import simpleGit from "simple-git";
 import puppeteer from "puppeteer";
