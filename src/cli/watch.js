@@ -13,7 +13,7 @@ const watch = async () => {
   const server = await createServer({ server: config.server });
   await server.listen(config.server?.port || 3000); // Use the port from the config, default to 3000 if not specified
   const url = server.resolvedUrls.local[0]; // Get the local server URL
-  console.log(`Atelier running at ${url}`);
+  // console.log(`Atelier running at ${url}`);
 
   const git = simpleGit();
 
