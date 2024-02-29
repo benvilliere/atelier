@@ -5,7 +5,7 @@ import puppeteer from "puppeteer";
 
 const watch = async () => {
   const viteServer = await createServer({
-    // TODO: Add local server configuration from atelier.config.js { vite: {} }
+    // TODO: Add local server configuration from atelier.config.js { server/vite: {} }
   });
   await viteServer.listen();
   const serverUrl = viteServer.resolvedUrls.local[0]; // Get the local server URL
