@@ -4,6 +4,13 @@ import simpleGit from "simple-git";
 import puppeteer from "puppeteer";
 
 const watch = async () => {
+  const viteServer = await createServer({
+    // You can put Vite-specific configurations here
+  });
+  await viteServer.listen();
+  const serverUrl = viteServer.resolvedUrls.local[0]; // Get the local server URL
+  console.log(`Vite server running at ${serverUrl}`);
+
   const watcher = chokidar.watch(".", { ignored: /(^|[\/\\])\../ });
   const git = simpleGit();
 
