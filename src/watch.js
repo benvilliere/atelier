@@ -50,9 +50,9 @@ const watch = async () => {
         const page = await browser.newPage();
         await page.goto(url); // Use the server URL from Vite
         const screenshotPath = `${screenshotDir}/${hash}.${
-          config.screenshot.format || "png"
+          config.screenshot.type || "png"
         }`;
-        await page.screenshot({ path: screenshotPath });
+        await page.screenshot({ ...config.screenshot, path: screenshotPath });
         await browser.close();
         console.log(`Screenshot taken and saved to ${screenshotPath}`);
       }
