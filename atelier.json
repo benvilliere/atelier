@@ -1,8 +1,5 @@
 {
-  "server": {
-    "host": "localhost",
-    "root": "./public"
-  },
+  "server": {},
   "git": {
     "commit": "Auto-commit",
     "include": ["src/", "index.html"],
@@ -11,8 +8,8 @@
   "screenshot": {
     "path": ".atelier/screenshots",
     "format": "png",
-    "width": 1280,
-    "height": 720
+    "width": 2560,
+    "height": 1440
   },
   "watch": {
     "patterns": ["src/**/*", "index.html"],
