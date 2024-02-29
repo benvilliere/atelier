@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-const process = require("process");
-const args = process.argv.slice(2);
+import process from "process";
+import watch from "./watch.js";
 
-const watch = require("./watch");
+const args = process.argv.slice(2);
 
 if (args.length > 0 && args[0] === "start") {
   console.log("Starting atelier...");
