@@ -1,31 +1,29 @@
+// watch.js
 import { createServer } from "vite";
-import chokidar from "chokidar";
 import simpleGit from "simple-git";
 import puppeteer from "puppeteer";
 import { mkdir } from "fs/promises";
 
 const watch = async () => {
-  const viteServer = await createServer({
-    // TODO: Add vite configuration from optional atelier.config.js file
+  // Start Vite server
+  const server = await createServer({
+    // Vite-specific configurations go here
   });
-  await viteServer.listen();
-  const serverUrl = viteServer.resolvedUrls.local[0]; // Get the local server URL
-
+  await server.listen();
+  const serverUrl = server.resolvedUrls.local[0]; // Get the local server URL
   console.log(`Atelier running at ${serverUrl}`);
 
-  const watcher = chokidar.watch(".", {
-    ignored: /(^|[\/\\])\.(?!atelier\/screenshots)/,
-  }); // Ignore dotfiles but not screenshots
   const git = simpleGit();
 
-  watcher.on("change", async (path) => {
+  // Use Vite's internal file watcher
+  server.watcher.on("change", async (path) => {
     console.log(`File ${path} has been changed`);
 
     // Commit changes
     try {
       await git.add(".");
       const commitResult = await git.commit("Auto-commit");
-      const commitHash = commitResult.commit; // Adjust based on simple-git's return structure
+      const commitHash = commitResult.summary.commit; // Adjust based on simple-git's return structure
       console.log("Changes committed", commitHash);
 
       // Ensure the screenshots directory exists
