@@ -11,8 +11,8 @@ const watch = async () => {
   });
 
   await server.listen();
-  const serverUrl = server.resolvedUrls.local[0]; // Get the local server URL
-  console.log(`Atelier running at ${serverUrl}`);
+  const url = server.resolvedUrls.local[0]; // Get the local server URL
+  console.log(`Atelier running at ${url}`);
 
   const git = simpleGit();
 
@@ -34,7 +34,7 @@ const watch = async () => {
       // Take a screenshot
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
-      await page.goto(serverUrl); // Use the server URL from Vite
+      await page.goto(url); // Use the server URL from Vite
       const screenshotPath = `.atelier/screenshots/${hash}.png`;
       await page.screenshot({ path: screenshotPath });
       await browser.close();
