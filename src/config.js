@@ -5,7 +5,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const projectRoot = path.resolve(__dirname, "../..");
+const projectRoot = path.resolve(__dirname, "..");
 
 export async function loadConfig() {
   const possibleConfigFiles = ["atelier.json", "atelier.config.json"];
