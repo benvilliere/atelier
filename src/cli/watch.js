@@ -2,7 +2,8 @@ import matcher from "picomatch";
 import { loadConfig } from "../config.js";
 import { commitChanges } from "../git.js";
 import { initializeServer } from "../server.js";
-import { takeScreenshot, recordVideo } from "../capture.js";
+import { recordVideo } from "../recording.js";
+import { takeScreenshot } from "../screenshot.js";
 
 export default async function watch() {
   const config = await loadConfig();
@@ -35,12 +36,12 @@ export default async function watch() {
     }
 
     try {
-      if (config.features.capture) {
-        if (config.capture.type === "mp4" || config.capture.type === "video") {
-          await recordVideo(config, target);
-        } else {
-          await takeScreenshot(config, target);
-        }
+      if (config.features.recording) {
+        await recordVideo(config, target);
+      }
+
+      if (config.features.screenshot) {
+        await takeScreenshot(config, target);
       }
 
       if (config.features.git) {

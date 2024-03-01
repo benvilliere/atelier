@@ -16,8 +16,9 @@
   },
   "scripts": {
     "atelier": "node ./src/cli/index.js",
-    "postinstall": "npm run atelier init",
+    "postinstall": "npm run atelier postinstall",
     "npm-publish": "npm publish --access public",
+    "sort-package": "npx sort-package-json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
