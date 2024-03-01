@@ -73,7 +73,7 @@ export default async function watch() {
         });
 
         // Use the server URL from Vite or the provided url
-        await page.goto(config.target ? config.target : url, {
+        await page.goto(url, {
           waitUntil: "networkidle0",
         });
 
