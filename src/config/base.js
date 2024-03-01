@@ -1,23 +1,22 @@
 export default {
   features: {
     debug: true,
-    preview: false,
     server: true,
     screenshots: true,
     git: true,
     ui: true,
   },
   root: ".",
+  target: null,
   hooks: {
     start: "npm run dev",
   },
-  preview: null,
   watch: {
     include: ["**"],
     exclude: [".atelier/", "node_modules/", "dist/", "build/"],
   },
   server: {
-    open: true,
+    open: false,
   },
   git: {
     commit: {
@@ -26,6 +25,7 @@ export default {
   },
   screenshots: {
     basePath: ".atelier/screenshots",
+    selector: null,
     fullPage: true,
     deviceScaleFactor: 2,
     type: "png",
