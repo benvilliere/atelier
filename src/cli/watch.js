@@ -1,9 +1,8 @@
 import { createServer } from "vite";
-import simpleGit from "simple-git";
+import matcher from "picomatch";
 import puppeteer from "puppeteer";
 import { mkdir } from "fs/promises";
 import { loadConfig } from "../config.js";
-import matcher from "picomatch";
 
 // Separated function for server initialization
 async function initializeServer(config) {
