@@ -3,8 +3,10 @@ import puppeteer from "puppeteer";
 export async function takeScreenshot(config, target, path) {
   const screenshotDir = config.screenshot?.basePath || ".atelier/screenshots";
   await mkdir(screenshotDir, { recursive: true });
+
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
+
   await page.setViewport({
     width: config.screenshots.width || 2560,
     height: config.screenshots.height || 1440,
