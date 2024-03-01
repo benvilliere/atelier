@@ -61,7 +61,7 @@ const watch = async () => {
         await page.setViewport({
           width: config.screenshots.width || 2560,
           height: config.screenshots.height || 1440,
-          deviceScaleFactor: config.screenshots.deviceScaleFactor || 2, // Make sure this is being applied
+          deviceScaleFactor: config.screenshots.deviceScaleFactor || 2,
         });
         // Use the server URL from Vite
         await page.goto(url, { waitUntil: "networkidle0" });
