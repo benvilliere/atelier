@@ -28,7 +28,7 @@ export async function recordVideo(config, target) {
       height: config.recording.height,
     },
     outputPath: recordingDir,
-    recordDurationLimit: config.recording.duration,
+    recordDurationLimit: config.recording.duration * 1000,
   });
 
   const videoPath = `${recordingDir}/${Date.now()}.mp4`;
@@ -36,6 +36,7 @@ export async function recordVideo(config, target) {
   await recorder.start(videoPath);
   await page.goto(target, { waitUntil: "networkidle0" });
 
+  console.log("Recording...");
   const recording = await recorder.stop();
 
   if (config.features.debug) console.log(recording);
