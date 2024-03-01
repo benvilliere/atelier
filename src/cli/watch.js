@@ -81,11 +81,11 @@ export default async function watch() {
           config.screenshots.type || "png"
         }`;
 
-        // if (config.screenshots.selector) {
-        //   await page.waitForSelector(config.screenshots.selector);
-        //   const element = await page.$(config.screenshots.selector);
-        //   await element.screenshot({ path: screenshotPath });
-        // } else {
+        if (config.screenshots.selector) {
+          await page.waitForSelector(config.screenshots.selector);
+          const element = await page.$(config.screenshots.selector);
+          await element.screenshot({ path: screenshotPath });
+        } else {
         await page.screenshot({
           path: screenshotPath,
           fullPage: config.screenshots.fullPage || true,
