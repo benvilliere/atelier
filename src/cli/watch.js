@@ -13,7 +13,7 @@ const watch = async () => {
   // Start Vite server with custom configuration
   const server = await createServer({
     // configFile: false,
-    // root: config.root,
+    root: config.root,
     server: config.server,
   });
   await server.listen(config.server?.port || 3000); // Use the port from the config, default to 3000 if not specified
