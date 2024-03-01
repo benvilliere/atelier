@@ -26,5 +26,4 @@ TODO: List out all configuration options.
 - Refine & document configuration file
 - Maintain changelog for easier retrieval
 - Start building time-machine like view
-- Ability to use a css selector for the screenshot area
 - Command arguments (--target --screenshot) to override config
