@@ -3,6 +3,7 @@ import { loadJson, saveJson, getDirName } from "./helpers.js";
 import { ATELIER_CONFIG_FILE_NAME } from "./constants.js";
 import baseConfig from "./config/base.js";
 import defaultConfig from "./config/default.js";
+import _ from "lodash";
 
 export async function createConfigFile(configPath) {
   try {
@@ -25,5 +26,5 @@ async function loadUserConfig() {
 export async function loadConfig() {
   const userConfig = await loadUserConfig();
 
-  return { ...baseConfig, ...userConfig };
+  return _.merge({}, baseConfig, userConfig);
 }

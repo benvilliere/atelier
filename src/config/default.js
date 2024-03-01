@@ -1,5 +1,8 @@
 export default {
-  capture: {
+  features: {
+    recording: false,
+  },
+  screenshot: {
     type: "png",
     width: 2560,
     height: 1440,

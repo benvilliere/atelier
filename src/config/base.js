@@ -24,15 +24,6 @@ export default {
       message: "Atelier auto-commit",
     },
   },
-  capture: {
-    basePath: ".atelier/capture",
-    selector: null,
-    fullPage: true,
-    deviceScaleFactor: 2,
-    type: "png",
-    width: 2560,
-    height: 1440,
-  },
   screenshot: {
     path: ".atelier/screenshots",
     type: "png",
