@@ -13,6 +13,9 @@ if (args.length > 0 && args[0] === "start") {
       console.log("Starting atelier...");
       watch();
       break;
+    case "init":
+      init();
+      break;
   }
 } else {
   console.log("Usage: atelier start");
