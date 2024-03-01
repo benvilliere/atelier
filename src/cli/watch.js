@@ -34,7 +34,7 @@ const watch = async () => {
 
   // Use Vite's internal file watcher
   server.watcher.on("change", async (path) => {
-    if (config.features.debug) {
+    if (config.features?.debug) {
       console.log(`File ${path} has been changed`);
     }
 
