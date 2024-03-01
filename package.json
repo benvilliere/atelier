@@ -16,9 +16,9 @@
   },
   "scripts": {
     "atelier": "node ./src/cli/index.js",
+    "postinstall": "atelier init",
     "publish": "npm publish --access public",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "atelier init"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "chokidar": "^3.6.0",
