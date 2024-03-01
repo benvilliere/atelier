@@ -41,4 +41,28 @@ export async function takeScreenshot(config, target) {
 
 export async function recordVideo(config, target) {
   console.log("Record video");
+  const browser = await puppeteer.launch({
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  });
+  const page = await browser.newPage();
+
+  // Configure the screen recorder
+  const recorder = new PuppeteerScreenRecorder(page, {
+    followNewTab: true,
+    fps: 25,
+    videoFrame: {
+      width: config.screenshots.width || 2560,
+      height: config.screenshots.height || 1440,
+    },
+    // Other configuration options...
+  });
+
+  // Start recording
+  await recorder.start(`./path/to/video-${Date.now()}.mp4`);
+
+  // Your existing code to navigate and interact with the page...
+  await page.goto(target, { waitUntil: "networkidle0" });
+
+  // Perform interactions, then stop recording
+  await recorder.stop();
 }
