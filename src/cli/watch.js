@@ -40,8 +40,9 @@ export default async function watch() {
           config.features.capture.type === "mp4" ||
           config.features.capture.type === "video"
         ) {
+          await recordVideo(config, target);
         } else {
-          await takeScreenshot(config, target, filePath);
+          await takeScreenshot(config, target);
         }
       }
 
