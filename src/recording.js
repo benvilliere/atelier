@@ -37,8 +37,6 @@ export async function recordVideo(config, target) {
   await page.goto(target, { waitUntil: "networkidle0" });
 
   console.log("Recording...");
-  const recording = await recorder.stop();
-
   setTimeout(async () => {
     await recorder.stop();
     await browser.close();
