@@ -13,7 +13,7 @@ export default {
     start: "npm run dev",
   },
   watch: {
-    include: ["**"],
+    include: ["**/*.js"],
     exclude: [".atelier/", "node_modules/", "dist/", "build/"],
   },
   server: {
