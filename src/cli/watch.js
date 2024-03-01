@@ -1,4 +1,3 @@
-import { createServer } from "vite";
 import matcher from "picomatch";
 import { loadConfig } from "../config.js";
 import { commitChanges } from "../git.js";
