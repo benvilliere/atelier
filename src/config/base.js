@@ -2,7 +2,7 @@ export default {
   features: {
     debug: true,
     server: true,
-    screenshots: true,
+    capture: true,
     git: true,
     ui: true,
   },
@@ -24,7 +24,7 @@ export default {
     },
   },
   screenshots: {
-    basePath: ".atelier/screenshots",
+    basePath: ".atelier/capture",
     selector: null,
     fullPage: true,
     deviceScaleFactor: 2,
