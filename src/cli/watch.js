@@ -12,9 +12,7 @@ import { takeScreenshot } from "../capture.js";
 export default async function watch() {
   const config = await loadConfig();
 
-  if (config.features.debug) {
-    console.log("Configuration:", config);
-  }
+  if (config.features.debug) console.log("Configuration:", config);
 
   const server = await initializeServer(config);
   const target = config.target ? config.target : server.resolvedUrls.local[0];
