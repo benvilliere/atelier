@@ -46,15 +46,6 @@ async function takeScreenshot(config, target, path) {
 }
 
 // Git commit function
-async function commitChanges(config) {
-  const git = simpleGit();
-  await git.add(".");
-  const { commit: hash } = await git.commit(
-    config.git?.commit?.message || "Atelier auto-commit"
-  );
-  return hash;
-}
-
 // Main watch function refactored
 export default async function watch() {
   const config = await loadConfig();
