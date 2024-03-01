@@ -6,8 +6,6 @@ import { loadConfig } from "../config.js";
 import { commitChanges } from "../git.js";
 import { initializeServer } from "../server.js";
 
-// Separated function for server initialization
-
 // Function to handle screenshot taking
 async function takeScreenshot(config, target, path) {
   const screenshotDir = config.screenshot?.basePath || ".atelier/screenshots";
