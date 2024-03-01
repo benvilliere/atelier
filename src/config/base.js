@@ -2,7 +2,8 @@ export default {
   features: {
     debug: true,
     server: true,
-    capture: true,
+    screenshot: true,
+    recording: true,
     git: true,
     ui: true,
   },
@@ -31,5 +32,20 @@ export default {
     type: "png",
     width: 2560,
     height: 1440,
+  },
+  screenshot: {
+    path: ".atelier/screenshots",
+    type: "png",
+    width: 2560,
+    height: 1440,
+    deviceScaleFactor: 2,
+    selector: null,
+    fullPage: true,
+  },
+  recording: {
+    path: ".atelier/recordings",
+    width: 2560,
+    height: 1440,
+    duration: 10,
   },
 };
