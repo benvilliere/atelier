@@ -36,11 +36,16 @@ export default async function watch() {
 
     try {
       if (config.features.screenshots) {
-        if (config.features.capture.type === 'mp4')
-        const screenshotPath = await takeScreenshot(config, target, filePath);
+        if (
+          config.features.capture.type === "mp4" ||
+          config.features.capture.type === "video"
+        ) {
+        } else {
+          const screenshotPath = await takeScreenshot(config, target, filePath);
 
-        if (config.features.debug)
-          console.log(`Screenshot taken and saved to ${screenshotPath}`);
+          if (config.features.debug)
+            console.log(`Screenshot taken and saved to ${screenshotPath}`);
+        }
       }
 
       if (config.features.git) {
