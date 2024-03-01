@@ -39,13 +39,16 @@ export async function recordVideo(config, target) {
   console.log("Recording...");
   const recording = await recorder.stop();
 
-  if (config.features.debug) console.log(recording);
+  setTimeout(async () => {
+    await recorder.stop();
+    await browser.close();
+    console.log(`Recording saved to ${videoPath}`);
+  }, config.recording.duration * 1000);
 
-  await browser.close();
+  if (config.features.debug) console.log(recording);
 
   // Wait for the specified duration before stopping the recording
   // await new Promise((resolve) => setTimeout(resolve)); // Convert seconds to milliseconds
 
-  console.log(`Recording saved to ${videoPath}`);
   return videoPath;
 }
