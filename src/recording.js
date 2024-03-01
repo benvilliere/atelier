@@ -22,7 +22,7 @@ export async function recordVideo(config, target) {
 
   const recorder = new PuppeteerScreenRecorder(page, {
     followNewTab: true,
-    fps: 25,
+    fps: 24,
     videoFrame: {
       width: config.recording.width,
       height: config.recording.height,
