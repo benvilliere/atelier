@@ -25,6 +25,7 @@ export default async function watch() {
     const isExcluded = config.watch.exclude
       ? matcher.isMatch(filePath, config.watch.exclude)
       : false;
+
     const isIncluded = config.watch.include
       ? matcher.isMatch(filePath, config.watch.include)
       : true;
