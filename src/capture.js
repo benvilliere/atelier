@@ -61,7 +61,7 @@ export async function recordVideo(config, target, duration = 30) {
       width: config.capture.width || 2560,
       height: config.capture.height || 1440,
     },
-    outputPath: captureDir, // Set the directory where the video will be saved
+    outputPath: captureDir,
   });
 
   const videoPath = `${captureDir}/video-${Date.now()}.mp4`;
