@@ -9,7 +9,7 @@ import match from "micromatch";
 const watch = async () => {
   const config = await loadConfig();
 
-  if (config.features.debug) {
+  if (config.features?.debug) {
     console.log("Configuration:", config);
   }
 
