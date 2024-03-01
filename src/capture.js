@@ -39,16 +39,23 @@ export async function takeScreenshot(config, target) {
   return screenshotPath;
 }
 
-export async function recordVideo(config, target) {
-  console.log("Record video");
+export async function recordVideo(config, target, duration = 30) {
+  const captureDir = config.capture.basePath || ".atelier/capture";
+  await mkdir(captureDir, { recursive: true });
 
   const browser = await puppeteer.launch({
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
-
   const page = await browser.newPage();
 
-  // Configure the screen recorder
+  // Set viewport for recording
+  await page.setViewport({
+    width: config.capture.width || 2560,
+    height: config.capture.height || 1440,
+    deviceScaleFactor: config.capture.deviceScaleFactor || 2,
+  });
+
+  // Start recording
   const recorder = new PuppeteerScreenRecorder(page, {
     followNewTab: true,
     fps: 25,
@@ -56,17 +63,19 @@ export async function recordVideo(config, target) {
       width: config.capture.width || 2560,
       height: config.capture.height || 1440,
     },
-    // Other configuration options...
+    outputPath: captureDir, // Set the directory where the video will be saved
   });
 
-  // Start recording
-  await recorder.start(`./path/to/video-${Date.now()}.mp4`);
-
-  // Your existing code to navigate and interact with the page...
+  const videoPath = `${captureDir}/video-${Date.now()}.mp4`;
+  await recorder.start(videoPath);
   await page.goto(target, { waitUntil: "networkidle0" });
 
-  // Perform interactions, then stop recording
-  const recording = await recorder.stop();
+  // Wait for the specified duration before stopping the recording
+  await new Promise((resolve) => setTimeout(resolve, duration * 1000)); // Convert seconds to milliseconds
 
-  console.log("Recording: ", recording);
+  await recorder.stop();
+  await browser.close();
+
+  console.log(`Video recorded and saved to ${videoPath}`);
+  return videoPath;
 }
