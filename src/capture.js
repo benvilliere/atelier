@@ -37,4 +37,4 @@ export async function takeScreenshot(config, target) {
   return screenshotPath;
 }
 
-export async function recordVideo() {}
+export async function recordVideo(config, target) {}
