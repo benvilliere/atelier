@@ -1,6 +1,11 @@
 import { promises as fs } from "fs";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
+import {
+  ATELIER_BASE_DIR,
+  ATELIER_SCREENSHOT_DIR,
+  ATELIER_RECORDING_DIR,
+} from "./constants.js";
 
 export async function loadJson(filePath) {
   try {
@@ -34,4 +39,24 @@ export async function createDirectory(dirPath) {
 export function getDirName() {
   const __filename = fileURLToPath(import.meta.url);
   return dirname(__filename);
+}
+
+export function getRecordingDir(config) {
+  return (
+    config.recording.path || `${ATELIER_BASE_DIR}/${ATELIER_RECORDING_DIR}`
+  );
+}
+
+export function getScreenshotDir(config) {
+  return (
+    config.screenshot.path || `${ATELIER_BASE_DIR}/${ATELIER_SCREENSHOT_DIR}`
+  );
+}
+
+export function getExcludedPaths(config) {
+  return [
+    ...config.watch.exclude,
+    getRecordingDir(config),
+    getScreenshotDir(config),
+  ];
 }

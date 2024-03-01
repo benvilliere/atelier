@@ -1,17 +1,17 @@
 import { mkdir } from "fs/promises";
-
 import puppeteer from "puppeteer";
 import { PuppeteerScreenRecorder } from "puppeteer-screen-recorder";
-import { ATELIER_DOT_DIR, ATELIER_RECORDING_DIR } from "./constants.js";
+import { getRecordingDir } from "./helpers.js";
 
 export async function recordVideo(config, target) {
-  const recordingDir =
-    config.recording.basePath || `${ATELIER_DOT_DIR}/${ATELIER_RECORDING_DIR}`;
+  const recordingDir = getRecordingDir(config);
+
   await mkdir(recordingDir, { recursive: true });
 
   const browser = await puppeteer.launch({
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
+
   const page = await browser.newPage();
 
   await page.setViewport({
@@ -32,11 +32,14 @@ export async function recordVideo(config, target) {
   });
 
   const videoPath = `${recordingDir}/${Date.now()}.mp4`;
+
   await recorder.start(videoPath);
   await page.goto(target, { waitUntil: "networkidle0" });
 
   const recording = await recorder.stop();
-  console.log(recording);
+
+  if (config.features.debug) console.log(recording);
+
   await browser.close();
 
   // Wait for the specified duration before stopping the recording

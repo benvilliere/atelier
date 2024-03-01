@@ -1,11 +1,10 @@
 import { mkdir } from "fs/promises";
 import puppeteer from "puppeteer";
-import { ATELIER_DOT_DIR, ATELIER_SCREENSHOT_DIR } from "./constants.js";
+import { getScreenshotDir } from "./helpers.js";
 
 export async function takeScreenshot(config, target) {
-  const screenshotDir =
-    config.screenshot.basePath ||
-    `${ATELIER_DOT_DIR}/${ATELIER_SCREENSHOT_DIR}`;
+  const screenshotDir = getScreenshotDir(config);
+
   await mkdir(screenshotDir, { recursive: true });
 
   const browser = await puppeteer.launch();
@@ -22,6 +21,7 @@ export async function takeScreenshot(config, target) {
   const screenshotPath = `${screenshotDir}/${Date.now()}.${
     config.screenshot.type || "png"
   }`;
+
   if (config.screenshot.selector) {
     await page.waitForSelector(config.screenshot.selector);
     const element = await page.$(config.screenshot.selector);
@@ -32,6 +32,7 @@ export async function takeScreenshot(config, target) {
       fullPage: config.screenshot.fullPage || true,
     });
   }
+
   await browser.close();
 
   if (config.features.debug)
