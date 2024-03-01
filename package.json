@@ -12,7 +12,7 @@
   "type": "module",
   "main": "src/cli/index.js",
   "bin": {
-    "atelier": "./src/cli/index.js"
+    "atelier": "src/cli/index.js"
   },
   "scripts": {
     "atelier": "node ./src/cli/index.js",
