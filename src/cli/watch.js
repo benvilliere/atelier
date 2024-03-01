@@ -25,7 +25,7 @@ export default async function watch() {
   const url = config.target ? config.target : server.resolvedUrls.local[0];
 
   if (config.features.debug) {
-    console.log(`Atelier target: ${url}`);
+    console.log(`Atelier target URL: ${url}`);
   }
 
   const git = simpleGit();
