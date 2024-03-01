@@ -42,6 +42,7 @@ export default async function watch() {
     try {
       if (config.features.screenshots) {
         const screenshotPath = await takeScreenshot(config, target, filePath);
+
         if (config.features.debug)
           console.log(`Screenshot taken and saved to ${screenshotPath}`);
       }
