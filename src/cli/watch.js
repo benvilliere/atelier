@@ -1,7 +1,5 @@
 import { createServer } from "vite";
 import matcher from "picomatch";
-import puppeteer from "puppeteer";
-import { mkdir } from "fs/promises";
 import { loadConfig } from "../config.js";
 import { commitChanges } from "../git.js";
 import { initializeServer } from "../server.js";
