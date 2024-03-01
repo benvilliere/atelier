@@ -36,10 +36,7 @@ export default async function watch() {
 
     try {
       if (config.features.capture) {
-        if (
-          config.features.capture.type === "mp4" ||
-          config.features.capture.type === "video"
-        ) {
+        if (config.capture.type === "mp4" || config.capture.type === "video") {
           await recordVideo(config, target);
         } else {
           await takeScreenshot(config, target);
