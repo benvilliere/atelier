@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import process from "process";
+import init from "./init.js";
 import watch from "./watch.js";
 
 const args = process.argv.slice(2);
