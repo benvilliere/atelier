@@ -1,11 +1,13 @@
 {
   "features": {
+    "debug": true,
     "preview": false,
     "server": true,
     "screenshots": true,
     "git": true,
     "ui": true
   },
+  "root": "./something",
   "hooks": {
     "start": "npm run dev"
   },
@@ -14,7 +16,7 @@
     "script": "npm run dev"
   },
   "watch": {
-    "include": ["**/*.js", "index.html"],
+    "include": ["**/*.js", "**/*.html"],
     "exclude": [".atelier/", "node_modules/", "dist/"]
   },
   "server": {

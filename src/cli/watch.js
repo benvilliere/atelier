@@ -8,21 +8,31 @@ import match from "micromatch";
 
 const watch = async () => {
   const config = await loadConfig();
+  console.log("Configuration:", config);
 
   // Start Vite server with custom configuration
-  const server = await createServer({ server: config.server });
+  const server = await createServer({
+    // configFile: false,
+    // root: config.root,
+    server: config.server,
+  });
   await server.listen(config.server?.port || 3000); // Use the port from the config, default to 3000 if not specified
   const url = server.resolvedUrls.local[0]; // Get the local server URL
-  // console.log(`Atelier running at ${url}`);
+
+  if (config.features.debug) {
+    console.log(`Atelier running at ${url}`);
+  }
 
   const git = simpleGit();
 
   // Use Vite's internal file watcher
   server.watcher.on("change", async (path) => {
-    console.log(`File ${path} has been changed`);
+    if (config.features.debug) {
+      console.log(`File ${path} has been changed`);
+    }
 
-    const isExcluded = match.isMatch(path, config.exclude);
-    const isIncluded = match.isMatch(path, config.include);
+    const isExcluded = match.isMatch(path, config.watch?.exclude);
+    const isIncluded = match.isMatch(path, config.watch?.include);
 
     if (isExcluded || !isIncluded) {
       console.log("Change not tracked due to config settings.");
@@ -33,7 +43,7 @@ const watch = async () => {
       const timestamp = Date.now();
 
       // Take a screenshot
-      if (config.features.screenshot) {
+      if (config.features.screenshots) {
         // Ensure the screenshots directory exists
         const screenshotDir =
           config.screenshot?.basePath || ".atelier/screenshots";
@@ -59,6 +69,8 @@ const watch = async () => {
 
         await browser.close();
         console.log(`Screenshot taken and saved to ${screenshotPath}`);
+      } else {
+        console.log("Screenshot feature is disabled.");
       }
 
       if (config.features.git) {
