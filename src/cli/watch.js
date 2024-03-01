@@ -3,7 +3,7 @@ import { createServer } from "vite";
 import simpleGit from "simple-git";
 import puppeteer from "puppeteer";
 import { mkdir } from "fs/promises";
-import { loadConfig } from "./config.js";
+import { loadConfig } from "../config.js";
 import match from "micromatch";
 
 const watch = async () => {

@@ -1,6 +1,6 @@
 {
   "features": {
-    "debug": false,
+    "debug": true,
     "preview": false,
     "server": true,
     "screenshots": true,
@@ -13,7 +13,7 @@
   },
   "preview": null,
   "watch": {
-    "include": ["**/*.html"],
+    "include": ["*"],
     "exclude": [".atelier/", "node_modules/", "dist/", "build/"]
   },
   "server": {
