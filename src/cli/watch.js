@@ -41,10 +41,7 @@ export default async function watch() {
           config.features.capture.type === "video"
         ) {
         } else {
-          const screenshotPath = await takeScreenshot(config, target, filePath);
-
-          if (config.features.debug)
-            console.log(`Screenshot taken and saved to ${screenshotPath}`);
+          await takeScreenshot(config, target, filePath);
         }
       }
 
