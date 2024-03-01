@@ -30,5 +30,9 @@ export async function takeScreenshot(config, target, path) {
     });
   }
   await browser.close();
+
+  if (config.features.debug)
+    console.log(`Screenshot taken and saved to ${screenshotPath}`);
+
   return screenshotPath;
 }
