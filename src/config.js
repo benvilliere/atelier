@@ -15,7 +15,7 @@ export async function createConfigFile(configPath) {
 }
 
 async function loadUserConfig() {
-  const projectRoot = path.resolve(getDirName(), "../../");
+  const projectRoot = path.resolve(getDirName(), "../");
   const userConfigPath = path.join(projectRoot, ATELIER_CONFIG_FILE_NAME);
   const userConfig = (await loadJson(userConfigPath)) || {};
 
