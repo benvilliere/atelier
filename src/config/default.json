@@ -1,6 +1,6 @@
 {
   "watch": {
-    "include": ["**/*.css", "**/*.html", "**/*.js"]
+    "include": ["**/*.{css|js|html}"]
   },
   "screenshots": {
     "type": "png",

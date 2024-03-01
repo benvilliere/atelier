@@ -1,5 +1,9 @@
 import { promises as fs } from "fs";
-import path from "path";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const init = async () => {
   const projectRoot = path.resolve(process.cwd());

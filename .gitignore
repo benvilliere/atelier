@@ -128,3 +128,5 @@ dist
 
 # Project specific
 .atelier
+atelier.json
+atelier.config.json
