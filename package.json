@@ -1,6 +1,6 @@
 {
   "name": "@genart/atelier",
-  "version": "1.5.6",
+  "version": "1.6.0",
   "private": false,
   "description": "Tool for managing ever-changing generative art projects",
   "repository": {
