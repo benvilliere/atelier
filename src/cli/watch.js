@@ -2,7 +2,7 @@ import matcher from "picomatch";
 import { loadConfig } from "../config.js";
 import { commitChanges } from "../git.js";
 import { initializeServer } from "../server.js";
-import { takeScreenshot } from "../capture.js";
+import { takeScreenshot, recordVideo } from "../capture.js";
 
 export default async function watch() {
   const config = await loadConfig();
