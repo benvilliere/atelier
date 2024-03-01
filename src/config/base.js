@@ -23,7 +23,7 @@ export default {
       message: "Atelier auto-commit",
     },
   },
-  screenshots: {
+  capture: {
     basePath: ".atelier/capture",
     selector: null,
     fullPage: true,

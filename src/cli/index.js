@@ -10,6 +10,7 @@ const command = args[0];
 switch (command) {
   case "start":
     console.log("Starting atelier...");
+    // TODO: New version check
     watch();
     break;
   case "init":
