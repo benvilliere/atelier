@@ -67,6 +67,7 @@ export default async function watch() {
         // Check if screenshot taking is configured
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
+
         await page.setViewport({
           width: config.screenshots.width || 2560,
           height: config.screenshots.height || 1440,
@@ -74,7 +75,7 @@ export default async function watch() {
         });
 
         // Use the server URL from Vite or the provided url
-        await page.goto(config.preview ? config.preview : url, {
+        await page.goto(config.target ? config.target : url, {
           waitUntil: "networkidle0",
         });
 
