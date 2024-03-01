@@ -1,3 +1,5 @@
+import simpleGit from "simple-git";
+
 export async function commitChanges(config) {
   const git = simpleGit();
   await git.add(".");
