@@ -34,6 +34,7 @@ export default async function watch() {
         include: config.watch.include,
         exclude: config.watch.exclude,
       });
+
       return;
     }
 
