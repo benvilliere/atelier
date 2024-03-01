@@ -37,4 +37,6 @@ export async function takeScreenshot(config, target) {
   return screenshotPath;
 }
 
-export async function recordVideo(config, target) {}
+export async function recordVideo(config, target) {
+  console.log("Record video");
+}
