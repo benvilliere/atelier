@@ -16,6 +16,8 @@ if (args.length > 0 && args[0] === "start") {
     case "init":
       init();
       break;
+    default:
+      console.log("Usage: atelier start");
   }
 } else {
   console.log("Usage: atelier start");
