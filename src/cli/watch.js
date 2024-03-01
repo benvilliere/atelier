@@ -8,7 +8,9 @@ import match from "micromatch";
 
 const watch = async () => {
   const config = await loadConfig();
-  console.log("Configuration:", config);
+  if (config.features.debug) {
+    console.log("Configuration:", config);
+  }
 
   // Start Vite server with custom configuration
   const server = await createServer({
