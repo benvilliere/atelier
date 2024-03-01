@@ -20,7 +20,7 @@ const watch = async () => {
     server: config.server,
   });
 
-  await server.listen(config.server?.port || 3000);
+  await server.listen(config.server?.port || 4242);
 
   // Get the local server URL
   const url = server.resolvedUrls.local[0];
