@@ -11,8 +11,11 @@ switch (command) {
   case "start":
     console.log("Starting atelier...");
     watch();
+    break;
   case "init":
     init();
+    break;
   default:
     console.log("Usage: atelier start");
+    break;
 }
