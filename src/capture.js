@@ -62,17 +62,16 @@ export async function recordVideo(config, target, duration = 30) {
       height: config.capture.height || 1440,
     },
     outputPath: captureDir,
+    recordDurationLimit: duration,
   });
 
   const videoPath = `${captureDir}/video-${Date.now()}.mp4`;
   await recorder.start(videoPath);
   await page.goto(target, { waitUntil: "networkidle0" });
 
-  setTimeout(async () => {
-    const recording = await recorder.stop();
-    console.log(recording);
-    await browser.close();
-  }, duration * 1000);
+  const recording = await recorder.stop();
+  console.log(recording);
+  await browser.close();
 
   // Wait for the specified duration before stopping the recording
   // await new Promise((resolve) => setTimeout(resolve)); // Convert seconds to milliseconds
