@@ -1,14 +1,14 @@
 import { promises as fs } from "fs";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import { ATELIER_CONFIG_FILE_NAME, ATELIER_DOT_DIR } from "../config.js";
 
 const init = async () => {
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = dirname(__filename);
   const projectRoot = path.resolve(process.cwd());
-  const atelierConfigPath = path.join(projectRoot, "atelier.config.json");
-  const atelierDirPath = path.join(projectRoot, ".atelier");
+  const atelierConfigPath = path.join(projectRoot, ATELIER_CONFIG_FILE_NAME);
+  const atelierDirPath = path.join(projectRoot, ATELIER_DOT_DIR);
   const screenshotsDirPath = path.join(atelierDirPath, "screenshots");
   const defaultConfigPath = path.join(__dirname, "../config/default.json");
 
@@ -23,15 +23,15 @@ const init = async () => {
       if (e.code !== "EEXIST") throw e;
     });
 
-    // Check if atelier.config.json already exists, if not, copy from default.json
+    // Check if atelier.json already exists, if not, copy from default.json
     try {
       await fs.access(atelierConfigPath); // Checks for existence of the file
-      console.log("atelier.config.json already exists.");
+      console.log(`Config file ${ATELIER_CONFIG_FILE_NAME} already exists`);
     } catch {
-      // If atelier.config.json does not exist, create it by copying default.json
+      // If atelier.json does not exist, create it by copying default.json
       const defaultConfig = await fs.readFile(defaultConfigPath, "utf8");
       await fs.writeFile(atelierConfigPath, defaultConfig);
-      console.log("Created atelier.config.json with default settings.");
+      console.log(`Created ${ATELIER_CONFIG_FILE_NAME} with default settings.`);
     }
   } catch (error) {
     console.error(`Failed to initialize Atelier: ${error.message}`);

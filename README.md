@@ -16,7 +16,7 @@ npm install @genart/atelier
 
 ## Configuration
 
-You may configure atelier by creating a `atelier.json`, `atelier.config.json` or by adding and `atelier` entry in your `package.json` file.
+You may configure atelier by creating a `atelier.json`, `atelier.json` or by adding and `atelier` entry in your `package.json` file.
 
 TODO: List out all configuration options.
 
