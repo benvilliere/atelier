@@ -20,6 +20,11 @@ export default async function watch() {
     const isExcluded = matcher.isMatch(filePath, getExcludedPaths(config));
     const isIncluded = matcher.isMatch(filePath, config.watch.include);
 
+    console.log({
+      include: config.watch.include,
+      exclude: getExcludedPaths(config),
+    });
+
     if (isExcluded || !isIncluded) {
       if (config.features.debug)
         console.log("Change not tracked due to config settings.", {
