@@ -38,11 +38,19 @@ export default async function watch() {
       console.log(`File ${path} has been changed`);
     }
 
-    const isExcluded = match.isMatch(path, config.watch?.exclude);
-    const isIncluded = match.isMatch(path, config.watch?.include);
+    const isExcluded = config.watch.exclude
+      ? match.isMatch(path, config.watch.exclude)
+      : false;
+    const isIncluded = config.watch?.include
+      ? match.isMatch(path, config.watch.include)
+      : true;
 
     if (isExcluded || !isIncluded) {
-      console.log("Change not tracked due to config settings.");
+      console.log("Change not tracked due to config settings.", {
+        path,
+        include: config.watch?.include,
+        exclude: config.watch?.exclude,
+      });
       return;
     }
 
