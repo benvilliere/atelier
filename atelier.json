@@ -7,7 +7,7 @@
     "git": true,
     "ui": true
   },
-  "root": "./something",
+  "root": ".",
   "hooks": {
     "start": "npm run dev"
   },
