@@ -22,8 +22,6 @@ TODO: List out all configuration options.
 
 ## TODOs
 
-- Ensure custom target URL can be provided and screenshotted
-- Test on existing projects
 - Test on a new project
 - Refine & document configuration file
 - Maintain changelog for easier retrieval
