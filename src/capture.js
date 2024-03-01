@@ -1,4 +1,4 @@
-async function takeScreenshot(config, target, path) {
+export async function takeScreenshot(config, target, path) {
   const screenshotDir = config.screenshot?.basePath || ".atelier/screenshots";
   await mkdir(screenshotDir, { recursive: true });
   const browser = await puppeteer.launch();
