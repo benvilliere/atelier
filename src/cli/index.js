@@ -1,21 +1,32 @@
 #!/usr/bin/env node
 
-import process from "process";
+import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
 import postinstall from "./postinstall.js";
 import watch from "./watch.js";
 
-const args = process.argv.slice(2);
-const command = args[0];
-
-switch (command) {
-  case "start":
-    console.log("Starting atelier...");
-    watch();
-    break;
-  case "postinstall":
-    postinstall();
-    break;
-  default:
-    console.log("Usage: atelier start");
-    break;
-}
+yargs(hideBin(process.argv))
+  .scriptName("atelier")
+  .usage("$0 <cmd> [args]")
+  .command(
+    "start",
+    "Start the atelier",
+    () => {},
+    (argv) => {
+      console.log("Starting atelier...");
+      watch();
+    }
+  )
+  .command(
+    "postinstall",
+    "Run post-installation tasks",
+    () => {},
+    (argv) => {
+      postinstall();
+    }
+  )
+  .demandCommand(1, "You must provide a valid command.")
+  .recommendCommands()
+  .strict()
+  .help()
+  .alias("help", "h").argv;
