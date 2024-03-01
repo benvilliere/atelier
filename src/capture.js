@@ -4,7 +4,7 @@ import puppeteer from "puppeteer";
 import { PuppeteerScreenRecorder } from "puppeteer-screen-recorder";
 
 export async function takeScreenshot(config, target) {
-  const screenshotDir = config.screenshot?.basePath || ".atelier/screenshots";
+  const screenshotDir = config.screenshot?.basePath || ".atelier/capture";
   await mkdir(screenshotDir, { recursive: true });
 
   const browser = await puppeteer.launch();
