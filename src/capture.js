@@ -10,6 +10,7 @@ export async function takeScreenshot(config, target, path) {
     height: config.screenshots.height || 1440,
     deviceScaleFactor: config.screenshots.deviceScaleFactor || 2,
   });
+
   await page.goto(target, { waitUntil: "networkidle0" });
 
   const screenshotPath = `${screenshotDir}/${Date.now()}.${
