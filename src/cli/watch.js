@@ -71,8 +71,7 @@ export default async function watch() {
           height: config.screenshots.height || 1440,
           deviceScaleFactor: config.screenshots.deviceScaleFactor || 2,
         });
-        console.log(target);
-        // Use the server URL from Vite or the provided url
+
         await page.goto(target, {
           waitUntil: "networkidle0",
         });
@@ -86,11 +85,11 @@ export default async function watch() {
           const element = await page.$(config.screenshots.selector);
           await element.screenshot({ path: screenshotPath });
         } else {
-        await page.screenshot({
-          path: screenshotPath,
-          fullPage: config.screenshots.fullPage || true,
-        });
-        // }
+          await page.screenshot({
+            path: screenshotPath,
+            fullPage: config.screenshots.fullPage || true,
+          });
+        }
 
         await browser.close();
         console.log(`Screenshot taken and saved to ${screenshotPath}`);
