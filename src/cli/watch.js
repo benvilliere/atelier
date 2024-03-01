@@ -46,8 +46,7 @@ export default async function watch() {
       }
 
       if (config.features.git) {
-        const hash = await commitChanges(config);
-        if (config.features.debug) console.log("Changes committed", hash);
+        await commitChanges(config);
       }
     } catch (err) {
       console.error("Failed to commit changes or take screenshot:", err);
