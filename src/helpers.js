@@ -1,4 +1,6 @@
 import { promises as fs } from "fs";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 
 export async function loadJson(filePath) {
   try {
@@ -27,4 +29,9 @@ export async function createDirectory(dirPath) {
   } catch (error) {
     console.error(`Failed to create directory ${dirPath}: ${error}`);
   }
+}
+
+export function getDirName() {
+  const __filename = fileURLToPath(import.meta.url);
+  return dirname(__filename);
 }
