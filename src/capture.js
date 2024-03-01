@@ -48,7 +48,6 @@ export async function recordVideo(config, target, duration = 30) {
   });
   const page = await browser.newPage();
 
-  // Set viewport for recording
   await page.setViewport({
     width: config.capture.width || 2560,
     height: config.capture.height || 1440,
