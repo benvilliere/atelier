@@ -45,8 +45,6 @@ export async function recordVideo(config, target) {
     console.log(`Recording saved to ${videoPath}`);
   }, config.recording.duration * 1000);
 
-  if (config.features.debug) console.log(recording);
-
   // Wait for the specified duration before stopping the recording
   // await new Promise((resolve) => setTimeout(resolve)); // Convert seconds to milliseconds
 
