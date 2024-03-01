@@ -20,10 +20,13 @@ You may configure atelier by creating a `atelier.json`, `atelier.config.json` or
 
 TODO: List out all configuration options.
 
-## TODO
+## TODOs
 
 - Merge `base` config with user config
 - Create init command that runs post-install to create default config file
 - Ensure custom preview URL can be provided and screenshotted
+- Test on existing projects
+- Test on a new project
+- Refine & document configuration file
 - Maintain changelog for easier retrieval
 - Start building time-machine like view
