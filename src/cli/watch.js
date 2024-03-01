@@ -4,7 +4,7 @@ import simpleGit from "simple-git";
 import puppeteer from "puppeteer";
 import { mkdir } from "fs/promises";
 import { loadConfig } from "../config.js";
-import match from "micromatch";
+import matcher from "picomatch";
 
 export default async function watch() {
   const config = await loadConfig();
@@ -39,17 +39,17 @@ export default async function watch() {
     }
 
     const isExcluded = config.watch.exclude
-      ? match.isMatch(path, config.watch.exclude)
+      ? matcher.isMatch(path, config.watch.exclude)
       : false;
     const isIncluded = config.watch?.include
-      ? match.isMatch(path, config.watch.include)
+      ? matcher.isMatch(path, config.watch.include)
       : true;
 
     if (isExcluded || !isIncluded) {
       console.log("Change not tracked due to config settings.", {
         path,
-        include: config.watch?.include,
-        exclude: config.watch?.exclude,
+        include: config.watch.include,
+        exclude: config.watch.exclude,
       });
       return;
     }
