@@ -29,11 +29,12 @@ export default async function watch() {
       : true;
 
     if (isExcluded || !isIncluded) {
-      console.log("Change not tracked due to config settings.", {
-        filePath,
-        include: config.watch.include,
-        exclude: config.watch.exclude,
-      });
+      if (config.features.debug)
+        console.log("Change not tracked due to config settings.", {
+          filePath,
+          include: config.watch.include,
+          exclude: config.watch.exclude,
+        });
 
       return;
     }
