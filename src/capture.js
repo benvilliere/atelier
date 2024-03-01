@@ -54,7 +54,6 @@ export async function recordVideo(config, target, duration = 30) {
     deviceScaleFactor: config.capture.deviceScaleFactor || 2,
   });
 
-  // Start recording
   const recorder = new PuppeteerScreenRecorder(page, {
     followNewTab: true,
     fps: 25,
