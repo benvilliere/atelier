@@ -3,6 +3,7 @@ import matcher from "picomatch";
 import puppeteer from "puppeteer";
 import { mkdir } from "fs/promises";
 import { loadConfig } from "../config.js";
+import { commitChanges } from "../git.js";
 
 // Separated function for server initialization
 async function initializeServer(config) {
