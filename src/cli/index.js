@@ -8,6 +8,7 @@ const args = process.argv.slice(2);
 
 if (args.length > 0) {
   const command = args[0];
+
   switch (command) {
     case "start":
       console.log("Starting atelier...");
