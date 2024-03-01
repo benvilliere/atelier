@@ -1,3 +1,5 @@
+import { createServer } from "vite";
+
 export async function initializeServer(config) {
   const server = await createServer({
     root: config.root || ".",
