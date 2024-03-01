@@ -1,7 +1,7 @@
 import puppeteer from "puppeteer";
 import { mkdir } from "fs/promises";
 
-export async function takeScreenshot(config, target, path) {
+export async function takeScreenshot(config, target) {
   const screenshotDir = config.screenshot?.basePath || ".atelier/screenshots";
   await mkdir(screenshotDir, { recursive: true });
 
