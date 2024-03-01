@@ -22,6 +22,7 @@ TODO: List out all configuration options.
 
 ## TODOs
 
+- Record video preview of page
 - Test on a new project
 - Refine & document configuration file
 - Maintain changelog for easier retrieval
