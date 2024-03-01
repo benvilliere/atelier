@@ -1,11 +1,8 @@
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
-import { loadJson } from "./helpers.js";
+import { loadJson, saveJson } from "./helpers.js";
+import { ATELIER_CONFIG_FILE_NAME } from "./constants.js";
 
-export const ATELIER_DOT_DIR = ".atelier";
-export const ATELIER_CONFIG_FILE_NAME = "atelier.json";
-
-// Load base configuration
 async function loadBaseConfig() {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = dirname(__filename);
@@ -15,7 +12,6 @@ async function loadBaseConfig() {
   return baseConfig;
 }
 
-// Load user configuration from the project root
 async function loadUserConfig() {
   const projectRoot = path.resolve(__dirname, "../../");
   const userConfigPath = path.join(projectRoot, ATELIER_CONFIG_FILE_NAME);
@@ -24,9 +20,24 @@ async function loadUserConfig() {
   return userConfig;
 }
 
-// Merge configurations, giving priority to userConfig
 export async function loadConfig() {
   const baseConfig = await loadBaseConfig();
   const userConfig = await loadUserConfig();
+
   return { ...baseConfig, ...userConfig };
+}
+
+export async function createConfigFile(configPath) {
+  try {
+    await fs.access(configPath);
+    console.log(`Config file already exists: ${configPath}`);
+  } catch {
+    const defaultConfig = await loadJson("./src/config/default.json");
+    if (defaultConfig) {
+      await saveJson(configPath, defaultConfig);
+      console.log(`Created config file with default settings: ${configPath}`);
+    } else {
+      console.error("Failed to load default configuration.");
+    }
+  }
 }

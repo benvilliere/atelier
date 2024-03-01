@@ -6,7 +6,7 @@ import { mkdir } from "fs/promises";
 import { loadConfig } from "../config.js";
 import match from "micromatch";
 
-const watch = async () => {
+export default async function watch() {
   const config = await loadConfig();
 
   if (config.features?.debug) {
@@ -93,6 +93,4 @@ const watch = async () => {
       console.error("Failed to commit changes or take screenshot:", err);
     }
   });
-};
-
-export default watch;
+}
