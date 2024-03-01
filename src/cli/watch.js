@@ -63,7 +63,8 @@ const watch = async () => {
           height: config.screenshots.height || 1440,
           deviceScaleFactor: config.screenshots.deviceScaleFactor || 2,
         });
-        // Use the server URL from Vite
+
+        // Use the server URL from Vite or the provided url
         await page.goto(url, { waitUntil: "networkidle0" });
         const screenshotPath = `${screenshotDir}/${timestamp}.${
           config.screenshots.type || "png"
