@@ -22,11 +22,11 @@ TODO: List out all configuration options.
 
 ## TODOs
 
-- Merge `base` config with user config
-- Create init command that runs post-install to create default config file
-- Ensure custom preview URL can be provided and screenshotted
+- Ensure custom target URL can be provided and screenshotted
 - Test on existing projects
 - Test on a new project
 - Refine & document configuration file
 - Maintain changelog for easier retrieval
 - Start building time-machine like view
+- Ability to use a css selector for the screenshot area
+- Command arguments (--target --screenshot) to override config

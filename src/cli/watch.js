@@ -9,7 +9,7 @@ import matcher from "picomatch";
 export default async function watch() {
   const config = await loadConfig();
 
-  if (config.features?.debug) {
+  if (config.features.debug) {
     console.log("Configuration:", config);
   }
 
@@ -19,12 +19,12 @@ export default async function watch() {
     server: config.server,
   });
 
-  await server.listen(config.server?.port || 4242);
+  await server.listen(config.server.port || 4242);
 
   // Get the local server URL
   const url = config.features.server
     ? server.resolvedUrls.local[0]
-    : config.preview;
+    : config.target;
 
   if (config.features.debug) {
     console.log(`Atelier running at ${url}`);
@@ -34,7 +34,7 @@ export default async function watch() {
 
   // Use Vite's internal file watcher
   server.watcher.on("change", async (path) => {
-    if (config.features?.debug) {
+    if (config.features.debug) {
       console.log(`File ${path} has been changed`);
     }
 
@@ -74,14 +74,24 @@ export default async function watch() {
         });
 
         // Use the server URL from Vite or the provided url
-        await page.goto(url, { waitUntil: "networkidle0" });
+        await page.goto(config.preview ? config.preview : url, {
+          waitUntil: "networkidle0",
+        });
+
         const screenshotPath = `${screenshotDir}/${timestamp}.${
           config.screenshots.type || "png"
         }`;
+
+        // if (config.screenshots.selector) {
+        //   await page.waitForSelector(config.screenshots.selector);
+        //   const element = await page.$(config.screenshots.selector);
+        //   await element.screenshot({ path: screenshotPath });
+        // } else {
         await page.screenshot({
           path: screenshotPath,
           fullPage: config.screenshots.fullPage || true,
         });
+        // }
 
         await browser.close();
         console.log(`Screenshot taken and saved to ${screenshotPath}`);
