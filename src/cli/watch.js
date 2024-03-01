@@ -17,20 +17,15 @@ export default async function watch() {
   server.watcher.on("change", async (filePath) => {
     if (config.features.debug) console.log(`File ${filePath} has been changed`);
 
-    const isExcluded = config.watch.exclude
-      ? matcher.isMatch(filePath, getExcludedPaths(config))
-      : false;
-
-    const isIncluded = config.watch.include
-      ? matcher.isMatch(filePath, config.watch.include)
-      : true;
+    const isExcluded = matcher.isMatch(filePath, getExcludedPaths(config));
+    const isIncluded = matcher.isMatch(filePath, config.watch.include);
 
     if (isExcluded || !isIncluded) {
       if (config.features.debug)
         console.log("Change not tracked due to config settings.", {
           filePath,
           include: config.watch.include,
-          exclude: config.watch.exclude,
+          exclude: getExcludedPaths(config),
         });
 
       return;
