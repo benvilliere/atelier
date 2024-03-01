@@ -4,16 +4,9 @@ import puppeteer from "puppeteer";
 import { mkdir } from "fs/promises";
 import { loadConfig } from "../config.js";
 import { commitChanges } from "../git.js";
+import { initializeServer } from "../server.js";
 
 // Separated function for server initialization
-async function initializeServer(config) {
-  const server = await createServer({
-    root: config.root || ".",
-    server: config.server,
-  });
-  await server.listen(config.server.port || 4242);
-  return server;
-}
 
 // Function to handle screenshot taking
 async function takeScreenshot(config, target, path) {
