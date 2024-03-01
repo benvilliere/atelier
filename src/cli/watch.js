@@ -16,7 +16,7 @@ const watch = async () => {
   // Start Vite server with custom configuration
   const server = await createServer({
     // configFile: false,
-    root: config.root,
+    root: config.root || ".",
     server: config.server,
   });
 
