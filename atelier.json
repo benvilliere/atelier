@@ -11,10 +11,7 @@
   "hooks": {
     "start": "npm run dev"
   },
-  "preview": {
-    "url": null,
-    "script": "npm run dev"
-  },
+  "preview": null,
   "watch": {
     "include": ["**/*.js", "**/*.html"],
     "exclude": [".atelier/", "node_modules/", "dist/"]
