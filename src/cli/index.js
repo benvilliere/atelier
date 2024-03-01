@@ -7,7 +7,7 @@ import watch from "./watch.js";
 const args = process.argv.slice(2);
 
 if (args.length > 0 && args[0] === "start") {
-  const command = args[0]l
+  const command = args[0];
   switch 
   console.log("Starting atelier...");
   watch();
