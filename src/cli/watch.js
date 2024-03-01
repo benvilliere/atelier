@@ -11,6 +11,7 @@ import { takeScreenshot } from "../capture.js";
 // Main watch function refactored
 export default async function watch() {
   const config = await loadConfig();
+
   if (config.features.debug) console.log("Configuration:", config);
 
   const server = await initializeServer(config);
