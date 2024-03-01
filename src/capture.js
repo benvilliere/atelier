@@ -11,24 +11,24 @@ export async function takeScreenshot(config, target) {
   const page = await browser.newPage();
 
   await page.setViewport({
-    width: config.screenshots.width || 2560,
-    height: config.screenshots.height || 1440,
-    deviceScaleFactor: config.screenshots.deviceScaleFactor || 2,
+    width: config.capture.width || 2560,
+    height: config.capture.height || 1440,
+    deviceScaleFactor: config.capture.deviceScaleFactor || 2,
   });
 
   await page.goto(target, { waitUntil: "networkidle0" });
 
   const screenshotPath = `${screenshotDir}/${Date.now()}.${
-    config.screenshots.type || "png"
+    config.capture.type || "png"
   }`;
-  if (config.screenshots.selector) {
-    await page.waitForSelector(config.screenshots.selector);
-    const element = await page.$(config.screenshots.selector);
+  if (config.capture.selector) {
+    await page.waitForSelector(config.capture.selector);
+    const element = await page.$(config.capture.selector);
     await element.screenshot({ path: screenshotPath });
   } else {
     await page.screenshot({
       path: screenshotPath,
-      fullPage: config.screenshots.fullPage || true,
+      fullPage: config.capture.fullPage || true,
     });
   }
   await browser.close();
@@ -53,8 +53,8 @@ export async function recordVideo(config, target) {
     followNewTab: true,
     fps: 25,
     videoFrame: {
-      width: config.screenshots.width || 2560,
-      height: config.screenshots.height || 1440,
+      width: config.capture.width || 2560,
+      height: config.capture.height || 1440,
     },
     // Other configuration options...
   });
