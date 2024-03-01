@@ -22,10 +22,10 @@ export default async function watch() {
   await server.listen(config.server.port || 4242);
 
   // Get the local server URL
-  const url = config.target ? config.target : server.resolvedUrls.local[0];
+  const target = config.target ? config.target : server.resolvedUrls.local[0];
 
   if (config.features.debug) {
-    console.log(`Atelier target URL: ${url}`);
+    console.log(`Atelier target URL: ${target}`);
   }
 
   const git = simpleGit();
@@ -71,9 +71,9 @@ export default async function watch() {
           height: config.screenshots.height || 1440,
           deviceScaleFactor: config.screenshots.deviceScaleFactor || 2,
         });
-        console.log(url);
+        console.log(target);
         // Use the server URL from Vite or the provided url
-        await page.goto(url, {
+        await page.goto(target, {
           waitUntil: "networkidle0",
         });
 
