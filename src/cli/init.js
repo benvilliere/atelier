@@ -1,3 +1,3 @@
 const init = async () => {};
 
-export default watch;
+export default init;
