@@ -12,7 +12,6 @@ if (args.length > 0 && args[0] === "start") {
     case "start":
       console.log("Starting atelier...");
       watch();
-      break;
     case "init":
       init();
     default:
