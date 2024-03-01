@@ -19,8 +19,10 @@ const watch = async () => {
     root: config.root,
     server: config.server,
   });
+
   await server.listen(config.server?.port || 3000); // Use the port from the config, default to 3000 if not specified
-  const url = server.resolvedUrls.local[0]; // Get the local server URL
+  // Get the local server URL
+  const url = server.resolvedUrls.local[0];
 
   if (config.features.debug) {
     console.log(`Atelier running at ${url}`);
