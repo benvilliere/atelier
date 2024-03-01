@@ -41,6 +41,7 @@ export async function takeScreenshot(config, target) {
 
 export async function recordVideo(config, target) {
   console.log("Record video");
+
   const browser = await puppeteer.launch({
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
