@@ -5,8 +5,6 @@ import { commitChanges } from "../git.js";
 import { initializeServer } from "../server.js";
 import { takeScreenshot } from "../capture.js";
 
-// Git commit function
-// Main watch function refactored
 export default async function watch() {
   const config = await loadConfig();
 
