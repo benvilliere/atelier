@@ -6,7 +6,7 @@ import watch from "./watch.js";
 
 const args = process.argv.slice(2);
 
-if (args.length > 0 && args[0] === "start") {
+if (args.length > 0) {
   const command = args[0];
   switch (command) {
     case "start":
