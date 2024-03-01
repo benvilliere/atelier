@@ -4,6 +4,7 @@ import { commitChanges } from "../git.js";
 import { initializeServer } from "../server.js";
 import { recordVideo } from "../recording.js";
 import { takeScreenshot } from "../screenshot.js";
+import { getExcludedPaths } from "../helpers.js";
 
 export default async function watch() {
   const config = await loadConfig();
@@ -17,7 +18,7 @@ export default async function watch() {
     if (config.features.debug) console.log(`File ${filePath} has been changed`);
 
     const isExcluded = config.watch.exclude
-      ? matcher.isMatch(filePath, config.watch.exclude)
+      ? matcher.isMatch(filePath, getExcludedPaths(config))
       : false;
 
     const isIncluded = config.watch.include
