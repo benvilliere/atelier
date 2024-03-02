@@ -11,6 +11,10 @@ export default {
     enabled: true, // Enables auto-commit
     message: "Atelier auto-commit", // Default commit message
   },
+  data: {
+    enabled: true, // Enables data storage
+    path: ".atelier/data", // Path where to store the data
+  },
   screenshot: {
     enabled: true, // Enables screenshots
     path: ".atelier/screenshots", // Path where to store the screenshots
