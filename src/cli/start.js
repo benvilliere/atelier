@@ -7,7 +7,6 @@ import { takeScreenshot } from "../screenshot.js";
 import { getExcludedPaths } from "../helpers.js";
 
 export default async function start(options) {
-  console.log("Starting Atelier...");
   const settings = await mergeSettings(options);
   const server = await initializeServer(settings);
   const target = settings.target
@@ -53,4 +52,7 @@ export default async function start(options) {
       }
     }
   });
+
+  console.log("Atelier is running");
+  console.log("Path:", settings.root);
 }
