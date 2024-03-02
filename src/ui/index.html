@@ -10,6 +10,7 @@
     <ul @fetch="http://localhost:3001/data">
       <li @for="entry in data">
         <span>{entry.timestamp}</span>
+        <span>{entry.commithash}</span>
       </li>
     </ul>
   </body>
