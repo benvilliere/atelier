@@ -3,7 +3,7 @@ import puppeteer from "puppeteer";
 import { PuppeteerScreenRecorder } from "puppeteer-screen-recorder";
 import { getRecordingDir } from "./helpers.js";
 
-export async function recordVideo(settings, target) {
+export async function recordVideo(settings) {
   const recordingDir = getRecordingDir(settings);
 
   await mkdir(recordingDir, { recursive: true });
@@ -38,7 +38,7 @@ export async function recordVideo(settings, target) {
   const videoPath = `${recordingDir}/${Date.now()}.mp4`;
 
   await recorder.start(videoPath);
-  await page.goto(target, { waitUntil: "networkidle0" });
+  await page.goto(settings.target, { waitUntil: "networkidle0" });
 
   console.log("Recording...");
 

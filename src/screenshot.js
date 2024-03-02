@@ -2,8 +2,8 @@ import { mkdir } from "fs/promises";
 import puppeteer from "puppeteer";
 import { getScreenshotDir } from "./helpers.js";
 
-export async function takeScreenshot(config, target) {
-  const screenshotDir = getScreenshotDir(config);
+export async function takeScreenshot(settings) {
+  const screenshotDir = getScreenshotDir(settings);
 
   await mkdir(screenshotDir, { recursive: true });
 
@@ -11,31 +11,31 @@ export async function takeScreenshot(config, target) {
   const page = await browser.newPage();
 
   await page.setViewport({
-    width: config.screenshot.width || 2560,
-    height: config.screenshot.height || 1440,
-    deviceScaleFactor: config.screenshot.deviceScaleFactor || 2,
+    width: settings.screenshot.width || 2560,
+    height: settings.screenshot.height || 1440,
+    deviceScaleFactor: settings.screenshot.deviceScaleFactor || 2,
   });
 
-  await page.goto(target, { waitUntil: "networkidle0" });
+  await page.goto(settings.target, { waitUntil: "networkidle0" });
 
   const screenshotPath = `${screenshotDir}/${Date.now()}.${
-    config.screenshot.type || "png"
+    settings.screenshot.type || "png"
   }`;
 
-  if (config.screenshot.selector) {
-    await page.waitForSelector(config.screenshot.selector);
-    const element = await page.$(config.screenshot.selector);
+  if (settings.screenshot.selector) {
+    await page.waitForSelector(settings.screenshot.selector);
+    const element = await page.$(settings.screenshot.selector);
     await element.screenshot({ path: screenshotPath });
   } else {
     await page.screenshot({
       path: screenshotPath,
-      fullPage: config.screenshot.fullPage || true,
+      fullPage: settings.screenshot.fullPage,
     });
   }
 
   await browser.close();
 
-  if (config.verbose) console.log(`Screenshot saved to ${screenshotPath}`);
+  if (settings.verbose) console.log(`Screenshot saved to ${screenshotPath}`);
 
   return screenshotPath;
 }
