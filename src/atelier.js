@@ -3,7 +3,7 @@
 import process from "process";
 import { program } from "commander";
 import { loadJson } from "./helpers.js";
-import start from "./cli/start.js";
+import start from "./actions/start.js";
 
 const { version } = await loadJson("package.json");
 
