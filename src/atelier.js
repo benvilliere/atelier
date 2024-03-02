@@ -37,7 +37,7 @@ program
     "path to store screenshots"
   )
   .option(
-    "-st, --type, --screenshot.type, --screenshot-type <string>",
+    "-st, --type, --screenshot-type <string>",
     "path to store screenshots"
   )
   .option(
@@ -53,6 +53,7 @@ program
     "path to store recordings"
   )
   .option("-d, --duration <number>", "recording duration")
+  .option("-D, --data")
   .action((options) => start(options));
 
 program.parse(process.argv);
