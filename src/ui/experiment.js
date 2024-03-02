@@ -17,7 +17,7 @@
         return template.replace(/\{(.*?)\}/g, (_, key) => {
           console.log(item.timestamp);
           console.log(`Replacing ${key} with `, item[key.trim()]);
-          return item[key.trim()];
+          return item[key.trim()] || key;
         });
       })
       .join("");
