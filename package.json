@@ -10,9 +10,9 @@
   "license": "MIT",
   "author": "Ben Villiere",
   "type": "module",
-  "main": "src/cli/index.js",
+  "main": "src/cli.js",
   "bin": {
-    "atelier": "src/cli/index.js"
+    "atelier": "src/cli.js"
   },
   "scripts": {
     "atelier": "node ./src/cli/index.js",

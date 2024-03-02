@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 import process from "process";
-import start from "./start.js";
 import { program } from "commander";
-import { loadJson } from "../helpers.js";
+import { loadJson } from "./helpers.js";
+import start from "./cli/start.js";
 
 const { version } = await loadJson("package.json");
 
