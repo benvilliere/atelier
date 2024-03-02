@@ -14,8 +14,8 @@ program
   .description("start the program")
   .option("--verbose", "output more detail")
   .option("--git.enabled", "enables recording")
-  .option("--screenshot.enabled", "enables recording")
-  .option("--recording.enabled", "enables recording")
+  .option("--screenshot", "enables recording")
+  .option("--record", "enables recording")
   .action((options) => start(options));
 
 program.parse(process.argv);
