@@ -53,6 +53,4 @@ export default async function start(options) {
       }
     }
   });
-
-  console.log("Atelier is now watching for changes on:", settings.root);
 }
