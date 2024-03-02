@@ -21,20 +21,20 @@
         font-family: Impact;
       }
     </style>
+    <script>
+      function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      document.body.style.backgroundColor = getRandomColor();
+    </script>
   </head>
   <body>
     <h1>Hello, World!</h1>
   </body>
-  <script>
-    function getRandomColor() {
-      var letters = "0123456789ABCDEF";
-      var color = "#";
-      for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-    }
-
-    document.body.style.backgroundColor = getRandomColor();
-  </script>
 </html>
