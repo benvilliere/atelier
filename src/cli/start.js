@@ -24,7 +24,7 @@ export default async function start(options) {
         console.error(`Throttle limit reached, skipping action.`);
       }
 
-      return; // Skip this action due to throttle limit
+      return;
     }
 
     lastTime = currentTime;
