@@ -23,7 +23,7 @@ export default {
   },
   recording: {
     enabled: false,
-    path: ".atelier/recordings",
+    path: ".atelier/recordings", // Path where to store the recordings
     width: 2560,
     height: 1440,
     duration: 10,

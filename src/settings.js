@@ -1,10 +1,10 @@
 import { promises as fs } from "fs";
 import path from "path";
 import _ from "lodash";
-import { ATELIER_CONFIG_FILE_NAME } from "./constants.js";
 import baseConfig from "./config/base.js";
 import defaultConfig from "./config/default.js";
 import { getDirName, loadJson } from "./helpers.js";
+import { ATELIER_CONFIG_FILE_NAME } from "./constants.js";
 
 export async function createConfigFile(configPath) {
   try {
