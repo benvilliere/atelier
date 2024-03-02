@@ -1,10 +1,13 @@
 import { createServer } from "vite";
 
-export async function initializeServer(config) {
+export async function initializeServer(settings) {
   const server = await createServer({
-    root: config.root || ".",
-    server: config.server,
+    root: settings.root || ".",
+    server: {
+      open: settings.open == true,
+      ...settings.server,
+    },
   });
-  await server.listen(config.server.port || 4242);
+  await server.listen(settings.server.port || 4242);
   return server;
 }
