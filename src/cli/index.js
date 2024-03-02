@@ -13,7 +13,7 @@ program
   .command("start", { isDefault: true })
   .description("start the program")
   .option("--verbose", "output more detail")
-  .option("--git.enabled", "enables recording")
+  .option("--git", "enables recording")
   .option("--screenshot", "enables recording")
   .option("--record", "enables recording")
   .action((options) => start(options));
