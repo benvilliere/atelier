@@ -40,8 +40,6 @@ export async function recordVideo(settings) {
   await recorder.start(videoPath);
   await page.goto(settings.target, { waitUntil: "networkidle0" });
 
-  console.log("Recording...");
-
   setTimeout(async () => {
     await recorder.stop();
     await browser.close();
@@ -53,6 +51,7 @@ export async function recordVideo(settings) {
 
 export async function recordVideoThrottled(settings) {
   return await _.throttle(async (settings) => {
+    console.log("Recording...");
     await recordVideo(settings);
   }, settings.recording.duration * 1000);
 }
