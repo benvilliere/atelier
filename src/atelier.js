@@ -32,10 +32,10 @@ program
   .option("-S, --screenshot", "enables recording")
   .option("-sw, --screenshot-width <number>", "screenshot width")
   .option("-sh, --screenshot-height <number>", "screenshot height")
-  .option("-sp, --screenshot-path <string>", "path to store screenshots")
+  .option("-sp, --screenshot-path <string>", "path where to store screenshots")
   .option(
     "-st, --type, --screenshot-type <string>",
-    "path to store screenshots"
+    "screenshot file type (png or jpg)"
   )
   .option(
     "-s, --selector, --screenshot-selector <selector>",
@@ -47,7 +47,7 @@ program
   .option("-rh, --recording-height <number>", "recording height")
   .option("-rp, --recording-path <string>", "path to store recordings")
   .option("-d, --duration <number>", "recording duration")
-  .option("-D, --data", "enables local data storage")
+  .option("-D, --data", "enables data storage")
   .option("-dp, --data-path <string>", "path where to store data")
   .action((options) => start(options));
 
