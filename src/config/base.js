@@ -19,8 +19,8 @@ export default {
     enabled: true, // Enables screenshots
     path: ".atelier/screenshots", // Path where to store the screenshots
     type: "png", // Screenshot type (can be either png or jpg)
-    width: 2560,
-    height: 1440,
+    width: 2560, // Screenshot width
+    height: 1440, // Screenshot height
     deviceScaleFactor: 2,
     selector: null,
     fullPage: false,
