@@ -5,7 +5,7 @@ import { commitChanges } from "../features/git.js";
 import { initializeServer } from "../features/server.js";
 import { recordVideo } from "../features/recording.js";
 import { takeScreenshot } from "../features/screenshot.js";
-import { newDataEntry } from "../features/database.js";
+import { newDataEntry, saveData } from "../features/database.js";
 
 let lastTime = 0;
 
