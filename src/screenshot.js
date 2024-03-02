@@ -3,6 +3,8 @@ import puppeteer from "puppeteer";
 import { getScreenshotDir } from "./helpers.js";
 
 export async function takeScreenshot(settings) {
+  console.log("Taking screenshot...");
+
   const screenshotDir = getScreenshotDir(settings);
 
   await mkdir(screenshotDir, { recursive: true });
