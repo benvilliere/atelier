@@ -6,7 +6,7 @@ import { recordVideo } from "../recording.js";
 import { takeScreenshot } from "../screenshot.js";
 import { getExcludedPaths } from "../helpers.js";
 
-let lastActionTime = 0; // Tracking the last time an action was performed
+let lastTime = 0;
 
 export default async function start(options) {
   const settings = await mergeSettings(options);
@@ -19,13 +19,15 @@ export default async function start(options) {
   server.watcher.on("change", async (filePath) => {
     const currentTime = new Date().getTime();
 
-    if (currentTime - lastActionTime < settings.throttle * 1000) {
+    if (currentTime - lastTime < settings.throttle * 1000) {
       if (settings.verbose) {
         console.error(`Throttle limit reached, skipping action.`);
       }
 
       return; // Skip this action due to throttle limit
     }
+
+    lastTime = currentTime;
 
     if (settings.verbose) console.log(`File ${filePath} has been changed`);
 
@@ -64,8 +66,6 @@ export default async function start(options) {
         );
       }
     }
-
-    lastActionTime = currentTime; // Update last action time after successful action
   });
 
   console.log("Atelier is running");
