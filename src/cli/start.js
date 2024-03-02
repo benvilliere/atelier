@@ -46,12 +46,12 @@ export default async function start(options) {
     }
 
     try {
-      if (settings.recording.enabled) {
-        await recordVideo(settings);
-      }
-
       if (settings.screenshot.enabled) {
         await takeScreenshot(settings);
+      }
+
+      if (settings.recording.enabled) {
+        await recordVideo(settings);
       }
 
       if (settings.commit.enabled) {

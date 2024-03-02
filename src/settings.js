@@ -37,11 +37,11 @@ function convertOptionsToConfig(options) {
 
   converted.root = options.root;
   converted.target = options.target;
-
   converted.open = options.open;
   converted.verbose = options.verbose;
   converted.include = options.include;
   converted.exclude = options.exclude;
+  converted.throttle = Number(options.throttle) || undefined;
 
   converted.commit = {
     enabled: options.commit,
