@@ -30,7 +30,6 @@ TODO: List out all configuration options.
 
 ## TODOs
 
-- Command arguments (--target --screenshot) to override config
 - Test on a new project
 - Refine & document configuration file
 - Maintain changelog for easier retrieval

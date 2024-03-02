@@ -2,7 +2,7 @@ import matcher from "picomatch";
 import { mergeSettings } from "../settings.js";
 import { commitChanges } from "../git.js";
 import { initializeServer } from "../server.js";
-import { recordVideo } from "../recording.js";
+import { recordVideoThrottled } from "../recording.js";
 import { takeScreenshot } from "../screenshot.js";
 import { getExcludedPaths } from "../helpers.js";
 
@@ -33,7 +33,7 @@ export default async function start(options) {
 
     try {
       if (settings.recording.enabled) {
-        await recordVideo(settings);
+        await recordVideoThrottled(settings);
       }
 
       if (settings.screenshot.enabled) {
