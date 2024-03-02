@@ -71,6 +71,7 @@ function convertOptionsToConfig(options) {
 
   converted.data = {
     enabled: options.enabled,
+    path: options.dataPath,
   };
 
   return converted;
