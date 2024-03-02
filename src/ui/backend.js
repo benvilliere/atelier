@@ -30,6 +30,8 @@ app.get("/data", async (req, res) => {
         const filePath = path.join(dataDirectory, file);
         const fileContents = await fs.readFile(filePath, "utf8");
         const data = JSON.parse(fileContents);
+
+        console.log(data);
         dataEntries.push(data);
       }
     }
