@@ -31,6 +31,8 @@ export async function recordVideo(config, target) {
     recordDurationLimit: config.recording.duration * 1000,
   };
 
+  if (config.verbose) console.log("Recording options:", recordingOptions);
+
   const recorder = new PuppeteerScreenRecorder(page);
 
   const videoPath = `${recordingDir}/${Date.now()}.mp4`;
