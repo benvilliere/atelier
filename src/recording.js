@@ -50,8 +50,8 @@ export async function recordVideo(settings) {
 }
 
 export async function recordVideoThrottled(settings) {
+  console.log("Recording...");
   return await _.throttle(async (settings) => {
-    console.log("Recording...");
     await recordVideo(settings);
   }, settings.recording.duration * 1000);
 }
