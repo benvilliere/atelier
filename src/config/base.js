@@ -22,8 +22,8 @@ export default {
     width: 2560, // Screenshot width
     height: 1440, // Screenshot height
     deviceScaleFactor: 2,
-    selector: null,
-    fullPage: false,
+    selector: null, // CSS selector of the element to screenshot
+    fullPage: false, // Wether the screenshot should take the full page
   },
   recording: {
     enabled: false,
