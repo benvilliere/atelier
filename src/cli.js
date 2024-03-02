@@ -18,6 +18,7 @@ program
   .option("-V, --verbose", "output more detail")
   .option("-i, --include <paths...>", "paths to include")
   .option("-e, --exclude <paths...>", "paths to exclude")
+  .option("--throttle <number>", "time in seconds between actions")
   .option("-m, --message <message>", "commit message")
   .option("-c, --auto-commit, --commit", "enables auto-commit")
   .option(

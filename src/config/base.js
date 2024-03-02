@@ -6,7 +6,7 @@ export default {
   include: ["**/*.js", "**/*.css", "**/*.html"], // Paths to include
   exclude: [".atelier/", "node_modules/", "dist/", "build/"], // Paths to exclude
   server: {}, // Vite server options
-  throttle: 10, // Time between recordings and screenshots
+  throttle: 5, // Time in seconds between recordings and screenshots
   commit: {
     enabled: true, // Enables auto-commit
     message: "Atelier auto-commit", // Default commit message
