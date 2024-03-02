@@ -10,13 +10,17 @@ export function newDataEntry() {
   };
 }
 
-export async function saveData(data, directory = ".atelier/data") {
+export async function saveData(data, settings, directory = ".atelier/data") {
   const timestamp = new Date().toISOString();
   const filename = `${timestamp.replace(/[:.]/g, "-")}.json`;
   const filePath = path.join(directory, filename);
 
   await fs.mkdir(directory, { recursive: true });
   await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
+
+  if (settings.verbose) {
+    console.log("Data saved:", filePath);
+  }
 
   return filePath;
 }
