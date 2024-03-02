@@ -60,7 +60,7 @@ export default async function start(options) {
         data.commitHash = await commitChanges(settings);
       }
 
-      console.log(data);
+      await saveData(data);
     } catch (err) {
       if (settings.verbose) {
         console.error("Failed to commit changes or take screenshot:", err);
