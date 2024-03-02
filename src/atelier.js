@@ -48,7 +48,7 @@ program
   .option("-rp, --recording-path <string>", "path to store recordings")
   .option("-d, --duration <number>", "recording duration")
   .option("-D, --data", "enables local data storage")
-  .option("-dp, --data-path <string>", "path where to store local data")
+  .option("-dp, --data-path <string>", "path where to store data")
   .action((options) => start(options));
 
 program.parse(process.argv);
