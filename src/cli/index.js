@@ -12,7 +12,8 @@ program.version(version, "-v, --version", "prints current version");
 program
   .command("start", { isDefault: true })
   .description("start the program")
-  .option("-V,--verbose", "output more detail")
+  .option("--verbose", "output more detail")
+  .option("--recording.enabled", "enables recording")
   .option("--recording.enabled", "enables recording")
   .action((options) => start(options));
 
