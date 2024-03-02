@@ -1,7 +1,7 @@
 import { mkdir } from "fs/promises";
 import puppeteer from "puppeteer";
 import { PuppeteerScreenRecorder } from "puppeteer-screen-recorder";
-import { getRecordingDir } from "./helpers.js";
+import { getRecordingDir } from "../helpers.js";
 
 export async function recordVideo(settings) {
   console.log("Recording...");
