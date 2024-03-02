@@ -3,8 +3,8 @@ import puppeteer from "puppeteer";
 import { PuppeteerScreenRecorder } from "puppeteer-screen-recorder";
 import { getRecordingDir } from "./helpers.js";
 
-export async function recordVideo(config, target) {
-  const recordingDir = getRecordingDir(config);
+export async function recordVideo(settings, target) {
+  const recordingDir = getRecordingDir(settings);
 
   await mkdir(recordingDir, { recursive: true });
 
@@ -15,23 +15,23 @@ export async function recordVideo(config, target) {
   const page = await browser.newPage();
 
   await page.setViewport({
-    width: config.recording.width,
-    height: config.recording.height,
-    deviceScaleFactor: config.recording.deviceScaleFactor || 2,
+    width: settings.recording.width,
+    height: settings.recording.height,
+    deviceScaleFactor: settings.recording.deviceScaleFactor || 2,
   });
 
   const recordingOptions = {
     followNewTab: true,
     fps: 24,
     videoFrame: {
-      width: config.recording.width,
-      height: config.recording.height,
+      width: settings.recording.width,
+      height: settings.recording.height,
     },
     outputPath: recordingDir,
-    recordDurationLimit: config.recording.duration * 1000,
+    recordDurationLimit: settings.recording.duration * 1000,
   };
 
-  if (config.verbose) console.log("Recording options:", recordingOptions);
+  if (settings.verbose) console.log("Recording options:", recordingOptions);
 
   const recorder = new PuppeteerScreenRecorder(page);
 
@@ -46,7 +46,7 @@ export async function recordVideo(config, target) {
     await recorder.stop();
     await browser.close();
     console.log(`Recording saved to ${videoPath}`);
-  }, config.recording.duration * 1000);
+  }, settings.recording.duration * 1000);
 
   return videoPath;
 }
