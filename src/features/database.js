@@ -10,7 +10,8 @@ export function newDataEntry() {
   };
 }
 
-export async function saveData(data, directory = ".atelier/data") {
+export async function saveData(data, settings) {
+  const directory = ".atelier/data";
   const timestamp = new Date().toISOString();
   const filename = `${timestamp.replace(/[:.]/g, "-")}.json`;
   const filePath = path.join(directory, filename);
