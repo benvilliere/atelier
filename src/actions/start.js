@@ -6,6 +6,9 @@ import { initializeServer } from "../features/server.js";
 import { recordVideo } from "../features/recording.js";
 import { takeScreenshot } from "../features/screenshot.js";
 import { newDataEntry, saveData } from "../features/database.js";
+import { loadJson } from "../helpers.js";
+
+const { version } = await loadJson("package.json");
 
 let lastTime = 0;
 
@@ -60,7 +63,7 @@ export default async function start(options) {
         data.commitHash = await commitChanges(settings);
       }
 
-      await saveData(data);
+      await saveData(data, settings);
     } catch (err) {
       if (settings.verbose) {
         console.error("Failed to commit changes or take screenshot:", err);
@@ -72,7 +75,7 @@ export default async function start(options) {
     }
   });
 
-  console.log("Atelier is running");
+  console.log(`Atelier (v${version}) is running`);
   console.log("Root:", settings.root);
   console.log("Target:", settings.target);
 }
