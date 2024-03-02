@@ -55,4 +55,5 @@ export default async function start(options) {
 
   console.log("Atelier is running");
   console.log("Root:", settings.root);
+  console.log("Root:", settings.root);
 }
