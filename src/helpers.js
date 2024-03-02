@@ -54,9 +54,5 @@ export function getScreenshotDir(config) {
 }
 
 export function getExcludedPaths(config) {
-  return [
-    ...config.watch.exclude,
-    getRecordingDir(config),
-    getScreenshotDir(config),
-  ];
+  return [...config.exclude, getRecordingDir(config), getScreenshotDir(config)];
 }

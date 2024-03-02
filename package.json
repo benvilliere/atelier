@@ -16,18 +16,18 @@
   },
   "scripts": {
     "atelier": "node ./src/cli/index.js",
-    "postinstall": "npm run atelier postinstall",
+    "postinstall": "node ./src/scripts/postinstall.js",
     "npm-publish": "npm publish --access public",
     "sort-package": "npx sort-package-json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "commander": "^12.0.0",
     "lodash": "^4.17.21",
     "picomatch": "^4.0.1",
     "puppeteer": "^22.3.0",
     "puppeteer-screen-recorder": "^3.0.3",
     "simple-git": "^3.22.0",
-    "vite": "^5.1.4",
-    "yargs": "^17.7.2"
+    "vite": "^5.1.4"
   }
 }

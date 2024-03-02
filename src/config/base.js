@@ -1,17 +1,9 @@
 export default {
-  features: {
-    debug: true,
-    server: true,
-    screenshot: true,
-    recording: true,
-    git: true,
-    ui: true,
-  },
   root: ".",
   target: null,
-  hooks: {
-    start: "npm run dev",
-  },
+  verbose: false,
+  include: ["**/*.js", "**/*.css", "**/*.html"],
+  exclude: [".atelier/", "node_modules/", "dist/", "build/"],
   watch: {
     include: ["**/*.js", "**/*.css", "**/*.html"],
     exclude: [".atelier/", "node_modules/", "dist/", "build/"],
@@ -20,11 +12,13 @@ export default {
     open: false,
   },
   git: {
+    enabled: true,
     commit: {
       message: "Atelier auto-commit",
     },
   },
   screenshot: {
+    enabled: true,
     path: ".atelier/screenshots",
     type: "png",
     width: 2560,
@@ -34,6 +28,7 @@ export default {
     fullPage: true,
   },
   recording: {
+    enabled: false,
     path: ".atelier/recordings",
     width: 2560,
     height: 1440,

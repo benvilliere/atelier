@@ -1,34 +1,18 @@
 #!/usr/bin/env node
 
-import yargs from "yargs";
-import { hideBin } from "yargs/helpers";
-import postinstall from "./postinstall.js";
-import watch from "./watch.js";
-import atelier from "../../package.json" with { type: "json" };
+import process from "process";
+import start from "./start.js";
+import { program } from "commander";
+import { loadJson } from "../helpers.js";
 
-yargs(hideBin(process.argv))
-  .version(atelier.version)
-  .scriptName("atelier")
-  .usage("$0 <cmd> [args]")
-  .command(
-    "start",
-    "Start the atelier",
-    () => {},
-    (argv) => {
-      console.log("Starting atelier...");
-      watch();
-    }
-  )
-  .command(
-    "postinstall",
-    "Run post-installation tasks",
-    () => {},
-    (argv) => {
-      postinstall();
-    }
-  )
-  .demandCommand(1, "You must provide a valid command.")
-  .recommendCommands()
-  .strict()
-  .help()
-  .alias("help", "h").argv;
+const { version } = await loadJson("package.json");
+
+program.version(version, "-v, --version", "prints current version");
+
+program
+  .command("start", { isDefault: true })
+  .description("start the program")
+  .option("-V,--verbose", "output more detail")
+  .action((options) => start(options));
+
+program.parse(process.argv);

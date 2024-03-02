@@ -35,8 +35,7 @@ export async function takeScreenshot(config, target) {
 
   await browser.close();
 
-  if (config.features.debug)
-    console.log(`Screenshot saved to ${screenshotPath}`);
+  if (config.verbose) console.log(`Screenshot saved to ${screenshotPath}`);
 
   return screenshotPath;
 }

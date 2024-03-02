@@ -6,30 +6,33 @@ import { recordVideo } from "../recording.js";
 import { takeScreenshot } from "../screenshot.js";
 import { getExcludedPaths } from "../helpers.js";
 
-export default async function watch() {
-  const config = await loadConfig();
+export default async function start(options) {
+  console.log("Starting Atelier...");
+  console.log(options);
 
-  if (config.features.debug) console.log("Configuration:", config);
+  const config = await loadConfig(options);
+
+  if (config.verbose) console.log("Configuration:", config);
 
   const server = await initializeServer(config);
   const target = config.target ? config.target : server.resolvedUrls.local[0];
 
   server.watcher.on("change", async (filePath) => {
-    if (config.features.debug) console.log(`File ${filePath} has been changed`);
+    if (config.verbose) console.log(`File ${filePath} has been changed`);
 
     const isExcluded = matcher.isMatch(filePath, getExcludedPaths(config));
-    const isIncluded = matcher.isMatch(filePath, config.watch.include);
+    const isIncluded = matcher.isMatch(filePath, config.include);
 
     console.log({
-      include: config.watch.include,
+      include: config.include,
       exclude: getExcludedPaths(config),
     });
 
     if (isExcluded || !isIncluded) {
-      if (config.features.debug)
+      if (config.verbose)
         console.log("Change not tracked due to config settings.", {
           filePath,
-          include: config.watch.include,
+          include: config.include,
           exclude: getExcludedPaths(config),
         });
 
@@ -37,15 +40,15 @@ export default async function watch() {
     }
 
     try {
-      if (config.features.recording) {
+      if (config.recording.enabled) {
         await recordVideo(config, target);
       }
 
-      if (config.features.screenshot) {
+      if (config.screenshot.enabled) {
         await takeScreenshot(config, target);
       }
 
-      if (config.features.git) {
+      if (config.git.enabled) {
         await commitChanges(config);
       }
     } catch (err) {

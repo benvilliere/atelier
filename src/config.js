@@ -23,7 +23,7 @@ async function loadUserConfig() {
   return userConfig;
 }
 
-export async function loadConfig() {
+export async function loadConfig(options) {
   const userConfig = await loadUserConfig();
 
   return _.merge({}, baseConfig, userConfig);
