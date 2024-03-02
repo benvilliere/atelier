@@ -1,9 +1,9 @@
 import matcher from "picomatch";
 import { mergeSettings } from "../settings.js";
-import { commitChanges } from "../git.js";
-import { initializeServer } from "../server.js";
-import { recordVideo } from "../recording.js";
-import { takeScreenshot } from "../screenshot.js";
+import { commitChanges } from "../features/git.js";
+import { initializeServer } from "../features/server.js";
+import { recordVideo } from "../features/recording.js";
+import { takeScreenshot } from "../features/screenshot.js";
 import { getExcludedPaths } from "../helpers.js";
 
 let lastTime = 0;
