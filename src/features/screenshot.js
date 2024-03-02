@@ -1,6 +1,6 @@
 import { mkdir } from "fs/promises";
 import puppeteer from "puppeteer";
-import { getScreenshotDir } from "./helpers.js";
+import { getScreenshotDir } from "../helpers.js";
 
 export async function takeScreenshot(settings) {
   console.log("Taking screenshot...");
