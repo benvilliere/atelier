@@ -69,6 +69,10 @@ function convertOptionsToConfig(options) {
     duration: Number(options.duration) || undefined,
   };
 
+  converted.data = {
+    enabled: options.enabled,
+  };
+
   return converted;
 }
 
