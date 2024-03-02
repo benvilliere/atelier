@@ -24,11 +24,29 @@ For now, it is the most simple thing ever. But I have plans to add more useful f
 
 ## Installation
 
+Atelier being a self-contained CLI application, it is recommended to install it globally as such:
+
 ```bash
-npm install @genart/atelier
+npm install --global @genart/atelier
 ```
 
 ## Usage
+
+When installed globally, you may start atelier by doing either
+
+```bash
+atelier
+```
+
+or
+
+```bash
+atelier start
+```
+
+### Options
+
+TODO: List out all command line options.
 
 ## Configuration
 
