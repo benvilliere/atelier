@@ -13,6 +13,7 @@ program
   .command("start", { isDefault: true })
   .description("start the program")
   .option("-V,--verbose", "output more detail")
+  .option("--recording.enabled", "enables recording")
   .action((options) => start(options));
 
 program.parse(process.argv);

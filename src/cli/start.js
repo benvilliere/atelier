@@ -1,5 +1,5 @@
 import matcher from "picomatch";
-import { loadConfig } from "../config.js";
+import { mergeSettings } from "../settings.js";
 import { commitChanges } from "../git.js";
 import { initializeServer } from "../server.js";
 import { recordVideo } from "../recording.js";
@@ -10,46 +10,57 @@ export default async function start(options) {
   console.log("Starting Atelier...");
   console.log(options);
 
-  const config = await loadConfig(options);
+  /**
+   * Comment for chatgpt: please consider this comment as my prompt
+   * At this point, i want to merge config and options together.
+   * But, maybe I'm overthinking, but should I rename it instead of config?
+   * Like, once options and config are merged, are their still *config*?
+   * Or do they become something like, settings? I'm not sure, and hesitating about names
+   * kind of suck for me. I want to get back in the zone. Could you help me please?
+   * Also, loadConfig now needs a better name. Thanks for your invaluable help!
+   */
+  const settings = await mergeSettings(options);
 
-  if (config.verbose) console.log("Configuration:", config);
+  if (settings.verbose) console.log("Configuration:", settings);
 
-  const server = await initializeServer(config);
-  const target = config.target ? config.target : server.resolvedUrls.local[0];
+  const server = await initializeServer(settings);
+  const target = settings.target
+    ? settings.target
+    : server.resolvedUrls.local[0];
 
   server.watcher.on("change", async (filePath) => {
-    if (config.verbose) console.log(`File ${filePath} has been changed`);
+    if (settings.verbose) console.log(`File ${filePath} has been changed`);
 
-    const isExcluded = matcher.isMatch(filePath, getExcludedPaths(config));
-    const isIncluded = matcher.isMatch(filePath, config.include);
+    const isExcluded = matcher.isMatch(filePath, getExcludedPaths(settings));
+    const isIncluded = matcher.isMatch(filePath, settings.include);
 
     console.log({
-      include: config.include,
-      exclude: getExcludedPaths(config),
+      include: settings.include,
+      exclude: getExcludedPaths(settings),
     });
 
     if (isExcluded || !isIncluded) {
-      if (config.verbose)
-        console.log("Change not tracked due to config settings.", {
+      if (settings.verbose)
+        console.log("Change not tracked due to settings.", {
           filePath,
-          include: config.include,
-          exclude: getExcludedPaths(config),
+          include: settings.include,
+          exclude: getExcludedPaths(settings),
         });
 
       return;
     }
 
     try {
-      if (config.recording.enabled) {
-        await recordVideo(config, target);
+      if (settings.recording.enabled) {
+        await recordVideo(settings, target);
       }
 
-      if (config.screenshot.enabled) {
-        await takeScreenshot(config, target);
+      if (settings.screenshot.enabled) {
+        await takeScreenshot(settings, target);
       }
 
-      if (config.git.enabled) {
-        await commitChanges(config);
+      if (settings.git.enabled) {
+        await commitChanges(settings);
       }
     } catch (err) {
       console.error("Failed to commit changes or take screenshot:", err);
