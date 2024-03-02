@@ -43,3 +43,10 @@ TODO: List out all configuration options.
 - Add support for global configuration?
 - Maintain changelog for easier retrieval
 - Start building time-machine like view
+- UI Action: share to social media
+- UI Action: revert to commit hash
+- UI Action: download
+- UI Action: save to dropbox
+- UI Action: share
+- Init script: add .atelier to .gitignore if exists
+- CLI Action: init project
