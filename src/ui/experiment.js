@@ -11,7 +11,7 @@
     console.log(`Rendering template for each ${itemName}`);
     console.log("renderTemplate", { template, data, itemName });
     return data
-      .map((item) => {
+      .map(({ item }) => {
         console.log({ item });
         // Replace placeholders with actual data properties, referencing by itemName.
         return template.replace(/\{(.*?)\}/g, (_, key) => {
