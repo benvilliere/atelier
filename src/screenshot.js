@@ -13,15 +13,15 @@ export async function takeScreenshot(settings) {
   const page = await browser.newPage();
 
   await page.setViewport({
-    width: settings.screenshot.width || 2560,
-    height: settings.screenshot.height || 1440,
-    deviceScaleFactor: settings.screenshot.deviceScaleFactor || 2,
+    width: settings.screenshot.width,
+    height: settings.screenshot.height,
+    deviceScaleFactor: settings.screenshot.deviceScaleFactor,
   });
 
   await page.goto(settings.target, { waitUntil: "networkidle0" });
 
   const screenshotPath = `${screenshotDir}/${Date.now()}.${
-    settings.screenshot.type || "png"
+    settings.screenshot.type
   }`;
 
   if (settings.screenshot.selector) {

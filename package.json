@@ -10,12 +10,12 @@
   "license": "MIT",
   "author": "Ben Villiere",
   "type": "module",
-  "main": "src/cli.js",
+  "main": "src/atelier.js",
   "bin": {
-    "atelier": "src/cli.js"
+    "atelier": "src/atelier.js"
   },
   "scripts": {
-    "atelier": "node ./src/cli/index.js",
+    "atelier": "node ./src/atelier.js",
     "postinstall": "node ./src/scripts/postinstall.js",
     "npm-publish": "npm publish --access public",
     "sort-package": "npx sort-package-json",
