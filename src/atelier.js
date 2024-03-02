@@ -47,7 +47,7 @@ program
   .option("-rh, --recording-height <number>", "recording height")
   .option("-rp, --recording-path <string>", "path to store recordings")
   .option("-d, --duration <number>", "recording duration")
-  .option("-D, --data")
+  .option("-D, --data", "enables local data storage")
   .action((options) => start(options));
 
 program.parse(process.argv);
