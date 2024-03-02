@@ -15,6 +15,7 @@
         console.log({ item });
         // Replace placeholders with actual data properties, referencing by itemName.
         return template.replace(/\{(.*?)\}/g, (_, key) => {
+          console.log(item);
           console.log(`Replacing ${key} with `, item[key.trim()]);
           return item[key.trim()];
         });
