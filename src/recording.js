@@ -20,7 +20,7 @@ export async function recordVideo(config, target) {
     deviceScaleFactor: config.recording.deviceScaleFactor || 2,
   });
 
-  const recorder = new PuppeteerScreenRecorder(page, {
+  const recordingOptions = {
     followNewTab: true,
     fps: 24,
     videoFrame: {
@@ -29,7 +29,9 @@ export async function recordVideo(config, target) {
     },
     outputPath: recordingDir,
     recordDurationLimit: config.recording.duration * 1000,
-  });
+  };
+
+  const recorder = new PuppeteerScreenRecorder(page);
 
   const videoPath = `${recordingDir}/${Date.now()}.mp4`;
 
