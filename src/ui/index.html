@@ -11,7 +11,7 @@
       <li @for="entry in data">
         <span>{entry.timestamp}</span>
         <span>{entry.commitHash}</span>
-        <img src="{entry.screenshot.split('.').pop()}" />
+        <img src={entry.screenshot.split('.').pop()} />
       </li>
     </ul>
   </body>
