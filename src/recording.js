@@ -17,7 +17,6 @@ export async function recordVideo(settings) {
   await page.setViewport({
     width: settings.recording.width,
     height: settings.recording.height,
-    // deviceScaleFactor: settings.recording.deviceScaleFactor || 2,
   });
 
   const recordingOptions = {
