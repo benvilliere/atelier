@@ -2,9 +2,11 @@ import matcher from "picomatch";
 import { mergeSettings } from "../settings.js";
 import { commitChanges } from "../git.js";
 import { initializeServer } from "../server.js";
-import { recordVideoThrottled } from "../recording.js";
+import { recordVideo } from "../recording.js";
 import { takeScreenshot } from "../screenshot.js";
 import { getExcludedPaths } from "../helpers.js";
+
+let lastActionTime = 0; // Tracking the last time an action was performed
 
 export default async function start(options) {
   const settings = await mergeSettings(options);
@@ -15,6 +17,16 @@ export default async function start(options) {
     : server.resolvedUrls.local[0];
 
   server.watcher.on("change", async (filePath) => {
+    const currentTime = new Date().getTime();
+
+    if (currentTime - lastActionTime < settings.throttle * 1000) {
+      if (settings.verbose) {
+        console.log(`Throttle limit reached, skipping action.`);
+      }
+
+      return; // Skip this action due to throttle limit
+    }
+
     if (settings.verbose) console.log(`File ${filePath} has been changed`);
 
     const isExcluded = matcher.isMatch(filePath, getExcludedPaths(settings));
@@ -33,7 +45,7 @@ export default async function start(options) {
 
     try {
       if (settings.recording.enabled) {
-        await recordVideoThrottled(settings);
+        await recordVideo(settings);
       }
 
       if (settings.screenshot.enabled) {
@@ -52,6 +64,8 @@ export default async function start(options) {
         );
       }
     }
+
+    lastActionTime = currentTime; // Update last action time after successful action
   });
 
   console.log("Atelier is running");
