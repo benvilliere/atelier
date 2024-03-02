@@ -8,7 +8,9 @@
   </head>
   <body>
     <ul @fetch="http://localhost:3001/data">
-      <li @for="entry in data">{entry.timestamp}</li>
+      <li @for="entry in data">
+        <span>{entry.timestamp}</span>
+      </li>
     </ul>
   </body>
 </html>
