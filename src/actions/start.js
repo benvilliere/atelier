@@ -1,10 +1,11 @@
 import matcher from "picomatch";
+import { getExcludedPaths } from "../helpers.js";
 import { mergeSettings } from "../settings.js";
 import { commitChanges } from "../features/git.js";
 import { initializeServer } from "../features/server.js";
 import { recordVideo } from "../features/recording.js";
 import { takeScreenshot } from "../features/screenshot.js";
-import { getExcludedPaths } from "../helpers.js";
+import { newDataEntry } from "../features/database.js";
 
 let lastTime = 0;
 
@@ -18,6 +19,7 @@ export default async function start(options) {
 
   server.watcher.on("change", async (filePath) => {
     const currentTime = new Date().getTime();
+    const data = newDataEntry();
 
     if (currentTime - lastTime < settings.throttle * 1000) {
       if (settings.verbose) {
@@ -47,16 +49,18 @@ export default async function start(options) {
 
     try {
       if (settings.screenshot.enabled) {
-        await takeScreenshot(settings);
+        data.screenshot = await takeScreenshot(settings);
       }
 
       if (settings.recording.enabled) {
-        await recordVideo(settings);
+        data.recording = await recordVideo(settings);
       }
 
       if (settings.commit.enabled) {
-        await commitChanges(settings);
+        data.commitHash = await commitChanges(settings);
       }
+
+      console.log(data);
     } catch (err) {
       if (settings.verbose) {
         console.error("Failed to commit changes or take screenshot:", err);
