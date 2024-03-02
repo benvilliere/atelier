@@ -1,7 +1,6 @@
 import { mkdir } from "fs/promises";
 import puppeteer from "puppeteer";
 import { PuppeteerScreenRecorder } from "puppeteer-screen-recorder";
-import _ from "lodash";
 import { getRecordingDir } from "./helpers.js";
 
 export async function recordVideo(settings) {
@@ -40,18 +39,13 @@ export async function recordVideo(settings) {
   await recorder.start(videoPath);
   await page.goto(settings.target, { waitUntil: "networkidle0" });
 
+  console.log("Recording...");
+
   setTimeout(async () => {
     await recorder.stop();
     await browser.close();
+    console.log(`Recording saved to ${videoPath}`);
   }, settings.recording.duration * 1000);
 
   return videoPath;
-}
-
-export async function recordVideoThrottled(settings) {
-  console.log("Recording...");
-  return await _.throttle(async (settings) => {
-    const videoPath = await recordVideo(settings);
-    console.log(`Recording saved to ${videoPath}`);
-  }, settings.recording.duration * 1000);
 }
