@@ -14,10 +14,14 @@
       .map((item) => {
         console.log({ item });
         // Replace placeholders with actual data properties, referencing by itemName.
+        // The template is expected to use {timestamp} instead of {item.timestamp} given the data structure
         return template.replace(/\{(.*?)\}/g, (_, key) => {
-          console.log(key, item.timestamp); // Issue: key is `item.timestamp` but it should be just `timestamp
-          console.log(`Replacing ${key} with `, item[key.trim()]);
-          return item[key.trim()] || key;
+          console.log(`Key before processing: ${key}`);
+          // Remove 'item.' prefix if exists because we use direct key names like 'timestamp'
+          const strippedKey = key.replace(`${itemName}.`, "").trim();
+          console.log(`Stripped key: ${strippedKey}`, item[strippedKey]);
+          console.log(`Replacing ${key} with `, item[strippedKey]);
+          return item[strippedKey] || "";
         });
       })
       .join("");
