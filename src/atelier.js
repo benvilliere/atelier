@@ -35,7 +35,7 @@ program
   .option("-sp, --screenshot-path <string>", "path where to store screenshots")
   .option(
     "-st, --type, --screenshot-type <string>",
-    "screenshot file type (png or jpg)"
+    "screenshot file type (can be either png or jpg)"
   )
   .option(
     "-s, --selector, --screenshot-selector <selector>",
