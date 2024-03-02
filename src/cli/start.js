@@ -21,7 +21,7 @@ export default async function start(options) {
 
     if (currentTime - lastActionTime < settings.throttle * 1000) {
       if (settings.verbose) {
-        console.log(`Throttle limit reached, skipping action.`);
+        console.error(`Throttle limit reached, skipping action.`);
       }
 
       return; // Skip this action due to throttle limit
