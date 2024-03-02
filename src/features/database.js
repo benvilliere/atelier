@@ -17,4 +17,6 @@ export async function saveData(data, directory = ".atelier/data") {
 
   await fs.mkdir(directory, { recursive: true });
   await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
+
+  return filePath;
 }
