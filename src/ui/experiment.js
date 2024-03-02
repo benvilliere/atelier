@@ -15,7 +15,7 @@
         console.log({ item });
         // Replace placeholders with actual data properties, referencing by itemName.
         return template.replace(/\{(.*?)\}/g, (_, key) => {
-          console.log(key, item.timestamp);
+          console.log(key, item.timestamp); // Issue: key is `item.timestamp` but it should be just `timestamp
           console.log(`Replacing ${key} with `, item[key.trim()]);
           return item[key.trim()] || key;
         });
