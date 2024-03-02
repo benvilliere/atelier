@@ -6,6 +6,6 @@ export async function commitChanges(config) {
   const { commit: hash } = await git.commit(
     config.git?.commit?.message || "Atelier auto-commit"
   );
-  if (config.features.debug) console.log("Changes committed", hash);
+  if (config.verbose) console.log("Changes committed", hash);
   return hash;
 }
