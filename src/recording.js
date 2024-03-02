@@ -52,7 +52,7 @@ export async function recordVideo(settings) {
 }
 
 export async function recordVideoThrottled(settings) {
-  return _.throttle(async (settings) => {
+  return await _.throttle(async (settings) => {
     await recordVideo(settings);
   }, settings.recording.duration * 1000);
 }
