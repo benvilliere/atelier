@@ -9,7 +9,8 @@ import { getExcludedPaths } from "../helpers.js";
 export default async function start(options) {
   const settings = await mergeSettings(options);
   const server = await initializeServer(settings);
-  const target = settings.target
+
+  settings.target = settings.target
     ? settings.target
     : server.resolvedUrls.local[0];
 
@@ -55,5 +56,5 @@ export default async function start(options) {
 
   console.log("Atelier is running");
   console.log("Root:", settings.root);
-  console.log("Root:", settings.root);
+  console.log("Target:", settings.target);
 }
