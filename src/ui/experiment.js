@@ -9,6 +9,7 @@
 
   function renderTemplate(template, data, itemName) {
     console.log(`Rendering template for each ${itemName}`);
+    console.log("renderTemplate", { template, data, itemName });
     return data
       .map((item) => {
         // Replace placeholders with actual data properties, referencing by itemName.
