@@ -42,6 +42,7 @@ app.get("/data", async (req, res) => {
 
 app.get("/revert/:hash", function (req, res) {
   const hash = req.params.hash;
+  console.log({ hash });
   res.json({ hash });
 });
 
