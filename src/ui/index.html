@@ -14,8 +14,8 @@
           <span @show="'{entry.commitHash}' != ''">{entry.commitHash}</span>
           <img src="/screenshots/{entry.screenshot}" />
           <form @show="'{entry.commitHash}' != ''" method="get" action="/revert/{entry.commitHash}">
-            <!-- <button @submit @then="this.closest('.entry').remove()">Revert and destroy</button> -->
-            <button @submit @then="window.location.reload()">Revert and destroy</button>
+            <button @submit @then="this.closest('.entry').remove()">Revert and destroy</button>
+            <!-- <button @submit @then="window.location.reload()">Revert and destroy</button> -->
           </form>
         </div>
       </div>
