@@ -13,7 +13,7 @@
           <span>{entry.timestamp}</span>
           <span>{entry.commitHash}</span>
           <img src="/screenshots/{entry.screenshot}" />
-          <button @get="/revert/{entry.commitHash}">Revert</button>
+          <button @fetch="GET /revert/{entry.commitHash}">Revert</button>
         </div>
       </div>
     </ul>
