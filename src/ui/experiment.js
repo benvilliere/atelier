@@ -67,7 +67,7 @@
           console.log(event.target.action);
 
           const then = button.getAttribute("@then");
-          console.log(then);
+          console.log(then.replace(`this`, `button`));
           eval(then);
 
           // const submitAction = button.getAttribute("@submit");
