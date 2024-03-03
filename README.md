@@ -1,6 +1,6 @@
 # 🎨 Atelier
 
-> WORK IN PROGRESS
+> 🚧 WORK IN PROGRESS
 
 ## Introduction
 
