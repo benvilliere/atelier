@@ -19,7 +19,7 @@ export default {
   },
   commit: {
     enabled: true, // Enables auto-commit on save
-    message: "🎨 @genart/atelier: auto-commit on save", // Default commit message
+    message: "🎨 @genart/atelier: auto-commit", // Default commit message
   },
   data: {
     enabled: true, // Enables data storage
