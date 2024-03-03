@@ -67,7 +67,12 @@
           const method = event.target.method || "get";
           const action = event.target.action;
 
-          const res = await fetch(action, { method });
+          const res = await fetch(action, {
+            method,
+            headers: {
+              "Content-Type": "application/json", // Specify the content type
+            },
+          });
           console.log(res.json());
 
           const then = button.getAttribute("@then");
