@@ -7,6 +7,14 @@ export default {
   exclude: [".atelier/", "node_modules/", "dist/", "build/"], // Paths to exclude
   server: {}, // Vite server options
   throttle: 5, // Time in seconds between recordings and screenshots
+  watch: {
+    enabled: true,
+    port: 4242,
+    server: {}, // Vite server config for watcher
+  },
+  ui: {
+    enabled: false,
+  },
   commit: {
     enabled: true, // Enables auto-commit on save
     message: "🎨 @genart/atelier: auto-commit on save", // Default commit message

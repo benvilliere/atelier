@@ -3,7 +3,7 @@
 import process from "process";
 import { program } from "commander";
 import { loadJson } from "./helpers.js";
-import start from "./actions/start.js";
+import start from "./commands/start.js";
 
 const { version } = await loadJson("package.json");
 
@@ -49,6 +49,7 @@ program
   .option("-d, --duration <number>", "recording duration")
   .option("-D, --data", "enables data storage")
   .option("-dp, --data-path <string>", "path where to store data")
+  .option("--ui", "enables user interface")
   .action((options) => start(options));
 
 program.parse(process.argv);
