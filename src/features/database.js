@@ -22,9 +22,7 @@ export async function saveData(data, settings) {
 
   if (settings.verbose) {
     console.log("Data saved:", {
-      filename,
       filePath,
-      mkdir: getTimelineDir(settings),
       data,
     });
   }
