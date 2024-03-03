@@ -1,6 +1,6 @@
 import { mkdir, writeFile } from "fs/promises";
 import path from "path";
-import { getTimelineDir } from "../settings.js";
+import { getTimelineDir } from "../helpers.js";
 
 export function newDataEntry() {
   return {
