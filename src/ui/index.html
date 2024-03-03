@@ -13,7 +13,7 @@
           <span>{entry.timestamp}</span>
           <span>{entry.commitHash}</span>
           <img src="/screenshots/{entry.screenshot}" />
-          <form method="get" action="/revert/{entry.commitHash}" @has="{entry.commitHash}">
+          <form method="get" action="/revert/{entry.commitHash}" @when="{entry.commitHash}">
             <!-- <button @submit @then="window.location.reload()">Revert and reload</button> -->
             <button @submit @then="this.closest('.entry').remove()">Revert and destroy</button>
           </form>
