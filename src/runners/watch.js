@@ -74,6 +74,7 @@ export default async function watch(settings) {
         }
 
         if (settings.commit.enabled) {
+          console.log("Commit hash: ");
           data.commitHash = await commitChanges(settings);
         }
 
