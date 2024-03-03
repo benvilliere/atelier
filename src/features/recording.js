@@ -36,7 +36,8 @@ export async function recordVideo(settings) {
 
   const recorder = new PuppeteerScreenRecorder(page);
 
-  const videoPath = `${recordingDir}/${Date.now()}.mp4`;
+  const fileName = `${Date.now()}.mp4`;
+  const videoPath = `${recordingDir}/${fileName}`;
 
   await recorder.start(videoPath);
   await page.goto(settings.target, { waitUntil: "networkidle0" });
