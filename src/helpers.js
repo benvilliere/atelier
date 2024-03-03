@@ -6,6 +6,7 @@ import {
   ATELIER_BASE_DIR,
   ATELIER_SCREENSHOT_DIR,
   ATELIER_RECORDING_DIR,
+  ATELIER_TIMELINE_DIR,
 } from "./constants.js";
 
 export async function loadJson(filePath) {
