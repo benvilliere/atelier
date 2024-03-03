@@ -12,7 +12,7 @@ export default {
     port: 4242,
     server: {}, // Vite server config for watcher
   },
-  ui: {
+  timeline: {
     enabled: false,
   },
   commit: {

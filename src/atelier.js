@@ -49,7 +49,7 @@ program
   .option("-d, --duration <number>", "recording duration")
   .option("-D, --data", "enables data storage")
   .option("-dp, --data-path <string>", "path where to store data")
-  .option("--ui", "enables user interface")
+  .option("--ui, --timeline", "enables timeline user interface")
   .action((options) => start(options));
 
 program.parse(process.argv);
