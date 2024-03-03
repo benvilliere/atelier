@@ -9,7 +9,7 @@ export default {
   throttle: 5, // Time in seconds between recordings and screenshots
   commit: {
     enabled: true, // Enables auto-commit on save
-    message: "🎨 @genart/atelier: auto-commit on save", // Default commit message
+    message: "🎨 :palette: @genart/atelier: auto-commit on save", // Default commit message
   },
   data: {
     enabled: true, // Enables data storage
