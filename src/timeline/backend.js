@@ -5,12 +5,11 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const backend = express();
-const PORT = 3001;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const dataDirectory = path.join(__dirname, "../../.atelier/data");
+const dataDirectory = path.join(__dirname, "../../.atelier/timeline");
 const screenshotsDirectory = path.join(__dirname, "../../.atelier/screenshots");
 const recordingsDirectory = path.join(__dirname, "../../.atelier/recordings");
 const timelineDirectory = __dirname;
@@ -48,9 +47,5 @@ backend.get("/revert/:hash", function (req, res) {
 backend.get("*", (req, res) => {
   res.sendFile(path.join(timelineDirectory, "index.html"));
 });
-
-// backend.listen(PORT, () => {
-//   console.log(`Server running at http://localhost:${PORT}`);
-// });
 
 export default backend;

@@ -16,11 +16,19 @@
   },
   "scripts": {
     "atelier": "node ./src/atelier.js",
+    "dev": "nodemon",
     "postinstall": "node ./src/scripts/postinstall.js",
     "npm-publish": "npm publish --access public",
-    "timeline": "node ./src/timeline/backend.js",
     "sort-package": "npx sort-package-json",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "timeline": "node ./src/timeline/backend.js"
+  },
+  "nodemonConfig": {
+    "exec": "node ./src/atelier.js --timeline-only",
+    "ext": "js,json,html,css",
+    "watch": [
+      "./src/**/*"
+    ]
   },
   "dependencies": {
     "commander": "^12.0.0",
@@ -32,5 +40,8 @@
     "puppeteer-screen-recorder": "^3.0.3",
     "simple-git": "^3.22.0",
     "vite": "^5.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }
