@@ -62,7 +62,6 @@
     const whenDirectives = document.querySelectorAll("[\\@when]");
     whenDirectives.forEach((element) => {
       const when = element.getAttribute("@when");
-      console.log("When:", when);
       if (when === "" || eval(when) === false) {
         element.remove();
         console.log("Removed:", element);
