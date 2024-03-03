@@ -58,6 +58,18 @@
       }
     }
 
+    // Handle @show directives
+    const showElements = document.querySelectorAll("[\\@show]");
+    console.log(`Found ${showElements.length} elements with @show directive`);
+    showElements.forEach((element) => {
+      const show = element.getAttribute("@show");
+      console.log(show, eval(show));
+      if (eval(show) === true) {
+        element.remove();
+        console.log("Removed:", element);
+      }
+    });
+
     // Handle @hide directives
     const hideElements = document.querySelectorAll("[\\@hide]");
     console.log(`Found ${hideElements.length} elements with @hide directive`);
