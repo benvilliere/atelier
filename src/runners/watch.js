@@ -25,13 +25,14 @@ export default async function watch(settings) {
 
     console.log(`Watcher running at ${url}`);
 
+    settings.target = settings.target
+      ? settings.target
+      : server.resolvedUrls.local[0];
+
     if (settings.verbose) {
       console.log("Root:", settings.root);
       console.log("Target:", settings.target);
     }
-
-    settings.target =
-      settings.target != null ? settings.target : server.resolvedUrls.local[0];
 
     server.watcher.on("change", async (filePath) => {
       const currentTime = new Date().getTime();
