@@ -66,7 +66,7 @@
           event.preventDefault(); // Prevent the form from submitting
           console.log(event.target.action);
 
-          const then = button.getAttribute("@submit");
+          const then = button.getAttribute("@then");
           console.log(button, then);
 
           // const submitAction = button.getAttribute("@submit");
