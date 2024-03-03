@@ -13,7 +13,7 @@
           <span>{entry.timestamp}</span>
           <span>{entry.commitHash}</span>
           <img src="/screenshots/{entry.screenshot}" />
-          <form method="get" action="/revert/{entry.commitHash}">
+          <form id="revert-commit-form" method="get" action="/revert/{entry.commitHash}">
             <button @submit="#parent-form">Revert</button>
           </form>
         </div>
