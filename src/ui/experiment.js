@@ -60,7 +60,9 @@
 
     // Handle @when directives
     const whenDirectives = document.querySelectorAll("[\\@when]");
-    whenDirectives.forEach((element) => {});
+    whenDirectives.forEach((element) => {
+      console.log(element.getAttribute("@when"));
+    });
 
     // Handle @submit directive
     const submitDirectives = document.querySelectorAll("[\\@submit]");
