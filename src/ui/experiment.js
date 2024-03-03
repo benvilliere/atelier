@@ -12,29 +12,28 @@
     return data
       .map((item) => {
         return template.replaceAll(/\{(.*?)\}/g, (_, key) => {
-          const strippedKey = key.replace(`${itemName}.`, "").trim();
-          return item[strippedKey] || "";
+          // Adjusted to handle nested properties correctly
+          const propertyPath = key.trim().split(".");
+          let currentValue = item;
+          for (const segment of propertyPath) {
+            currentValue = currentValue[segment];
+            if (currentValue === undefined) break;
+          }
+          console.log(`Replacing ${key} with`, currentValue);
+          return currentValue || `No ${key}`;
         });
       })
       .join("");
   }
 
   function attachEventListeners(context) {
-    // Find all forms within the given context
     const forms = context.querySelectorAll("form");
     forms.forEach((form) => {
-      // Find elements within the form that have an @submit directive
       const submitElements = form.querySelectorAll("[\\@submit]");
       submitElements.forEach((submitElement) => {
         submitElement.addEventListener("click", (e) => {
-          e.preventDefault(); // Prevent the default form submission
-          // You can add your custom submit logic here
-          console.log(form);
-          console.log("Form submission prevented and custom logic executed.");
-          // If you want to manually submit the form, you can call form.submit();
-          // Or if you want to call a specific function, you could do something like:
-          // const actionName = submitElement.getAttribute('@submit');
-          // window[actionName] && window[actionName](e, form);
+          e.preventDefault(); // Prevent the form from submitting
+          console.log("Custom submit logic executed.");
         });
       });
     });
@@ -62,7 +61,6 @@
           const items = data[itemsKey] || data;
           const template = forElement.innerHTML.trim();
           forElement.innerHTML = renderTemplate(template, items, itemName);
-          // Attach event listeners after rendering the template
           attachEventListeners(forElement);
         }
       }
