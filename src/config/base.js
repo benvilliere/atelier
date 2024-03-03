@@ -13,7 +13,7 @@ export default {
     server: {}, // Vite server config for watcher
   },
   timeline: {
-    enabled: false,
+    enabled: true,
   },
   commit: {
     enabled: true, // Enables auto-commit on save

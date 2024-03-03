@@ -20,6 +20,11 @@ export default async function watch(settings) {
 
     await server.listen(settings.watch.port || 4242);
 
+    console.log(`Watcher is running`);
+    console.log("Root:", settings.root);
+    console.log("Target:", settings.target);
+    server.printUrls();
+
     settings.target = settings.target
       ? settings.target
       : server.resolvedUrls.local[0];
@@ -78,10 +83,6 @@ export default async function watch(settings) {
         }
       }
     });
-
-    console.log(`Watcher is running`);
-    console.log("Root:", settings.root);
-    console.log("Target:", settings.target);
   }
 
   await run(settings);
