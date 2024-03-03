@@ -21,7 +21,7 @@ export async function saveData(data, settings) {
   await writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
 
   if (settings.verbose) {
-    console.log("Data saved:", {
+    console.log("💾 Data saved", {
       filePath,
       data,
     });
