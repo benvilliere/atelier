@@ -13,11 +13,11 @@
           <span>{entry.timestamp}</span>
           <span>{entry.commitHash}</span>
           <img src="/screenshots/{entry.screenshot}" />
-          <form method="get" action="/revert/{entry.commitHash}">
+          <form method="get" @action="/revert/{entry.commitHash}">
             <div @Done>Doing something...</div>
             <div @waiting>Doing something...</div>
             <button @submit>
-              <span @done></span>
+              <span></span>
             </button>
           </form>
         </div>
