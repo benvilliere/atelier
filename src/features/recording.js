@@ -32,7 +32,7 @@ export async function recordVideo(settings) {
     recordDurationLimit: settings.recording.duration * 1000,
   };
 
-  if (settings.verbose) console.log("Recording options:", recordingOptions);
+  if (settings.verbose) console.log("🎥 Recording options:", recordingOptions);
 
   const recorder = new PuppeteerScreenRecorder(page);
 
