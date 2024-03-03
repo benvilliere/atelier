@@ -58,7 +58,7 @@
 
       const submitDirectives = element.querySelectorAll("[\\@submit]");
       console.log(
-        `Found ${forElements.length} elements with @for directive inside fetched element.`
+        `Found ${submitDirectives.length} elements with @submit directive`
       );
     }
   }
