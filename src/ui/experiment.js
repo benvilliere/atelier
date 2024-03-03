@@ -59,7 +59,7 @@
 
     // Handle @submit directives
     const submitDirectives = document.querySelectorAll("[\\@submit]");
-    submitDirectives.forEach((button) => {
+    submitDirectives.forEach(async (button) => {
       const form = button.closest("form"); // Find the parent form
       if (form) {
         form.addEventListener("submit", async (event) => {
