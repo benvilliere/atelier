@@ -13,6 +13,7 @@ export function newDataEntry() {
 
 export async function saveData(data, settings) {
   data.timestamp = Date.now();
+
   const filename = `${data.timestamp}.json`;
   const filePath = path.join(getTimelineDir(settings), filename);
 
