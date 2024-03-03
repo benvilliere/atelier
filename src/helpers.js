@@ -54,6 +54,10 @@ export function getScreenshotDir(config) {
   );
 }
 
+export function getTimelineDir(config) {
+  return config.timeline.path || `${ATELIER_BASE_DIR}/${ATELIER_TIMELINE_DIR}`;
+}
+
 export function getExcludedPaths(config) {
   return [...config.exclude, getRecordingDir(config), getScreenshotDir(config)];
 }
