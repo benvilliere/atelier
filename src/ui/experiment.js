@@ -73,8 +73,7 @@
               "Content-Type": "application/json", // Specify the content type
             },
           });
-          console.log(await res.json());
-
+          await res.json();
           const then = button.getAttribute("@then");
           eval(then.replace(`this`, `button`));
         });
