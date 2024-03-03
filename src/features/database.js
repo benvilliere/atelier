@@ -15,7 +15,7 @@ export async function saveData(
   settings,
   directory = ".atelier/timeline"
 ) {
-  const timestamp = new Date().toISOString();
+  const timestamp = Date().now();
   const filename = `${timestamp.replace(/[:.]/g, "-")}.json`;
   const filePath = path.join(directory, filename);
 
