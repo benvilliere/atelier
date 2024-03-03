@@ -29,6 +29,7 @@
         submitElement.addEventListener("click", (e) => {
           e.preventDefault(); // Prevent the default form submission
           // You can add your custom submit logic here
+          console.log(form);
           console.log("Form submission prevented and custom logic executed.");
           // If you want to manually submit the form, you can call form.submit();
           // Or if you want to call a specific function, you could do something like:
