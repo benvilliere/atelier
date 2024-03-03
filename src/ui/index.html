@@ -7,12 +7,18 @@
     <script src="experiment.js"></script>
   </head>
   <body>
-    <ul @fetch="http://localhost:3001/data">
-      <li @for="entry in data">
-        <span>{entry.timestamp}</span>
-        <span>{entry.commitHash}</span>
-        <img src="/screenshots/{entry.screenshot}" />
-      </li>
+    <div @fetch="http://localhost:3001/data" class="flex justify-center">
+      <div @for="entry in data">
+        <div class="flex flex-wrap w-1/3 border rounded-lg overflow-hidden p-6">
+          <span>{entry.timestamp}</span>
+          <span>{entry.commitHash}</span>
+          <img src="/screenshots/{entry.screenshot}" />
+          <form @action="/revert/{entry.commitHash}">
+            <div @waiting>Doing something...</div>
+            <button @submit>Revert</button>
+          </form>
+        </div>
+      </div>
     </ul>
   </body>
 </html>
