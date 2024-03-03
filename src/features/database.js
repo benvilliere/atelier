@@ -19,6 +19,7 @@ export async function saveData(data, settings) {
   console.log({
     filename,
     filePath,
+    mkdir: getTimelineDir(settings),
   });
 
   await mkdir(getTimelineDir(settings), { recursive: true });
