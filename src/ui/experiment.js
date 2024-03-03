@@ -67,7 +67,7 @@
           const method = event.target.method || "get";
           const action = event.target.action;
           const then = button.getAttribute("@then");
-
+          console.log({ method, action, then });
           // eval(then.replace(`this`, `button`));
 
           // const submitAction = button.getAttribute("@submit");
