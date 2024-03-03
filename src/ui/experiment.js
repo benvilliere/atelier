@@ -75,11 +75,10 @@
             },
           }).then((res) => {
             console.log(res.json());
+            const then = button.getAttribute("@then");
+            console.log({ method, action, then });
+            // eval(then.replace(`this`, `button`));
           });
-
-          const then = button.getAttribute("@then");
-          console.log({ method, action, then });
-          // eval(then.replace(`this`, `button`));
 
           // const submitAction = button.getAttribute("@submit");
           // if (submitAction) {
