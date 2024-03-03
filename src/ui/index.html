@@ -14,7 +14,7 @@
           <span>{entry.commitHash}</span>
           <img src="/screenshots/{entry.screenshot}" />
           <form id="revert-commit-form" method="get" action="/revert/{entry.commitHash}">
-            <button @submit="#revert-commit-form">Revert</button>
+            <button @submit>Revert</button>
           </form>
         </div>
       </div>
