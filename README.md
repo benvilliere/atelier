@@ -67,4 +67,4 @@ TODO: List out all configuration options.
 - UI Action: save to dropbox
 - UI Action: share
 - Init script: add .atelier to .gitignore if exists
-- CLI Action: init project
+- CLI Action: init project (generate customised config file)

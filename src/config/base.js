@@ -14,6 +14,8 @@ export default {
   },
   timeline: {
     enabled: true,
+    path: ".atelier/timeline", // Path where to store timeline data
+    open: true,
   },
   commit: {
     enabled: true, // Enables auto-commit on save

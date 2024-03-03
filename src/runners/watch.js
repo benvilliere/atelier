@@ -18,12 +18,17 @@ export default async function watch(settings) {
       },
     });
 
-    await server.listen(settings.watch.port || 4242);
+    const port = settings.watch.port || 4242;
+    const url = `http://localhost:${port}`;
 
-    console.log(`Watcher is running`);
-    console.log("Root:", settings.root);
-    console.log("Target:", settings.target);
-    server.printUrls();
+    await server.listen(port);
+
+    console.log(`Watcher running at ${url}`);
+
+    if (settings.verbose) {
+      console.log("Root:", settings.root);
+      console.log("Target:", settings.target);
+    }
 
     settings.target = settings.target
       ? settings.target
