@@ -57,11 +57,22 @@
       }
     }
 
+    // Handle @submit directives
     const submitDirectives = document.querySelectorAll("[\\@submit]");
-    console.log(
-      `Found ${submitDirectives.length} elements with @submit directive`
-    );
-    // TODO: Find next parent form
+    submitDirectives.forEach((button) => {
+      const form = button.closest("form"); // Find the parent form
+      if (form) {
+        form.addEventListener("submit", (event) => {
+          event.preventDefault(); // Prevent the form from submitting
+          const submitAction = button.getAttribute("@submit");
+          if (submitAction) {
+            // You can handle different submit actions based on the attribute value
+            // For now, just log it. You could replace this with actual functionality.
+            console.log(`Submit action: ${submitAction}`);
+          }
+        });
+      }
+    });
   }
 
   document.addEventListener("DOMContentLoaded", processElements);
