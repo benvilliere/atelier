@@ -4,7 +4,7 @@ import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
 
-const app = express();
+const backend = express();
 const PORT = 3001;
 
 const __filename = fileURLToPath(import.meta.url);
@@ -15,12 +15,12 @@ const screenshotsDirectory = path.join(__dirname, "../../.atelier/screenshots");
 const recordingsDirectory = path.join(__dirname, "../../.atelier/recordings");
 const timelineDirectory = __dirname;
 
-app.use(cors());
-app.use("/", express.static(timelineDirectory));
-app.use("/screenshots", express.static(screenshotsDirectory));
-app.use("/recordings", express.static(recordingsDirectory));
+backend.use(cors());
+backend.use("/", express.static(timelineDirectory));
+backend.use("/screenshots", express.static(screenshotsDirectory));
+backend.use("/recordings", express.static(recordingsDirectory));
 
-app.get("/data", async (req, res) => {
+backend.get("/data", async (req, res) => {
   try {
     const files = await fs.readdir(dataDirectory);
     const dataEntries = [];
@@ -39,16 +39,18 @@ app.get("/data", async (req, res) => {
   }
 });
 
-app.get("/revert/:hash", function (req, res) {
+backend.get("/revert/:hash", function (req, res) {
   const hash = req.params.hash;
   console.log({ hash });
   res.json({ hash });
 });
 
-app.get("*", (req, res) => {
+backend.get("*", (req, res) => {
   res.sendFile(path.join(timelineDirectory, "index.html"));
 });
 
-app.listen(PORT, () => {
+backend.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
+
+export default backend;
