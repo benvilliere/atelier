@@ -15,7 +15,7 @@
           <img src="/screenshots/{entry.screenshot}" />
           <form method="get" action="/revert/{entry.commitHash}">
             <!-- <button @submit @then="window.location.reload()">Revert and reload</button> -->
-            <button @submit @then="this.closest('.entry').remove()">Revert and destroy</button>
+            <button @submit @then="@this.closest('.entry').remove()">Revert and destroy</button>
           </form>
         </div>
       </div>
