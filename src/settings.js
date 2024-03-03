@@ -43,6 +43,10 @@ function convertOptionsToConfig(options) {
   converted.exclude = options.exclude;
   converted.throttle = Number(options.throttle) || undefined;
 
+  converted.watch = {
+    enabled: options.watch,
+  };
+
   converted.commit = {
     enabled: options.commit,
     message: options.message,
@@ -73,6 +77,22 @@ function convertOptionsToConfig(options) {
     enabled: options.enabled,
     path: options.dataPath,
   };
+
+  converted.timeline = {
+    enabled: options.enabled,
+    path: options.dataPath,
+    open: options.open,
+  };
+
+  if (options.timelineOnly) {
+    console.log("Running in timeline only mode");
+    converted.timeline.enabled = true;
+    converted.timeline.open = true;
+    converted.commit.enabled = false;
+    converted.watch.enabled = false;
+    converted.screenshot.enabled = false;
+    converted.recording.enabled = false;
+  }
 
   return converted;
 }

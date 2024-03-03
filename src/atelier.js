@@ -50,6 +50,7 @@ program
   .option("-D, --data", "enables data storage")
   .option("-dp, --data-path <string>", "path where to store data")
   .option("--ui, --timeline", "enables timeline user interface")
+  .option("--only-timeline, --timeline-only", "enable timeline ui exclusively")
   .action((options) => start(options));
 
 program.parse(process.argv);
