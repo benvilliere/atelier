@@ -58,6 +58,10 @@
       }
     }
 
+    // Handle @when directives
+    const whenDirectives = document.querySelectorAll("[\\@when]");
+    whenDirectives.forEach((element) => {});
+
     // Handle @submit directive
     const submitDirectives = document.querySelectorAll("[\\@submit]");
     submitDirectives.forEach((button) => {
