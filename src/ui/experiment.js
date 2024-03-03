@@ -56,7 +56,10 @@
         }
       }
 
-      const submitDirectives = element.querySelectorAll("[\\@for]");
+      const submitDirectives = element.querySelectorAll("[\\@submit]");
+      console.log(
+        `Found ${forElements.length} elements with @for directive inside fetched element.`
+      );
     }
   }
 
