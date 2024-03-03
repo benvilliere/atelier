@@ -59,8 +59,11 @@
     }
 
     // Handle @show directives
-    const showDirectives = document.querySelectorAll("[\\@show]");
-    showDirectives.forEach((element) => {
+    const showElements = document.querySelectorAll("[\\@show]");
+    console.log(
+      `Found ${showElements.length} elements with @for directive inside fetched element.`
+    );
+    showElements.forEach((element) => {
       const show = element.getAttribute("@show");
       if (show === "" || eval(show) === false) {
         element.remove();
