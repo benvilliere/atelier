@@ -73,8 +73,9 @@
             headers: {
               "Content-Type": "application/json", // Specify the content type
             },
+          }).then((res) => {
+            console.log(res.json());
           });
-          console.log(res.json());
 
           const then = button.getAttribute("@then");
           console.log({ method, action, then });
