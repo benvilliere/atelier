@@ -68,6 +68,7 @@
           const action = event.target.action;
 
           const res = await fetch(action, { method });
+          console.log(res.json());
 
           const then = button.getAttribute("@then");
           console.log({ method, action, then });
