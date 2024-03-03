@@ -4,7 +4,7 @@ export default async function timeline(settings) {
   async function run(settings) {
     const port = settings.timeline.port || 3001;
 
-    expressApp.listen(port, () => {
+    backend.listen(port, () => {
       console.log(`Timeline server running at http://localhost:${port}`);
     });
   }
