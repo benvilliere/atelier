@@ -16,6 +16,11 @@ export async function saveData(data, settings) {
   const filename = `${timestamp.replace(/[:.]/g, "-")}.json`;
   const filePath = path.join(getTimelineDir(settings), filename);
 
+  console.log({
+    filename,
+    filePath,
+  });
+
   await mkdir(getTimelineDir(settings), { recursive: true });
   await writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
 
