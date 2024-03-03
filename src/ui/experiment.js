@@ -62,7 +62,7 @@
     const whenDirectives = document.querySelectorAll("[\\@when]");
     whenDirectives.forEach((element) => {
       const when = element.getAttribute("@when");
-      if ()
+      if (when === "") element.remove();
     });
 
     // Handle @submit directive
