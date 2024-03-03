@@ -68,7 +68,7 @@
 
           const then = button.getAttribute("@then");
           console.log(then);
-          // eval(then);
+          eval(then);
 
           // const submitAction = button.getAttribute("@submit");
           // if (submitAction) {
