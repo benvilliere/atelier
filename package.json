@@ -18,7 +18,7 @@
     "atelier": "node ./src/atelier.js",
     "postinstall": "node ./src/scripts/postinstall.js",
     "npm-publish": "npm publish --access public",
-    "ui": "node ./src/ui/backend.js",
+    "timeline": "node ./src/timeline/backend.js",
     "sort-package": "npx sort-package-json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,4 +1,5 @@
 (function () {
+  // This is an experimental library, because of the course the world needs yet another javascript frontend framework
   async function fetchData(url) {
     console.log(`Fetching data from: ${url}`);
     const response = await fetch(url);
