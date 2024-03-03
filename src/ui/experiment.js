@@ -63,10 +63,10 @@
     console.log(`Found ${showElements.length} elements with @show directive`);
     showElements.forEach((element) => {
       const show = element.getAttribute("@show");
-      console.log("@show", show, eval(show));
+      // console.log("@show", show, eval(show));
       if (eval(show) === false) {
         element.remove();
-        console.log("Removed:", element);
+        // console.log("Removed:", element);
       }
     });
 
