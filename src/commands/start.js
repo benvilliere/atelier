@@ -6,7 +6,9 @@ import watch from "../runners/watch.js";
 const { version } = await loadJson("package.json");
 
 export default async function start(options) {
-  console.log(`🎨 Atelier (v${version})`);
+  console.log(`-----------------------`);
+  console.log(`| 🎨 Atelier (v${version}) |`);
+  console.log(`-----------------------`);
 
   const settings = await mergeSettings(options);
 

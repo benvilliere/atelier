@@ -56,6 +56,7 @@ TODO: List out all configuration options.
 
 ## TODOs
 
+- Rename timeline to time machine
 - Test on a new project
 - Refine & document configuration file
 - Add support for global configuration?
