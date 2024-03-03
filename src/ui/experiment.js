@@ -55,11 +55,6 @@
           forElement.innerHTML = renderTemplate(template, items, itemName);
         }
       }
-
-      const submitDirectives = element.querySelectorAll("[\\@submit]");
-      console.log(
-        `Found ${submitDirectives.length} elements with @submit directive`
-      );
     }
   }
 
