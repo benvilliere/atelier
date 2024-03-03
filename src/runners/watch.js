@@ -23,7 +23,7 @@ export default async function watch(settings) {
 
     await server.listen(port);
 
-    console.log(`Watcher running at ${url}`);
+    console.log(`⚙️ Watcher running at ${url}`);
 
     settings.target = settings.target
       ? settings.target
