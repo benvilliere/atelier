@@ -7,7 +7,7 @@ export default async function timeline(settings) {
     const url = `http://localhost:${port}`;
 
     backend.listen(port, () => {
-      console.log(`💫 Timeline running at:`, url);
+      console.log("💫 Timeline running at:", url);
 
       if (settings.timeline.open) {
         openBrowser(url);
