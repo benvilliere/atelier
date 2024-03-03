@@ -60,7 +60,7 @@
     // Handle @submit directives
     const submitDirectives = document.querySelectorAll("[\\@submit]");
 
-    submitDirectives.forEach((button) => {
+    submitDirectives.forEach(async (button) => {
       const form = button.closest("form"); // Find the parent form
       if (form) {
         form.addEventListener("submit", (event) => {
@@ -68,17 +68,12 @@
           const method = event.target.method || "get";
           const action = event.target.action;
 
-          fetch(action, {
+          const response = await fetch(action, {
             method,
             headers: {
               "Content-Type": "application/json", // Specify the content type
             },
-          }).then((res) => {
-            console.log(res.json());
-            const then = button.getAttribute("@then");
-            console.log({ method, action, then });
-            // eval(then.replace(`this`, `button`));
-          });
+          })
 
           // const submitAction = button.getAttribute("@submit");
           // if (submitAction) {
