@@ -77,7 +77,9 @@ export default async function watch(settings) {
           data.commitHash = await commitChanges(settings);
         }
 
+        // if (settings.timeline.enabled) {
         await saveData(data, settings);
+        // }
       } catch (err) {
         if (settings.verbose) {
           console.error("Failed to commit changes or take screenshot:", err);
