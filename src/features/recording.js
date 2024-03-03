@@ -45,7 +45,7 @@ export async function recordVideo(settings) {
   setTimeout(async () => {
     await recorder.stop();
     await browser.close();
-    console.log(`Recording saved to ${videoPath}`);
+    console.log(`🎥 Recording saved to ${videoPath}`);
   }, settings.recording.duration * 1000);
 
   return fileName;
