@@ -89,6 +89,10 @@ export default async function watch(settings) {
           );
         }
       }
+
+      // if (settings.timeline.enabled) {
+      await saveData(data, settings);
+      // }
     });
   }
 
