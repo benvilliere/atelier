@@ -10,7 +10,7 @@
     <div @fetch="http://localhost:3001/data" class="flex justify-center">
       <div @for="entry in data">
         <div class="flex flex-wrap w-1/3 border rounded-lg overflow-hidden p-6">
-          <span @wait >{entry.timestamp}</span>
+          <span>{entry.timestamp}</span>
           <span>{entry.commitHash}</span>
           <img src="/screenshots/{entry.screenshot}" />
           <form method="get" @action="/revert/{entry.commitHash}">
