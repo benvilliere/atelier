@@ -64,7 +64,7 @@
     hideElements.forEach((element) => {
       const hide = element.getAttribute("@hide");
       console.log(hide, eval(hide));
-      if (hide === "" || eval(hide) === false) {
+      if (eval(hide) === true) {
         element.remove();
         console.log("Removed:", element);
       }
