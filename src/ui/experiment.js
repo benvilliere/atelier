@@ -61,6 +61,7 @@
     console.log(
       `Found ${submitDirectives.length} elements with @submit directive`
     );
+    // Find parent form
   }
 
   document.addEventListener("DOMContentLoaded", processElements);
