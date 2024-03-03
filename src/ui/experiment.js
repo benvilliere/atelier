@@ -28,6 +28,7 @@
   }
 
   async function processElements() {
+    // Handle @fetch directive
     const fetchElements = document.querySelectorAll("[\\@fetch]");
     console.log(
       `Found ${fetchElements.length} elements with @fetch directive.`
@@ -57,7 +58,7 @@
       }
     }
 
-    // Handle @submit directives
+    // Handle @submit directive
     const submitDirectives = document.querySelectorAll("[\\@submit]");
     submitDirectives.forEach((button) => {
       const form = button.closest("form"); // Find the parent form
