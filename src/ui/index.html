@@ -14,6 +14,7 @@
           <span>{entry.commitHash}</span>
           <img src="/screenshots/{entry.screenshot}" />
           <form method="get" action="/revert/{entry.commitHash}">
+            <button @submit @then="window.location.reload()">Revert and reload</button>
             <button @submit @then="window.location.reload()">Revert</button>
           </form>
         </div>
