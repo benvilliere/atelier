@@ -77,13 +77,6 @@
 
           const then = button.getAttribute("@then");
           eval(then.replace(`this`, `button`));
-
-          // const submitAction = button.getAttribute("@submit");
-          // if (submitAction) {
-          //   // You can handle different submit actions based on the attribute value
-          //   // For now, just log it. You could replace this with actual functionality.
-          //   console.log(`Submit action: ${submitAction}`);
-          // }
         });
       }
     });
