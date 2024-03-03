@@ -14,7 +14,7 @@ export function newDataEntry() {
 export async function saveData(data, settings) {
   const timestamp = Date().now();
   const filename = `${timestamp.replace(/[:.]/g, "-")}.json`;
-  const filePath = path.join(directory, filename);
+  const filePath = path.join(getTimelineDir(settings), filename);
 
   await mkdir(getTimelineDir(settings), { recursive: true });
   await writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
