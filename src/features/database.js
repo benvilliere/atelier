@@ -17,18 +17,16 @@ export async function saveData(data, settings) {
   const filename = `${data.timestamp}.json`;
   const filePath = path.join(getTimelineDir(settings), filename);
 
-  console.log({
-    filename,
-    filePath,
-    mkdir: getTimelineDir(settings),
-    data,
-  });
-
   await mkdir(getTimelineDir(settings), { recursive: true });
   await writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
 
   if (settings.verbose) {
-    console.log("Data saved:", filePath);
+    console.log("Data saved:", {
+      filename,
+      filePath,
+      mkdir: getTimelineDir(settings),
+      data,
+    });
   }
 
   return filePath;
