@@ -64,7 +64,7 @@
       if (form) {
         form.addEventListener("submit", (event) => {
           event.preventDefault(); // Prevent the form from submitting
-          console.log(event.target.action);
+          const action = event.target.action;
 
           const then = button.getAttribute("@then");
           eval(then.replace(`this`, `button`));
