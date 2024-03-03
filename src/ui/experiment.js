@@ -65,6 +65,9 @@
         form.addEventListener("submit", (event) => {
           event.preventDefault(); // Prevent the form from submitting
           console.log(event.target.action);
+
+          const then = button.getAttribute("@submit");
+
           // const submitAction = button.getAttribute("@submit");
           // if (submitAction) {
           //   // You can handle different submit actions based on the attribute value
