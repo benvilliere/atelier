@@ -64,7 +64,7 @@
     showElements.forEach((element) => {
       const show = element.getAttribute("@show");
       console.log(show, eval(show));
-      if (show === "" || eval(show) === false) {
+      if (show === "" || eval(show) === true) {
         element.remove();
         console.log("Removed:", element);
       }
