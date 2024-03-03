@@ -20,9 +20,8 @@ export async function takeScreenshot(settings) {
 
   await page.goto(settings.target, { waitUntil: "networkidle0" });
 
-  const screenshotPath = `${screenshotDir}/${Date.now()}.${
-    settings.screenshot.type
-  }`;
+  const fileName = `${Date.now()}.${settings.screenshot.type}`;
+  const screenshotPath = `${screenshotDir}/`;
 
   if (settings.screenshot.selector) {
     await page.waitForSelector(settings.screenshot.selector);
