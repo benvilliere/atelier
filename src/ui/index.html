@@ -7,7 +7,7 @@
     <script src="experiment.js"></script>
   </head>
   <body>
-    <div @fetch="http://localhost:3001/data" class="flex justify-center">
+    <div @fetch="/data" class="flex justify-center">
       <div @for="entry in data">
         <div class="flex flex-wrap w-1/3 border rounded-lg overflow-hidden p-6">
           <span>{entry.timestamp}</span>
