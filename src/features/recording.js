@@ -48,5 +48,5 @@ export async function recordVideo(settings) {
     console.log(`Recording saved to ${videoPath}`);
   }, settings.recording.duration * 1000);
 
-  return videoPath;
+  return fileName;
 }
