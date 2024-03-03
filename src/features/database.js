@@ -1,5 +1,6 @@
 import { mkdir, writeFile } from "fs/promises";
 import path from "path";
+import { getTimelineDir } from "../settings.js";
 
 export function newDataEntry() {
   return {
@@ -10,16 +11,12 @@ export function newDataEntry() {
   };
 }
 
-export async function saveData(
-  data,
-  settings,
-  directory = ".atelier/timeline"
-) {
+export async function saveData(data, settings) {
   const timestamp = Date().now();
   const filename = `${timestamp.replace(/[:.]/g, "-")}.json`;
   const filePath = path.join(directory, filename);
 
-  await mkdir(directory, { recursive: true });
+  await mkdir(getTimelineDir(), { recursive: true });
   await writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
 
   if (settings.verbose) {
