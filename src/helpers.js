@@ -1,3 +1,4 @@
+import { exec } from "child_process";
 import { promises as fs } from "fs";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
@@ -55,4 +56,17 @@ export function getScreenshotDir(config) {
 
 export function getExcludedPaths(config) {
   return [...config.exclude, getRecordingDir(config), getScreenshotDir(config)];
+}
+
+export function openBrowser(url) {
+  switch (process.platform) {
+    case "darwin":
+      exec(`open ${url}`);
+      break;
+    case "win32":
+      exec(`start ${url}`);
+      break;
+    default:
+      exec(`xdg-open ${url}`);
+  }
 }
