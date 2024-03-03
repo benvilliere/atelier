@@ -9,34 +9,22 @@
 
   function renderTemplate(template, data, itemName) {
     console.log(`Rendering template for each ${itemName}`);
+    console.log("renderTemplate", { template, data, itemName });
     return data
       .map((item) => {
+        console.log({ item });
+        // Replace placeholders with actual data properties, referencing by itemName.
+        // The template is expected to use {timestamp} instead of {item.timestamp} given the data structure
         return template.replaceAll(/\{(.*?)\}/g, (_, key) => {
-          // Adjusted to handle nested properties correctly
-          const propertyPath = key.trim().split(".");
-          let currentValue = item;
-          for (const segment of propertyPath) {
-            currentValue = currentValue[segment];
-            if (currentValue === undefined) break;
-          }
-          console.log(`Replacing ${key} with`, currentValue);
-          return currentValue || `No ${key}`;
+          console.log(`Key before processing: ${key}`);
+          // Remove 'item.' prefix if exists because we use direct key names like 'timestamp'
+          const strippedKey = key.replace(`${itemName}.`, "").trim();
+          console.log(`Stripped key: ${strippedKey}`, item[strippedKey]);
+          console.log(`Replacing ${key} with `, item[strippedKey]);
+          return item[strippedKey] || "";
         });
       })
       .join("");
-  }
-
-  function attachEventListeners(context) {
-    const forms = context.querySelectorAll("form");
-    forms.forEach((form) => {
-      const submitElements = form.querySelectorAll("[\\@submit]");
-      submitElements.forEach((submitElement) => {
-        submitElement.addEventListener("click", (e) => {
-          e.preventDefault(); // Prevent the form from submitting
-          console.log("Custom submit logic executed.");
-        });
-      });
-    });
   }
 
   async function processElements() {
@@ -49,6 +37,7 @@
       const url = element.getAttribute("@fetch");
       const data = await fetchData(url);
 
+      // Find all children (or descendants) of the element that have an @for attribute
       const forElements = element.querySelectorAll("[\\@for]");
       console.log(
         `Found ${forElements.length} elements with @for directive inside fetched element.`
@@ -57,11 +46,13 @@
       for (const forElement of forElements) {
         const forDirective = forElement.getAttribute("@for");
         if (forDirective) {
+          console.log(`Processing @for directive: ${forDirective}`);
           const [itemName, itemsKey] = forDirective.split(" in ");
-          const items = data[itemsKey] || data;
+          const items = data[itemsKey] || data; // Allow for direct array data or object property.
+          console.log(`Items for iteration: `, items);
           const template = forElement.innerHTML.trim();
+
           forElement.innerHTML = renderTemplate(template, items, itemName);
-          attachEventListeners(forElement);
         }
       }
     }
