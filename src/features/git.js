@@ -4,6 +4,9 @@ export async function commitChanges(settings) {
   const git = simpleGit();
   await git.add(".");
   const { commit: hash } = await git.commit(settings.commit.message);
-  console.log("Changes committed:", hash);
+  if (!hash) {
+  } else {
+    console.log("Changes committed:", hash);
+  }
   return hash;
 }
