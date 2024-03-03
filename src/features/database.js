@@ -5,15 +5,14 @@ import { getTimelineDir } from "../helpers.js";
 export function newDataEntry() {
   return {
     commitHash: null,
-    timestamp: new Date().toISOString(),
+    timestamp: null,
     screenshot: null,
     recording: null,
   };
 }
 
 export async function saveData(data, settings) {
-  const timestamp = Date.now();
-  const filename = `${timestamp.replace(/[:.]/g, "-")}.json`;
+  const filename = `${Date.now()}.json`;
   const filePath = path.join(getTimelineDir(settings), filename);
 
   console.log({
