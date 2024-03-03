@@ -15,7 +15,7 @@
         console.log({ item });
         // Replace placeholders with actual data properties, referencing by itemName.
         // The template is expected to use {timestamp} instead of {item.timestamp} given the data structure
-        return template.replace(/\{(.*?)\}/g, (_, key) => {
+        return template.replaceAll(/\{(.*?)\}/g, (_, key) => {
           console.log(`Key before processing: ${key}`);
           // Remove 'item.' prefix if exists because we use direct key names like 'timestamp'
           const strippedKey = key.replace(`${itemName}.`, "").trim();
