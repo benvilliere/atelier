@@ -60,8 +60,8 @@
     // Handle @submit directives
     const submitDirectives = document.querySelectorAll("[\\@submit]");
     submitDirectives.forEach((button) => {
-      ; // Find the parent form
-      if (const form = button.closest("form")) {
+      const form = button.closest("form"); // Find the parent form
+      if (form) {
         form.addEventListener("submit", (event) => {
           event.preventDefault(); // Prevent the form from submitting
           const submitAction = button.getAttribute("@submit");
