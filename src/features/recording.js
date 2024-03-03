@@ -4,7 +4,7 @@ import { PuppeteerScreenRecorder } from "puppeteer-screen-recorder";
 import { getRecordingDir } from "../helpers.js";
 
 export async function recordVideo(settings) {
-  console.log("Recording...");
+  console.log("🎥 Recording");
 
   const recordingDir = getRecordingDir(settings);
 
