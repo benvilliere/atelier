@@ -8,7 +8,7 @@ export default {
   server: {}, // Vite server options
   throttle: 5, // Time in seconds between recordings and screenshots
   commit: {
-    enabled: true, // Enables auto-commit
+    enabled: true, // Enables auto-commit on save
     message: "@genart/atelier: auto-commit on save", // Default commit message
   },
   data: {
