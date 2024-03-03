@@ -38,5 +38,5 @@ export async function takeScreenshot(settings) {
 
   if (settings.verbose) console.log(`Screenshot saved to ${screenshotPath}`);
 
-  return screenshotPath;
+  return fileName;
 }
