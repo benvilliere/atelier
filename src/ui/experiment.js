@@ -76,8 +76,7 @@
           console.log(await res.json());
 
           const then = button.getAttribute("@then");
-          console.log({ method, action, then });
-          // eval(then.replace(`this`, `button`));
+          eval(then.replace(`this`, `button`));
 
           // const submitAction = button.getAttribute("@submit");
           // if (submitAction) {
