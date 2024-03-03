@@ -9,22 +9,34 @@
 
   function renderTemplate(template, data, itemName) {
     console.log(`Rendering template for each ${itemName}`);
-    console.log("renderTemplate", { template, data, itemName });
     return data
       .map((item) => {
-        console.log({ item });
-        // Replace placeholders with actual data properties, referencing by itemName.
-        // The template is expected to use {timestamp} instead of {item.timestamp} given the data structure
         return template.replaceAll(/\{(.*?)\}/g, (_, key) => {
-          console.log(`Key before processing: ${key}`);
-          // Remove 'item.' prefix if exists because we use direct key names like 'timestamp'
           const strippedKey = key.replace(`${itemName}.`, "").trim();
-          console.log(`Stripped key: ${strippedKey}`, item[strippedKey]);
-          console.log(`Replacing ${key} with `, item[strippedKey]);
           return item[strippedKey] || "";
         });
       })
       .join("");
+  }
+
+  function attachEventListeners(context) {
+    // Find all forms within the given context
+    const forms = context.querySelectorAll("form");
+    forms.forEach((form) => {
+      // Find elements within the form that have an @submit directive
+      const submitElements = form.querySelectorAll("[\\@submit]");
+      submitElements.forEach((submitElement) => {
+        submitElement.addEventListener("click", (e) => {
+          e.preventDefault(); // Prevent the default form submission
+          // You can add your custom submit logic here
+          console.log("Form submission prevented and custom logic executed.");
+          // If you want to manually submit the form, you can call form.submit();
+          // Or if you want to call a specific function, you could do something like:
+          // const actionName = submitElement.getAttribute('@submit');
+          // window[actionName] && window[actionName](e, form);
+        });
+      });
+    });
   }
 
   async function processElements() {
@@ -37,7 +49,6 @@
       const url = element.getAttribute("@fetch");
       const data = await fetchData(url);
 
-      // Find all children (or descendants) of the element that have an @for attribute
       const forElements = element.querySelectorAll("[\\@for]");
       console.log(
         `Found ${forElements.length} elements with @for directive inside fetched element.`
@@ -46,13 +57,12 @@
       for (const forElement of forElements) {
         const forDirective = forElement.getAttribute("@for");
         if (forDirective) {
-          console.log(`Processing @for directive: ${forDirective}`);
           const [itemName, itemsKey] = forDirective.split(" in ");
-          const items = data[itemsKey] || data; // Allow for direct array data or object property.
-          console.log(`Items for iteration: `, items);
+          const items = data[itemsKey] || data;
           const template = forElement.innerHTML.trim();
-
           forElement.innerHTML = renderTemplate(template, items, itemName);
+          // Attach event listeners after rendering the template
+          attachEventListeners(forElement);
         }
       }
     }
