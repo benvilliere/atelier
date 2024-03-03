@@ -56,6 +56,11 @@
         }
       }
     }
+
+    const submitDirectives = document.querySelectorAll("[\\@submit]");
+    console.log(
+      `Found ${submitDirectives.length} elements with @submit directive`
+    );
   }
 
   document.addEventListener("DOMContentLoaded", processElements);
