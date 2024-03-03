@@ -55,6 +55,8 @@
           forElement.innerHTML = renderTemplate(template, items, itemName);
         }
       }
+
+      const submitDirectives = const forElements = element.querySelectorAll("[\\@for]");
     }
   }
 
