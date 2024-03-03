@@ -73,11 +73,6 @@ function convertOptionsToConfig(options) {
     duration: Number(options.duration) || undefined,
   };
 
-  converted.data = {
-    enabled: options.enabled,
-    path: options.dataPath,
-  };
-
   converted.timeline = {
     enabled: options.enabled,
     path: options.dataPath,

@@ -13,17 +13,13 @@ export default {
     server: {}, // Vite server config for watcher
   },
   timeline: {
-    enabled: true,
+    enabled: true, // Enables data storage
     path: ".atelier/timeline", // Path where to store timeline data
     open: true,
   },
   commit: {
     enabled: true, // Enables auto-commit on save
     message: "🎨 @genart/atelier: auto-commit", // Default commit message
-  },
-  data: {
-    enabled: true, // Enables data storage
-    path: ".atelier/data", // Path where to store the data
   },
   screenshot: {
     enabled: true, // Enables screenshots
