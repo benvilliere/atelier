@@ -1,6 +1,6 @@
-# Atelier
+# 🎨 Atelier
 
-> WORK IN PROGRESS
+> :wip: WORK IN PROGRESS
 
 ## Introduction
 
