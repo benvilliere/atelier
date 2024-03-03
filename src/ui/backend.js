@@ -40,6 +40,11 @@ app.get("/data", async (req, res) => {
   }
 });
 
+app.get("/revert/:hash", function (req, res) {
+  const hash = req.params.hash;
+  res.json({ hash });
+});
+
 app.get("*", (req, res) => {
   res.sendFile(path.join(uiDirectory, "index.html"));
 });
