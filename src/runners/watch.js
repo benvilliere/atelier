@@ -78,7 +78,7 @@ export default async function watch(settings) {
         }
 
         // if (settings.timeline.enabled) {
-        await saveData(data, settings);
+        // await saveData(data, settings);
         // }
       } catch (err) {
         if (settings.verbose) {
