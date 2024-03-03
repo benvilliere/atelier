@@ -56,7 +56,7 @@
         }
       }
 
-      const submitDirectives = const forElements = element.querySelectorAll("[\\@for]");
+      const submitDirectives = element.querySelectorAll("[\\@for]");
     }
   }
 
