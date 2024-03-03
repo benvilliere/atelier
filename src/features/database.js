@@ -1,4 +1,4 @@
-import { promises as fs } from "fs";
+import { mkdir, writeFile } from "fs/promises";
 import path from "path";
 
 export function newDataEntry() {
@@ -19,8 +19,8 @@ export async function saveData(
   const filename = `${timestamp.replace(/[:.]/g, "-")}.json`;
   const filePath = path.join(directory, filename);
 
-  await fs.mkdir(directory, { recursive: true });
-  await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
+  await mkdir(directory, { recursive: true });
+  await writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
 
   if (settings.verbose) {
     console.log("Data saved:", filePath);
