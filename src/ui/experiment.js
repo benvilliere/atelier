@@ -60,10 +60,10 @@
     // Handle @submit directives
     const submitDirectives = document.querySelectorAll("[\\@submit]");
 
-    submitDirectives.forEach(async (button) => {
+    submitDirectives.forEach((button) => {
       const form = button.closest("form"); // Find the parent form
       if (form) {
-        form.addEventListener("submit", (event) => {
+        form.addEventListener("submit", async (event) => {
           event.preventDefault(); // Prevent the form from submitting
           const method = event.target.method || "get";
           const action = event.target.action;
@@ -73,7 +73,10 @@
             headers: {
               "Content-Type": "application/json", // Specify the content type
             },
-          })
+          });
+          const data = await response.json();
+          console.log(`Data fetched: `, data);
+          return data;
 
           // const submitAction = button.getAttribute("@submit");
           // if (submitAction) {
