@@ -23,8 +23,6 @@ export async function saveData(data, settings) {
     data,
   });
 
-  throw new Error("something went wrong for some reason");
-
   await mkdir(getTimelineDir(settings), { recursive: true });
   await writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
 
