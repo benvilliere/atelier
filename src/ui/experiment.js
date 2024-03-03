@@ -62,7 +62,7 @@
     submitDirectives.forEach((button) => {
       const form = button.closest("form"); // Find the parent form
       if (form) {
-        form.addEventListener("submit", async (event) => {
+        form.addEventListener("submit", (event) => {
           event.preventDefault(); // Prevent the form from submitting
           const method = event.target.method || "get";
           const action = event.target.action;
