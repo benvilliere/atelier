@@ -49,8 +49,8 @@ backend.get("*", (req, res) => {
   res.sendFile(path.join(timelineDirectory, "index.html"));
 });
 
-backend.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+// backend.listen(PORT, () => {
+//   console.log(`Server running at http://localhost:${PORT}`);
+// });
 
 export default backend;
