@@ -68,7 +68,7 @@
           const method = event.target.method || "get";
           const action = event.target.action;
 
-          const res = fetch(action, {
+          fetch(action, {
             method,
             headers: {
               "Content-Type": "application/json", // Specify the content type
