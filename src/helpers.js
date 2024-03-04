@@ -9,6 +9,13 @@ import {
   ATELIER_TIMELINE_DIR,
 } from "./constants.js";
 
+export async function printWelcomeMessage() {
+  const { version } = await loadJson("package.json");
+  console.log(`-----------------------`);
+  console.log(`| 🎨 Atelier (v${version}) |`);
+  console.log(`-----------------------`);
+}
+
 export async function loadJson(filePath) {
   try {
     const content = await fs.readFile(filePath, "utf8");
