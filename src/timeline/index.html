@@ -3,21 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <title>Atelier</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
     <script src="frontend.js"></script>
   </head>
   <body>
-    <div @fetch="/data" class="flex justify-center">
-      <div @for="entry in data">
-        <div class="entry flex flex-wrap w-1/3 border rounded-lg overflow-hidden p-6">
-          <span>{entry.timestamp}</span>
-          <span @show="'{entry.commitHash}' != ''">{entry.commitHash}</span>
-          <img src="/screenshots/{entry.screenshot}" />
-          <form @show="'{entry.commitHash}' != ''" method="get" action="/revert/{entry.commitHash}">
-            <button @submit @then="this.closest('.entry').remove()">Revert and destroy</button>
-            <!-- <button @submit @then="window.location.reload()">Revert and destroy</button> -->
-          </form>
+    <div @fetch="/data" class="container">
+      <div @for="entry in data" class="deck">
+        <div class="card">
+          <div class="header">
+            <span>{entry.timestamp}</span>
+            <span @show="'{entry.commitHash}' != ''">{entry.commitHash}</span>
+          </div>
+          <div class="media">
+            <img src="/screenshots/{entry.screenshot}" />
+          </div>
+          <div class="actions">
+            <form
+              @show="'{entry.commitHash}' != ''"
+              method="get"
+              action="/revert/{entry.commitHash}"
+            >
+              <button @submit @then="this.closest('.entry').remove()">
+                Revert and destroy
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </ul>
+    </div>
   </body>
 </html>
