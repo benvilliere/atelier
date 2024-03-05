@@ -31,9 +31,7 @@
         <template x-for="(entry, index) in timeline">
           <div class="card">
             <div class="header">
-              <div class="title">
-                <span x-text="timeAgo(entry.timestamp)"></span>
-              </div>
+              <div class="time" x-text="timeAgo(entry.timestamp)"></div>
               <div class="actions">
                 <form
                   class="action"
