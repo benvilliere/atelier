@@ -27,18 +27,9 @@ export function createBackend(settings) {
   // const recordingsDirectory = path.join(__dirname, "../../.atelier/recordings");
   // const timelineDirectory = __dirname;
 
-  const dataDirectory = path.join(
-    baseDir,
-    settings.timeline.path || ".atelier/timeline"
-  );
-  const screenshotsDirectory = path.join(
-    baseDir,
-    settings.screenshot.path || ".atelier/screenshots"
-  );
-  const recordingsDirectory = path.join(
-    baseDir,
-    settings.recording.path || ".atelier/recordings"
-  );
+  const dataDirectory = path.join(baseDir, settings.timeline.path);
+  const screenshotsDirectory = path.join(baseDir, settings.screenshot.path);
+  const recordingsDirectory = path.join(baseDir, settings.recording.path);
   const timelineDirectory = path.join(__dirname);
 
   backend.use(cors());
