@@ -7,10 +7,13 @@ import { fileURLToPath } from "url";
 export function createBackend(settings) {
   const backend = express();
 
-  console.log({ META: import.meta.url });
-
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
+  console.log({
+    meta: import.meta.urlm,
+    filename: __filename,
+    dirname: __dirname,
+  });
 
   const dataDirectory = path.join(__dirname, "../../.atelier/timeline");
   const screenshotsDirectory = path.join(
