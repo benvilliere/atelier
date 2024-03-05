@@ -30,10 +30,11 @@
       <div class="deck" x-show="timeline.length > 0">
         <template x-for="(entry, index) in timeline">
           <div class="card">
-            <div class="top">
-              <span x-text="index"></span>
-              <span x-text="entry.timestamp"></span>
-
+            <div class="row">
+              <div class="col">
+                <span x-text="index"></span>
+                <span x-text="entry.timestamp"></span>
+              </div>
               <div class="actions">
                 <form
                   class="action"
