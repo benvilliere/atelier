@@ -67,3 +67,4 @@ TODO: List out all configuration options.
 - Timeline: share on socials action
 - Init script: add .atelier to .gitignore if exists
 - CLI Action: init project (generate customised config file)
+- Ability to pass raw json as --config parameter to CLI
