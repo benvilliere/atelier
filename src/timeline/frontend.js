@@ -14,9 +14,9 @@ function timeAgo(timestamp) {
     { seconds: 60, text: "minute" },
   ];
 
-  const now = new Date(Date.now() * 1000);
+  const now = Date.now() * 1000;
   const then = new Date(timestamp * 1000);
-  const elapsed = now - then;
+  const elapsed = now - ;
   return elapsed;
   if (elapsed < 60) {
     return "just now";
