@@ -37,7 +37,7 @@ export function createBackend(settings) {
     baseDir,
     settings.recording.path || ".atelier/recordings"
   );
-  const timelineDirectory = path.join(baseDir, "/timeline");
+  const timelineDirectory = path.join(__dirname, "/timeline");
 
   backend.use(cors());
   backend.use("/", express.static(timelineDirectory));
