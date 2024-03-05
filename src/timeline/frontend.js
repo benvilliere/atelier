@@ -1,1 +1,3 @@
-function formatDate(timestamp) {}
+function formatDate(timestamp) {
+  console.log(timestamp);
+}
