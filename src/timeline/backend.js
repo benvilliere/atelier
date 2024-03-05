@@ -19,6 +19,7 @@ backend.use("/", express.static(timelineDirectory));
 backend.use("/screenshots", express.static(screenshotsDirectory));
 backend.use("/recordings", express.static(recordingsDirectory));
 
+// TODO
 backend.get("/project", async (req, res) => {
   // Get throttle value from default settings
   // Get project name from package.json
