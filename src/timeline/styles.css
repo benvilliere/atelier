@@ -54,6 +54,10 @@ body {
   margin-right: 12px;
 }
 
+.card .actions form button {
+  border: 0;
+  background: transparent;
+}
 .card .actions form button svg {
   width: 18px;
   height: 18px;
