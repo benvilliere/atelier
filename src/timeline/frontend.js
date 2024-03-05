@@ -15,7 +15,7 @@ function timeAgo(timestamp) {
   ];
 
   const now = new Date();
-  const elapsed = (now - new Date(timestamp)) / 1000;
+  const elapsed = Math.floor((now - new Date(timestamp)) / 1000);
 
   return elapsed;
   if (elapsed < 60) {
