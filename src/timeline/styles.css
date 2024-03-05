@@ -42,10 +42,10 @@ body {
 
 .card .header {
   display: flex;
-  border: 1px solid salmon;
   align-items: center;
   align-content: center;
   justify-items: space-between;
+  border: 1px solid salmon;
   width: 100%;
 }
 
