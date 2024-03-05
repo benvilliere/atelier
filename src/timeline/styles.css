@@ -7,6 +7,12 @@ body {
   font-style: normal;
 }
 
+* {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .debugger {
   position: fixed;
   top: 1vw;
