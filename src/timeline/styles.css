@@ -40,10 +40,6 @@ body {
   margin: 64px 0;
 }
 
-.card .media img {
-  max-width: 100%;
-}
-
 .card .top {
   display: flex;
   border: 1px solid salmon;
@@ -71,7 +67,12 @@ body {
   border: 0;
   background: transparent;
 }
+
 .card .actions form button svg {
   width: 18px;
   height: 18px;
+}
+
+.card .media img {
+  max-width: 100%;
 }
