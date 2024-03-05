@@ -49,6 +49,10 @@ body {
   border: 1px solid salmon;
 }
 
+.card .header .title {
+  display: flex;
+}
+
 .card .actions {
   border: 1px solid saddlebrown;
   display: flex;
