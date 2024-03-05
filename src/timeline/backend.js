@@ -31,7 +31,7 @@ backend.get("/timeline", async (req, res) => {
         timeline.push(entry);
       }
     }
-    res.json(timeline.sort((a, b) => a.timestamp - b.timestamp));
+    res.json(timeline.sort((a, b) => b.timestamp - a.timestamp));
   } catch (err) {
     console.error("Failed to load data:", err);
     res.status(500).send("Failed to load data");
