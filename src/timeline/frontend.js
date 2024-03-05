@@ -15,7 +15,7 @@ function timeAgo(timestamp) {
   ];
 
   const now = new Date();
-  const elapsed = new Date(timestamp * 1000); // convert to seconds
+  const elapsed = now - new Date(timestamp * 1000); // convert to seconds
 
   if (elapsed < 60) {
     // less than a minute
