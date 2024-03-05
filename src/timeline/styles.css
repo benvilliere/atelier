@@ -59,7 +59,7 @@ body {
   align-self: flex-end;
   align-items: center;
   align-content: center;
-  margin-bottom: 12px;
+  margin: 0 auto;
 }
 
 .card .actions > * {
