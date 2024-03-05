@@ -8,11 +8,11 @@ export default async function timeline(settings) {
 
     backend.listen(port, () => {
       console.log("💫 Timeline running at:", url);
-
-      if (settings.timeline.open) {
-        openBrowser(url);
-      }
     });
+
+    if (settings.timeline.open) {
+      openBrowser(url);
+    }
   }
 
   await run(settings);

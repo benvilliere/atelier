@@ -21,17 +21,38 @@
       "
     >
       <pre
-        x-data="{ show: false }"
+        x-data="{ show: true }"
         @dblclick="show = false"
         x-show="show"
-        class="debugger"
+        style="
+          position: fixed;
+          top: 1vw;
+          left: 1vw;
+          z-index: 999;
+          padding: 2vw;
+          background: rgba(255, 255, 255, 0.95);
+          font-family: monospace;
+          font-size: 16px;
+          line-height: 140%;
+          color: rgba(0, 0, 0, 0.9);
+          border-radius: 0.5vw;
+        "
         x-text="JSON.stringify(timeline, null, 2)"
       ></pre>
       <div class="deck" x-show="timeline.length > 0">
         <template x-for="(entry, index) in timeline">
-          <div class="card">
-            <div class="actions">
+          <div
+            class="card"
+            :style="{ transform: `scale(${1 - (index) * 0.1})`, top: (index + 1) * -10, zIndex: 100 - (index + 1) }"
+            :style="{ transform: `scale(${1 - (index) * 0.1})`, top: `${-(index + 1) * 10}px`, zIndex: 100 - (index + 1) }"
+          >
+            <div class="header">
               <span x-text="index"></span>
+            </div>
+            <div class="media">
+              <img :src="`/screenshots/${entry.screenshot}`" />
+            </div>
+            <div class="actions">
               <form
                 class="action"
                 x-show="entry.commitHash != ''"
@@ -52,16 +73,13 @@
                 </button>
               </form>
             </div>
-            <div class="media">
-              <img :src="`/screenshots/${entry.screenshot}`" />
-            </div>
           </div>
         </template>
       </div>
-      <!-- <div class="controls">
+      <div class="controls">
         <button class="up">up</button>
         <button class="down">down</button>
-      </div> -->
+      </div>
     </div>
   </body>
 </html>
