@@ -56,16 +56,14 @@ TODO: List out all configuration options.
 
 ## TODOs
 
-- Rename timeline to time machine
 - Test on a new project
 - Refine & document configuration file
-- Add support for global configuration?
-- Maintain changelog for easier retrieval
-- Start building time-machine like view
-- UI Action: share to social media
-- UI Action: revert to commit hash
-- UI Action: download
-- UI Action: save to dropbox
-- UI Action: share
+- Timeline: delete screenshot/recording action
+- Timeline: revert to commit hash action
+- Timeline: share to social media action
+- Timeline: revert to commit hash action
+- Timeline: download action
+- Timeline: save to dropbox action
+- Timeline: share on socials action
 - Init script: add .atelier to .gitignore if exists
 - CLI Action: init project (generate customised config file)
