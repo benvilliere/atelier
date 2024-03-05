@@ -70,6 +70,7 @@ body * {
 
 .card .actions form button {
   display: flex;
+  flex-direction: column;
   cursor: pointer;
   border: 0;
   background: transparent;
