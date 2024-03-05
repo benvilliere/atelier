@@ -19,6 +19,10 @@ backend.use("/", express.static(timelineDirectory));
 backend.use("/screenshots", express.static(screenshotsDirectory));
 backend.use("/recordings", express.static(recordingsDirectory));
 
+backend.get("/project", async (req, res) => {
+  // Get throttle value from default settings
+});
+
 backend.get("/timeline", async (req, res) => {
   try {
     const files = await fs.readdir(dataDirectory);
