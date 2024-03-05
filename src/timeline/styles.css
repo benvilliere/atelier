@@ -46,7 +46,9 @@ body {
 
 .card .top {
   display: flex;
+  align-items: center;
   align-content: center;
+  justify-items: space-between;
   width: 100%;
 }
 
