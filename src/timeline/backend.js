@@ -8,21 +8,36 @@ export function createBackend(settings) {
   const backend = express();
 
   const __filename = fileURLToPath(import.meta.url);
-  const __filename = fileURLToPath(settings.root);
+  // const __filename = fileURLToPath("./");
   const __dirname = path.dirname(__filename);
   console.log({
     meta: import.meta.urlm,
     filename: __filename,
     dirname: __dirname,
   });
+  const baseDir = "./";
 
-  const dataDirectory = path.join(__dirname, "../../.atelier/timeline");
-  const screenshotsDirectory = path.join(
-    __dirname,
-    "../../.atelier/screenshots"
+  // const dataDirectory = path.join(__dirname, "../../.atelier/timeline");
+  // const screenshotsDirectory = path.join(
+  //   __dirname,
+  //   "../../.atelier/screenshots"
+  // );
+  // const recordingsDirectory = path.join(__dirname, "../../.atelier/recordings");
+  // const timelineDirectory = __dirname;
+
+  const dataDirectory = path.join(
+    baseDir,
+    settings.timeline.path || ".atelier/timeline"
   );
-  const recordingsDirectory = path.join(__dirname, "../../.atelier/recordings");
-  const timelineDirectory = __dirname;
+  const screenshotsDirectory = path.join(
+    baseDir,
+    settings.screenshot.path || ".atelier/screenshots"
+  );
+  const recordingsDirectory = path.join(
+    baseDir,
+    settings.recording.path || ".atelier/recordings"
+  );
+  const timelineDirectory = path.join(baseDir, "/timeline");
 
   backend.use(cors());
   backend.use("/", express.static(timelineDirectory));
