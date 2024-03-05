@@ -8,7 +8,6 @@
   left: 1vw;
   z-index: 999;
   padding: 2vw;
-  background: rgba(255, 255, 255, 0.95);
   font-family: monospace;
   font-size: 16px;
   line-height: 140%;
@@ -24,104 +23,21 @@ body {
 
 .container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  align-content: center;
-  border: 3px solid salmon;
   width: 100%;
   height: 100%;
 }
 
 .deck {
-  position: relative;
-  width: 60%;
-  height: 50vh;
-  border: 3px solid seagreen;
+  width: 60vw;
+  padding: 32px 0;
 }
 
 .card {
-  position: absolute;
-  background: grey;
   display: flex;
   flex-wrap: wrap;
-  padding: 1vw;
-  border-radius: 1vw;
-  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.9);
-  /* bottom: calc(var(--index) * 5vh);
-  transform: scale(calc(1 - var(--index) * 0.1));
-  z-index: calc(100 - var(--index)); */
   bottom: 0;
-}
-
-.card:nth-child(2) {
-  transform: scale(1);
-  bottom: 0;
-  z-index: 100;
-}
-
-.card:nth-child(3) {
-  transform: scale(0.66);
-  bottom: 10vh;
-  z-index: 90;
-}
-
-.card:nth-child(4) {
-  transform: scale(0.33);
-  bottom: 18vh;
-  z-index: 80;
-}
-
-.card:nth-child(5) {
-  display: none;
-  transform: scale(0.8);
-  bottom: 15vh;
-  z-index: 70;
-}
-
-.card:nth-child(6) {
-  display: none;
-  transform: scale(0.7);
-  bottom: 20vh;
-  z-index: 60;
-}
-
-.card:nth-child(7) {
-  display: none;
-  transform: scale(0.6);
-  bottom: 25vh;
-  z-index: 50;
-}
-
-.card:nth-child(8) {
-  display: none;
-  transform: scale(0.5);
-  bottom: 30vh;
-  z-index: 40;
-}
-
-.card:nth-child(9) {
-  display: none;
-  transform: scale(0.4);
-  bottom: 35vh;
-  z-index: 30;
-}
-
-.card:nth-child(10) {
-  display: none;
-  transform: scale(0.3);
-  bottom: 40vh;
-  z-index: 20;
-}
-
-.card:nth-child(11) {
-  display: none;
-  transform: scale(0.2);
-  bottom: 45vh;
-  z-index: 10;
-}
-
-.card:nth-child(n + 12) {
-  display: none;
+  margin: 64px 0;
 }
 
 .card .media img {
@@ -130,7 +46,12 @@ body {
 
 .card .actions {
   display: flex;
-  padding-bottom: 1vw;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card .actions > * {
+  margin-right: 12px;
 }
 
 .controls {
