@@ -44,6 +44,10 @@ body {
   max-width: 100%;
 }
 
+.card .top {
+  display: flex;
+}
+
 .card .actions {
   display: flex;
   align-items: center;
