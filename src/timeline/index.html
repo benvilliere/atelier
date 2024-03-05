@@ -32,14 +32,22 @@
           <div class="card">
             <div class="actions">
               <span x-text="index"></span>
+              <span x-text="entry.timestamp"></span>
               <form
                 class="action"
                 x-show="entry.commitHash != ''"
                 :action="`/revert/${entry.commitHash}`"
                 method="get"
               >
-                <button type="submit" @click="$el.closest('.card').remove()">
-                  Revert and destroy
+                <button
+                  type="submit"
+                  @click="
+                    $el.closest('.card').remove();
+                    timeline = [entry, ...timeline];
+                    window.scrollTo(0, 0);
+                  "
+                >
+                  Revert
                 </button>
               </form>
               <form
@@ -48,7 +56,7 @@
                 method="post"
               >
                 <button type="submit" @click="$el.closest('.card').remove()">
-                  Delete
+                  &times;
                 </button>
               </form>
             </div>
