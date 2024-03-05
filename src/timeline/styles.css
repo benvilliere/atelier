@@ -54,6 +54,7 @@ body {
 }
 
 .card .actions {
+  border: 1px solid saddlebrown;
   display: flex;
   align-self: flex-end;
   align-items: center;
