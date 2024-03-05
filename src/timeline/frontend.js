@@ -13,7 +13,9 @@ function timeAgo(timestamp) {
     { seconds: 3600, text: "hour" },
     { seconds: 60, text: "minute" },
   ];
-  const elapsed = Math.floor((new Date(timestamp * 1000) - new Date()) / 1000);
+
+  const now = new Date();
+  const elapsed = (now - new Date(timestamp * 1000)) / 1000; // convert to seconds
 
   return elapsed;
   if (elapsed < 60) {
