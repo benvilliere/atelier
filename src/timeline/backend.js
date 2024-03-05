@@ -52,6 +52,13 @@ backend.get("/revert/:hash", function (req, res) {
 
 backend.post("/delete/:timestamp", function (req, res) {
   const timestamp = req.params.timestamp;
+
+  // Find file with timestamp
+  // Read JSON from file
+  // Delete screenshot
+  // Delete recording
+  // Delete JSON file
+
   console.log({ timestamp });
   res.json({
     message: "DELETE Request Called",
