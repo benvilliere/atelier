@@ -15,12 +15,12 @@ function timeAgo(timestamp) {
   ];
 
   const now = new Date();
-  const elapsed = now - new Date(timestamp * 1000) / 1000; // convert to seconds
+  const elapsed = new Date(timestamp * 1000); // convert to seconds
 
-  // if (elapsed < 60) {
-  //   // less than a minute
-  //   return "just now";
-  // }
+  if (elapsed < 60) {
+    // less than a minute
+    return "just now";
+  }
 
   for (let { seconds, text } of intervals) {
     const interval = Math.floor(elapsed / seconds);
