@@ -53,7 +53,7 @@ body * {
 .card .header .time {
   display: flex;
   width: 100%;
-  font-size: 32px;
+  font-size: 24px;
 }
 
 .card .actions {
