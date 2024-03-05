@@ -35,7 +35,8 @@ body * {
 
 .header .logo {
   text-transform: uppercase;
-  letter-spacing: 32px;
+  font-size: 24px;
+  letter-spacing: 12px;
 }
 
 .container {
