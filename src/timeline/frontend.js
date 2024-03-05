@@ -18,7 +18,7 @@ function timeAgo(timestamp) {
   const elapsed = Math.floor((now - new Date(timestamp)) / 1000);
 
   if (elapsed < 60) {
-    return "just now";
+    return "New";
   }
 
   for (let { seconds, text } of intervals) {
