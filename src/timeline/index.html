@@ -34,14 +34,7 @@
               <div class="time" x-text="timeAgo(entry.timestamp)"></div>
               <div class="actions">
                 <div class="action">
-                  <button
-                    type="submit"
-                    @click="
-                      $el.closest('.card').remove();
-                      timeline = [entry, ...timeline];
-                      window.scrollTo(0, 0);
-                    "
-                  >
+                  <button @click.prevent="">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
