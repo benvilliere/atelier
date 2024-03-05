@@ -11,6 +11,7 @@
     <div
       class="container"
       x-data="{ timeline: [] }"
+      x-init="timeline = await (await fetch('/timeline')).json()"
       x-init="
         fetch('/timeline')
           .then(res => res.json())
