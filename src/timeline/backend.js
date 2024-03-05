@@ -21,6 +21,7 @@ backend.use("/recordings", express.static(recordingsDirectory));
 
 backend.get("/project", async (req, res) => {
   // Get throttle value from default settings
+  // Get project name from package.json
 });
 
 backend.get("/timeline", async (req, res) => {
