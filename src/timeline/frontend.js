@@ -1,6 +1,6 @@
 function formatDate(timestamp) {
   console.log(timestamp);
-  const date = new Date(timestamp);
+  const date = new Date(timestamp * 1000);
   return date.toLocaleString();
 }
 
@@ -14,9 +14,9 @@ function timeAgo(timestamp) {
     { seconds: 60, text: "minute" },
   ];
 
-  const now = new Date();
-  const then = new Date(timestamp);
-  const elapsed = now * 1000 - then * 1000;
+  const now = new Date() * 1000;
+  const then = new Date(timestamp) * 1000;
+  const elapsed = now - then;
   return elapsed;
   if (elapsed < 60) {
     return "just now";
