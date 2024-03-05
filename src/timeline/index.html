@@ -33,11 +33,8 @@
             <div class="header">
               <div class="time" x-text="timeAgo(entry.timestamp)"></div>
               <div class="actions">
-                <form
+                <div
                   class="action"
-                  x-show="entry.commitHash != ''"
-                  :action="`/revert/${entry.commitHash}`"
-                  method="get"
                 >
                   <button
                     type="submit"
