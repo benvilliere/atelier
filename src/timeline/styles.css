@@ -79,36 +79,42 @@ body {
 }
 
 .card:nth-child(6) {
+  display: none;
   transform: scale(0.7);
   bottom: 20vh;
   z-index: 60;
 }
 
 .card:nth-child(7) {
+  display: none;
   transform: scale(0.6);
   bottom: 25vh;
   z-index: 50;
 }
 
 .card:nth-child(8) {
+  display: none;
   transform: scale(0.5);
   bottom: 30vh;
   z-index: 40;
 }
 
 .card:nth-child(9) {
+  display: none;
   transform: scale(0.4);
   bottom: 35vh;
   z-index: 30;
 }
 
 .card:nth-child(10) {
+  display: none;
   transform: scale(0.3);
   bottom: 40vh;
   z-index: 20;
 }
 
 .card:nth-child(11) {
+  display: none;
   transform: scale(0.2);
   bottom: 45vh;
   z-index: 10;
