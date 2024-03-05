@@ -72,6 +72,7 @@ body {
 }
 
 .card:nth-child(5) {
+  display: none;
   transform: scale(0.8);
   bottom: 15vh;
   z-index: 70;
