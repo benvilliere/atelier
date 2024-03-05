@@ -5,26 +5,31 @@ function formatDate(timestamp) {
 }
 
 function timeAgo(timestamp) {
-  const intervals = [
-    { seconds: 31536000, text: "year" },
-    { seconds: 2592000, text: "month" },
-    { seconds: 604800, text: "week" },
-    { seconds: 86400, text: "day" },
-    { seconds: 3600, text: "hour" },
-    { seconds: 60, text: "minute" },
-  ];
-  const now = new Date();
-  const elapsed = (now - new Date(timestamp * 1000)) / 1000; // convert to seconds
+  const seconds = Math.floor((new Date() - new Date(timestamp * 1000)) / 1000);
 
-  if (elapsed < 60) {
-    // less than a minute
-    return "just now";
+  let interval = seconds / 31536000; // 60 * 60 * 24 * 365
+  if (interval > 1) {
+    return Math.floor(interval) + " years ago";
   }
-
-  for (let { seconds, text } of intervals) {
-    const interval = Math.floor(elapsed / seconds);
-    if (interval >= 1) {
-      return `${interval} ${text}${interval > 1 ? "s" : ""} ago`;
-    }
+  interval = seconds / 2592000; // 60 * 60 * 24 * 30
+  if (interval > 1) {
+    return Math.floor(interval) + " months ago";
   }
+  interval = seconds / 604800; // 60 * 60 * 24 * 7
+  if (interval > 1) {
+    return Math.floor(interval) + " weeks ago";
+  }
+  interval = seconds / 86400; // 60 * 60 * 24
+  if (interval > 1) {
+    return Math.floor(interval) + " days ago";
+  }
+  interval = seconds / 3600; // 60 * 60
+  if (interval > 1) {
+    return Math.floor(interval) + " hours ago";
+  }
+  interval = seconds / 60;
+  if (interval > 1) {
+    return Math.floor(interval) + " minutes ago";
+  }
+  return "just now";
 }
