@@ -16,7 +16,7 @@ export function createBackend(settings) {
     dirname: __dirname,
   });
 
-  const baseDir = "./";
+  const settings.root = "./";
 
   // const dataDirectory = path.join(__dirname, "../../.atelier/timeline");
   // const screenshotsDirectory = path.join(
