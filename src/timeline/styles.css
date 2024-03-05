@@ -2,6 +2,12 @@
   Inspiration: https://www.youtube.com/watch?v=R8vx9cI9yTY
 */
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
 .debugger {
   position: fixed;
   top: 1vw;
@@ -13,12 +19,6 @@
   line-height: 140%;
   color: rgba(0, 0, 0, 0.9);
   border-radius: 0.5vw;
-}
-
-html,
-body {
-  width: 100%;
-  height: 100%;
 }
 
 .container {
