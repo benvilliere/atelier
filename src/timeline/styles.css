@@ -58,6 +58,7 @@ body {
   display: flex;
   align-self: flex-end;
   align-items: center;
+  align-content: center;
   margin-bottom: 12px;
 }
 
