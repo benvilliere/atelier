@@ -72,6 +72,7 @@ body * {
   cursor: pointer;
   border: 0;
   background: transparent;
+  text-align: center;
 }
 
 .card .actions form button svg {
