@@ -61,7 +61,7 @@ body {
 
 .card:nth-child(3) {
   transform: scale(0.75);
-  bottom: 15vh;
+  bottom: 10vh;
   z-index: 90;
 }
 
