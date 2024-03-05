@@ -92,9 +92,13 @@ function convertOptionsToConfig(options) {
   return converted;
 }
 
-export async function mergeSettings(options) {
+export async function mergeOptions() {
   const userConfig = await loadUserConfig();
-  const initialConfig = _.merge({}, baseConfig, userConfig);
+  return _.merge({}, baseConfig, userConfig);
+}
+
+export async function mergeSettings(options) {
+  const initialConfig = await mergeOptions();
   const commandLineConfig = convertOptionsToConfig(options);
   const settings = _.merge({}, initialConfig, commandLineConfig);
   if (settings.verbose) {
