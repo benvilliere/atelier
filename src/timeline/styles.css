@@ -33,6 +33,10 @@ body * {
   background: white;
 }
 
+.header .logo {
+  text-transform: uppercase;
+}
+
 .container {
   display: flex;
   justify-content: center;
