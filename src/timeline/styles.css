@@ -68,7 +68,7 @@ body * {
   margin-right: 12px;
 }
 
-.card .actions form button {
+.card .actions button {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -78,7 +78,7 @@ body * {
   text-align: center;
 }
 
-.card .actions form button svg {
+.card .actions button svg {
   display: flex;
   align-self: center;
   width: 18px;
