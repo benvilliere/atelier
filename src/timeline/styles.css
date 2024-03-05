@@ -60,6 +60,7 @@ body * {
   align-items: center;
   align-content: center;
   margin: 0 auto;
+  padding: 1vh 0;
 }
 
 .card .actions > * {
