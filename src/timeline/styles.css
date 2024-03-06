@@ -86,12 +86,12 @@ body * {
 
 .action .panel {
   position: absolute;
-  background: white;
   margin-top: 12px;
 }
 
 .action .panel li {
   padding: 6px 12px;
+  background: white;
 }
 
 .card .actions > * {
