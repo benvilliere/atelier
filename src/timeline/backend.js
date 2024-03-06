@@ -14,10 +14,10 @@ export function createBackend(settings) {
   const dataDirectory = path.join(baseDir, settings.timeline.path);
   const screenshotsDirectory = path.join(baseDir, settings.screenshot.path);
   const recordingsDirectory = path.join(baseDir, settings.recording.path);
-  const timelineDirectory = path.join(__dirname);
+  const frontendDir = path.join(__dirname);
 
   backend.use(cors());
-  backend.use("/", express.static(timelineDirectory));
+  backend.use("/", express.static(frontendDir));
   backend.use("/screenshots", express.static(screenshotsDirectory));
   backend.use("/recordings", express.static(recordingsDirectory));
 
@@ -69,7 +69,7 @@ export function createBackend(settings) {
     if (req.method !== "GET") {
       return;
     }
-    res.sendFile(path.join(timelineDirectory, "index.html"));
+    res.sendFile(path.join(frontendDir, "index.html"));
   });
 
   return backend;
