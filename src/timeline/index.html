@@ -85,7 +85,9 @@
                   </div>
                 </div>
                 <div class="action" x-data="{ copied: false }">
-                  <button @click.prevent="sharing = !sharing">
+                  <button
+                    @click.prevent="copyImageToClipboard(`atelier-screenshot-${index}`); sharing = !sharing"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
