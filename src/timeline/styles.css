@@ -147,11 +147,12 @@ body * {
   height: 18px;
   margin-bottom: 6px;
 }
-/* 
+
 .card .actions button span,
 .card .actions a span {
   font-size: 12px;
-} */
+  display: none;
+}
 
 .card .media img {
   max-width: 100%;
