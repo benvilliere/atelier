@@ -93,7 +93,7 @@ function convertOptionsToConfig(options) {
 }
 
 export async function setBaseConfigSensibleDefaults(config) {
-  config.git.enabled = await isGitRepository();
+  config.commit.enabled = await isGitRepository();
 
   return config;
 }
