@@ -11,6 +11,7 @@ export function createBackend(settings) {
   const screenshotsDirectory = path.join(baseDir, settings.screenshot.path);
   const recordingsDirectory = path.join(baseDir, settings.recording.path);
 
+  // Atelier base install directory
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
   const frontendDir = path.join(__dirname);
