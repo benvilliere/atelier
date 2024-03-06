@@ -79,7 +79,7 @@ body * {
 .card .card-header .time {
   display: flex;
   width: 100%;
-  font-size: 24px;
+  font-size: 16px;
   padding: 12px 12px;
   align-self: first baseline;
 }
