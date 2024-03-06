@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import fs from "fs/promises";
 import path from "path";
-import { fileURLToPath } from "url";
+import { getDirName } from "../helpers";
 
 export function createBackend(settings) {
   const baseDir = process.cwd();
