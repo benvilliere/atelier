@@ -153,6 +153,10 @@ body * {
   font-size: 12px;
   display: none;
 }
+.card .actions button:hover span,
+.card .actions a:hover span {
+  display: inline;
+}
 
 .card .media img {
   max-width: 100%;
