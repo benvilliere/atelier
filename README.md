@@ -60,11 +60,11 @@ TODO: List out all configuration options.
 - Refine & document configuration file
 - Timeline: delete screenshot/recording action
 - Timeline: revert to commit hash action
-- Timeline: share to social media action
-- Timeline: revert to commit hash action
 - Timeline: download action
 - Timeline: save to dropbox action
 - Timeline: share on socials action
 - Init script: add .atelier to .gitignore if exists
 - CLI Action: init project (generate customised config file)
 - Ability to pass raw json as --config parameter to CLI
+- Polling instead of refreshing the page
+- Store both screenshots and recordings as separate entries
