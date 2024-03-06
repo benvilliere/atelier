@@ -151,11 +151,12 @@ body * {
 .card .actions button span,
 .card .actions a span {
   font-size: 12px;
-  display: none;
+  opacity: 0;
 }
+
 .card .actions button:hover span,
 .card .actions a:hover span {
-  display: inline;
+  opacity: 1;
 }
 
 .card .media img {
