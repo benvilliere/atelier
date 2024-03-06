@@ -139,7 +139,10 @@
               </div>
             </div>
             <div class="media">
-              <img :src="`/screenshots/${entry.screenshot}`" />
+              <img
+                :id="`atelier-image-${index}`"
+                :src="`/screenshots/${entry.screenshot}`"
+              />
             </div>
           </div>
         </template>
