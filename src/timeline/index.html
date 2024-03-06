@@ -36,7 +36,7 @@
             <div class="card-header">
               <div class="time" x-text="timeAgo(entry.timestamp)"></div>
               <div class="actions">
-                <div class="action">
+                <div class="action" x-data="{ sharing: false }">
                   <button @click.prevent="">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
