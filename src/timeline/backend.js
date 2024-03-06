@@ -9,7 +9,7 @@ export function createBackend(settings) {
 
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
-  const baseDir = settings.root;
+  const baseDir = process.cwd();
 
   const dataDirectory = path.join(baseDir, settings.timeline.path);
   const screenshotsDirectory = path.join(baseDir, settings.screenshot.path);
