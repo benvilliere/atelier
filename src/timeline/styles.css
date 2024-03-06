@@ -84,7 +84,7 @@ body * {
   display: flex;
   width: 100%;
   font-size: 24px;
-  padding: 6px 12px;
+  padding: 12px 12px;
   align-self: first baseline;
 }
 
