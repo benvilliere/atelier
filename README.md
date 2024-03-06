@@ -68,3 +68,4 @@ TODO: List out all configuration options.
 - Ability to pass raw json as --config parameter to CLI
 - Polling instead of refreshing the page
 - Store both screenshots and recordings as separate entries
+- Better console output (emoji as constants, everywhere applicable, colors etc)
