@@ -22,7 +22,6 @@ export async function createConfigFile(configPath) {
 
 async function loadUserConfig() {
   const userConfigPath = path.join(process.cwd(), ATELIER_CONFIG_FILE_NAME);
-  console.log({ userConfigPath });
   try {
     const userConfig = await loadJson(userConfigPath);
     return userConfig || {};
