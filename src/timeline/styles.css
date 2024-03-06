@@ -157,6 +157,7 @@ body * {
 .card .actions a span {
   font-size: 12px;
   opacity: 0;
+  display: none;
 }
 
 .card .actions button:hover span,
