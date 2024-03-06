@@ -6,8 +6,6 @@ import { fileURLToPath } from "url";
 
 export function createBackend(settings) {
   const baseDir = process.cwd();
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = path.dirname(__filename);
 
   const directories = {
     // Local directories
@@ -15,7 +13,7 @@ export function createBackend(settings) {
     screenshots: path.join(baseDir, settings.screenshot.path),
     recordings: path.join(baseDir, settings.recording.path),
     // Atelier base install directory
-    frontend: path.join(__dirname),
+    frontend: getDirName(),
   };
 
   const backend = express();
