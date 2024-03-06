@@ -11,9 +11,9 @@ import {
 
 export async function printWelcomeMessage() {
   const { version } = await loadJson("package.json");
-  console.log(`-----------------------`);
+  console.log(`------------------------`);
   console.log(`| 🎨 Atelier (v${version}) |`);
-  console.log(`-----------------------`);
+  console.log(`------------------------`);
 }
 
 export async function loadJson(filePath) {
