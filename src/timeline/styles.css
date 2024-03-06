@@ -69,7 +69,7 @@ body * {
 .card .card-header .time {
   display: flex;
   width: 100%;
-  font-size: 24px;
+  font-size: 16px;
 }
 
 .card .actions {
@@ -92,6 +92,7 @@ body * {
   border: 0;
   background: transparent;
   text-align: center;
+  font-size: 12px;
 }
 
 .card .actions button svg {
