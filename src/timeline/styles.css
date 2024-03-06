@@ -76,10 +76,6 @@ body * {
   justify-items: space-between;
 }
 
-* {
-  border: 1px solid red !important;
-}
-
 .card .card-header .time {
   display: flex;
   width: 100%;
