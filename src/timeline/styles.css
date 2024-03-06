@@ -91,6 +91,7 @@ body * {
   display: flex;
   align-items: center;
   align-content: center;
+  align-self: first baseline;
   margin: 0 auto;
   padding: 0.5vh 0;
 }
