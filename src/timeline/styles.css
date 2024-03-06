@@ -87,7 +87,6 @@ body * {
 .action .panel {
   position: absolute;
   background: white;
-  width: 50vw;
   margin-top: 12px;
 }
 
