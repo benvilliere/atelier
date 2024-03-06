@@ -166,6 +166,7 @@ body * {
   margin-bottom: 0;
 }
 
-.card .media img {
+.card .media img,
+.card .media video {
   max-width: 100%;
 }
