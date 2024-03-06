@@ -3,7 +3,7 @@ import path from "path";
 import _ from "lodash";
 import baseConfig from "./config/base.js";
 import defaultConfig from "./config/default.js";
-import { getDirName, loadJson } from "./helpers.js";
+import { loadJson } from "./helpers.js";
 import { ATELIER_CONFIG_FILE_NAME } from "./constants.js";
 
 export async function createConfigFile(configPath) {
@@ -21,9 +21,8 @@ export async function createConfigFile(configPath) {
 }
 
 async function loadUserConfig() {
-  // const projectRoot = path.resolve(getDirName(), "../");
-  const projectRoot = ".";
-  const userConfigPath = path.join(projectRoot, ATELIER_CONFIG_FILE_NAME);
+  const userConfigPath = path.join(process.cwd(), ATELIER_CONFIG_FILE_NAME);
+  console.log({ userConfigPath });
   try {
     const userConfig = await loadJson(userConfigPath);
     return userConfig || {};
@@ -93,13 +92,14 @@ function convertOptionsToConfig(options) {
   return converted;
 }
 
-export async function mergeOptions() {
+export async function mergeDefaultAndUserConfig() {
   const userConfig = await loadUserConfig();
-  return _.merge({}, baseConfig, userConfig);
+  const options = _.merge({}, baseConfig, userConfig);
+  return options;
 }
 
-export async function mergeSettings(options) {
-  const initialConfig = await mergeOptions();
+export async function mergeConfigWithCommandLineOptions(options) {
+  const initialConfig = await mergeDefaultAndUserConfig();
   const commandLineConfig = convertOptionsToConfig(options);
   const settings = _.merge({}, initialConfig, commandLineConfig);
   if (settings.verbose) {
