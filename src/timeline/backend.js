@@ -7,13 +7,13 @@ import { fileURLToPath } from "url";
 export function createBackend(settings) {
   const backend = express();
 
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = path.dirname(__filename);
   const baseDir = process.cwd();
 
   const dataDirectory = path.join(baseDir, settings.timeline.path);
   const screenshotsDirectory = path.join(baseDir, settings.screenshot.path);
   const recordingsDirectory = path.join(baseDir, settings.recording.path);
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
   const frontendDir = path.join(__dirname);
 
   backend.use(cors());
