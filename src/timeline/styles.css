@@ -150,7 +150,7 @@ body * {
 
 .card .actions button span,
 .card .actions a span {
-  display: none;
+  font-size: 12px;
 }
 
 .card .media img {
