@@ -1,3 +1,7 @@
+async function get(endpoint) {
+  return await (await fetch(endpoint)).json();
+}
+
 function formatDate(timestamp) {
   console.log(timestamp);
   const date = new Date(timestamp * 1000);
