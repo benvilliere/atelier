@@ -14,17 +14,16 @@
     <meta http-equiv="refresh" content="10" />
     <script src="//unpkg.com/alpinejs" defer></script>
   </head>
-  <body>
+  <body
+    x-data="{ timeline: [] }"
+    x-init="timeline = await (await fetch('/timeline')).json()"
+  >
     <div class="header">
       <h1 class="logo">
         <a href="#">Atelier</a>
       </h1>
     </div>
-    <div
-      class="container"
-      x-data="{ timeline: [] }"
-      x-init="timeline = await (await fetch('/timeline')).json()"
-    >
+    <div class="container">
       <pre
         x-data="{ show: false }"
         @dblclick="show = false"
