@@ -93,6 +93,7 @@ body * {
   align-content: center;
   align-self: first baseline;
   margin: 0 auto;
+  height: 100%;
 }
 
 .card .action {
