@@ -16,6 +16,13 @@ export function createBackend(settings) {
   const __dirname = path.dirname(__filename);
   const frontendDir = path.join(__dirname);
 
+  const directories = {
+    data: path.join(baseDir, settings.timeline.path),
+    screenshots: path.join(baseDir, settings.screenshot.path),
+    recordings: path.join(baseDir, settings.recording.path),
+    frontend: path.join(__dirname),
+  };
+
   const backend = express();
 
   backend.use(cors());
