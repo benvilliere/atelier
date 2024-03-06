@@ -156,6 +156,7 @@ body * {
 
 .card .actions button span,
 .card .actions a span {
+  position: absolute;
   font-size: 12px;
   opacity: 0;
   display: none;
