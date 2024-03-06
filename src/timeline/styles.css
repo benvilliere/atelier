@@ -80,7 +80,7 @@ body * {
   display: flex;
   width: 100%;
   font-size: 24px;
-  padding: 6px 12px;
+  padding: 6px 0;
   align-self: start baseline;
 }
 
