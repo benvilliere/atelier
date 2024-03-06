@@ -89,6 +89,8 @@ body * {
   background: white;
   width: 50vw;
   height: 33vh;
+  top: 12px;
+  right: 32px;
 }
 
 .card .actions > * {
