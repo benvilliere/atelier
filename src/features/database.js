@@ -33,6 +33,10 @@ export async function saveEntry(data, settings) {
 export async function saveData(data, settings) {
   let entry = newDataEntry();
 
+  if (settings.verbose) {
+    console.log("💾 Received data", { data });
+  }
+
   if (data.screenshot) {
     entry = { screenshot: data.screenshot };
     await saveEntry(entry, settings);
