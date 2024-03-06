@@ -62,6 +62,25 @@
                       <li><a href="#">Facebook</a></li>
                       <li><a href="#">Instagram</a></li>
                       <li><a href="#">Twitter</a></li>
+
+                      <!-- Facebook Share Link -->
+                      <li>
+                        <a
+                          :href="`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://yourdomain.com/screenshots/' + entry.screenshot)}&amp;src=sdkpreparse`"
+                          target="_blank"
+                        >
+                          Facebook
+                        </a>
+                      </li>
+                      <!-- Twitter Share Link -->
+                      <li>
+                        <a
+                          :href="`https://twitter.com/intent/tweet?text=Check out this artwork!&url=${encodeURIComponent('https://yourdomain.com/screenshots/' + entry.screenshot)}`"
+                          target="_blank"
+                        >
+                          Twitter
+                        </a>
+                      </li>
                     </ul>
                   </div>
                 </div>
