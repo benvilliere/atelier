@@ -128,7 +128,8 @@ body * {
   font-size: 14px;
 }
 
-.card .actions button svg {
+.card .actions button svg,
+.card .actions a svg {
   display: flex;
   align-self: center;
   width: 18px;
