@@ -7,9 +7,9 @@ import { fileURLToPath } from "url";
 export function createBackend(settings) {
   // Local directories
   const baseDir = process.cwd();
-  const dataDirectory = path.join(baseDir, settings.timeline.path);
-  const screenshotsDirectory = path.join(baseDir, settings.screenshot.path);
-  const recordingsDirectory = path.join(baseDir, settings.recording.path);
+  const dataDir = path.join(baseDir, settings.timeline.path);
+  const screenshotsDir = path.join(baseDir, settings.screenshot.path);
+  const recordingsDir = path.join(baseDir, settings.recording.path);
 
   // Atelier base install directory
   const __filename = fileURLToPath(import.meta.url);
@@ -20,16 +20,16 @@ export function createBackend(settings) {
 
   backend.use(cors());
   backend.use("/", express.static(frontendDir));
-  backend.use("/screenshots", express.static(screenshotsDirectory));
-  backend.use("/recordings", express.static(recordingsDirectory));
+  backend.use("/screenshots", express.static(screenshotsDir));
+  backend.use("/recordings", express.static(recordingsDir));
 
   backend.get("/timeline", async (req, res) => {
     try {
-      const files = await fs.readdir(dataDirectory);
+      const files = await fs.readdir(dataDir);
       const timeline = [];
       for (const file of files) {
         if (path.extname(file) === ".json") {
-          const filePath = path.join(dataDirectory, file);
+          const filePath = path.join(dataDir, file);
           const fileContents = await fs.readFile(filePath, "utf8");
           const entry = JSON.parse(fileContents);
           timeline.push(entry);
