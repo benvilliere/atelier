@@ -114,6 +114,7 @@ body * {
 
 .card .actions > * {
   margin-right: 12px;
+  border: 1px solid red !important;
 }
 
 .card .actions button,
