@@ -36,12 +36,10 @@ export async function saveData(data, settings) {
   if (data.screenshot) {
     entry = { screenshot: data.screenshot };
     await saveEntry(entry, settings);
-  } else if (data.recording) {
+  }
+
+  if (data.recording) {
     entry = { recording: data.recording };
     await saveEntry(entry, settings);
-  } else {
-    if (settings.verbose) {
-      console.log("No data to save");
-    }
   }
 }
