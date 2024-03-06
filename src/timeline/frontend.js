@@ -28,3 +28,31 @@ function timeAgo(timestamp) {
     }
   }
 }
+
+async function copyImageToClipboard(imgId) {
+  const img = document.getElementById(imgId);
+
+  // Create an off-screen canvas
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+
+  // Set canvas dimensions to match the image
+  canvas.width = img.width;
+  canvas.height = img.height;
+
+  // Draw the image onto the canvas
+  ctx.drawImage(img, 0, 0);
+
+  // Convert the canvas to a Blob
+  canvas.toBlob(async (blob) => {
+    try {
+      // Create a new ClipboardItem object
+      const item = new ClipboardItem({ "image/png": blob });
+      // Copy the ClipboardItem to the clipboard
+      await navigator.clipboard.write([item]);
+      alert("Image copied to clipboard!");
+    } catch (err) {
+      console.error("Failed to copy image: ", err);
+    }
+  }, "image/png");
+}
