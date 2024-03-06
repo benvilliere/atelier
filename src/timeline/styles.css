@@ -1,14 +1,14 @@
 :root {
-  --header-background-color: rgba(255, 255, 255, 0.75);
-  --background-color: #ffffff;
-  --text-color: #000000;
+  --background: #fff;
+  --header-background: rgba(255, 255, 255, 0.75);
+  --text-color: #000;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --header-background-color: rgba(255, 255, 255, 0.75);
-    --background-color: #ffffff;
-    --text-color: #000000;
+    --background: #000;
+    --header-background: rgba(0, 0, 0, 0.75);
+    --text-color: #fff;
   }
 }
 
