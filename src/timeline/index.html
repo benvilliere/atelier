@@ -16,7 +16,9 @@
   </head>
   <body
     x-data="{ timeline: [] }"
-    x-init="timeline = await (await fetch('/timeline')).json()"
+    x-init="
+      timeline = await (await fetch('/timeline')).json();
+    "
   >
     <div class="header">
       <h1 class="logo">
