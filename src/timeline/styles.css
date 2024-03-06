@@ -94,9 +94,12 @@ body * {
   padding: 6px 12px;
   background: white;
 }
+
 .action .panel li a {
   color: black;
+  text-decoration: none;
 }
+
 .card .actions > * {
   margin-right: 12px;
 }
