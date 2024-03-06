@@ -8,14 +8,7 @@ export function createBackend(settings) {
   const backend = express();
 
   const __filename = fileURLToPath(import.meta.url);
-  // const __filename = fileURLToPath("./");
   const __dirname = path.dirname(__filename);
-  console.log({
-    meta: import.meta.urlm,
-    filename: __filename,
-    dirname: __dirname,
-  });
-
   // const baseDir = "./";
   const baseDir = settings.root;
 
