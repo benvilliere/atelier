@@ -36,7 +36,11 @@
             <div class="card-header">
               <div class="time" x-text="timeAgo(entry.timestamp)"></div>
               <div class="actions">
-                <div class="action" x-data="{ sharing: false }">
+                <div
+                  class="action"
+                  x-data="{ sharing: false }"
+                  @mousedown.outside="sharing = false"
+                >
                   <button @click.prevent="sharing = !sharing">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
