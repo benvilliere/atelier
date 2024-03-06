@@ -5,6 +5,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 export function createBackend(settings) {
+  // Local directories
   const baseDir = process.cwd();
   const dataDirectory = path.join(baseDir, settings.timeline.path);
   const screenshotsDirectory = path.join(baseDir, settings.screenshot.path);
