@@ -45,11 +45,6 @@ export async function createDirectory(dirPath) {
   }
 }
 
-export function getDirName() {
-  const __filename = fileURLToPath(import.meta.url);
-  return dirname(__filename);
-}
-
 export function getRecordingDir(config) {
   return (
     config.recording.path || `${ATELIER_BASE_DIR}/${ATELIER_RECORDING_DIR}`
