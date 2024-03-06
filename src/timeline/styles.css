@@ -135,6 +135,7 @@ body * {
 
 .card .actions button:hover,
 .card .actions a:hover {
+  transition: all ease-in-out 300ms;
   opacity: 0.5;
 }
 
