@@ -92,7 +92,7 @@ function convertOptionsToConfig(options) {
   return converted;
 }
 
-export async function getBaseConfig(config) {
+export async function setBaseConfigSmartDefaults(config) {
   config.git.enabled = await isGitRepository();
 
   return config;
