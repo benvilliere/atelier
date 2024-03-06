@@ -2,10 +2,12 @@ import express from "express";
 import cors from "cors";
 import fs from "fs/promises";
 import path from "path";
-import { getDirName } from "../helpers.js";
+import { fileURLToPath } from "url";
 
 export function createBackend(settings) {
   const baseDir = process.cwd();
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
 
   const directories = {
     // Local directories
@@ -13,7 +15,7 @@ export function createBackend(settings) {
     screenshots: path.join(baseDir, settings.screenshot.path),
     recordings: path.join(baseDir, settings.recording.path),
     // Atelier base install directory
-    frontend: getDirName(),
+    frontend: path.join(__dirname),
   };
 
   const backend = express();
@@ -71,7 +73,7 @@ export function createBackend(settings) {
     if (req.method !== "GET") {
       return;
     }
-    res.sendFile(path.join(directories.frontend, "index.html"));
+    res.sendFile(path.join(frontendDir, "index.html"));
   });
 
   return backend;
