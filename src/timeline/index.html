@@ -86,7 +86,10 @@
                 </div>
                 <div class="action" x-data="{ copied: false }">
                   <button
-                    @click.prevent="copyImageToClipboard(`atelier-screenshot-${index}`); copied = !copied"
+                    @click.prevent="
+                      copyImageToClipboard(`atelier-screenshot-${index}`);
+                      copied = !copied;
+                    "
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
