@@ -80,10 +80,12 @@ body * {
   padding: 1vh 0;
 }
 
-.actions {
+.action {
   position: relative;
 }
-
+.action .panel {
+  position: absolute;
+}
 .card .actions > * {
   margin-right: 12px;
 }
