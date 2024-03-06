@@ -9,3 +9,12 @@ export async function commitChanges(settings) {
   }
   return hash;
 }
+
+export async function isGitRepository() {
+  try {
+    await fs.access(path.join(process.cwd(), ".git"));
+    return true;
+  } catch {
+    return false;
+  }
+}

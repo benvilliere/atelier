@@ -57,6 +57,7 @@ TODO: List out all configuration options.
 ## TODOs
 
 - Test on a new project
+- Detect wether git is enabled
 - Refine & document configuration file
 - Timeline: delete screenshot/recording action
 - Timeline: revert to commit hash action
