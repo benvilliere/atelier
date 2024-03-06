@@ -145,6 +145,14 @@
                 :id="`atelier-screenshot-${index}`"
                 :src="`/screenshots/${entry.screenshot}`"
               />
+              <video
+                controls
+                :src="`/recordings/${entry.recording}`"
+                type="video/mp4"
+                alt="Recording"
+              >
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </template>
