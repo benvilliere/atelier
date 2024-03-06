@@ -5,21 +5,21 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 export function createBackend(settings) {
-  // Local directories
   const baseDir = process.cwd();
   const dataDir = path.join(baseDir, settings.timeline.path);
   const screenshotsDir = path.join(baseDir, settings.screenshot.path);
   const recordingsDir = path.join(baseDir, settings.recording.path);
 
-  // Atelier base install directory
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
   const frontendDir = path.join(__dirname);
 
   const directories = {
+    // Local directories
     data: path.join(baseDir, settings.timeline.path),
     screenshots: path.join(baseDir, settings.screenshot.path),
     recordings: path.join(baseDir, settings.recording.path),
+    // Atelier base install directory
     frontend: path.join(__dirname),
   };
 
