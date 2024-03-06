@@ -92,7 +92,7 @@ function convertOptionsToConfig(options) {
   return converted;
 }
 
-export async function setBaseConfigSmartDefaults(config) {
+export async function setBaseConfigSensibleDefaults(config) {
   config.git.enabled = await isGitRepository();
 
   return config;
@@ -100,7 +100,8 @@ export async function setBaseConfigSmartDefaults(config) {
 
 export async function mergeDefaultAndUserConfig() {
   const userConfig = await loadUserConfig();
-  const options = _.merge({}, baseConfig, userConfig);
+  const sensibleBaseConfig = await setBaseConfigSensibleDefaults(baseConfig);
+  const options = _.merge({}, sensibleBaseConfig, userConfig);
   return options;
 }
 
