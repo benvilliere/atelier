@@ -136,6 +136,7 @@ body * {
   text-align: center;
   font-size: 14px;
   text-decoration: none;
+  position: relative;
 }
 
 .card .actions button:hover,
