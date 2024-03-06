@@ -117,9 +117,6 @@ body * {
 .card .actions > * {
   margin-right: 12px;
 }
-.card .actions > *:last-child {
-  margin-right: 0;
-}
 
 .card .actions button,
 .card .actions a {
