@@ -37,8 +37,8 @@ async function copyImageToClipboard(imgId) {
   const ctx = canvas.getContext("2d");
 
   // Set canvas dimensions to match the image
-  canvas.width = 1200;
-  canvas.height = 630;
+  canvas.width = img.width;
+  canvas.height = img.height;
 
   // Draw the image onto the canvas
   ctx.drawImage(img, 0, 0);
