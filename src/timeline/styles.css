@@ -115,24 +115,6 @@ body * {
   position: relative;
 }
 
-.card .action .panel {
-  position: absolute;
-  margin-top: 12px;
-  background: rgba(255, 255, 255, 0.5);
-  -webkit-backdrop-filter: blur(42px);
-  backdrop-filter: blur(42px);
-}
-
-.card .action .panel li {
-  margin-top: 3px;
-  padding: 6px 12px;
-}
-
-.card .action .panel li a {
-  color: black;
-  text-decoration: none;
-}
-
 .card .actions > * {
   margin-right: 12px;
 }
