@@ -45,7 +45,8 @@ body * {
 }
 
 .header .logo a {
-  text-color: black;
+  color: black;
+  text-decoration: none;
 }
 
 .container {
