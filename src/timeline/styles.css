@@ -118,6 +118,7 @@ body * {
 
 .card .actions button,
 .card .actions a {
+  padding: 0;
   display: flex;
   color: black;
   flex-direction: column;
