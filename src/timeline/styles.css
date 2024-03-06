@@ -1,8 +1,7 @@
 :root {
+  --header-background-color: rgba(255, 255, 255, 0.75);
   --background-color: #ffffff;
   --text-color: #000000;
-  --header-background-color: rgba(255, 255, 255, 0.75);
-  --card-background-color: #f0f0f0;
 }
 
 html,
