@@ -4,6 +4,7 @@ import _ from "lodash";
 import baseConfig from "./config/base.js";
 import defaultConfig from "./config/default.js";
 import { loadJson } from "./helpers.js";
+import { isGitRepository } from "./features/git.js";
 import { ATELIER_CONFIG_FILE_NAME } from "./constants.js";
 
 export async function createConfigFile(configPath) {
@@ -89,6 +90,12 @@ function convertOptionsToConfig(options) {
   }
 
   return converted;
+}
+
+export function getBaseConfig() {
+  baseConfig.git.enabled = await isGitRepository()
+
+  return baseConfig
 }
 
 export async function mergeDefaultAndUserConfig() {
