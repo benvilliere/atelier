@@ -6,13 +6,9 @@ import { fileURLToPath } from "url";
 
 export function createBackend(settings) {
   const baseDir = process.cwd();
-  const dataDir = path.join(baseDir, settings.timeline.path);
-  const screenshotsDir = path.join(baseDir, settings.screenshot.path);
-  const recordingsDir = path.join(baseDir, settings.recording.path);
 
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
-  const frontendDir = path.join(__dirname);
 
   const directories = {
     // Local directories
@@ -26,17 +22,17 @@ export function createBackend(settings) {
   const backend = express();
 
   backend.use(cors());
-  backend.use("/", express.static(frontendDir));
-  backend.use("/screenshots", express.static(screenshotsDir));
-  backend.use("/recordings", express.static(recordingsDir));
+  backend.use("/", express.static(directories.frontend));
+  backend.use("/screenshots", express.static(directories.screenshots));
+  backend.use("/recordings", express.static(directories.recordings));
 
   backend.get("/timeline", async (req, res) => {
     try {
-      const files = await fs.readdir(dataDir);
+      const files = await fs.readdir(directories.data);
       const timeline = [];
       for (const file of files) {
         if (path.extname(file) === ".json") {
-          const filePath = path.join(dataDir, file);
+          const filePath = path.join(directories.data, file);
           const fileContents = await fs.readFile(filePath, "utf8");
           const entry = JSON.parse(fileContents);
           timeline.push(entry);
