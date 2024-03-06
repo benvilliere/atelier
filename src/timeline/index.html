@@ -37,8 +37,12 @@
             <div class="card-header">
               <div class="time" x-text="timeAgo(entry.timestamp)"></div>
               <div class="actions">
-                <a :href="`/screenshots/${entry.screenshot}`" download :title="`Download ${entry.screenshot}`">
-
+                <div class="action">
+                  <a
+                    :href="`/screenshots/${entry.screenshot}`"
+                    download
+                    :title="`Download ${entry.screenshot}`"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -53,6 +57,8 @@
                       />
                     </svg>
                     <span>Download</span>
+                  </a>
+                </div>
                 <div class="action" x-data="{ copied: false }">
                   <button
                     @click.prevent="
