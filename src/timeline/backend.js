@@ -9,16 +9,7 @@ export function createBackend(settings) {
 
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
-  // const baseDir = "./";
   const baseDir = settings.root;
-
-  // const dataDirectory = path.join(__dirname, "../../.atelier/timeline");
-  // const screenshotsDirectory = path.join(
-  //   __dirname,
-  //   "../../.atelier/screenshots"
-  // );
-  // const recordingsDirectory = path.join(__dirname, "../../.atelier/recordings");
-  // const timelineDirectory = __dirname;
 
   const dataDirectory = path.join(baseDir, settings.timeline.path);
   const screenshotsDirectory = path.join(baseDir, settings.screenshot.path);
