@@ -85,7 +85,9 @@ body * {
 }
 .action .panel {
   position: absolute;
+  background: white;
 }
+
 .card .actions > * {
   margin-right: 12px;
 }
