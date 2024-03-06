@@ -11,7 +11,7 @@ export function newDataEntry() {
   };
 }
 
-export async function saveData(data, settings) {
+export async function saveEntry(data, settings) {
   data.timestamp = Date.now();
 
   const filename = `${data.timestamp}.json`;
@@ -28,4 +28,20 @@ export async function saveData(data, settings) {
   }
 
   return filePath;
+}
+
+export async function saveData(data, settings) {
+  let entry = newDataEntry();
+
+  if (data.screenshot) {
+    entry = { screenshot: data.screenshot };
+    await saveEntry(entry, settings);
+  } else if (data.recording) {
+    entry = { recording: data.recording };
+    await saveEntry(entry, settings);
+  } else {
+    if (settings.verbose) {
+      console.log("No data to save");
+    }
+  }
 }
