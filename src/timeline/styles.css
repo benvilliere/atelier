@@ -127,6 +127,7 @@ body * {
   background: transparent;
   text-align: center;
   font-size: 14px;
+  text-decoration: none;
 }
 
 .card .actions button svg,
