@@ -19,7 +19,13 @@
     x-init="
       timeline = await get('/timeline');
       settings = await get('/settings');
-      setInterval(() => console.log('atelier'), 1000);
+      setInterval(async () => {
+        const data = await get('/timeline');
+
+        if (timeline.length < data.length) {
+          timeline = data;
+        }
+      }, 1000);
     "
   >
     <div class="header">
