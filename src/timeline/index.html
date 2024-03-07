@@ -34,7 +34,13 @@
         </a>
       </h1>
       <div class="alert" x-show="$store.atelier.newEntries > 0">
-        <a class="pill" href="/">
+        <a
+          class="pill"
+          href="/"
+          @click="
+            $el.remove();
+          "
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
