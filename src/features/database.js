@@ -39,7 +39,7 @@ export async function saveData(data, settings) {
     entry.screenshot = data.screenshot;
 
     if (settings.verbose) {
-      console.log("💾 Screenshot data:", { entry });
+      console.log("💾 Screenshot data:", { ...entry });
     }
 
     await saveEntry(entry, settings);
@@ -49,7 +49,7 @@ export async function saveData(data, settings) {
     entry.recording = data.recording;
 
     if (settings.verbose) {
-      console.log("💾 Recording data:", { entry });
+      console.log("💾 Recording data:", { ...entry });
     }
 
     await saveEntry(entry, settings);
