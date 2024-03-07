@@ -18,6 +18,7 @@
     x-data="{ timeline: [] }"
     x-init="
       timeline = await get('/timeline');
+      settings = await get('/settings');
     "
   >
     <div class="header">
