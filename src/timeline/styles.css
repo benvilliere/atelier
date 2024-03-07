@@ -99,7 +99,7 @@ body * {
 
 .pill {
   border: 3px solid var(--text-color);
-  border-radius: 100%;
+  border-radius: 12px;
   color: var(--text-color);
 }
 
