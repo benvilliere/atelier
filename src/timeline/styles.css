@@ -121,7 +121,6 @@ body * {
 .pill:hover svg {
   animation-name: spin;
   animation-duration: 300ms;
-  animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
 
