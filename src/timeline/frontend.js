@@ -84,7 +84,7 @@ document.addEventListener("alpine:init", () => {
         } catch (error) {
           console.error("Failed to update timeline:", error);
         }
-      }, this.settings.timeline.pollingInterval);
+      }, 3000);
     },
     timeline: [],
     settings: {},
