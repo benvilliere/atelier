@@ -43,8 +43,8 @@
         style="display: none"
         x-text="JSON.stringify($store.atelier, null, 2)"
       ></pre>
-      <div class="deck" x-show="$store.atelier.timeline.length > 0">
-        <template x-for="(entry, index) in $store.atelier.timeline">
+      <div class="deck" x-show="$store.atelier.timeline.entries.length > 0">
+        <template x-for="(entry, index) in $store.atelier.timeline.entries">
           <div class="card">
             <pre
               style="
