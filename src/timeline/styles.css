@@ -215,7 +215,7 @@ body * {
 
   .card .actions button,
   .card .actions a {
-    padding: 6px 0;
+    padding: 0;
   }
 }
 
