@@ -99,10 +99,13 @@ document.addEventListener("alpine:init", () => {
             window.scrollTo(0, 0);
 
             const fresh = await getTimeline();
-            this.timeline.entries = [
-              fresh.entries.slice(this.newEntries),
-              ...this.timeline.entries,
-            ];
+            this.timeline = {
+              ...data,
+              entries: [
+                fresh.entries.slice(this.newEntries),
+                ...this.timeline.entries,
+              ],
+            };
             this.newEntries = 0;
           }
         } catch (error) {
