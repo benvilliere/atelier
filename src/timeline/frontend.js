@@ -71,9 +71,6 @@ document.addEventListener("alpine:init", () => {
     settings: {},
     newEntries: 0,
     fetchingMoreEntries: false,
-    getNewEntriesAmount() {
-      return this.newEntries;
-    },
     async loadNewEntries() {
       const fresh = await getTimeline();
       this.timeline.entries = [
