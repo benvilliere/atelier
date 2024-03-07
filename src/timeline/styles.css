@@ -209,7 +209,7 @@ body * {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   .deck {
-    width: 50vw;
+    width: 40vw;
     padding: 32px 0;
   }
 }
