@@ -70,7 +70,7 @@ document.addEventListener("alpine:init", () => {
       setInterval(async () => {
         try {
           const data = await get("/timeline");
-          if (timeline.length < data.length) {
+          if (this.timeline.length < data.length) {
             this.data = [];
             // $dispatch("onTimelineUpdate", data);
             console.log("Timeline was updated");
