@@ -115,7 +115,7 @@ body * {
   align-items: center;
   align-content: center;
   align-self: first baseline;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   margin: 0 auto;
   width: 50%;
   height: 100%;
