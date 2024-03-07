@@ -113,10 +113,5 @@ document.addEventListener("alpine:init", () => {
         { passive: true }
       );
     },
-    fetching: {
-      timeline: true,
-    },
-    timeline: [],
-    settings: {},
   });
 });
