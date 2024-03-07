@@ -89,6 +89,7 @@ document.addEventListener("alpine:init", () => {
 
       window.addEventListener("scroll", () => {
         console.log(
+          window.scrollY
           window.innerHeight + window.scrollY,
           document.body.offsetHeight,
           window.innerHeight + window.scrollY < document.body.offsetHeight - 300
