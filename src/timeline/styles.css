@@ -97,6 +97,10 @@ body * {
   border: 12px red !important;
 }
 
+.pill {
+  border: 3px solid var(--text-color);
+}
+
 .pill svg {
   width: 18px;
 }
