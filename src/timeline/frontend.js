@@ -67,7 +67,7 @@ document.addEventListener("alpine:init", () => {
       this.settings = await get("/settings");
 
       if (this.settings.verbose) {
-        console.log("Atelier store was initiated:", this);
+        console.info("Store was initiated:", this);
       }
 
       setInterval(async () => {
@@ -78,7 +78,7 @@ document.addEventListener("alpine:init", () => {
             this.timeline = data;
 
             if (this.settings.verbose) {
-              console.log("Timeline was updated");
+              console.info("Timeline was updated");
             }
           }
         } catch (error) {
