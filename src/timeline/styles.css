@@ -87,7 +87,7 @@ body * {
   height: 100%;
 }
 
-.pill {
+.alert {
   position: absolute;
   display: flex;
   align-items: center;
