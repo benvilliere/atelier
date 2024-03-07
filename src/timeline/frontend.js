@@ -61,10 +61,5 @@ async function copyImageToClipboard(imgId) {
 }
 
 document.addEventListener("alpine:init", () => {
-  Alpine.store("atelier", {
-    on: false,
-    toggle() {
-      this.on = !this.on;
-    },
-  });
+  Alpine.store("atelier", { timeline: [], settings: {} });
 });
