@@ -70,6 +70,7 @@ document.addEventListener("alpine:init", () => {
         console.info("Store was initiated:", this);
       }
 
+      // TODO: Consider showing a button to refresh the page instead
       setInterval(async () => {
         try {
           const data = await get("/timeline");
@@ -85,6 +86,12 @@ document.addEventListener("alpine:init", () => {
           console.error("Failed to update timeline:", error);
         }
       }, 3000);
+
+      window.addEventListener("scroll", () => {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+          // this.loadMoreEntries();
+        }
+      });
     },
     timeline: [],
     settings: {},
