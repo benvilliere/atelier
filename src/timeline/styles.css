@@ -63,7 +63,6 @@ body * {
 .header .logo a {
   color: var(--text-color);
   text-decoration: none;
-  transition: all ease-in-out 200ms;
 }
 
 .header .logo a:hover {
@@ -77,6 +76,7 @@ body * {
 .header .logo a svg {
   width: 16px;
   opacity: 0;
+  transition: all ease-in-out 200ms;
 }
 
 .container {
