@@ -61,6 +61,7 @@ async function copyImageToClipboard(imgId) {
 }
 
 async function getTimeline(page = 1, limit = 32) {
+  console.log("Fetching page:", page);
   return await get(`/timeline?page=${page}&limit=${limit}`);
 }
 
