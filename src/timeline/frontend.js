@@ -79,21 +79,23 @@ document.addEventListener("alpine:init", () => {
       }
 
       // TODO: Consider showing a button to refresh the page instead
-      // setInterval(async () => {
-      //   try {
-      //     const data = await get("/timeline");
+      setInterval(async () => {
+        try {
+          const data = await getTimeline(1);
 
-      //     if (this.timeline.entries.length < data.entries.length) {
-      //       this.timeline = data;
+          if (this.timeline.entries.length < data.entries.length) {
+            this.timeline = data;
 
-      //       if (this.settings.verbose) {
-      //         console.info("Timeline was updated", this.timeline);
-      //       }
-      //     }
-      //   } catch (error) {
-      //     console.error("Failed to update timeline:", error);
-      //   }
-      // }, 3000);
+            if (this.settings.verbose) {
+              console.info("Timeline was updated", this.timeline);
+            }
+
+            window.scrollTo(0, 0);
+          }
+        } catch (error) {
+          console.error("Failed to update timeline:", error);
+        }
+      }, 3000);
 
       window.addEventListener(
         "scroll",
