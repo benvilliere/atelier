@@ -31,10 +31,6 @@ export async function saveEntry(data, settings) {
 }
 
 export async function saveData(data, settings) {
-  if (settings.verbose) {
-    console.log("💾 Received data", { data });
-  }
-
   const entry = newDataEntry();
 
   entry.commitHash = data.commitHash;
