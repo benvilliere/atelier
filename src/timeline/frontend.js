@@ -70,7 +70,9 @@ document.addEventListener("alpine:init", () => {
     },
     async getTimeline(page = 1, limit = 32) {
       console.log("Fetching page:", page);
+      this.status.timeline = "READY";
       const timeline = await get(`/timeline?page=${page}&limit=${limit}`);
+      this.status.timeline = "READY";
       return timeline;
     },
     async init() {
