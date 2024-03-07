@@ -26,17 +26,18 @@ async function saveScreenshotData(data, settings) {
 }
 
 async function saveRecordingData(data, settings) {
-  if (data.recording) {
-    let entry = newDataEntry();
-    entry.commitHash = data.commitHash;
-    entry.recording = data.recording;
-
-    if (settings.verbose) {
-      console.log("💾 Recording data:", { ...entry });
-    }
-
-    await saveEntry(entry, settings);
+  if (!data.recording) {
+    return;
   }
+  let entry = newDataEntry();
+  entry.commitHash = data.commitHash;
+  entry.recording = data.recording;
+
+  if (settings.verbose) {
+    console.log("💾 Recording data:", { ...entry });
+  }
+
+  await saveEntry(entry, settings);
 }
 
 export async function saveData(data, settings) {
