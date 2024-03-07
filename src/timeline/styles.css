@@ -90,6 +90,7 @@ body * {
 .pill {
   display: flex;
   z-index: 300;
+  border: 12px red !important;
 }
 
 .pill svg {
