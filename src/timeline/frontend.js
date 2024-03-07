@@ -112,6 +112,7 @@ document.addEventListener("alpine:init", () => {
         async () => {
           console.log(window.scrollY);
           this.showNewEntriesPill =
+            window.scrollY > 0 &&
             this.newEntries > 0 &&
             window.scrollY >
               document.getElementById("atelier-card-1").clientHeight;
