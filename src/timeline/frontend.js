@@ -91,8 +91,8 @@ document.addEventListener("alpine:init", () => {
         console.log(window.innerHeight);
         console.log(document.documentElement.scrollTop);
         if (
-          window.innerHeight + Math.round(document.documentElement.scrollTop) >=
-          document.body.offsetHeight
+          window.innerHeight + window.scrollY >=
+          document.documentElement.scrollHeight
         ) {
           console.log("you're at the bottom of the page");
         }
