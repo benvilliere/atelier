@@ -103,14 +103,11 @@ document.addEventListener("alpine:init", () => {
               console.log("you're at the bottom of the page");
               const data = await getTimeline(this.timeline.page + 1);
 
-              this.timeline.entries = [
-                ...this.timeline.entries,
-                ...data.entries,
-              ];
+              this.timeline = {
+                entries: [...this.timeline.entries, ...data.entries],
+              };
 
               this.timeline.page = data.page;
-
-              this.timeline.page += 1;
             }
           }
         },
