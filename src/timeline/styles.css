@@ -167,6 +167,7 @@ body * {
 .card .actions button:hover span,
 .card .actions a:hover span {
   opacity: 1;
+  display: block;
   margin-bottom: 0;
 }
 
