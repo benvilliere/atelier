@@ -70,8 +70,13 @@ body * {
   opacity: 0.75;
 }
 
+.header .logo a:hover svg {
+  opacity: 1;
+}
+
 .header .logo a svg {
   width: 16px;
+  opacity: 0;
 }
 
 .container {
