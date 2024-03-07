@@ -65,16 +65,16 @@ export default async function watch(settings) {
       }
 
       try {
+        if (settings.commit.enabled) {
+          data.commitHash = await commitChanges(settings);
+        }
+
         if (settings.screenshot.enabled) {
           data.screenshot = await takeScreenshot(settings);
         }
 
         if (settings.recording.enabled) {
           data.recording = await recordVideo(settings);
-        }
-
-        if (settings.commit.enabled) {
-          data.commitHash = await commitChanges(settings);
         }
 
         if (settings.timeline.enabled) {
