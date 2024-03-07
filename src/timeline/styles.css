@@ -194,6 +194,10 @@ body * {
   .header {
     height: 128px;
   }
+  .header .logo {
+    font-size: 32px;
+    letter-spacing: 8px;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
