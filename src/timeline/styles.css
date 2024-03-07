@@ -107,8 +107,7 @@ body * {
 .card .card-header .time {
   display: flex;
   width: 100%;
-  font-size: 16px;
-  padding: 16px;
+  font-size: 12px;
 }
 
 .card .actions {
