@@ -92,8 +92,7 @@ document.addEventListener("alpine:init", () => {
           const fresh = await getTimeline();
 
           if (fresh.total > this.timeline.total) {
-            const newEntriesAmount = (this.newEntries =
-              fresh.total - this.timeline.total);
+            const newEntriesAmount = fresh.total - this.timeline.total;
 
             this.timeline = {
               ...fresh,
@@ -102,6 +101,8 @@ document.addEventListener("alpine:init", () => {
                 ...this.timeline.entries,
               ],
             };
+
+            this.newEntries = newEntriesAmount;
           }
         } catch (error) {
           console.error("Failed to update timeline:", error);
