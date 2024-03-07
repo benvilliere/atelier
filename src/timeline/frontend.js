@@ -86,6 +86,7 @@ document.addEventListener("alpine:init", () => {
 
           if (data.total > this.timeline.total) {
             this.newEntries = this.total - this.timeline.total;
+            console.log(this.newEntries);
             window.scrollTo(0, 0);
           }
         } catch (error) {
