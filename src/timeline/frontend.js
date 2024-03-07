@@ -78,7 +78,7 @@ document.addEventListener("alpine:init", () => {
             this.timeline = data;
 
             if (this.settings.verbose) {
-              console.info("Timeline was updated");
+              console.info("Timeline was updated", this.timeline);
             }
           }
         } catch (error) {
