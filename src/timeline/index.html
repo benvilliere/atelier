@@ -19,6 +19,7 @@
     x-init="
       timeline = await get('/timeline');
       settings = await get('/settings');
+      setInterval(() => console.log('atelier'), 1000);
     "
   >
     <div class="header">
