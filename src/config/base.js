@@ -16,7 +16,7 @@ export default {
     enabled: true, // Enables data storage
     path: ".atelier/timeline", // Path where to store timeline data
     open: true,
-    pollingInterval: 3000,
+    polling: 3000,
   },
   commit: {
     enabled: true, // Enables auto-commit on save
