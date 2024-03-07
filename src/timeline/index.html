@@ -169,6 +169,7 @@
                   :id="`atelier-recording-${index}`"
                   :title="`Recording taken at ${new Date(entry.timestamp).toLocaleString()}`"
                   :style="`max-width: ${settings.recording.width}px`"
+                  :width="`${settings.recording.width}px`"
                 >
                   <source
                     :src="`/recordings/${entry.recording}`"
