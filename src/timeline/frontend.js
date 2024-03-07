@@ -101,7 +101,12 @@ document.addEventListener("alpine:init", () => {
           ) {
             if (this.timeline.page < this.timeline.totalPages) {
               console.log("you're at the bottom of the page");
-              this.timeline = await getTimeline(this.timeline.page + 1);
+              const data = await getTimeline(this.timeline.page + 1);
+
+              this.timeline.entries = [
+                ...this.timeline.entries,
+                ...data.entries,
+              ];
             }
           }
         },
