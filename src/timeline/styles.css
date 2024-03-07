@@ -136,6 +136,7 @@ body * {
 }
 
 .pill .number {
+  padding: 3px;
   background-color: var(--text-color);
   color: var(--background);
   border-radius: 32px;
