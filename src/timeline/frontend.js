@@ -102,7 +102,7 @@ document.addEventListener("alpine:init", () => {
               ],
             };
 
-            this.newEntries = newEntriesAmount;
+            this.newEntries += newEntriesAmount;
           }
         } catch (error) {
           console.error("Failed to update timeline:", error);
