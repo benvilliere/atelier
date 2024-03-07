@@ -63,7 +63,9 @@ body * {
 .header .logo a {
   color: var(--text-color);
   text-decoration: none;
+  transition: all ease-in-out 200ms;
 }
+
 .header .logo a:hover {
   opacity: 0.75;
 }
