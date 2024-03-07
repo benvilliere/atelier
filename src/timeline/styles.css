@@ -110,6 +110,7 @@ body * {
 
 .pill svg {
   width: 18px;
+  margin-left: 6px;
 }
 
 .deck {
