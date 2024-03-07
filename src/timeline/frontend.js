@@ -101,7 +101,7 @@ document.addEventListener("alpine:init", () => {
             const fresh = await getTimeline();
             this.timeline.entries = [
               fresh.entries.slice(this.newEntries),
-              ...this.timelien.entries,
+              ...this.timeline.entries,
             ];
             this.newEntries = 0;
           }
