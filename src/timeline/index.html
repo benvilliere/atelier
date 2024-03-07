@@ -45,6 +45,13 @@
       <div class="deck" x-show="$store.atelier.timeline.length > 0">
         <template x-for="(entry, index) in $store.atelier.timeline">
           <div class="card">
+            <pre
+              x-data="{ show: false }"
+              @dblclick="show = false"
+              x-show="show"
+              class="debugger"
+              x-text="JSON.stringify($store.atelier, null, 2)"
+            ></pre>
             <div class="card-header">
               <div class="time" x-text="timeAgo(entry.timestamp)"></div>
               <div class="actions">
