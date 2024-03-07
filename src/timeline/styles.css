@@ -113,8 +113,9 @@ body * {
 .card .actions {
   display: flex;
   align-items: center;
-  align-content: space-between;
+  align-content: center;
   align-self: first baseline;
+  justify-content: space-between;
   margin: 0 auto;
   height: 100%;
 }
