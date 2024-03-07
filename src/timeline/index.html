@@ -76,7 +76,7 @@
                 </div>
                 <div
                   class="action"
-                  :if="entry.screenshot"
+                  x-show="entry.screenshot"
                   x-data="{ copied: false }"
                 >
                   <button
