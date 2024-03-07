@@ -38,12 +38,12 @@ export async function saveData(data, settings) {
   }
 
   if (data.screenshot) {
-    entry = { ...data, screenshot: data.screenshot };
-    await saveEntry(entry, settings);
+    entry = { screenshot: data.screenshot };
   }
 
   if (data.recording) {
-    entry = { ...data, recording: data.recording };
-    await saveEntry(entry, settings);
+    entry = { recording: data.recording };
   }
+
+  await saveEntry(entry, settings);
 }
