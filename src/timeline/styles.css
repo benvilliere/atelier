@@ -178,6 +178,10 @@ body * {
   margin-bottom: 0;
 }
 
+.card .media {
+  width: 100%;
+}
+
 .card .media img,
 .card .media video {
   width: 100%;
