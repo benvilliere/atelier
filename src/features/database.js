@@ -37,11 +37,11 @@ export async function saveData(data, settings) {
 
   if (data.screenshot) {
     data = { recording: undefined };
+    await saveEntry(data, settings);
   }
 
   if (data.recording) {
     data = { screenshot: undefined };
+    await saveEntry(data, settings);
   }
-
-  await saveEntry(data, settings);
 }
