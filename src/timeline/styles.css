@@ -135,6 +135,11 @@ body * {
   margin-right: 6px;
 }
 
+.pill .number {
+  background: var(--text-color);
+  color: var(--background);
+}
+
 .deck {
   width: 92%;
 }
