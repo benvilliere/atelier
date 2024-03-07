@@ -96,7 +96,6 @@ document.addEventListener("alpine:init", () => {
 
           if (data.total > this.timeline.total) {
             this.newEntries = data.total - this.timeline.total;
-            window.scrollTo(0, 0);
 
             const fresh = await getTimeline();
             this.timeline = {
@@ -106,6 +105,7 @@ document.addEventListener("alpine:init", () => {
                 ...this.timeline.entries,
               ],
             };
+
             // this.newEntries = 0;
           }
         } catch (error) {
