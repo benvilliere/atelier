@@ -123,10 +123,6 @@ body * {
   position: relative;
 }
 
-.card .actions > * {
-  margin-right: 12px;
-}
-
 .card .actions button,
 .card .actions a {
   display: flex;
