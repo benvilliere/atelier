@@ -31,13 +31,13 @@ export async function saveEntry(data, settings) {
 }
 
 export async function saveData(data, settings) {
-  const entry = newDataEntry();
-
-  entry.timestamp = data.timestamp;
-
   if (settings.verbose) {
     console.log("💾 Received data", { data });
   }
+
+  const entry = newDataEntry();
+
+  entry.commitHash = data.commitHash;
 
   if (data.screenshot) {
     entry.recording = { recording: undefined };
