@@ -70,6 +70,10 @@ body * {
   opacity: 0.75;
 }
 
+.header .logo a svg {
+  width: 16px;
+}
+
 .container {
   display: flex;
   justify-content: center;
