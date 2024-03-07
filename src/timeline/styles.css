@@ -87,6 +87,10 @@ body * {
   height: 100%;
 }
 
+.pill {
+  align-self: center;
+}
+
 .deck {
   width: 92%;
 }
