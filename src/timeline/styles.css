@@ -189,16 +189,10 @@ body * {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  * {
-    border: 1px solid orange !important;
-  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  * {
-    border: 1px solid yellow !important;
-  }
   .deck {
     width: 60vw;
     padding: 32px 0;
