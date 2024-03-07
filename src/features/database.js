@@ -25,7 +25,7 @@ async function saveScreenshotData(data, settings) {
   }
 }
 
-export async function saveData(data, settings) {
+async function saveRecordingData(data, settings) {
   if (data.recording) {
     let entry = newDataEntry();
     entry.commitHash = data.commitHash;
@@ -37,6 +37,10 @@ export async function saveData(data, settings) {
 
     await saveEntry(entry, settings);
   }
+}
+
+export async function saveData(data, settings) {
+  await saveScreenshotData(data);
 }
 
 export async function saveEntry(entry, settings) {
