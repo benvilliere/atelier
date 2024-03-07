@@ -168,7 +168,7 @@
                   controls
                   :id="`atelier-recording-${index}`"
                   :title="`Recording taken at ${new Date(entry.timestamp).toLocaleString()}`"
-                  style="max-width: 100%"
+                  :style="`max-width: ${settings.recording.width}px`"
                 >
                   <source
                     :src="`/recordings/${entry.recording}`"
