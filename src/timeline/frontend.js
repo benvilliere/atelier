@@ -61,7 +61,7 @@ async function copyImageToClipboard(imgId) {
 }
 
 async function getTimeline(page = 1, limit = 32) {
-  const timeline = await get(`/timeline?page=${page}&limit=${limit}`);
+  return await get(`/timeline?page=${page}&limit=${limit}`);
 }
 
 document.addEventListener("alpine:init", () => {
