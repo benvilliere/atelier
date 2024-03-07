@@ -90,6 +90,7 @@ document.addEventListener("alpine:init", () => {
               console.info("Timeline was updated", this.timeline);
             }
 
+            console.log("scrolling to top");
             window.scrollTo(0, 0);
           }
         } catch (error) {
