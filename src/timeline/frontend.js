@@ -121,7 +121,6 @@ document.addEventListener("alpine:init", () => {
               this.showNewEntriesPill = true;
             }
           }
-          console.log(window.scrollY);
 
           if (this.fetchingMoreEntries) {
             return;
