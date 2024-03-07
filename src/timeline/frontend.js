@@ -70,7 +70,7 @@ document.addEventListener("alpine:init", () => {
     },
     async getTimeline(page = 1, limit = 32) {
       console.log("Fetching page:", page);
-      this.status.timeline = "READY";
+      this.status.timeline = "LOADING";
       const timeline = await get(`/timeline?page=${page}&limit=${limit}`);
       this.status.timeline = "LOADING";
       return timeline;
