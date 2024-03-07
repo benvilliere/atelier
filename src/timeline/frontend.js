@@ -92,21 +92,18 @@ document.addEventListener("alpine:init", () => {
 
       setInterval(async () => {
         try {
-          const data = await getTimeline();
+          const fresh = await getTimeline();
 
-          if (data.total > this.timeline.total) {
-            this.newEntries = data.total - this.timeline.total;
+          if (fresh.total > this.timeline.total) {
+            const newEntriesAmount = fresh.total - this.timeline.total;
 
-            const fresh = await getTimeline();
             this.timeline = {
-              ...data,
+              ...fresh,
               entries: [
-                ...fresh.entries.slice(this.newEntries),
+                ...fresh.entries.slice(newEntriesAmount),
                 ...this.timeline.entries,
               ],
             };
-
-            // this.newEntries = 0;
           }
         } catch (error) {
           console.error("Failed to update timeline:", error);
