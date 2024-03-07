@@ -25,6 +25,10 @@ export function createBackend(settings) {
   backend.use("/screenshots", express.static(directories.screenshots));
   backend.use("/recordings", express.static(directories.recordings));
 
+  backend.get("/settings", async (req, res) => {
+    res.json(settings);
+  });
+
   backend.get("/timeline", async (req, res) => {
     try {
       const files = await fs.readdir(directories.data);
