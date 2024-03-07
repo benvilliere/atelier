@@ -110,6 +110,7 @@ document.addEventListener("alpine:init", () => {
       window.addEventListener(
         "scroll",
         async () => {
+          console.log(window.scrollY);
           this.showNewEntriesPill =
             this.newEntries > 0 &&
             window.scrollY >
