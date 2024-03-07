@@ -107,13 +107,14 @@ document.addEventListener("alpine:init", () => {
                 ...data,
                 entries: [...this.timeline.entries, ...data.entries],
               };
-
-              this.timeline.page = data.page;
             }
           }
         },
         { passive: true }
       );
+    },
+    fetching: {
+      timeline: true,
     },
     timeline: [],
     settings: {},
