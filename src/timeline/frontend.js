@@ -101,35 +101,32 @@ document.addEventListener("alpine:init", () => {
       window.addEventListener(
         "scroll",
         async () => {
-          await onScrollEnd();
+          if (this.fetchingMoreEntries) {
+            console.log("Already fetching more entries");
+            return;
+          }
+          if (
+            window.innerHeight + window.scrollY >=
+            document.documentElement.scrollHeight - 300
+          ) {
+            if (this.timeline.page < this.timeline.totalPages) {
+              console.log("you're at the bottom of the page");
+
+              this.fetchingMoreEntries = true;
+
+              const data = await getTimeline(this.timeline.page + 1);
+
+              this.timeline = {
+                ...data,
+                entries: [...this.timeline.entries, ...data.entries],
+              };
+
+              this.fetchingMoreEntries = false;
+            }
+          }
         },
         { passive: true }
       );
-    },
-    async onScrollEnd() {
-      if (this.fetchingMoreEntries) {
-        console.log("Already fetching more entries");
-        return;
-      }
-      if (
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 300
-      ) {
-        if (this.timeline.page < this.timeline.totalPages) {
-          console.log("you're at the bottom of the page");
-
-          this.fetchingMoreEntries = true;
-
-          const data = await getTimeline(this.timeline.page + 1);
-
-          this.timeline = {
-            ...data,
-            entries: [...this.timeline.entries, ...data.entries],
-          };
-
-          this.fetchingMoreEntries = false;
-        }
-      }
     },
   });
 });
