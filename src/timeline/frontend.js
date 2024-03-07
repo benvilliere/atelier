@@ -113,7 +113,13 @@ document.addEventListener("alpine:init", () => {
           if (window.scrollY == 0) {
             this.showNewEntriesPill = false;
           } else {
-            this.showNewEntriesPill = true;
+            if (
+              this.newEntries > 0 &&
+              window.scrollY >
+                document.getElementById("atelier-card-1").clientHeight
+            ) {
+              this.showNewEntriesPill = true;
+            }
           }
           console.log(window.scrollY);
 
