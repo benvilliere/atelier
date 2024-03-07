@@ -35,10 +35,10 @@ body * {
   font-family: monospace;
   font-size: 16px;
   line-height: 140%;
-  color: var(--background);
+  color: var(--text-color);
   border-radius: 0.5vw;
-  -webkit-backdrop-filter: blur(42px);
-  backdrop-filter: blur(42px);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
 }
 
 .header {
