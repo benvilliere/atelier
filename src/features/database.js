@@ -36,12 +36,12 @@ export async function saveData(data, settings) {
   entry.commitHash = data.commitHash;
 
   if (data.screenshot) {
-    entry.recording = { recording: undefined };
+    entry.screenshot = data.screenshot;
     await saveEntry(data, settings);
   }
 
   if (data.recording) {
-    data = { screenshot: undefined };
+    entry.recording = data.recording;
     await saveEntry(data, settings);
   }
 }
