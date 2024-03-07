@@ -37,7 +37,6 @@ export function createBackend(settings) {
   backend.get("/timeline/total", async (req, res) => {
     try {
       const files = await fs.readdir(directories.data);
-
       res.json(files.length);
     } catch (err) {
       console.error("Failed to load data:", err);
@@ -70,6 +69,7 @@ export function createBackend(settings) {
         entries: paginatedItems,
         page,
         limit,
+        total: files.length,
         totalPages: Math.ceil(entries.length / limit),
       });
     } catch (err) {
