@@ -99,12 +99,12 @@ document.addEventListener("alpine:init", () => {
         "scroll",
         async () => {
           if (this.fetchingMoreEntries) {
+            console.log("Already fetching more entries");
             return;
           }
           if (
-            !this.fetchingMoreEntries &&
             window.innerHeight + window.scrollY >=
-              document.documentElement.scrollHeight - 300
+            document.documentElement.scrollHeight - 300
           ) {
             if (this.timeline.page < this.timeline.totalPages) {
               console.log("you're at the bottom of the page");
