@@ -74,7 +74,7 @@ document.addEventListener("alpine:init", () => {
         try {
           const data = await get("/timeline");
 
-          if (this.timeline.length < data.length) {
+          if (this.timeline.entries.length < data.entries.length) {
             this.timeline = data;
 
             if (this.settings.verbose) {
