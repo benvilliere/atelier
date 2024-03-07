@@ -194,9 +194,6 @@ body * {
   * {
     border: 1px solid red !important;
   }
-  .header {
-    height: 128px;
-  }
   .header .logo {
     font-size: 64px;
     letter-spacing: 8px;
