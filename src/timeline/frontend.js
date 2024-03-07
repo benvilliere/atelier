@@ -69,10 +69,7 @@ document.addEventListener("alpine:init", () => {
   Alpine.store("atelier", {
     timeline: [],
     settings: {},
-    status: {
-      timeline: "LOADING",
-      settings: "LOADING",
-    },
+    fetchingMoreEntries: false
     async init() {
       this.timeline = await getTimeline();
       this.settings = await get("/settings");
