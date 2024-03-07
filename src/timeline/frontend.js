@@ -72,7 +72,6 @@ document.addEventListener("alpine:init", () => {
           const data = await get("/timeline");
           if (this.timeline.length < data.length) {
             this.timeline = data;
-            // $dispatch("onTimelineUpdate", data);
             console.log("Timeline was updated");
           }
         } catch (error) {
