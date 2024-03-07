@@ -37,19 +37,19 @@ export async function saveData(data, settings) {
   }
 }
 
-export async function saveEntry(data, settings) {
-  data.timestamp = Date.now();
+export async function saveEntry(entry, settings) {
+  entry.timestamp = Date.now();
 
-  const filename = `${data.timestamp}.json`;
+  const filename = `${entry.timestamp}.json`;
   const filePath = path.join(getTimelineDir(settings), filename);
 
   await mkdir(getTimelineDir(settings), { recursive: true });
-  await writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
+  await writeFile(filePath, JSON.stringify(entry, null, 2), "utf8");
 
   if (settings.verbose) {
-    console.log("💾 Data saved", {
+    console.log("💾 Entry saved", {
       filePath,
-      data,
+      entry,
     });
   }
 
