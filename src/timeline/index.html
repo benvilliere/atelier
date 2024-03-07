@@ -40,6 +40,7 @@
         @dblclick="show = false"
         x-show="show"
         class="debugger"
+        style="display: none"
         x-text="JSON.stringify($store.atelier, null, 2)"
       ></pre>
       <div class="deck" x-show="$store.atelier.timeline.length > 0">
