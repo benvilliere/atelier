@@ -65,6 +65,7 @@ TODO: List out all configuration options.
 - Timeline: share on socials action
 - Init script: add .atelier to .gitignore if exists
 - CLI Action: init project (generate customised config file)
+- CLI Action: new (creates new project from git template, include p5js, fxhash or not etc)
 - Ability to pass raw json as --config parameter to CLI
 - Better console output (emoji as constants, everywhere applicable, colors etc)
 - Timeline: limit amount of items shown (infinite scroll/pagination)

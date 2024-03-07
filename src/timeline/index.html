@@ -70,7 +70,11 @@
                     </svg>
                   </a>
                 </div>
-                <div class="action" x-data="{ copied: false }">
+                <div
+                  class="action"
+                  :if="entry.screenshot"
+                  x-data="{ copied: false }"
+                >
                   <button
                     @click.prevent="
                       copyImageToClipboard(`atelier-screenshot-${index}`);
