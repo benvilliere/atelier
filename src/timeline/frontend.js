@@ -104,7 +104,6 @@ document.addEventListener("alpine:init", () => {
             };
 
             this.newEntries += newEntriesAmount;
-
             this.showNewEntriesPill = true;
           }
         } catch (error) {
