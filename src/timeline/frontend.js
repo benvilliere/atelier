@@ -96,9 +96,10 @@ document.addEventListener("alpine:init", () => {
           window.innerHeight + window.scrollY >=
           document.documentElement.scrollHeight
         ) {
-          if (this.timeline.page < this.timeline.totalPages)
+          if (this.timeline.page < this.timeline.totalPages) {
             console.log("you're at the bottom of the page");
-          this.timeline = await getTimeline(this.timeline.page + 1);
+            this.timeline = await getTimeline(this.timeline.page + 1);
+          }
         }
       });
     },
