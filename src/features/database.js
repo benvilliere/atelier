@@ -12,7 +12,7 @@ export function newDataEntry() {
 }
 
 export async function saveData(data, settings) {
-  const entry = newDataEntry();
+  let entry = newDataEntry();
 
   entry.commitHash = data.commitHash;
 
