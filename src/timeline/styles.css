@@ -68,14 +68,13 @@ body * {
   text-decoration: none;
 }
 
-.header .logo a:hover svg {
-  opacity: 1;
-}
-
 .header .logo a svg {
   width: 16px;
   opacity: 0;
   transition: all ease-in-out 200ms;
+}
+.header .logo a:hover svg {
+  opacity: 1;
 }
 
 .container {
