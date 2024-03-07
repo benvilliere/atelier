@@ -68,13 +68,10 @@ document.addEventListener("alpine:init", () => {
       console.log("atelier store was initiated", this);
 
       setInterval(async () => {
-        this.timeline = [];
-        return;
-
         try {
           const data = await get("/timeline");
           if (this.timeline.length < data.length) {
-            this.data = [];
+            this.timeline = data;
             // $dispatch("onTimelineUpdate", data);
             console.log("Timeline was updated");
           }
