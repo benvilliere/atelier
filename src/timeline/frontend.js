@@ -84,9 +84,7 @@ document.addEventListener("alpine:init", () => {
         } catch (error) {
           console.error("Failed to update timeline:", error);
         }
-      }, this.settings.throttle);
-
-      console.log(this.settings.throttle);
+      }, this.settings.throttle * 1000);
     },
     timeline: [],
     settings: {},
