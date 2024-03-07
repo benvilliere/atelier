@@ -14,25 +14,7 @@
     <!-- <meta http-equiv="refresh" content="10" /> -->
     <script src="//unpkg.com/alpinejs" defer></script>
   </head>
-  <body
-    x-data="{ timeline: [], settings: {} }"
-    @onTimelineUpdate.window="timeline = $event.data; console.log('onTimelineUpdate', $event);"
-    x-init="
-      timeline = await get('/timeline');
-      settings = await get('/settings');
-      setInterval(async () => {
-        try {
-          const data = await get('/timeline');
-          if (timeline.length < data.length) {
-            $dispatch('onTimelineUpdate', data)
-            console.log('Timeline was updated');
-          }
-        } catch (error) {
-          console.error('Failed to update timeline:', error);
-        }
-      }, 10000); // Check every 10 seconds
-    "
-  >
+  <body>
     <div class="header">
       <h1 class="logo">
         <a href="#" @click.prevent="window.scrollTo(0, 0);">
