@@ -66,6 +66,19 @@ document.addEventListener("alpine:init", () => {
       this.timeline = await get("/timeline");
       this.settings = await get("/settings");
       console.log("atelier store was initiated", this);
+
+      setInterval(async () => {
+        try {
+          const data = await get("/timeline");
+          if (timeline.length < data.length) {
+            this.data = [];
+            // $dispatch("onTimelineUpdate", data);
+            console.log("Timeline was updated");
+          }
+        } catch (error) {
+          console.error("Failed to update timeline:", error);
+        }
+      }, 10000); // Check every 10 seconds
     },
     timeline: [],
     settings: {},
