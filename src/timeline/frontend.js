@@ -67,6 +67,12 @@ async function getTimeline(page = 1, limit = 32) {
 
 document.addEventListener("alpine:init", () => {
   Alpine.store("atelier", {
+    timeline: [],
+    settings: {},
+    status: {
+      timeline: "fetching",
+      settings: "fetching",
+    },
     async init() {
       this.timeline = await getTimeline();
       this.settings = await get("/settings");
