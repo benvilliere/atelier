@@ -40,7 +40,8 @@ async function saveRecordingData(data, settings) {
 }
 
 export async function saveData(data, settings) {
-  await saveScreenshotData(data);
+  await saveScreenshotData(data, settings);
+  await saveRecordingData(data, settings);
 }
 
 export async function saveEntry(entry, settings) {
