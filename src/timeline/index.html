@@ -59,10 +59,10 @@
         @dblclick="show = false"
         x-show="show"
         class="debugger"
-        x-text="JSON.stringify(settings, null, 2)"
+        x-text="JSON.stringify($store.atelier, null, 2)"
       ></pre>
-      <div class="deck" x-show="timeline.length > 0">
-        <template x-for="(entry, index) in timeline">
+      <div class="deck" x-show="$store.atelier.timeline.length > 0">
+        <template x-for="(entry, index) in $store.atelier.timeline">
           <div class="card">
             <div class="card-header">
               <div class="time" x-text="timeAgo(entry.timestamp)"></div>
