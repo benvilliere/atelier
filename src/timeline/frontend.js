@@ -91,12 +91,13 @@ document.addEventListener("alpine:init", () => {
       //   }
       // }, 3000);
 
-      window.addEventListener("scroll", () => {
+      window.addEventListener("scroll", async () => {
         if (
           window.innerHeight + window.scrollY >=
           document.documentElement.scrollHeight
         ) {
           console.log("you're at the bottom of the page");
+          this.timeline = await getTimeline(this.page + 1);
         }
       });
     },
