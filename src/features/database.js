@@ -37,11 +37,11 @@ export async function saveData(data, settings) {
 
   if (data.screenshot) {
     entry.screenshot = data.screenshot;
-    await saveEntry(data, settings);
+    await saveEntry(entry, settings);
   }
 
   if (data.recording) {
     entry.recording = data.recording;
-    await saveEntry(data, settings);
+    await saveEntry(entry, settings);
   }
 }
