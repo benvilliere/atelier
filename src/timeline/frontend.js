@@ -88,6 +88,7 @@ document.addEventListener("alpine:init", () => {
       }, 3000);
 
       window.addEventListener("scroll", () => {
+        console.log(document.documentElement.scrollTop);
         if (
           window.innerHeight + Math.round(document.documentElement.scrollTop) >=
           document.body.offsetHeight
