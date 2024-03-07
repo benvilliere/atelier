@@ -88,15 +88,11 @@ document.addEventListener("alpine:init", () => {
       }, 3000);
 
       window.addEventListener("scroll", () => {
-        console.log({
-          scrollY: window.scrollY,
-          height: document.body.height,
-          innerHeight: window.innerHeight,
-          offsetHeight: document.body.offsetHeight,
-        });
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-          // this.loadMoreEntries();
-          console.log("loadMoreEntries");
+        if (
+          window.innerHeight + window.pageYOffset >=
+          document.body.offsetHeight
+        ) {
+          alert("you're at the bottom of the page");
         }
       });
     },
