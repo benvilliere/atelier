@@ -64,6 +64,9 @@ body * {
   color: var(--text-color);
   text-decoration: none;
 }
+.header .logo a:hover {
+  opacity: 0.75;
+}
 
 .container {
   display: flex;
