@@ -106,7 +106,7 @@ document.addEventListener("alpine:init", () => {
                 ...this.timeline.entries,
               ],
             };
-            this.newEntries = 0;
+            // this.newEntries = 0;
           }
         } catch (error) {
           console.error("Failed to update timeline:", error);
