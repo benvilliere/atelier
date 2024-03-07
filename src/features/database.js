@@ -31,6 +31,7 @@ export async function saveEntry(data, settings) {
 }
 
 export async function saveData(data, settings) {
+  const entry = newDataEntry();
   if (settings.verbose) {
     console.log("💾 Received data", { data });
   }
