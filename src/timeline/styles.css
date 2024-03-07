@@ -69,10 +69,12 @@ body * {
 }
 
 .header .logo a svg {
+  position: absolute;
   width: 16px;
   opacity: 0;
   transition: all ease-in-out 200ms;
 }
+
 .header .logo a:hover svg {
   opacity: 1;
 }
