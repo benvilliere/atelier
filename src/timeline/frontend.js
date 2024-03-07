@@ -92,17 +92,21 @@ document.addEventListener("alpine:init", () => {
       //   }
       // }, 3000);
 
-      window.addEventListener("scroll", async () => {
-        if (
-          window.innerHeight + window.scrollY >=
-          document.documentElement.scrollHeight
-        ) {
-          if (this.timeline.page < this.timeline.totalPages) {
-            console.log("you're at the bottom of the page");
-            this.timeline = await getTimeline(this.timeline.page + 1);
+      window.addEventListener(
+        "scroll",
+        async () => {
+          if (
+            window.innerHeight + window.scrollY >=
+            document.documentElement.scrollHeight
+          ) {
+            if (this.timeline.page < this.timeline.totalPages) {
+              console.log("you're at the bottom of the page");
+              this.timeline = await getTimeline(this.timeline.page + 1);
+            }
           }
-        }
-      });
+        },
+        { passive: true }
+      );
     },
     timeline: [],
     settings: {},
