@@ -20,15 +20,16 @@
       timeline = await get('/timeline');
       settings = await get('/settings');
       setInterval(async () => {
-        const data = await get('/timeline');
-
-        if (timeline.length < data.length) {
-          timeline = data;
-          console.log(
-            `timeline was updated`
-          )
+        try {
+          const data = await get('/timeline');
+          if (timeline.length < data.length) {
+            timeline = data;
+            console.log('Timeline was updated');
+          }
+        } catch (error) {
+          console.error('Failed to update timeline:', error);
         }
-      }, 1000);
+      }, 10000); // Check every 10 seconds
     "
   >
     <div class="header">
