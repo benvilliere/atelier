@@ -32,12 +32,15 @@ export async function saveEntry(data, settings) {
 
 export async function saveData(data, settings) {
   const entry = newDataEntry();
+
+  entry.timestamp = data.timestamp;
+
   if (settings.verbose) {
     console.log("💾 Received data", { data });
   }
 
   if (data.screenshot) {
-    data = { recording: undefined };
+    entry.recording = { recording: undefined };
     await saveEntry(data, settings);
   }
 
