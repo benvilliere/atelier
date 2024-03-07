@@ -138,6 +138,7 @@ body * {
 .pill .number {
   background: var(--text-color);
   color: var(--background);
+  border-radius: 32px;
 }
 
 .deck {
