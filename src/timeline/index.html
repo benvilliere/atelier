@@ -33,10 +33,7 @@
           </svg>
         </a>
       </h1>
-      <div
-        class="alert"
-        x-show="$store.atelier.newEntries > 0 && window.scrollY > document.getElementById('atelier-card-1').clientHeight"
-      >
+      <div class="alert" x-show="$store.atelier.showNewEntriesPill">
         <a
           class="pill"
           href="/"
