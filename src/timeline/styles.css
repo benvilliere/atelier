@@ -90,6 +90,7 @@ body * {
 .pill {
   position: absolute;
   display: flex;
+  align-items: center;
   z-index: 300;
   border: 12px red !important;
 }
