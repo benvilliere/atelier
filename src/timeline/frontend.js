@@ -65,8 +65,8 @@ document.addEventListener("alpine:init", () => {
     timeline: [],
     settings: {},
     status: {
-      timeline: "LOADING",
-      settings: "LOADING",
+      timeline: "INITING",
+      settings: "INITING",
     },
     async getTimeline(page = 1, limit = 32) {
       console.log("Fetching page:", page);
