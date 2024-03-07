@@ -179,7 +179,8 @@ body * {
 }
 
 .card .media,
-.card .media img + video {
+.card .media img,
+.card .media video {
   width: 100%;
   max-width: 100%;
 }
