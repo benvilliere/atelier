@@ -70,6 +70,7 @@ document.addEventListener("alpine:init", () => {
     timeline: [],
     settings: {},
     newEntries: 0,
+    showNewEntriesPill: false,
     fetchingMoreEntries: false,
     async loadNewEntries() {
       const fresh = await getTimeline();
