@@ -219,18 +219,7 @@ body * {
 
   .card .actions button,
   .card .actions a {
-    display: flex;
     padding: 6px 0;
-    border: 1px solid green !important;
-    color: var(--text-color);
-    flex-direction: column;
-    justify-content: center;
-    cursor: pointer;
-    border: 0;
-    background: transparent;
-    text-align: center;
-    font-size: 14px;
-    text-decoration: none;
   }
 }
 
