@@ -66,5 +66,4 @@ TODO: List out all configuration options.
 - Init script: add .atelier to .gitignore if exists
 - CLI Action: init project (generate customised config file)
 - Ability to pass raw json as --config parameter to CLI
-- Polling instead of refreshing the page
 - Better console output (emoji as constants, everywhere applicable, colors etc)
