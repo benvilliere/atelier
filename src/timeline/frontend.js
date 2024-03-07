@@ -74,6 +74,14 @@ document.addEventListener("alpine:init", () => {
     getNewEntriesAmount() {
       return this.newEntries;
     },
+    async loadNewEntries() {
+      const fresh = await getTimeline();
+      this.timeline.entries = [
+        fresh.entries.slice(this.newEntries),
+        ...this.timelien.entries,
+      ];
+      this.newEntries = 0;
+    },
     async init() {
       this.timeline = await getTimeline();
       this.settings = await get("/settings");
@@ -82,14 +90,12 @@ document.addEventListener("alpine:init", () => {
         console.info("Store was initiated:", this);
       }
 
-      // TODO: Consider showing a button to refresh the page instead
       setInterval(async () => {
         try {
           const data = await getTimeline();
 
           if (data.total > this.timeline.total) {
             this.newEntries = data.total - this.timeline.total;
-            console.log(this.newEntries);
             window.scrollTo(0, 0);
           }
         } catch (error) {
