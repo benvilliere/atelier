@@ -37,14 +37,21 @@ export async function saveData(data, settings) {
 
   if (data.screenshot) {
     entry.screenshot = data.screenshot;
+
     if (settings.verbose) {
       console.log("💾 Screenshot data:", { entry });
     }
+
     await saveEntry(entry, settings);
   }
 
   if (data.recording) {
     entry.recording = data.recording;
+
+    if (settings.verbose) {
+      console.log("💾 Recording data:", { entry });
+    }
+
     await saveEntry(entry, settings);
   }
 }
