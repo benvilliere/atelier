@@ -60,6 +60,10 @@ async function copyImageToClipboard(imgId) {
   }, "image/png");
 }
 
+async function getTimeline(page = 1, limit = 32) {
+  const timeline = await get(`/timeline?page=${page}&limit=${limit}`);
+}
+
 document.addEventListener("alpine:init", () => {
   Alpine.store("atelier", {
     async init() {
@@ -88,8 +92,6 @@ document.addEventListener("alpine:init", () => {
       }, 3000);
 
       window.addEventListener("scroll", () => {
-        console.log(window.innerHeight);
-        console.log(document.documentElement.scrollTop);
         if (
           window.innerHeight + window.scrollY >=
           document.documentElement.scrollHeight
