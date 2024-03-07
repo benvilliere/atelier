@@ -65,7 +65,6 @@ document.addEventListener("alpine:init", () => {
     async init() {
       this.timeline = await get("/timeline");
       this.settings = await get("/settings");
-      console.log("atelier store was initiated", this);
 
       setInterval(async () => {
         try {
