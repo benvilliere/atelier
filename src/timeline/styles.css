@@ -157,7 +157,6 @@ body * {
 .card .actions button span,
 .card .actions a span {
   opacity: 0;
-  display: none;
   font-size: 12px;
   padding: 6px 0;
   transition: all ease-in-out 200ms;
@@ -167,7 +166,6 @@ body * {
 .card .actions button:hover span,
 .card .actions a:hover span {
   opacity: 1;
-  display: block;
   margin-bottom: 0;
 }
 
