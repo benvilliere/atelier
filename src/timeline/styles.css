@@ -109,6 +109,9 @@ body * {
   font-size: 12px;
   text-decoration: none;
 }
+.pill:hover svg {
+  animation: infinite;
+}
 
 .pill svg {
   width: 18px;
