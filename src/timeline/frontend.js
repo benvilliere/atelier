@@ -102,9 +102,9 @@ document.addEventListener("alpine:init", () => {
         "scroll",
         async () => {
           if (this.fetchingMoreEntries) {
-            console.log("Already fetching more entries");
             return;
           }
+
           if (
             window.innerHeight + window.scrollY >=
             document.documentElement.scrollHeight - 300
