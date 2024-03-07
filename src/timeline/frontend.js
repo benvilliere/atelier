@@ -97,7 +97,7 @@ document.addEventListener("alpine:init", () => {
         async () => {
           if (
             window.innerHeight + window.scrollY >=
-            document.documentElement.scrollHeight
+            document.documentElement.scrollHeight - 300
           ) {
             if (this.timeline.page < this.timeline.totalPages) {
               console.log("you're at the bottom of the page");
