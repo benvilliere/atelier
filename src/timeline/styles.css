@@ -198,7 +198,7 @@ body * {
 
   .card .actions button,
   .card .actions a {
-    padding: 0;
+    padding: 12px;
   }
 }
 
