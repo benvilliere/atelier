@@ -97,6 +97,13 @@ document.addEventListener("alpine:init", () => {
           if (data.total > this.timeline.total) {
             this.newEntries = data.total - this.timeline.total;
             window.scrollTo(0, 0);
+
+            const fresh = await getTimeline();
+            this.timeline.entries = [
+              fresh.entries.slice(this.newEntries),
+              ...this.timelien.entries,
+            ];
+            this.newEntries = 0;
           }
         } catch (error) {
           console.error("Failed to update timeline:", error);
