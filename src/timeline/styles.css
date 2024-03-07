@@ -130,7 +130,7 @@ body * {
 .card .actions button,
 .card .actions a {
   display: flex;
-  padding: 6px 0;
+  padding: 0;
   border: 1px solid green !important;
   color: var(--text-color);
   flex-direction: column;
