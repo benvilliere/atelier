@@ -16,7 +16,7 @@
   </head>
   <body
     x-data="{ timeline: [], settings: {} }"
-    @onTimelineUpdate="timeline = $event.data"
+    @onTimelineUpdate="timeline = $event.data; console.log('onTimelineUpdate', $event);"
     x-init="
       timeline = await get('/timeline');
       settings = await get('/settings');
