@@ -113,9 +113,14 @@ document.addEventListener("alpine:init", () => {
       window.addEventListener(
         "scroll",
         async () => {
-          if (this.fetchingMoreEntries) {
-            return;
-          }
+          if (
+            this.newEntries > 0 &&
+            window.scrollY >
+              document.getElementById("atelier-card-1").clientHeight
+          )
+            if (this.fetchingMoreEntries) {
+              return;
+            }
 
           if (
             window.innerHeight + window.scrollY >=
