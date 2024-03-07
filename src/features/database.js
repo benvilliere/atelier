@@ -31,19 +31,17 @@ export async function saveEntry(data, settings) {
 }
 
 export async function saveData(data, settings) {
-  let entry = newDataEntry();
-
   if (settings.verbose) {
     console.log("💾 Received data", { data });
   }
 
   if (data.screenshot) {
-    entry = { recording: undefined };
+    data = { recording: undefined };
   }
 
   if (data.recording) {
-    entry = { recording: data.recording };
+    data = { screenshot: undefined };
   }
 
-  await saveEntry({ ...data, ...entry }, settings);
+  await saveEntry(data, settings);
 }
