@@ -114,7 +114,7 @@ body * {
   display: flex;
   align-items: center;
   align-content: center;
-  align-self: first baseline;
+  /* align-self: first baseline; */
   /* justify-content: space-between; */
   margin: 0 auto;
   width: 50%;
