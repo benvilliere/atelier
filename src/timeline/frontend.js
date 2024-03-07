@@ -89,10 +89,10 @@ document.addEventListener("alpine:init", () => {
 
       window.addEventListener("scroll", () => {
         if (
-          window.innerHeight + window.pageYOffset >=
+          window.innerHeight + Math.round(window.scrollY) >=
           document.body.offsetHeight
         ) {
-          alert("you're at the bottom of the page");
+          console.log("you're at the bottom of the page");
         }
       });
     },
