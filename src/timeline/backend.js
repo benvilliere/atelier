@@ -69,7 +69,7 @@ export function createBackend(settings) {
         entries: paginatedItems,
         page,
         limit,
-        total: files.length,
+        total: entries.length,
         totalPages: Math.ceil(entries.length / limit),
       });
     } catch (err) {
