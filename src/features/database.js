@@ -45,5 +45,5 @@ export async function saveData(data, settings) {
     entry = { recording: data.recording };
   }
 
-  await saveEntry(entry, settings);
+  await saveEntry({ ...data, ...entry }, settings);
 }
