@@ -38,7 +38,7 @@ export async function saveData(data, settings) {
   }
 
   if (data.screenshot) {
-    entry = { screenshot: data.screenshot };
+    entry = { recording: undefined };
   }
 
   if (data.recording) {
