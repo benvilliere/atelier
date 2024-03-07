@@ -50,7 +50,13 @@
           </svg>
           <span
             class="label"
+            x-show="$store.atelier.newEntries > 1"
             x-text="`${$store.atelier.newEntries} new artworks`"
+          ></span>
+          <span
+            class="label"
+            x-show="$store.atelier.newEntries === 1"
+            x-text="`${$store.atelier.newEntries} new artwork`"
           ></span>
         </a>
       </div>
