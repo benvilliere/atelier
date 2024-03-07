@@ -33,7 +33,10 @@
           </svg>
         </a>
       </h1>
-      <div class="alert" x-show="$store.atelier.newEntries > 0">
+      <div
+        class="alert"
+        x-show="$store.atelier.newEntries > 0 && window.scrollY > 1280"
+      >
         <a
           class="pill"
           href="/"
