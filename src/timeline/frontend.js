@@ -61,9 +61,8 @@ async function copyImageToClipboard(imgId) {
 }
 
 document.addEventListener("alpine:init", () => {
-  Alpine.store("darkMode", {
+  Alpine.store("atelier", {
     on: false,
-
     toggle() {
       this.on = !this.on;
     },
