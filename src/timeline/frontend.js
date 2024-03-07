@@ -107,6 +107,10 @@ document.addEventListener("alpine:init", () => {
                 ...this.timeline.entries,
                 ...data.entries,
               ];
+
+              this.timeline.page = data.page;
+
+              this.timeline.page += 1;
             }
           }
         },
