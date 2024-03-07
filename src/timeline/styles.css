@@ -27,7 +27,7 @@ body * {
 }
 
 .debugger {
-  position: fixed;
+  position: absolute;
   top: 1vw;
   left: 1vw;
   z-index: 999;
