@@ -67,7 +67,7 @@ async function getTimeline(page = 1, limit = 32) {
 
 document.addEventListener("alpine:init", () => {
   Alpine.store("atelier", {
-    hasNewEntriesAvailable: false,
+    newEntries: 0,
     timeline: [],
     settings: {},
     fetchingMoreEntries: false,
@@ -85,7 +85,7 @@ document.addEventListener("alpine:init", () => {
           const data = await getTimeline();
 
           if (data.total > this.timeline.total) {
-            this.hasNewEntriesAvailable = true;
+            this.newEntries = this.total - this.timeline.total;
             window.scrollTo(0, 0);
           }
         } catch (error) {
