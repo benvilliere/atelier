@@ -37,9 +37,9 @@ export async function saveData(data, settings) {
 
   if (data.screenshot) {
     entry.screenshot = data.screenshot;
-    
-  if (settings.verbose) {
-    console.log("💾 Screenshot data:", { entry });
+    if (settings.verbose) {
+      console.log("💾 Screenshot data:", { entry });
+    }
     await saveEntry(entry, settings);
   }
 
