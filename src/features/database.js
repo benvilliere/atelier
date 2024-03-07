@@ -48,6 +48,7 @@ export async function saveData(data, settings) {
 
   if (data.recording) {
     entry.recording = data.recording;
+    entry.screenshot = null;
 
     if (settings.verbose) {
       console.log("💾 Recording data:", { entry });
