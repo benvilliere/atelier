@@ -90,6 +90,7 @@ document.addEventListener("alpine:init", () => {
       window.addEventListener("scroll", () => {
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
           // this.loadMoreEntries();
+          console.log("LOAD MORE");
         }
       });
     },
