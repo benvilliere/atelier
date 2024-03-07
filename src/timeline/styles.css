@@ -85,7 +85,7 @@ body * {
 }
 
 .deck {
-  width: 100%;
+  width: 92%;
 }
 
 .card {
@@ -210,6 +210,13 @@ body * {
   .deck {
     width: 60vw;
     padding: 32px 0;
+  }
+
+  .card .card-header .time {
+    display: flex;
+    width: 100%;
+    font-size: 16px;
+    padding: 16px;
   }
 }
 
