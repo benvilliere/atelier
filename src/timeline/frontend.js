@@ -71,6 +71,9 @@ document.addEventListener("alpine:init", () => {
     settings: {},
     newEntries: 0,
     fetchingMoreEntries: false,
+    getNewEntriesAmount() {
+      return this.newEntries;
+    },
     async init() {
       this.timeline = await getTimeline();
       this.settings = await get("/settings");
