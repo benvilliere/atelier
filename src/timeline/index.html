@@ -16,6 +16,7 @@
   </head>
   <body
     x-data="{ timeline: [], settings: {} }"
+    @onTimelineUpdate="timeline = $event.data"
     x-init="
       timeline = await get('/timeline');
       settings = await get('/settings');
@@ -23,7 +24,7 @@
         try {
           const data = await get('/timeline');
           if (timeline.length < data.length) {
-            timeline = data;
+            $dispatch('onTimelineUpdate', data)
             console.log('Timeline was updated');
           }
         } catch (error) {
