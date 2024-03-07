@@ -191,6 +191,9 @@ body * {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
+  * {
+    border: 1px solid red !important;
+  }
   .header {
     height: 128px;
   }
