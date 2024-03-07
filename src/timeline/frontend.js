@@ -60,11 +60,6 @@ async function copyImageToClipboard(imgId) {
   }, "image/png");
 }
 
-async function getTimeline(page = 1, limit = 32) {
-  console.log("Fetching page:", page);
-  return await get(`/timeline?page=${page}&limit=${limit}`);
-}
-
 document.addEventListener("alpine:init", () => {
   Alpine.store("atelier", {
     timeline: [],
@@ -72,6 +67,11 @@ document.addEventListener("alpine:init", () => {
     status: {
       timeline: "LOADING",
       settings: "LOADING",
+    },
+
+    async getTimeline(page = 1, limit = 32) {
+      console.log("Fetching page:", page);
+      return await get(`/timeline?page=${page}&limit=${limit}`);
     },
     async init() {
       this.timeline = await getTimeline();
