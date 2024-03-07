@@ -12,11 +12,10 @@ export function newDataEntry() {
 }
 
 export async function saveData(data, settings) {
-  let entry = newDataEntry();
-
-  entry.commitHash = data.commitHash;
-
   if (data.screenshot) {
+    let entry = newDataEntry();
+
+    entry.commitHash = data.commitHash;
     entry.screenshot = data.screenshot;
 
     if (settings.verbose) {
