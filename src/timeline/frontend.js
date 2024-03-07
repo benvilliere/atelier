@@ -68,10 +68,10 @@ document.addEventListener("alpine:init", () => {
       timeline: "LOADING",
       settings: "LOADING",
     },
-
     async getTimeline(page = 1, limit = 32) {
       console.log("Fetching page:", page);
-      return await get(`/timeline?page=${page}&limit=${limit}`);
+      const timeline = await get(`/timeline?page=${page}&limit=${limit}`);
+      return timeline;
     },
     async init() {
       this.timeline = await getTimeline();
