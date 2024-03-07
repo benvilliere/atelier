@@ -65,10 +65,6 @@ body * {
   text-decoration: none;
 }
 
-.header .logo a:hover {
-  opacity: 0.75;
-}
-
 .header .logo a:hover svg {
   opacity: 1;
 }
