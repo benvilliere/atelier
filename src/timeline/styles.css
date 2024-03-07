@@ -122,7 +122,7 @@ body * {
   animation-name: spin;
   animation-duration: 300ms;
   animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  animation-timing-function: ease-in-out;
 }
 
 .pill svg {
