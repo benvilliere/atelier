@@ -70,8 +70,8 @@ document.addEventListener("alpine:init", () => {
     timeline: [],
     settings: {},
     status: {
-      timeline: "fetching",
-      settings: "fetching",
+      timeline: "LOADING",
+      settings: "LOADING",
     },
     async init() {
       this.timeline = await getTimeline();
