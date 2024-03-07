@@ -98,7 +98,13 @@ document.addEventListener("alpine:init", () => {
       //   }
       // }, 3000);
 
-      window.addEventListener("scroll", this.onScrollEnd, { passive: true });
+      window.addEventListener(
+        "scroll",
+        async () => {
+          await onScrollEnd();
+        },
+        { passive: true }
+      );
     },
     async onScrollEnd() {
       if (this.fetchingMoreEntries) {
