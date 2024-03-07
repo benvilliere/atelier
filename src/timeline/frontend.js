@@ -104,6 +104,7 @@ document.addEventListener("alpine:init", () => {
               const data = await getTimeline(this.timeline.page + 1);
 
               this.timeline = {
+                ...data,
                 entries: [...this.timeline.entries, ...data.entries],
               };
 
