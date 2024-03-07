@@ -67,3 +67,4 @@ TODO: List out all configuration options.
 - CLI Action: init project (generate customised config file)
 - Ability to pass raw json as --config parameter to CLI
 - Better console output (emoji as constants, everywhere applicable, colors etc)
+- Timeline: limit amount of items shown (infinite scroll/pagination)
