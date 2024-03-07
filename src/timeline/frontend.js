@@ -104,6 +104,7 @@ document.addEventListener("alpine:init", () => {
               document.documentElement.scrollHeight - 300
           ) {
             if (this.timeline.page < this.timeline.totalPages) {
+              this.fetchingMoreEntries = true;
               console.log("you're at the bottom of the page");
               const data = await getTimeline(this.timeline.page + 1);
 
