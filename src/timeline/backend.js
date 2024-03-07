@@ -26,7 +26,12 @@ export function createBackend(settings) {
   backend.use("/recordings", express.static(directories.recordings));
 
   backend.get("/settings", async (req, res) => {
-    res.json(settings);
+    try {
+      res.json(settings);
+    } catch (err) {
+      console.error("Failed to load data:", err);
+      res.status(500).send("Failed to load data");
+    }
   });
 
   backend.get("/timeline", async (req, res) => {
