@@ -88,7 +88,11 @@ body * {
 }
 
 .pill {
-  align-self: center;
+  justify-self: center;
+}
+
+.pill svg {
+  width: 18px;
 }
 
 .deck {
