@@ -43,11 +43,6 @@ async function saveRecordingData(data, settings) {
   await saveEntry(entry, settings);
 }
 
-export async function saveData(data, settings) {
-  await saveScreenshotData(data, settings);
-  await saveRecordingData(data, settings);
-}
-
 export async function saveEntry(entry, settings) {
   entry.timestamp = Date.now();
 
@@ -65,4 +60,9 @@ export async function saveEntry(entry, settings) {
   }
 
   return filePath;
+}
+
+export async function saveData(data, settings) {
+  await saveScreenshotData(data, settings);
+  await saveRecordingData(data, settings);
 }
