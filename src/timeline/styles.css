@@ -37,7 +37,7 @@ body * {
   line-height: 140%;
   color: var(--text-color);
   border-radius: 0.5vw;
-  background-color: rgba(0, 0, 0, .3)
+  background-color: rgba(0, 0, 0, 0.3);
   -webkit-backdrop-filter: blur(24px);
   backdrop-filter: blur(24px);
 }
