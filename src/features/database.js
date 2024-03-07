@@ -14,7 +14,6 @@ export function newDataEntry() {
 export async function saveData(data, settings) {
   if (data.screenshot) {
     let entry = newDataEntry();
-
     entry.commitHash = data.commitHash;
     entry.screenshot = data.screenshot;
 
@@ -26,6 +25,8 @@ export async function saveData(data, settings) {
   }
 
   if (data.recording) {
+    let entry = newDataEntry();
+    entry.commitHash = data.commitHash;
     entry.recording = data.recording;
 
     if (settings.verbose) {
