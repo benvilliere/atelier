@@ -35,7 +35,8 @@ body * {
   font-family: monospace;
   font-size: 16px;
   line-height: 140%;
-  color: rgba(0, 0, 0, 0.9);
+  color: var(--background);
+  background: var(--text-color);
   border-radius: 0.5vw;
 }
 
