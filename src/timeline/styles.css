@@ -166,6 +166,10 @@ body * {
   margin-bottom: 0;
 }
 
+.card .media {
+  max-height: 80vh;
+}
+
 .card .media img,
 .card .media video {
   width: 100%;
