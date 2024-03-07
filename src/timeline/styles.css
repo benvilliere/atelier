@@ -121,6 +121,7 @@ body * {
 
 .card .action {
   position: relative;
+  width: 128px;
 }
 
 .card .actions button,
