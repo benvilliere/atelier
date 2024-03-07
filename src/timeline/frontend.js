@@ -91,7 +91,7 @@ document.addEventListener("alpine:init", () => {
         console.log(
           window.innerHeight + window.scrollY,
           document.body.offsetHeight,
-          window.innerHeight + window.scrollY < document.body.offsetHeight
+          window.innerHeight + window.scrollY < document.body.offsetHeight - 300
         );
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
           // this.loadMoreEntries();
