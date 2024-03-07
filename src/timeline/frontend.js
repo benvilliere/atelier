@@ -69,7 +69,7 @@ document.addEventListener("alpine:init", () => {
   Alpine.store("atelier", {
     timeline: [],
     settings: {},
-    fetchingMoreEntries: false
+    fetchingMoreEntries: false,
     async init() {
       this.timeline = await getTimeline();
       this.settings = await get("/settings");
@@ -99,8 +99,9 @@ document.addEventListener("alpine:init", () => {
         "scroll",
         async () => {
           if (
+            !this.fetchingMoreEntries &&
             window.innerHeight + window.scrollY >=
-            document.documentElement.scrollHeight - 300
+              document.documentElement.scrollHeight - 300
           ) {
             if (this.timeline.page < this.timeline.totalPages) {
               console.log("you're at the bottom of the page");
