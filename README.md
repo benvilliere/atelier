@@ -58,8 +58,7 @@ TODO: List out all configuration options.
 
 - Test on a new project
 - Refine & document configuration file
-- Recording: add delay before starting to record video (option)
-- Screenshot: add delay before taking screenshot (option)
+- Recording duration in ms instead of seconds
 - Timeline: revert to commit hash action
 - Timeline: cloak hide stuff
 - Timeline: handle empty state
