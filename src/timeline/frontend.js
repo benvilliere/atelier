@@ -103,6 +103,8 @@ document.addEventListener("alpine:init", () => {
           };
 
           this.newEntries += newEntriesAmount;
+
+          // Show only if not viewing the top of the page
           this.showNewEntriesPill =
             window.scrollY >
             document.getElementById("atelier-card-1").clientHeight;
