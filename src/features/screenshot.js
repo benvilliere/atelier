@@ -34,13 +34,17 @@ export async function takeScreenshot(settings) {
       if (settings.verbose)
         console.log(`📷 Screenshot saved to ${screenshotPath}`);
     }, settings.delay);
-    if (settings.verbose)
-      console.log(`📷 Screenshot saved to ${screenshotPath}`);
   } else {
-    await page.screenshot({
-      path: screenshotPath,
-      fullPage: settings.screenshot.fullPage,
-    });
+    setTimeout(async () => {
+      await page.screenshot({
+        path: screenshotPath,
+        fullPage: settings.screenshot.fullPage,
+      });
+      await browser.close();
+
+      if (settings.verbose)
+        console.log(`📷 Screenshot saved to ${screenshotPath}`);
+    }, settings.delay);
   }
 
   if (settings.verbose) console.log(`📷 Screenshot saved to ${screenshotPath}`);
