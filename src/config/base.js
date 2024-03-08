@@ -37,7 +37,7 @@ export default {
     path: ".atelier/recordings", // Path where to store the recordings
     width: 2560,
     height: 1440,
-    duration: 10,
+    duration: 3000, // Recording duration in ms
     delay: 0, // Delay in ms before recording a video
   },
 };
