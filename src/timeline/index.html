@@ -96,6 +96,7 @@
               <div class="actions">
                 <div class="action">
                   <a
+                    x-show="entry.screenshot || entry.recording"
                     :href="
                       entry.screenshot 
                       ? `/screenshots/${entry.screenshot}`
