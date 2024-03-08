@@ -103,18 +103,15 @@ document.addEventListener("alpine:init", () => {
           };
 
           this.newEntries += newEntriesAmount;
-          this.showNewEntriesPill = true;
+          this.showNewEntriesPill =
+            window.scrollY >
+            document.getElementById("atelier-card-1").clientHeight;
         }
       }, 3000);
 
       window.addEventListener(
         "scroll",
         async () => {
-          // this.showNewEntriesPill =
-          //   this.newEntries > 0 &&
-          //   window.scrollY >
-          //     document.getElementById("atelier-card-1").clientHeight;
-
           if (this.fetchingMoreEntries) {
             return;
           }
