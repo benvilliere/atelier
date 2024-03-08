@@ -177,12 +177,7 @@
                   <button
                     type="button"
                     @click.prevent="
-                      await fetch(
-                        `/delete/${entry.timestamp}`,
-                        { 
-                          method: 'POST'
-                        }
-                      )
+                      await $store.atelier.delete(entry)
                       $el.closest('.card').remove();
                     "
                   >
