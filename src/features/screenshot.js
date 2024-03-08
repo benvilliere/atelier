@@ -1,7 +1,6 @@
 import { mkdir } from "fs/promises";
 import puppeteer from "puppeteer";
 import { setTimeout } from "node:timers/promises";
-
 import { getScreenshotDir } from "../helpers.js";
 
 export async function takeScreenshot(settings) {
