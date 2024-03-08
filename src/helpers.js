@@ -1,7 +1,5 @@
 import { exec } from "child_process";
 import { promises as fs } from "fs";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
 import {
   ATELIER_BASE_DIR,
   ATELIER_SCREENSHOT_DIR,
