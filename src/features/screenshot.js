@@ -22,7 +22,9 @@ export async function takeScreenshot(settings) {
 
   const fileName = `${Date.now()}.${settings.screenshot.type}`;
   const screenshotPath = `${screenshotDir}/${fileName}`;
-  const screenshotOptions = {};
+  const screenshotOptions = {
+    path: screenshotPath,
+  };
 
   if (settings.screenshot.selector) {
     await page.waitForSelector(settings.screenshot.selector);
