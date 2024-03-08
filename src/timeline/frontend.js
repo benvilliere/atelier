@@ -93,20 +93,15 @@ document.addEventListener("alpine:init", () => {
 
         if (fresh.total > this.timeline.total) {
           const newEntriesAmount = fresh.total - this.timeline.total;
+          const newEntries = fresh.entries.slice(0, newEntriesAmount);
 
-          console.log("New entries:", newEntriesAmount, [
-            ...fresh.entries.slice(0, newEntriesAmount),
-            ...this.timeline.entries,
-          ]);
+          console.log("New entries:", newEntriesAmount, newEntries);
 
           this.timeline = {
             ...fresh,
           };
 
-          this.timeline.entries = [
-            ...fresh.entries.slice(0, newEntriesAmount),
-            ...this.timeline.entries,
-          ];
+          this.timeline.entries = [...newEntries, ...this.timeline.entries];
 
           this.newEntries += newEntriesAmount;
 
