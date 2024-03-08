@@ -30,6 +30,7 @@ export default {
     deviceScaleFactor: 2,
     selector: null, // CSS selector of the element to screenshot
     fullPage: false, // Wether the screenshot should take the full page
+    delay: 0, // Delay in ms before taking a screenshot
   },
   recording: {
     enabled: false,
@@ -37,5 +38,6 @@ export default {
     width: 2560,
     height: 1440,
     duration: 10,
+    delay: 0, // Delay in ms before taking a screenshot
   },
 };
