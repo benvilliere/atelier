@@ -96,9 +96,13 @@
               <div class="actions">
                 <div class="action">
                   <a
-                    :href="`/screenshots/${entry.screenshot}`"
+                    :href="
+                      entry.screenshot 
+                      ? `/screenshots/${entry.screenshot}`
+                      : `/recordings/${entry.recording}`
+                    "
                     download
-                    :title="`Download ${entry.screenshot}`"
+                    :title="`Download ${entry.screenshot ? entry.screenshot : entry.recording}`"
                   >
                     <span>Download</span>
                     <svg
