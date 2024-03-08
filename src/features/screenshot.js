@@ -28,11 +28,11 @@ export async function takeScreenshot(settings) {
     await page.waitForSelector(settings.screenshot.selector);
     const element = await page.$(settings.screenshot.selector);
     await page.waitFor(settings.delay);
-    await element.screenshot({ path: screenshotPath });
+    await element.screenshot(screenshotOptions);
   } else {
     await page.waitFor(settings.delay);
     await page.screenshot({
-      path: screenshotPath,
+      ...screenshotOptions,
       fullPage: settings.screenshot.fullPage,
     });
   }
