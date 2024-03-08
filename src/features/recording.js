@@ -46,11 +46,11 @@ export async function recordVideo(settings) {
 
   await recorder.start(videoPath);
 
-  setTimeout(async () => {
-    await recorder.stop();
-    await browser.close();
-    console.log(`🎥 Recording saved to ${videoPath}`);
-  }, settings.recording.duration * 1000);
+  await recorder.stop();
+  await browser.close();
+  console.log(`🎥 Recording saved to ${videoPath}`);
+
+  setTimeout(async () => {}, settings.recording.duration * 1000);
 
   return fileName;
 }
