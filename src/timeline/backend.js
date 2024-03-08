@@ -84,23 +84,42 @@ export function createBackend(settings) {
     res.json({ hash });
   });
 
-  backend.post("/delete/:timestamp", function (req, res) {
+backend.post("/delete/:timestamp", async (req, res) => {
     const timestamp = req.params.timestamp;
+    const dataDir = directories.data;
+    const screenshotDir = directories.screenshots;
+    const recordingDir = directories.recordings;
 
-    // Find file with timestamp
-    // Read JSON from file
-    // Delete screenshot
-    // Delete recording
-    // Delete JSON file
+    try {
+        // Find the JSON file associated with the timestamp
+        const dataFilePath = path.join(dataDir, `${timestamp}.json`);
+        const data = await fs.readFile(dataFilePath, 'utf8');
+        const entry = JSON.parse(data);
 
-    console.log({ timestamp });
+        // Delete associated screenshot and recording files if they exist
+        if (entry.screenshot) {
+            const screenshotFilePath = path.join(screenshotDir, entry.screenshot);
+            await fs.unlink(screenshotFilePath).catch(err => console.error('Error deleting screenshot:', err));
+        }
 
-    res.json({
-      message: "DELETE Request Called",
-      data: {
-        timestamp,
-      },
-    });
+        if (entry.recording) {
+            const recordingFilePath = path.join(recordingDir, entry.recording);
+            await fs.unlink(recordingFilePath).catch(err => console.error('Error deleting recording:', err));
+        }
+
+        // Delete the JSON file
+        await fs.unlink(dataFilePath);
+
+        res.json({
+            message: "Successfully deleted entry",
+            timestamp: timestamp,
+        });
+    } catch (err) {
+        console.error("Error during delete operation:", err);
+        res.status(500).send("Failed to delete data");
+    }
+});
+
   });
 
   backend.get("*", (req, res) => {
