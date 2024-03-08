@@ -28,10 +28,6 @@ export async function takeScreenshot(settings) {
     const element = await page.$(settings.screenshot.selector);
     await sleep(settings.delay);
     await element.screenshot({ path: screenshotPath });
-    await browser.close();
-
-    if (settings.verbose)
-      console.log(`📷 Screenshot saved to ${screenshotPath}`);
   } else {
     setTimeout(async () => {
       await page.screenshot({
@@ -44,6 +40,9 @@ export async function takeScreenshot(settings) {
         console.log(`📷 Screenshot saved to ${screenshotPath}`);
     }, settings.delay);
   }
+  await browser.close();
+
+  if (settings.verbose) console.log(`📷 Screenshot saved to ${screenshotPath}`);
 
   if (settings.verbose) console.log(`📷 Screenshot saved to ${screenshotPath}`);
 
