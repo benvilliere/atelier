@@ -94,9 +94,11 @@
             <div class="card-header">
               <div class="time" x-text="timeAgo(entry.timestamp)"></div>
               <div class="actions">
-                <div class="action">
+                <div
+                  class="action"
+                  x-show="entry.screenshot || entry.recording"
+                >
                   <a
-                    x-show="entry.screenshot || entry.recording"
                     :href="
                       entry.screenshot 
                       ? `/screenshots/${entry.screenshot}`
