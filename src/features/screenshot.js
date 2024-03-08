@@ -32,12 +32,13 @@ export async function takeScreenshot(settings) {
     await element.screenshot(screenshotOptions);
   } else {
     screenshotOptions.fullPage = settings.screenshot.fullPage;
-    await page.waitFor(settings.delay);
-    await page.screenshot({
-      ...screenshotOptions,
-      fullPage: settings.screenshot.fullPage,
-    });
   }
+
+  await page.waitFor(settings.delay);
+  await page.screenshot({
+    ...screenshotOptions,
+    fullPage: settings.screenshot.fullPage,
+  });
 
   await browser.close();
 
