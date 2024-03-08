@@ -70,3 +70,4 @@ TODO: List out all configuration options.
 - CLI Action: clear command to remove everything (with --since --after --days option?)
 - Ability to pass raw json as --config parameter to CLI
 - Better console output (emoji as constants, everywhere applicable, colors etc)
+- Check new version

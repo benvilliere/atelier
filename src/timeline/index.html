@@ -178,7 +178,7 @@
                   :action="`/delete/${entry.timestamp}`"
                   method="post"
                 >
-                  <button type="submit" @click="$el.closest('.card').remove()">
+                  <button type="button" @click="$el.closest('.card').remove()">
                     <span>Delete</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
