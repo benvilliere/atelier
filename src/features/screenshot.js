@@ -24,7 +24,7 @@ export async function takeScreenshot(settings) {
   const screenshotPath = `${screenshotDir}/${fileName}`;
   const screenshotOptions = { path: screenshotPath };
 
-  let camera;
+  let method;
 
   if (settings.screenshot.selector) {
     screenshotOptions.fullPage = false;
