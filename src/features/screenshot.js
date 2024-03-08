@@ -22,20 +22,14 @@ export async function takeScreenshot(settings) {
 
   const fileName = `${Date.now()}.${settings.screenshot.type}`;
   const screenshotPath = `${screenshotDir}/${fileName}`;
-  const screenshotOptions = {
-    path: screenshotPath,
-  };
-
-  let screenshotSubject;
 
   if (settings.screenshot.selector) {
     await page.waitForSelector(settings.screenshot.selector);
     const element = await page.$(settings.screenshot.selector);
-    await element.screenshot(screenshotOptions);
+    await element.screenshot({ path: screenshotPath });
   } else {
-    screenshotOptions.fullPage = settings.screenshot.fullPage;
     await page.screenshot({
-      ...screenshotOptions,
+      path: screenshotPath,
       fullPage: settings.screenshot.fullPage,
     });
   }
