@@ -58,6 +58,7 @@ TODO: List out all configuration options.
 
 - Test on a new project
 - Refine & document configuration file
+- Fix video download
 - Timeline: revert to commit hash action
 - Timeline: cloak hide stuff
 - Timeline: handle empty state
