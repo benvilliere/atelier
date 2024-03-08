@@ -60,8 +60,11 @@ TODO: List out all configuration options.
 - Refine & document configuration file
 - Timeline: delete screenshot/recording action
 - Timeline: revert to commit hash action
+- Timeline: cloak hide stuff
+- Timeline: handle empty state
 - Init script: add .atelier to .gitignore if exists
 - CLI Action: init project (generate customised config file)
 - CLI Action: new (creates new project from git template, include p5js, fxhash or not etc)
+- CLI Action: clear command to remove everything (with --since --after --days option?)
 - Ability to pass raw json as --config parameter to CLI
 - Better console output (emoji as constants, everywhere applicable, colors etc)
