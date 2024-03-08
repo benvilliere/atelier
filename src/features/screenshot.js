@@ -36,8 +36,7 @@ export async function takeScreenshot(settings) {
     screenshotOptions.fullPage = settings.screenshot.fullPage;
   }
 
-  await page.waitFor(settings.delay);
-
+  setTimeout(() => {}, settings.delay);
   await subject.screenshot(screenshotOptions);
 
   await browser.close();
