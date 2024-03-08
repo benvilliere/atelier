@@ -41,6 +41,9 @@ export async function recordVideo(settings) {
   const videoPath = `${recordingDir}/${fileName}`;
 
   await page.goto(settings.target, { waitUntil: "networkidle0" });
+
+  await setTimeout(settings.recording.delay);
+
   await recorder.start(videoPath);
 
   setTimeout(async () => {
