@@ -38,8 +38,8 @@ export async function takeScreenshot(settings) {
 
   setTimeout(async () => {
     await subject.screenshot(screenshotOptions);
-
     await browser.close();
+
     if (settings.verbose)
       console.log(`📷 Screenshot saved to ${screenshotPath}`);
   }, settings.delay);
