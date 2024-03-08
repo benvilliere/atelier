@@ -33,6 +33,8 @@ export async function takeScreenshot(settings) {
     screenshotOptions.fullPage = settings.screenshot.fullPage;
   }
 
+  await element.screenshot(screenshotOptions);
+
   await browser.close();
 
   if (settings.verbose) console.log(`📷 Screenshot saved to ${screenshotPath}`);
