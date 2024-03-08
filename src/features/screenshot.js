@@ -30,7 +30,6 @@ export async function takeScreenshot(settings) {
     screenshotOptions.fullPage = false;
     await page.waitForSelector(settings.screenshot.selector);
     const element = await page.$(settings.screenshot.selector);
-    await page.waitFor(settings.delay);
     await element.screenshot(screenshotOptions);
   } else {
     screenshotOptions.fullPage = settings.screenshot.fullPage;
