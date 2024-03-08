@@ -182,7 +182,8 @@
                     type="button"
                     @click="
                       $el.closest('.card').remove()
-                      await fetch($el.closest('form').getAttribute('action'), { method: 'post '})
+                      console.log($el.closest('form').getAttribute('action'))
+                      
                     "
                   >
                     <span>Delete</span>
