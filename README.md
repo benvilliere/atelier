@@ -60,7 +60,6 @@ TODO: List out all configuration options.
 - Refine & document configuration file
 - Recording: delay before starting to record video
 - Screenshot: delay before taking screenshot
-- Timeline: delete screenshot/recording action
 - Timeline: revert to commit hash action
 - Timeline: cloak hide stuff
 - Timeline: handle empty state
@@ -71,3 +70,4 @@ TODO: List out all configuration options.
 - Ability to pass raw json as --config parameter to CLI
 - Better console output (emoji as constants, everywhere applicable, colors etc)
 - Check new version
+- Timeline: Ability to filter by time, type

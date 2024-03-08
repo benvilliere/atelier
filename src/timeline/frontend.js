@@ -108,6 +108,8 @@ document.addEventListener("alpine:init", () => {
           this.showNewEntriesPill =
             window.scrollY >
             document.getElementById("atelier-card-1").clientHeight;
+
+          this.showNewEntriesPill = true;
         }
       }, 3000);
 
