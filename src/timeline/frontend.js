@@ -99,7 +99,7 @@ document.addEventListener("alpine:init", () => {
           this.timeline = {
             ...fresh,
             entries: [
-              ...fresh.entries.slice(newEntriesAmount),
+              ...fresh.entries.slice(newEntriesAmount, 0),
               ...this.timeline.entries,
             ],
           };
