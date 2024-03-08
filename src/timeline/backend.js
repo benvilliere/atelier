@@ -84,42 +84,46 @@ export function createBackend(settings) {
     res.json({ hash });
   });
 
-backend.post("/delete/:timestamp", async (req, res) => {
+  backend.post("/delete/:timestamp", async (req, res) => {
     const timestamp = req.params.timestamp;
     const dataDir = directories.data;
     const screenshotDir = directories.screenshots;
     const recordingDir = directories.recordings;
 
     try {
-        // Find the JSON file associated with the timestamp
-        const dataFilePath = path.join(dataDir, `${timestamp}.json`);
-        const data = await fs.readFile(dataFilePath, 'utf8');
-        const entry = JSON.parse(data);
+      // Find the JSON file associated with the timestamp
+      const dataFilePath = path.join(dataDir, `${timestamp}.json`);
+      const data = await fs.readFile(dataFilePath, "utf8");
+      const entry = JSON.parse(data);
 
-        // Delete associated screenshot and recording files if they exist
-        if (entry.screenshot) {
-            const screenshotFilePath = path.join(screenshotDir, entry.screenshot);
-            await fs.unlink(screenshotFilePath).catch(err => console.error('Error deleting screenshot:', err));
-        }
+      // Delete associated screenshot and recording files if they exist
+      if (entry.screenshot) {
+        const screenshotFilePath = path.join(screenshotDir, entry.screenshot);
+        await fs
+          .unlink(screenshotFilePath)
+          .catch((err) => console.error("Error deleting screenshot:", err));
 
-        if (entry.recording) {
-            const recordingFilePath = path.join(recordingDir, entry.recording);
-            await fs.unlink(recordingFilePath).catch(err => console.error('Error deleting recording:', err));
-        }
+        console.log("Deleted screenshot", screenshotFilePath);
+      }
 
-        // Delete the JSON file
-        await fs.unlink(dataFilePath);
+      if (entry.recording) {
+        const recordingFilePath = path.join(recordingDir, entry.recording);
+        await fs
+          .unlink(recordingFilePath)
+          .catch((err) => console.error("Error deleting recording:", err));
+      }
 
-        res.json({
-            message: "Successfully deleted entry",
-            timestamp: timestamp,
-        });
+      // Delete the JSON file
+      await fs.unlink(dataFilePath);
+
+      res.json({
+        message: "Successfully deleted entry",
+        timestamp: timestamp,
+      });
     } catch (err) {
-        console.error("Error during delete operation:", err);
-        res.status(500).send("Failed to delete data");
+      console.error("Error during delete operation:", err);
+      res.status(500).send("Failed to delete data");
     }
-});
-
   });
 
   backend.get("*", (req, res) => {
