@@ -58,8 +58,8 @@ TODO: List out all configuration options.
 
 - Test on a new project
 - Refine & document configuration file
-- Recording: delay before starting to record video
-- Screenshot: delay before taking screenshot
+- Recording: add delay before starting to record video (option)
+- Screenshot: add delay before taking screenshot (option)
 - Timeline: revert to commit hash action
 - Timeline: cloak hide stuff
 - Timeline: handle empty state
@@ -71,3 +71,4 @@ TODO: List out all configuration options.
 - Better console output (emoji as constants, everywhere applicable, colors etc)
 - Check new version
 - Timeline: Ability to filter by time, type
+- Replay command: generate a video showing the evolution of the project (pass amount of frames, start, end timestamps, --now, --end and use ffmpeg to generate a video from screenshots)
