@@ -177,7 +177,7 @@
                   <button
                     type="button"
                     @click.prevent="
-                      await $store.atelier.delete(entry)
+                      await $store.atelier.delete(entry);
                       $el.closest('.card').remove();
                     "
                   >

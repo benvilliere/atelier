@@ -141,6 +141,10 @@ document.addEventListener("alpine:init", () => {
         { passive: true }
       );
     },
-    async delete(timestamp) {},
+    async delete(entry) {
+      await fetch(`/delete/${entry.timestamp}`, {
+        method: "POST",
+      });
+    },
   });
 });
