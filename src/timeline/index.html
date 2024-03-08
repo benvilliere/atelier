@@ -183,6 +183,12 @@
                     @click="
                       $el.closest('.card').remove();
                       console.log($el.closest('form').getAttribute('action'));
+                      await fetch(
+                        $el.closest('form').getAttribute('action'),
+                        { 
+                          method: 'post '
+                        }
+                        )
                       
                     "
                   >
