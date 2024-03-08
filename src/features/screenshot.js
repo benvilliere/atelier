@@ -32,7 +32,7 @@ export async function takeScreenshot(settings) {
 
     await element.screenshot({ path: screenshotPath });
   } else {
-    await page.waitFor(settings.delay);
+    await sleep(settings.delay);
 
     await page.screenshot({
       path: screenshotPath,
