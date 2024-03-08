@@ -34,6 +34,7 @@ export async function takeScreenshot(settings) {
         fullPage: settings.screenshot.fullPage,
       });
     }
+
     await browser.close();
 
     if (settings.verbose)
