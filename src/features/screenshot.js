@@ -24,6 +24,7 @@ export async function takeScreenshot(settings) {
 
   const fileName = `${Date.now()}.${settings.screenshot.type}`;
   const screenshotPath = `${screenshotDir}/${fileName}`;
+  await setTimeout(settings.delay);
 
   if (settings.screenshot.selector) {
     await page.waitForSelector(settings.screenshot.selector);
@@ -34,8 +35,6 @@ export async function takeScreenshot(settings) {
 
     await element.screenshot({ path: screenshotPath });
   } else {
-    await setTimeout(settings.delay);
-
     await page.screenshot({
       path: screenshotPath,
       fullPage: settings.screenshot.fullPage,
