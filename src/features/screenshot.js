@@ -28,6 +28,12 @@ export async function takeScreenshot(settings) {
     const element = await page.$(settings.screenshot.selector);
     await element.screenshot({ path: screenshotPath });
 
+    setTimeout(async () => {
+      await browser.close();
+
+      if (settings.verbose)
+        console.log(`📷 Screenshot saved to ${screenshotPath}`);
+    }, settings.delay);
     if (settings.verbose)
       console.log(`📷 Screenshot saved to ${screenshotPath}`);
   } else {
@@ -36,13 +42,6 @@ export async function takeScreenshot(settings) {
       fullPage: settings.screenshot.fullPage,
     });
   }
-
-  setTimeout(async () => {
-    await browser.close();
-
-    if (settings.verbose)
-      console.log(`📷 Screenshot saved to ${screenshotPath}`);
-  }, settings.delay);
 
   if (settings.verbose) console.log(`📷 Screenshot saved to ${screenshotPath}`);
 
