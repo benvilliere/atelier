@@ -12,8 +12,6 @@ export async function takeScreenshot(settings) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
-  page.setDefaultTimeout(settings.delay + 10000);
-
   await page.setViewport({
     width: settings.screenshot.width,
     height: settings.screenshot.height,
@@ -24,25 +22,32 @@ export async function takeScreenshot(settings) {
 
   const fileName = `${Date.now()}.${settings.screenshot.type}`;
   const screenshotPath = `${screenshotDir}/${fileName}`;
-  const screenshotOptions = { path: screenshotPath };
-
-  let subject = page;
-
-  if (settings.screenshot.selector) {
-    screenshotOptions.fullPage = false;
-    await page.waitForSelector(settings.screenshot.selector);
-    subject = await page.$(settings.screenshot.selector);
-  } else {
-    screenshotOptions.fullPage = settings.screenshot.fullPage;
-  }
 
   setTimeout(async () => {
-    await subject.screenshot(screenshotOptions);
+    if (settings.screenshot.selector) {
+      await page.waitForSelector(settings.screenshot.selector);
+      const element = await page.$(settings.screenshot.selector);
+      await element.screenshot({ path: screenshotPath });
+    } else {
+      await page.screenshot({
+        path: screenshotPath,
+        fullPage: settings.screenshot.fullPage,
+      });
+    }
+    await page.screenshot({
+      path: screenshotPath,
+      fullPage: settings.screenshot.fullPage,
+    });
+
     await browser.close();
 
     if (settings.verbose)
       console.log(`📷 Screenshot saved to ${screenshotPath}`);
   }, settings.delay);
+
+  await browser.close();
+
+  if (settings.verbose) console.log(`📷 Screenshot saved to ${screenshotPath}`);
 
   return fileName;
 }
