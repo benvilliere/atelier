@@ -1,4 +1,5 @@
 import { mkdir } from "fs/promises";
+import { setTimeout } from "node:timers/promises";
 import puppeteer from "puppeteer";
 import { PuppeteerScreenRecorder } from "puppeteer-screen-recorder";
 import { getRecordingDir } from "../helpers.js";
