@@ -38,6 +38,6 @@ export default {
     width: 2560,
     height: 1440,
     duration: 10,
-    delay: 0, // Delay in ms before taking a screenshot
+    delay: 0, // Delay in ms before recording a video
   },
 };
