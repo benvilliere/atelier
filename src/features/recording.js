@@ -30,7 +30,7 @@ export async function recordVideo(settings) {
       height: settings.recording.height,
     },
     outputPath: recordingDir,
-    recordDurationLimit: settings.recording.duration * 1000,
+    recordDurationLimit: settings.recording.duration,
   };
 
   if (settings.verbose) console.log("🎥 Recording options:", recordingOptions);
@@ -46,7 +46,7 @@ export async function recordVideo(settings) {
 
   await recorder.start(videoPath);
 
-  await setTimeout(settings.recording.duration * 1000);
+  await setTimeout(settings.recording.duration);
 
   await recorder.stop();
   await browser.close();
