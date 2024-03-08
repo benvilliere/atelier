@@ -141,5 +141,6 @@ document.addEventListener("alpine:init", () => {
         { passive: true }
       );
     },
+    async delete(timestamp) {},
   });
 });
