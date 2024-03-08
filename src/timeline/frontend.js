@@ -110,17 +110,10 @@ document.addEventListener("alpine:init", () => {
       window.addEventListener(
         "scroll",
         async () => {
-          if (window.scrollY == 0) {
-            this.showNewEntriesPill = false;
-          } else {
-            if (
-              this.newEntries > 0 &&
-              window.scrollY >
-                document.getElementById("atelier-card-1").clientHeight
-            ) {
-              this.showNewEntriesPill = true;
-            }
-          }
+          this.showNewEntriesPill =
+            this.newEntries > 0 &&
+            window.scrollY >
+              document.getElementById("atelier-card-1").clientHeight;
 
           if (this.fetchingMoreEntries) {
             return;
