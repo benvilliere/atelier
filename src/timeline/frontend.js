@@ -97,7 +97,7 @@ document.addEventListener("alpine:init", () => {
           console.log(
             "New entries:",
             newEntriesAmount,
-            fresh.entries.slice(0, newEntriesAmount).unshift()
+            ...fresh.entries.slice(0, newEntriesAmount)
           );
 
           this.timeline = {
