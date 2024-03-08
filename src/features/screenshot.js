@@ -36,12 +36,13 @@ export async function takeScreenshot(settings) {
     screenshotOptions.fullPage = settings.screenshot.fullPage;
   }
 
-  setTimeout(() => {}, settings.delay);
-  await subject.screenshot(screenshotOptions);
+  setTimeout(async () => {
+    await subject.screenshot(screenshotOptions);
 
-  await browser.close();
-
-  if (settings.verbose) console.log(`📷 Screenshot saved to ${screenshotPath}`);
+    await browser.close();
+    if (settings.verbose)
+      console.log(`📷 Screenshot saved to ${screenshotPath}`);
+  }, settings.delay);
 
   return fileName;
 }
