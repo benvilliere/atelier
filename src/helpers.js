@@ -75,7 +75,3 @@ export function openBrowser(url) {
       exec(`xdg-open ${url}`);
   }
 }
-
-export function sleep(delay) {
-  return new Promise((resolve) => setTimeout(resolve, delay));
-}
