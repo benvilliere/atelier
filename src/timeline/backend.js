@@ -111,7 +111,8 @@ export function createBackend(settings) {
         await fs
           .unlink(recordingFilePath)
           .catch((err) => console.error("Error deleting recording:", err));
-        console.log("Deleted recording", screenshotFilePath);
+
+        console.log("Deleted recording", recordingFilePath);
       }
 
       // Delete the JSON file
