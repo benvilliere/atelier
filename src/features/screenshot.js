@@ -12,6 +12,8 @@ export async function takeScreenshot(settings) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
+  page.setDefaultTimeout(settings.delay + 10000);
+
   await page.setViewport({
     width: settings.screenshot.width,
     height: settings.screenshot.height,
