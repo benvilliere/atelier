@@ -173,14 +173,10 @@
                     </svg>
                   </button>
                 </form> -->
-                <form
-                  class="action"
-                  :action="`/delete/${entry.timestamp}`"
-                  method="post"
-                >
+                <div class="action">
                   <button
                     type="button"
-                    @click="
+                    @click.prevent="
                       await fetch(
                         $el.closest('form').getAttribute('action'),
                         { 
@@ -205,7 +201,7 @@
                       />
                     </svg>
                   </button>
-                </form>
+                </div>
               </div>
             </div>
             <div class="media">
