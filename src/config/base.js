@@ -35,8 +35,8 @@ export default {
   recording: {
     enabled: false,
     path: ".atelier/recordings", // Path where to store the recordings
-    width: 2560,
-    height: 1440,
+    width: 2560, // Video width
+    height: 1440, // Video height
     duration: 3000, // Recording duration in ms
     delay: 0, // Delay in ms before recording a video
   },
