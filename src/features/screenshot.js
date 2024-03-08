@@ -44,8 +44,6 @@ export async function takeScreenshot(settings) {
       console.log(`📷 Screenshot saved to ${screenshotPath}`);
   }, settings.delay);
 
-  await browser.close();
-
   if (settings.verbose) console.log(`📷 Screenshot saved to ${screenshotPath}`);
 
   return fileName;
