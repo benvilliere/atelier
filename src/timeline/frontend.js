@@ -2,8 +2,7 @@ const { createBrowserRouter, RouterProvider, Route, Link } =
   window.ReactRouterDOM;
 const { useRoutes, useNavigate } = window.ReactRouter;
 
-// Header component
-
+import Logo from "./components/Logo.jsx";
 function Logo() {
   const handleLogoClick = (event) => {
     event.preventDefault();
