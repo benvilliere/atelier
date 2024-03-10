@@ -109,6 +109,7 @@ document.addEventListener("alpine:init", () => {
         this.entries = [...fresh.entries, ...this.entries];
         console.log([...fresh.entries, ...this.entries]);
         this.entries = fresh.entries;
+        Alpine.store("atelier").entries = fresh.entries;
 
         // this.timeline.entries = this.entries;
 
