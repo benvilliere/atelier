@@ -46,8 +46,6 @@ const AtelierProvider = ({ children }) => {
       value={{
         artworks,
         setArtworks,
-        newArtworks,
-        setNewArtworks,
         status,
         setStatus,
         polling,
