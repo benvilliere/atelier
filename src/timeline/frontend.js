@@ -224,6 +224,7 @@ function CopyAction({ artwork }) {
 
   const handleCopyClick = (event) => {
     event.preventDefault();
+    setCopied(true);
   };
 
   return (
@@ -234,8 +235,8 @@ function CopyAction({ artwork }) {
       //   copied = true;
       // "
       >
-        <span x-show="!copied">Copy</span>
-        <span x-show="copied">Copied!</span>
+        {!copied && <span>Copy</span>}
+        {copied && <span>Copied!</span>}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -254,7 +255,7 @@ function CopyAction({ artwork }) {
   );
 }
 
-function Card({ artwork, index }) {
+function Card({ artwork }) {
   console.log(artwork);
   return (
     <div class="card" id={`atelier-card-${artwork.timestamp}`}>
