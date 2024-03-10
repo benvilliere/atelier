@@ -107,6 +107,7 @@ document.addEventListener("alpine:init", () => {
 
       if (fresh.entries.length > 0) {
         this.entries = [...fresh.entries, ...this.entries];
+        this.entries.unshift(fresh.entries[0]);
 
         this.timeline.entries = this.entries;
 
@@ -121,9 +122,8 @@ document.addEventListener("alpine:init", () => {
         // this.showNewEntriesPill =
         //   window.scrollY >
         //   document.getElementById("atelier-card-1").clientHeight;
-        this.showNewEntriesPill = true;
         this.newEntries += fresh.entries.length;
-        this.newEntries = 1000;
+        this.showNewEntriesPill = true;
       }
     },
     async infiniteScroll() {
