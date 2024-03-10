@@ -222,6 +222,10 @@ function DownloadAction({ artwork }) {
 function CopyAction({ artwork }) {
   const [copied, setCopied] = useState(false);
 
+  const handleCopyClick = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <div class="action">
       <button
@@ -253,7 +257,7 @@ function CopyAction({ artwork }) {
 function Card({ artwork, index }) {
   console.log(artwork);
   return (
-    <div class="card" id={`atelier-card-${index}`}>
+    <div class="card" id={`atelier-card-${artwork.timestamp}`}>
       <div class="card-header">
         <div class="time">{timeAgo(artwork.timestamp)}</div>
         <div class="actions">
