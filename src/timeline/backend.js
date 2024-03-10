@@ -97,7 +97,13 @@ export function createBackend(settings) {
   }
 
   backend.get("/timeline/html", async (req, res) => {
-    const timeline = await getTimeline();
+    const limit = parseInt(req.query.limit, 10) || 32;
+    const page = parseInt(req.query.page, 10) || 1;
+    const offset = (page - 1) * limit;
+    const timeline = await getTimeline({
+      limit: parseInt(req.query.limit, 10) || 32,
+      page: parseInt(req.query.page, 10) || 1,
+    });
 
     try {
       const limit = parseInt(req.query.limit, 10) || 32;
