@@ -110,7 +110,7 @@ document.addEventListener("alpine:init", () => {
 
         this.entries = [...fresh.entries, ...this.entries];
 
-        this.timeline.entries = entries;
+        this.timeline.entries = this.entries;
 
         // this.timeline = {
         //   ...this.timeline,
