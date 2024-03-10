@@ -438,8 +438,6 @@ const router = createBrowserRouter([
   { path: "/about", element: <About /> },
 ]);
 
-// Render the router
-
 ReactDOM.render(
   <RouterProvider router={router} />,
   document.getElementById("root")
