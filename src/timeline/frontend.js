@@ -1,4 +1,4 @@
-const { createContext, useContext, useEffect, useState } = window.React;
+const { useEffect, useState } = window.React;
 
 function Logo() {
   const handleLogoClick = (event) => {
@@ -251,28 +251,7 @@ function Card({ artwork }) {
           <DeleteAction artwork={artwork} />
         </div>
       </div>
-      <div class="media">
-        <template x-if="artwork.screenshot">
-          <img
-          // :id="`atelier-screenshot-${index}`"
-          // :src="`/screenshots/${artwork.screenshot}`"
-          // :alt="`Screenshot taken at ${new Date(artwork.timestamp).toLocaleString()}`"
-          />
-        </template>
-        <template x-if="artwork.recording">
-          <video
-            controls
-            // :id="`atelier-recording-${index}`"
-            // :title="`Recording taken at ${new Date(artwork.timestamp).toLocaleString()}`"
-          >
-            <source
-              // :src="`/recordings/${artwork.recording}`"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </template>
-      </div>
+      <Media artwork={artwork} />
     </div>
   );
 }
