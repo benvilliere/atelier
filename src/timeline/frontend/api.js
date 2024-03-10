@@ -5,7 +5,7 @@ async function getTimeline(page = 1, limit = 32) {
 
 async function getTimeline(page = 1, limit = 32, since = 0) {
   console.log("Fetching page:", page);
-  return await get(`/timeline?page=${page}&limit=${limit}`);
+  return await get(`/timeline?page=${page}&limit=${limit}&since=${since}`);
 }
 
 async function getTimelineSince(when) {
