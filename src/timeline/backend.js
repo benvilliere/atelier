@@ -39,7 +39,7 @@ export function createBackend(settings) {
       const when = req.params.when;
       const files = await fs.readdir(directories.data);
 
-      let entries = await Promise.all(
+      let artworks = await Promise.all(
         files
           .filter((file) => path.extname(file) === ".json")
           .filter((file) => file.replace(".json", "") > when)
@@ -51,7 +51,7 @@ export function createBackend(settings) {
       );
 
       res.json({
-        entries: entries,
+        artworks: artworks,
       });
     } catch (err) {
       console.error("Failed to load data:", err);
@@ -76,7 +76,7 @@ export function createBackend(settings) {
       const offset = (page - 1) * limit;
       const files = await fs.readdir(directories.data);
 
-      let entries = await Promise.all(
+      let artworks = await Promise.all(
         files
           .filter((file) => path.extname(file) === ".json")
           .map(async (file) => {
@@ -86,16 +86,16 @@ export function createBackend(settings) {
           })
       );
 
-      entries.sort((a, b) => b.timestamp - a.timestamp);
+      artworks.sort((a, b) => b.timestamp - a.timestamp);
 
-      const paginatedItems = entries.slice(offset, offset + limit);
+      const paginatedItems = artworks.slice(offset, offset + limit);
 
       res.json({
-        entries: paginatedItems,
+        artworks: paginatedItems,
         page,
         limit,
-        total: entries.length,
-        totalPages: Math.ceil(entries.length / limit),
+        total: artworks.length,
+        totalPages: Math.ceil(artworks.length / limit),
       });
     } catch (err) {
       console.error("Failed to load data:", err);
@@ -119,11 +119,11 @@ export function createBackend(settings) {
       // Find the JSON file associated with the timestamp
       const dataFilePath = path.join(dataDir, `${timestamp}.json`);
       const data = await fs.readFile(dataFilePath, "utf8");
-      const entry = JSON.parse(data);
+      const artwork = JSON.parse(data);
 
       // Delete associated screenshot and recording files if they exist
-      if (entry.screenshot) {
-        const screenshotFilePath = path.join(screenshotDir, entry.screenshot);
+      if (artwork.screenshot) {
+        const screenshotFilePath = path.join(screenshotDir, artwork.screenshot);
         await fs
           .unlink(screenshotFilePath)
           .catch((err) => console.error("Error deleting screenshot:", err));
@@ -131,8 +131,8 @@ export function createBackend(settings) {
         console.log("Deleted screenshot", screenshotFilePath);
       }
 
-      if (entry.recording) {
-        const recordingFilePath = path.join(recordingDir, entry.recording);
+      if (artwork.recording) {
+        const recordingFilePath = path.join(recordingDir, artwork.recording);
         await fs
           .unlink(recordingFilePath)
           .catch((err) => console.error("Error deleting recording:", err));
@@ -144,7 +144,7 @@ export function createBackend(settings) {
       await fs.unlink(dataFilePath);
 
       res.json({
-        message: "Successfully deleted entry",
+        message: "Successfully deleted artwork",
         timestamp: timestamp,
       });
     } catch (err) {
