@@ -15,7 +15,7 @@ const AtelierProvider = ({ children }) => {
   const [status, setStatus] = useState(STATUS.INITIALIZING);
   const [artworks, setArtworks] = useState([]);
   const [newArtworks, setNewArtworks] = useState(0);
-  const [lastPollingTime, setLastPollingTime] = setState(Date.now());
+  const [lastPollingTime, setLastPollingTime] = useState(Date.now());
 
   useEffect(() => {
     const fetchArtworks = async () => {
