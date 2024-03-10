@@ -107,7 +107,10 @@ function Home() {
     <>
       <Header />
       <Container>
-        <Deck>Card</Deck>
+        <Deck>
+          Card Card Card Card Card Card Card Card Card Card Card Card Card Card{" "}
+          Card Card Card{" "}
+        </Deck>
       </Container>
     </>
   );
