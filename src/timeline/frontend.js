@@ -292,7 +292,7 @@ function App() {
     console.log("polling new artworks", fresh.artworks.length);
 
     if (fresh.artworks.length > 0) {
-      return [...fresh.artworks, ...artworks];
+      return fresh.artworks;
 
       // this.timeline.entries = this.entries;
 
