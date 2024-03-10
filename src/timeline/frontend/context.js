@@ -15,6 +15,10 @@ const AtelierProvider = ({ children }) => {
   const [lastPollingTime, setLastPollingTime] = useState(Date.now());
   const [page, setPage] = useState(1);
 
+  async function getArtworks(page = 1, limit = 32, since = 0) {
+    return await get(`/artworks?page=${page}&limit=${limit}&since=${since}`);
+  }
+
   useEffect(() => {
     const fetchArtworks = async () => {
       const data = await getArtworks();
