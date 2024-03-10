@@ -108,11 +108,11 @@ document.addEventListener("alpine:init", () => {
 
           this.timeline = updates;
 
-          console.log(updates);
-
           this.newEntries += newEntriesAmount;
 
           const after = this.timeline;
+
+          console.log({ before, after });
 
           // Show only if not viewing the top of the page
           // this.showNewEntriesPill =
