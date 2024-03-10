@@ -11,6 +11,7 @@ const STATUS = {
 };
 
 const AtelierProvider = ({ children }) => {
+  const POLLING_INTERVAL = 3000;
   const [status, setStatus] = useState(STATUS.INITIALIZING);
   const [artworks, setArtworks] = useState([]);
   const [newArtworks, setNewArtworks] = useState(0);
@@ -31,7 +32,7 @@ const AtelierProvider = ({ children }) => {
 
   const polling = async () => {
     const when = artworks[0].timestamp;
-    const fresh = await getTimelineSince(when);
+    const fresh = await getTimelineSince(Date.now() - 3000);
     console.log("Polling new artworks:", fresh.artworks.length);
     return fresh.artworks;
 
