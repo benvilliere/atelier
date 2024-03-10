@@ -186,8 +186,6 @@ function Pill() {
 }
 
 function Header() {
-  const navigate = useNavigate();
-
   return (
     <div class="header">
       <Logo />
