@@ -21,15 +21,13 @@ const AtelierProvider = ({ children }) => {
     fetchArtworks();
   }, []);
 
-  const pollLatestArtworks = async () => {
-    const when = this.entries[0].timestamp;
+  const pollNewArtworks = async () => {
+    const when = artworks[0].timestamp;
     const fresh = await getTimelineSince(when);
+    console.log("polling new artworks");
 
-    if (fresh.entries.length > 0) {
-      this.entries = [...fresh.entries, ...this.entries];
-      // console.log();
-      this.entries = fresh.entries;
-      Alpine.store("atelier").entries = [...fresh.entries, ...this.entries];
+    if (fresh.artworks.length > 0) {
+      setArtworks([...fresh.artworks, ...artworks]);
 
       // this.timeline.entries = this.entries;
 
@@ -44,13 +42,13 @@ const AtelierProvider = ({ children }) => {
       // this.showNewEntriesPill =
       //   window.scrollY >
       //   document.getElementById("atelier-card-1").clientHeight;
-      this.newEntries += fresh.entries.length;
-      this.showNewEntriesPill = true;
+      // this.newEntries += fresh.entries.length;
+      // this.showNewEntriesPill = true;
     }
   };
 
   useEffect(() => {
-    const timer = setInterval(getAnswer, 2000);
+    const timer = setInterval(pollNewArtworks, 2000);
     return () => clearInterval(timer);
   }, []);
 
