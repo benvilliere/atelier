@@ -97,19 +97,19 @@ function Footer() {
 // Home component
 
 function Container({ children }) {
-  return <div class="container">{childrens}</div>;
+  return <div class="container">{children}</div>;
 }
 
 function Home() {
   return (
     <>
       <Header />
-      <div class="container">
+      <Container>
         <h1>Welcome to the Home Page!</h1>
         <p>This is the home page content.</p>
         {/* <Link to="about">About Us</Link> */}
         <Footer />
-      </div>
+      </Container>
     </>
   );
 }
