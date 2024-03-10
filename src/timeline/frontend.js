@@ -222,7 +222,7 @@ function DownloadAction({ artwork }) {
 function CopyAction({ artwork }) {
   const [copied, setCopied] = useState(false);
 
-  const handleCopyClick = (event) => {
+  const handleCopy = (event) => {
     event.preventDefault();
     setCopied(true);
     copyImageToClipboard(`atelier-screenshot-${artwork.timestamp}`);
@@ -230,12 +230,7 @@ function CopyAction({ artwork }) {
 
   return (
     <div class="action">
-      <button
-      // @click.prevent="
-      //   copyImageToClipboard(`atelier-screenshot-${index}`);
-      //   copied = true;
-      // "
-      >
+      <button onClick={handleCopy}>
         {!copied && <span>Copy</span>}
         {copied && <span>Copied!</span>}
         <svg
