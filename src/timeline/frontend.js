@@ -7,6 +7,7 @@ const { useRoutes, useNavigate } = window.ReactRouter;
 function Logo() {
   const handleClick = (event) => {
     event.preventDefault();
+    console.log("test");
     window.scrollTo(0, 0);
   };
 
