@@ -67,7 +67,14 @@ const AtelierProvider = ({ children }) => {
 
   return (
     <AtelierContext.Provider
-      value={{ artworks, setArtworks, newArtworks, setNewArtworks }}
+      value={{
+        artworks,
+        setArtworks,
+        newArtworks,
+        setNewArtworks,
+        status,
+        setStatus,
+      }}
     >
       {children}
     </AtelierContext.Provider>
