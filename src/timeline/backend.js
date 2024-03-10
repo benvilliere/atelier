@@ -78,7 +78,7 @@ export function createBackend(settings) {
       const limit = parseInt(req.query.limit, 10) || 32;
       const page = parseInt(req.query.page, 10) || 1;
       const since = parseInt(req.query.since, 10) || 0;
-      console.info("since", since);
+      console.log({ since });
       const offset = (page - 1) * limit;
       const files = await fs.readdir(directories.data);
 
