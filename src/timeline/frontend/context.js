@@ -58,7 +58,7 @@ const AtelierProvider = ({ children }) => {
   useEffect(() => {
     const timer = setInterval(pollNewArtworks, 2000);
     return () => clearInterval(timer);
-  }, []);
+  }, [status]);
 
   return (
     <AtelierContext.Provider
