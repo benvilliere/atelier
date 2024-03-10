@@ -310,6 +310,8 @@ function App() {
       // this.newEntries += fresh.entries.length;
       // this.showNewEntriesPill = true;
     }
+
+    return [];
   };
 
   useEffect(() => {
@@ -319,7 +321,6 @@ function App() {
 
     const timer = setInterval(async () => {
       const newArtworks = await pollNewArtworks();
-
       setArtworks(newArtworks);
     }, 3000);
     return () => clearInterval(timer);
