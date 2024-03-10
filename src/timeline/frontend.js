@@ -331,9 +331,9 @@ function Home() {
   const [artworks, setArtworks] = useState([]);
 
   useEffect(async () => {
-    const { artworks } = await getTimeline();
+    const timeline = await getTimeline();
     console.log(artworks);
-    setArtworks(artworks);
+    setArtworks(timeline.artworks);
   }, []);
 
   return (
