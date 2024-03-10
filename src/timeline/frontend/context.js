@@ -54,9 +54,11 @@ const AtelierProvider = ({ children }) => {
       window.innerHeight + window.scrollY >=
       document.documentElement.scrollHeight - 300
     ) {
+      setIsFetchingMoreEntries(true);
       const more = await getArtworks(page + 1);
       setPage(more.page);
       setArtworks([...artworks, ...more.artworks]);
+      setIsFetchingMoreEntries(false);
       // if (this.timeline.page < this.timeline.totalPages) {
       //   console.log("you're at the bottom of the page");
 
