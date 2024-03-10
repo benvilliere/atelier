@@ -72,7 +72,7 @@ async function getTimelineSince(when) {
 
 document.addEventListener("alpine:init", () => {
   Alpine.store("atelier", {
-    timeline: [],
+    timeline: {},
     settings: {},
     newEntries: 0,
     showNewEntriesPill: false,
@@ -103,6 +103,7 @@ document.addEventListener("alpine:init", () => {
             total: entries.length,
             // totalPages: Math.ceil(entries.length / limit),
           };
+
           console.log(this.timeline);
           console.log(newTimeline);
 
