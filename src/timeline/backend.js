@@ -73,7 +73,7 @@ export function createBackend(settings) {
     }
   });
 
-  backend.get("/timeline", async (req, res) => {
+  backend.get("/artworks", async (req, res) => {
     try {
       const limit = parseInt(req.query.limit, 10) || 32;
       const page = parseInt(req.query.page, 10) || 1;
