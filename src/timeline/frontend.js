@@ -239,17 +239,42 @@ function Card({ artwork }) {
 
 function App() {
   const { artworks, status, setArtworks } = useAtelier();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isFetchingMoreEntries, setIsFetchingMoreEntries] = useState(false);
 
   const handleScroll = () => {
-    if (
-      window.innerHeight + document.documentElement.scrollTop !==
-        document.documentElement.offsetHeight ||
-      isLoading
-    ) {
+    if (isFetchingMoreEntries) {
       return;
     }
-    console.log("Infinite scroll fetch data");
+
+    if (
+      window.innerHeight + window.scrollY >=
+      document.documentElement.scrollHeight - 300
+    ) {
+      // if (this.timeline.page < this.timeline.totalPages) {
+      //   console.log("you're at the bottom of the page");
+
+      //   this.fetchingMoreEntries = true;
+
+      //   const data = await getTimeline(this.timeline.page + 1);
+
+      //   this.timeline = {
+      //     ...data,
+      //     entries: [...this.timeline.entries, ...data.entries],
+      //   };
+
+      //   this.entries = [...this.timeline.entries, ...data.entries];
+
+      //   this.fetchingMoreEntries = false;
+      // }
+      console.log("Infinite scroll fetch data");
+    }
+    // if (
+    //   window.innerHeight + document.documentElement.scrollTop !==
+    //     document.documentElement.offsetHeight ||
+    //   isLoading
+    // ) {
+    //   return;
+    // }
   };
 
   useEffect(() => {
