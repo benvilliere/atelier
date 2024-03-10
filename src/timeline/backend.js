@@ -34,45 +34,6 @@ export function createBackend(settings) {
     }
   });
 
-  backend.get("/timeline/since/:when", async (req, res) => {
-    try {
-      const when = req.params.when;
-      const files = await fs.readdir(directories.data);
-
-      let artworks = await Promise.all(
-        files
-          .filter((file) => path.extname(file) === ".json")
-          // .filter((file) => parseInt(file.replace(".json", "")) >= when)
-          .map(async (file) => {
-            const filePath = path.join(directories.data, file);
-            const fileContents = await fs.readFile(filePath, "utf8");
-            const artwork = JSON.parse(fileContents);
-            artwork.debug = true;
-            return artwork;
-          })
-      );
-
-      // artworks = artworks.filter((artwork) => artwork.timestamp >= when);
-
-      res.json({
-        artworks,
-      });
-    } catch (err) {
-      console.error("Failed to load data:", err);
-      res.status(500).send("Failed to load data");
-    }
-  });
-
-  backend.get("/timeline/total", async (req, res) => {
-    try {
-      const files = await fs.readdir(directories.data);
-      res.json(files.length);
-    } catch (err) {
-      console.error("Failed to load data:", err);
-      res.status(500).send("Failed to load data");
-    }
-  });
-
   backend.get("/artworks", async (req, res) => {
     try {
       const limit = parseInt(req.query.limit, 10) || 32;
