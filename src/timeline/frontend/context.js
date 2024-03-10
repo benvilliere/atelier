@@ -12,7 +12,6 @@ const STATUS = {
 const AtelierProvider = ({ children }) => {
   const [status, setStatus] = useState(STATUS.INITIALIZING);
   const [artworks, setArtworks] = useState([]);
-  const [newArtworks, setNewArtworks] = useState(0);
   const [lastPollingTime, setLastPollingTime] = useState(Date.now());
 
   useEffect(() => {
@@ -28,7 +27,6 @@ const AtelierProvider = ({ children }) => {
   const polling = async () => {
     const fresh = await getArtworks(1, 32, lastPollingTime);
     if (fresh.artworks.length > 0) {
-      setNewArtworks(fresh.artworks.length);
       setArtworks([...newArtworks, ...artworks]);
       setLastPollingTime(Date.now());
     }
