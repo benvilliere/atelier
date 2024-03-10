@@ -31,8 +31,9 @@ const AtelierProvider = ({ children }) => {
   }, []);
 
   const polling = async () => {
-    const when = artworks[0].timestamp;
-    const fresh = await getTimelineSince(Date.now() - POLLING_INTERVAL);
+    // const when = artworks[0].timestamp;
+    const when = Date.now() - POLLING_INTERVAL;
+    const fresh = await getTimelineSince(when);
     console.log("Polling new artworks:", fresh.artworks.length);
     return fresh.artworks;
 
