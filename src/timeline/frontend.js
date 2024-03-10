@@ -1,5 +1,3 @@
-const { createBrowserRouter, RouterProvider, Route, Link } =
-  window.ReactRouterDOM;
 const { useRoutes, useNavigate } = window.ReactRouter;
 const { createContext, useContext, useEffect, useState } = window.React;
 
