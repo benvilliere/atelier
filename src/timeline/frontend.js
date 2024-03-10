@@ -229,9 +229,11 @@ function CopyAction({ artwork }) {
 }
 
 function DeleteAction({ artwork }) {
-  const [setArtworks] = useAtelier();
+  const { artworks, setArtworks } = useAtelier();
   const handleDelete = async (event) => {
     event.preventDefault();
+
+    setArtworks(artworks.filter((a) => a.timestamp != artwork.timestamp));
 
     await deleteArtwork(artwork);
   };
