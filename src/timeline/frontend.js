@@ -94,28 +94,12 @@ document.addEventListener("alpine:init", () => {
       }
 
       setInterval(async () => {
-        const fresh = await getTimeline();
+        const fresh = await getTimelineSince();
 
-        if (fresh.total > this.timeline.total) {
-          const before = this.timeline;
-          const newEntriesAmount = fresh.total - this.timeline.total;
-          const newEntries = fresh.entries.slice(0, newEntriesAmount);
+        console.log(fresh);
 
-          console.log("New entries:", newEntriesAmount, newEntries);
-
-          const updates = {
-            ...fresh,
-            entries: this.timeline.entries,
-          };
-
-          for (const newEntry of newEntries) updates.entries.unshift(newEntry);
-          // this.timeline.entries.unshift(newEntry);
-
-          this.timeline = updates;
-
-          this.newEntries += newEntriesAmount;
-
-          const after = this.timeline;
+        if (fresh.entries.length > 0) {
+          this.newEntries += fresh.entries.length;
 
           console.log({ before: before.entries, after: updates.entries });
 
