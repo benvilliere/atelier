@@ -18,6 +18,7 @@ const AtelierProvider = ({ children }) => {
     const fetchArtworks = async () => {
       const data = await getArtworks();
       setArtworks(data.artworks);
+      setCurrentPage(data.page)
       setStatus(STATUS.INITIALIZED);
     };
 
@@ -42,7 +43,7 @@ const AtelierProvider = ({ children }) => {
   }, [status]);
 
   const [isFetchingMoreEntries, setIsFetchingMoreEntries] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1)
+  const [currentPage, setCurrentPage] = useState(1);
 
   const infiniteScroll = () => {
     if (isFetchingMoreEntries) {
@@ -53,7 +54,7 @@ const AtelierProvider = ({ children }) => {
       window.innerHeight + window.scrollY >=
       document.documentElement.scrollHeight - 300
     ) {
-      const more = await getArtworks()
+      const more = await getArtworks(currentPage)
       // if (this.timeline.page < this.timeline.totalPages) {
       //   console.log("you're at the bottom of the page");
 
