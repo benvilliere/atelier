@@ -19,13 +19,9 @@ const AtelierProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchArtworks = async () => {
-      try {
-        const data = await getArtworks();
-        setArtworks(data.artworks);
-        setStatus(STATUS.INITIALIZED);
-      } catch (error) {
-        console.error("Failed to fetch artworks", error);
-      }
+      const data = await getArtworks();
+      setArtworks(data.artworks);
+      setStatus(STATUS.INITIALIZED);
     };
 
     fetchArtworks();
