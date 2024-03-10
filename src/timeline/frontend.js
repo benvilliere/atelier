@@ -92,8 +92,6 @@ document.addEventListener("alpine:init", () => {
           this.timeline.entries[0].timestamp
         );
 
-        console.log(fresh);
-
         if (fresh.entries.length > 0) {
           this.newEntries += fresh.entries.length;
 
