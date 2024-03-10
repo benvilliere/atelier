@@ -193,32 +193,38 @@ function Card({ artwork, index }) {
       <div class="card-header">
         <div class="time">{timeAgo(artwork.timestamp)}</div>
         <div class="actions">
-          <div class="action" x-show="artwork.screenshot || artwork.recording">
-            <a
-              // :href="
-              //   artwork.screenshot
-              //   ? `/screenshots/${artwork.screenshot}`
-              //   : `/recordings/${artwork.recording}`
-              // "
-              download
-              // :title="`Download ${artwork.screenshot ? artwork.screenshot : artwork.recording}`"
+          {(artwork.screenshot || artwork.recording) && (
+            <div
+              class="action"
+              x-show="artwork.screenshot || artwork.recording"
             >
-              <span>Download</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
+              <a
+                // :href="
+                //   artwork.screenshot
+                //   ? `/screenshots/${artwork.screenshot}`
+                //   : `/recordings/${artwork.recording}`
+                // "
+                download
+                // :title="`Download ${artwork.screenshot ? artwork.screenshot : artwork.recording}`"
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
-                />
-              </svg>
-            </a>
-          </div>
+                <span>Download</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+                  />
+                </svg>
+              </a>
+            </div>
+          )}
+
           <div
             class="action"
             x-show="artwork.screenshot"
