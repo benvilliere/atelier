@@ -73,7 +73,7 @@ body * {
 .header .logo a svg {
   position: absolute;
   opacity: 0;
-  width: 12px;
+  width: 18px;
   top: 32px;
   right: 64px;
   transition: all ease-in-out 200ms;
@@ -81,6 +81,7 @@ body * {
 
 .header .logo a:hover svg {
   opacity: 1;
+  top: 12px;
 }
 
 .container {
