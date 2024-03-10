@@ -6,6 +6,7 @@ const useAtelier = () => useContext(AtelierContext);
 
 const AtelierProvider = ({ children }) => {
   const [artworks, setArtworks] = useState([]);
+  const [settings, setSettings] = useState({});
   const [lastPollingTime, setLastPollingTime] = useState(Date.now());
   const [page, setPage] = useState(1);
   const [initialized, setInitialized] = useState(false);
@@ -15,12 +16,22 @@ const AtelierProvider = ({ children }) => {
     return await get(`/artworks?page=${page}&limit=${limit}&since=${since}`);
   }
 
+  async function getSettings() {
+    return await get(`/settings`);
+  }
+
   useEffect(() => {
     const fetchArtworks = async () => {
       const data = await getArtworks();
       setArtworks(data.artworks);
       setPage(data.page);
+      setSettings(await getSettings());
       setInitialized(true);
+    };
+
+    const fetchSettings = async () => {
+      const data = await getSettings();
+      setSettings(data);
     };
 
     fetchArtworks();
