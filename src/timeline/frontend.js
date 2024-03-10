@@ -79,29 +79,6 @@ document.addEventListener("alpine:init", () => {
     newEntries: 0,
     showNewEntriesPill: false,
     fetchingMoreEntries: false,
-    async loadNewEntries() {
-      console.log("loading new entries");
-      const fresh = await getTimelineSince(this.timeline.entries[0].timestamp);
-
-      if (fresh.entries.length > 0) {
-        this.newEntries += fresh.entries.length;
-
-        const entries = [...fresh.entries, ...this.timeline.entries];
-
-        this.timeline = {
-          ...this.timeline,
-          entries: entries,
-          total: entries.length,
-          // totalPages: Math.ceil(entries.length / limit),
-        };
-
-        // Show only if not viewing the top of the page
-        // this.showNewEntriesPill =
-        //   window.scrollY >
-        //   document.getElementById("atelier-card-1").clientHeight;
-        this.showNewEntriesPill = true;
-      }
-    },
     async init() {
       this.timeline = await getTimeline();
       this.settings = await get("/settings");
@@ -143,6 +120,29 @@ document.addEventListener("alpine:init", () => {
         },
         { passive: true }
       );
+    },
+    async loadNewEntries() {
+      console.log("loading new entries");
+      const fresh = await getTimelineSince(this.timeline.entries[0].timestamp);
+
+      if (fresh.entries.length > 0) {
+        this.newEntries += fresh.entries.length;
+
+        const entries = [...fresh.entries, ...this.timeline.entries];
+
+        this.timeline = {
+          ...this.timeline,
+          entries: entries,
+          total: entries.length,
+          // totalPages: Math.ceil(entries.length / limit),
+        };
+
+        // Show only if not viewing the top of the page
+        // this.showNewEntriesPill =
+        //   window.scrollY >
+        //   document.getElementById("atelier-card-1").clientHeight;
+        this.showNewEntriesPill = true;
+      }
     },
     async delete(entry) {
       await fetch(`/delete/${entry.timestamp}`, {
