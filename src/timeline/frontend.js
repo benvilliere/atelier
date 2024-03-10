@@ -194,16 +194,13 @@ function Card({ artwork, index }) {
         <div class="time">{timeAgo(artwork.timestamp)}</div>
         <div class="actions">
           {(artwork.screenshot || artwork.recording) && (
-            <div
-              class="action"
-              x-show="artwork.screenshot || artwork.recording"
-            >
+            <div class="action">
               <a
-                // :href="
-                //   artwork.screenshot
-                //   ? `/screenshots/${artwork.screenshot}`
-                //   : `/recordings/${artwork.recording}`
-                // "
+                href={
+                  artwork.screenshot
+                    ? `/screenshots/${artwork.screenshot}`
+                    : `/recordings/${artwork.recording}`
+                }
                 download
                 // :title="`Download ${artwork.screenshot ? artwork.screenshot : artwork.recording}`"
               >
