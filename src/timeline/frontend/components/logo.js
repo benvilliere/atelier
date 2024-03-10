@@ -1,3 +1,4 @@
+const { useEffect, useState } = window.React;
 function Logo() {
   const handleLogoClick = (event) => {
     event.preventDefault();
