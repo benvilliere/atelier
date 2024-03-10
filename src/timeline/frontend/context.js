@@ -4,7 +4,15 @@ const AtelierContext = createContext();
 
 const useAtelier = () => useContext(AtelierContext);
 
+const State = {
+  INITIALIZING: 0,
+  INITIALIZED: 1,
+  POLLING: 2,
+
+}
+
 const AtelierProvider = ({ children }) => {
+  const [initialized, setHasLoadedInitialData]
   const [artworks, setArtworks] = useState([]);
   const [newArtworks, setNewArtworks] = useState(0);
 
