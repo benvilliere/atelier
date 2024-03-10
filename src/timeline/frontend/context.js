@@ -26,7 +26,7 @@ const AtelierProvider = ({ children }) => {
     };
 
     fetchArtworks();
-  }, []);
+  }, [status]);
 
   const pollNewArtworks = async () => {
     const when = artworks[0].timestamp;
