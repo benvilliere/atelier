@@ -99,7 +99,7 @@ document.addEventListener("alpine:init", () => {
 
           const newTimeline = {
             ...this.timeline,
-            entries: entries.length,
+            entries: entries,
             total: entries.length,
             // totalPages: Math.ceil(entries.length / limit),
           };
