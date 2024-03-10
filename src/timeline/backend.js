@@ -84,7 +84,7 @@ export function createBackend(settings) {
       let artworks = await Promise.all(
         files
           .filter((file) => path.extname(file) === ".json")
-          .filter((file) => parseInt(file.replace(".json", "")) >= since)
+          .filter((file) => parseInt(file.replace(".json", "")) > since)
           .map(async (file) => {
             const filePath = path.join(directories.data, file);
             const fileContents = await fs.readFile(filePath, "utf8");
