@@ -220,11 +220,13 @@ function Media({ artwork }) {
           ).toLocaleString()}`}
         />
       )}
-      <template x-if="artwork.recording">
+      {artwork.recording && (
         <video
           controls
-          // :id="`atelier-recording-${index}`"
-          // :title="`Recording taken at ${new Date(artwork.timestamp).toLocaleString()}`"
+          id={`atelier-recording-${artworkd.timestamp}`}
+          title={`Recording taken at ${new Date(
+            artwork.timestamp
+          ).toLocaleString()}`}
         >
           <source
             // :src="`/recordings/${artwork.recording}`"
@@ -232,7 +234,7 @@ function Media({ artwork }) {
           />
           Your browser does not support the video tag.
         </video>
-      </template>
+      )}
     </div>
   );
 }
