@@ -34,6 +34,30 @@ export function createBackend(settings) {
     }
   });
 
+  backend.get("/timeline/since/:when", async (req, res) => {
+    try {
+      const when = req.params.when;
+
+      let entries = await Promise.all(
+        files
+          .filter((file) => path.extname(file) === ".json")
+          .filter((file) => file.replace(".json", "") > when)
+          .map(async (file) => {
+            const filePath = path.join(directories.data, file);
+            const fileContents = await fs.readFile(filePath, "utf8");
+            return JSON.parse(fileContents);
+          })
+      );
+
+      res.json({
+        entries: entries,
+      });
+    } catch (err) {
+      console.error("Failed to load data:", err);
+      res.status(500).send("Failed to load data");
+    }
+  });
+
   backend.get("/timeline/total", async (req, res) => {
     try {
       const files = await fs.readdir(directories.data);
@@ -71,30 +95,6 @@ export function createBackend(settings) {
         limit,
         total: entries.length,
         totalPages: Math.ceil(entries.length / limit),
-      });
-    } catch (err) {
-      console.error("Failed to load data:", err);
-      res.status(500).send("Failed to load data");
-    }
-  });
-
-  backend.get("/timeline/since/:when", async (req, res) => {
-    try {
-      const when = req.params.when;
-
-      let entries = await Promise.all(
-        files
-          .filter((file) => path.extname(file) === ".json")
-          .filter((file) => file.replace(".json", "") > when)
-          .map(async (file) => {
-            const filePath = path.join(directories.data, file);
-            const fileContents = await fs.readFile(filePath, "utf8");
-            return JSON.parse(fileContents);
-          })
-      );
-
-      res.json({
-        entries: entries,
       });
     } catch (err) {
       console.error("Failed to load data:", err);
