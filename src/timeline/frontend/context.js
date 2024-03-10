@@ -35,6 +35,7 @@ const AtelierProvider = ({ children }) => {
     console.log("polling new artworks", fresh.artworks.length);
 
     if (fresh.artworks.length > 0) {
+      console.log([...fresh.artworks, ...artworks]);
       setArtworks([...fresh.artworks, ...artworks]);
 
       // this.timeline.entries = this.entries;
