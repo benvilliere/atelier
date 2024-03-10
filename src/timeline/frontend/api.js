@@ -1,5 +1,3 @@
-import { CHAR_0 } from "picomatch/lib/constants";
-
 async function getTimeline(page = 1, limit = 32) {
   console.log("Fetching page:", page);
   return await get(`/timeline?page=${page}&limit=${limit}`);
