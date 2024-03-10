@@ -328,6 +328,10 @@ function Card({ artwork }) {
 }
 
 function Home() {
+  const [timeline, setTimeline] = useState({
+    artworks: [],
+  });
+
   useEffect(async () => {
     const timeline = await getTimeline();
     console.log(timeline);
