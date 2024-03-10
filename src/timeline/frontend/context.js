@@ -12,6 +12,7 @@ const STATUS = {
 
 const AtelierProvider = ({ children }) => {
   const POLLING_INTERVAL = 3000;
+
   const [status, setStatus] = useState(STATUS.INITIALIZING);
   const [artworks, setArtworks] = useState([]);
   const [newArtworks, setNewArtworks] = useState(0);
@@ -58,7 +59,7 @@ const AtelierProvider = ({ children }) => {
       const newArtworks = await polling();
       console.log({ newArtworks });
       setArtworks([...newArtworks, ...artworks]);
-    }, POLLING_INTERVAL);
+    }, 3000);
     return () => clearInterval(timer);
   }, [status]);
 
