@@ -106,7 +106,9 @@ function Home() {
   return (
     <>
       <Header />
-      <Container>Card</Container>
+      <Container>
+        <Deck>Card</Deck>
+      </Container>
     </>
   );
 }
