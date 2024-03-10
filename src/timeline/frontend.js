@@ -94,29 +94,7 @@ document.addEventListener("alpine:init", () => {
       window.addEventListener(
         "scroll",
         async () => {
-          if (this.fetchingMoreEntries) {
-            return;
-          }
-
-          if (
-            window.innerHeight + window.scrollY >=
-            document.documentElement.scrollHeight - 300
-          ) {
-            if (this.timeline.page < this.timeline.totalPages) {
-              console.log("you're at the bottom of the page");
-
-              this.fetchingMoreEntries = true;
-
-              const data = await getTimeline(this.timeline.page + 1);
-
-              this.timeline = {
-                ...data,
-                entries: [...this.timeline.entries, ...data.entries],
-              };
-
-              this.fetchingMoreEntries = false;
-            }
-          }
+          await handleScroll();
         },
         { passive: true }
       );
@@ -142,6 +120,31 @@ document.addEventListener("alpine:init", () => {
         //   window.scrollY >
         //   document.getElementById("atelier-card-1").clientHeight;
         this.showNewEntriesPill = true;
+      }
+    },
+    async handleScroll() {
+      if (this.fetchingMoreEntries) {
+        return;
+      }
+
+      if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 300
+      ) {
+        if (this.timeline.page < this.timeline.totalPages) {
+          console.log("you're at the bottom of the page");
+
+          this.fetchingMoreEntries = true;
+
+          const data = await getTimeline(this.timeline.page + 1);
+
+          this.timeline = {
+            ...data,
+            entries: [...this.timeline.entries, ...data.entries],
+          };
+
+          this.fetchingMoreEntries = false;
+        }
       }
     },
     async delete(entry) {
