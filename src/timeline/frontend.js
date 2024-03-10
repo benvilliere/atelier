@@ -3,13 +3,13 @@ const { createBrowserRouter, RouterProvider, Route, Link } =
 const { useRoutes, useNavigate } = window.ReactRouter;
 
 // Header component
-const onLogoClick = (event) => {
-  event.preventDefault();
-  console.log("test");
-  window.scrollTo(0, 0);
-};
 
 function Logo() {
+  const onLogoClick = (event) => {
+    event.preventDefault();
+    console.log("test");
+    window.scrollTo(0, 0);
+  };
   return (
     <h1 class="logo">
       <a href="#" onClick={onLogoClick}>
