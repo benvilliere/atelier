@@ -329,7 +329,8 @@ function Card({ artwork }) {
 
 function Home() {
   useEffect(async () => {
-    await getTimeline();
+    const timeline = await getTimeline();
+    console.log(timeline);
   }, []);
 
   return (
