@@ -297,7 +297,7 @@ function Card({ artwork }) {
                     </svg>
                   </button>
                 </form> --> */}
-          <DeleteAction artwork={artwork} setArtworks={setArtworks} />
+          <DeleteAction artwork={artwork} />
         </div>
       </div>
       <div class="media">
