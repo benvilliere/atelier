@@ -94,7 +94,7 @@ document.addEventListener("alpine:init", () => {
       window.addEventListener(
         "scroll",
         async () => {
-          await this.handleScroll();
+          await this.infiniteScroll();
         },
         { passive: true }
       );
@@ -122,7 +122,7 @@ document.addEventListener("alpine:init", () => {
         this.showNewEntriesPill = true;
       }
     },
-    async handleScroll() {
+    async infiniteScroll() {
       if (this.fetchingMoreEntries) {
         return;
       }
