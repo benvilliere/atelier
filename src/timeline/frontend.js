@@ -80,31 +80,30 @@ document.addEventListener("alpine:init", () => {
     showNewEntriesPill: false,
     fetchingMoreEntries: false,
     async loadNewEntries() {
-      
-        const fresh = await getTimelineSince(
-          this.timeline.entries[0].timestamp
-        );
+    
+      const fresh = await getTimelineSince(
+        this.timeline.entries[0].timestamp
+      );
 
-        if (fresh.entries.length > 0) {
-          this.newEntries += fresh.entries.length;
+      if (fresh.entries.length > 0) {
+        this.newEntries += fresh.entries.length;
 
-          const entries = [...fresh.entries, ...this.timeline.entries];
+        const entries = [...fresh.entries, ...this.timeline.entries];
 
-          this.timeline = {
-            ...this.timeline,
-            entries: entries,
-            total: entries.length,
-            // totalPages: Math.ceil(entries.length / limit),
-          };
+        this.timeline = {
+          ...this.timeline,
+          entries: entries,
+          total: entries.length,
+          // totalPages: Math.ceil(entries.length / limit),
+        };
 
-          // Show only if not viewing the top of the page
-          // this.showNewEntriesPill =
-          //   window.scrollY >
-          //   document.getElementById("atelier-card-1").clientHeight;
-          this.showNewEntriesPill = true;
+        // Show only if not viewing the top of the page
+        // this.showNewEntriesPill =
+        //   window.scrollY >
+        //   document.getElementById("atelier-card-1").clientHeight;
+        this.showNewEntriesPill = true;
 
     },
-    
     async init() {
       this.timeline = await getTimeline();
       this.settings = await get("/settings");
