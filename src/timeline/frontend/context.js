@@ -15,7 +15,7 @@ const AtelierProvider = ({ children }) => {
   const [status, setStatus] = useState(STATUS.INITIALIZING);
   const [artworks, setArtworks] = useState([]);
   const [newArtworks, setNewArtworks] = useState(0);
-  const lastPollingTime = Date.now();
+  const [lastPollingTime, setLastPollingTime] = setState(Date.now());
 
   useEffect(() => {
     const fetchArtworks = async () => {
@@ -33,9 +33,9 @@ const AtelierProvider = ({ children }) => {
 
   const polling = async () => {
     // const when = artworks[0].timestamp;
-    const when = Date.now() - POLLING_INTERVAL / 100;
-    const fresh = await getTimelineSince(when);
+    const fresh = await getTimelineSince(lastPollingTime);
     console.log("Polling new artworks:", fresh.artworks.length);
+    setLastPollingTime(Date.now());
     return fresh.artworks;
 
     // this.timeline.entries = this.entries;
