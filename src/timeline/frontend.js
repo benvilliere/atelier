@@ -5,7 +5,7 @@ const { useRoutes, useNavigate } = window.ReactRouter;
 // Header component
 const onLogoClick = (event) => {
   event.preventDefault();
-  console.log(test);
+  console.log("test");
   window.scrollTo(0, 0);
 };
 
