@@ -20,6 +20,7 @@ const AtelierProvider = ({ children }) => {
       try {
         const data = await getTimeline();
         setArtworks(data.artworks);
+        setStatus(STATUS.INITIALIZED);
       } catch (error) {
         console.error("Failed to fetch artworks", error);
       }
