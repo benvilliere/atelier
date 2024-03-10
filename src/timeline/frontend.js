@@ -291,9 +291,11 @@ function App() {
       <Header />
       <Container>
         <Deck>
-          {artworks.map((artwork, index) => (
-            <Card key={`artwork-${index}`} artwork={artwork} />
-          ))}
+          {artworks
+            .sort((a, b) => b.timestamp - a.timestamp)
+            .map((artwork, index) => (
+              <Card key={`artwork-${index}`} artwork={artwork} />
+            ))}
         </Deck>
       </Container>
     </>
