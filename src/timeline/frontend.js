@@ -294,6 +294,7 @@ function App() {
     if (fresh.artworks.length > 0) {
       console.log([...fresh.artworks, ...artworks]);
       setArtworks([...fresh.artworks, ...artworks]);
+      return [...fresh.artworks, ...artworks];
 
       // this.timeline.entries = this.entries;
 
