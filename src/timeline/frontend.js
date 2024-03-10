@@ -393,32 +393,6 @@ function Card({ artwork }) {
   );
 }
 
-function Home() {
-  const [artworks, setArtworks] = useState([]);
-
-  useEffect(async () => {
-    const timeline = await getTimeline();
-    setArtworks(timeline.artworks);
-  }, []);
-
-  return (
-    <>
-      <Header />
-      <Container>
-        <Deck>
-          {artworks.map((artwork, index) => (
-            <Card
-              key={`artwork-${index}`}
-              artwork={artwork}
-              setArtworks={setArtworks}
-            />
-          ))}
-        </Deck>
-      </Container>
-    </>
-  );
-}
-
 function App() {
   const [artworks, setArtworks] = useState([]);
 
@@ -444,25 +418,6 @@ function App() {
     </>
   );
 }
-
-// About component
-
-function About() {
-  return (
-    <div>
-      <Header />
-      <h1>About Us</h1>
-      <p>This is the about page content.</p>
-      {/* <Link to="/">Home</Link> */}
-      <Footer />
-    </div>
-  );
-}
-
-const router = createBrowserRouter([
-  { path: "/", element: <Home /> },
-  { path: "/about", element: <About /> },
-]);
 
 ReactDOM.render(
   <AtelierProvider>
