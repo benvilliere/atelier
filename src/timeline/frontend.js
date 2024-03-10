@@ -223,7 +223,7 @@ function Media({ artwork }) {
       {artwork.recording && (
         <video
           controls
-          id={`atelier-recording-${artworkd.timestamp}`}
+          id={`atelier-recording-${artwork.timestamp}`}
           title={`Recording taken at ${new Date(
             artwork.timestamp
           ).toLocaleString()}`}
