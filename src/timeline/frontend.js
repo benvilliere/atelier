@@ -92,6 +92,7 @@ document.addEventListener("alpine:init", () => {
         const fresh = await getTimeline();
 
         if (fresh.total > this.timeline.total) {
+          const before = this.timeline;
           const newEntriesAmount = fresh.total - this.timeline.total;
           const newEntries = fresh.entries.slice(0, newEntriesAmount);
 
