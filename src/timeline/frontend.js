@@ -75,12 +75,11 @@ async function getTimelineSince(when) {
   return await get(`/timeline/since/${when}`);
 }
 
-
-    async function deleteArtwork(entry) {
-      await fetch(`/delete/${entry.timestamp}`, {
-        method: "POST",
-      });
-    },
+async function deleteArtwork(entry) {
+  await fetch(`/delete/${entry.timestamp}`, {
+    method: "POST",
+  });
+}
 
 function Logo() {
   const handleLogoClick = (event) => {
@@ -262,7 +261,7 @@ function DeleteAction({ artwork }) {
   const handleDelete = (event) => {
     event.preventDefault();
 
-    await 
+    await;
   };
 
   return (
