@@ -11,7 +11,7 @@ const STATUS = {
 }
 
 const AtelierProvider = ({ children }) => {
-  const [initialized, setHasLoadedInitialData]
+  const [status, setStatus]
   const [artworks, setArtworks] = useState([]);
   const [newArtworks, setNewArtworks] = useState(0);
 
