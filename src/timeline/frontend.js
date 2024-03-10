@@ -94,17 +94,19 @@ function Footer() {
   );
 }
 
-// Home component
-
 function Container({ children }) {
   return <div class="container">{children}</div>;
+}
+
+function Deck({ children }) {
+  return <div class="deck">{children}</div>;
 }
 
 function Home() {
   return (
     <>
       <Header />
-      <Container></Container>
+      <Container>Card</Container>
     </>
   );
 }
