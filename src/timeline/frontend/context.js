@@ -32,7 +32,7 @@ const AtelierProvider = ({ children }) => {
   const pollNewArtworks = async () => {
     const when = artworks[0].timestamp;
     const fresh = await getTimelineSince(when);
-    console.log("polling new artworks");
+    console.log("polling new artworks", fresh.artworks.length);
 
     if (fresh.artworks.length > 0) {
       setArtworks([...fresh.artworks, ...artworks]);
