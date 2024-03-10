@@ -64,7 +64,6 @@ const AtelierProvider = ({ children }) => {
       window.innerHeight + window.scrollY >=
       document.documentElement.scrollHeight - window.innerHeight
     ) {
-      console.log("Infinite scroll fetch data");
       setIsFetchingMoreEntries(true);
       const more = await getArtworks(page + 1);
       setPage(more.page);
