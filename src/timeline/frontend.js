@@ -186,6 +186,12 @@ function Deck({ children }) {
 //   x-text="JSON.stringify(artwork, null, 2)"
 // ></pre>
 
+function DownloadAction({ artwork }) {
+  if (!artwork.screenshot || !artwork.recording) {
+    return;
+  }
+}
+
 function Card({ artwork, index }) {
   console.log(artwork);
   return (
