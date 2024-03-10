@@ -1,4 +1,3 @@
-const { useRoutes, useNavigate } = window.ReactRouter;
 const { createContext, useContext, useEffect, useState } = window.React;
 
 /// Helper functions
