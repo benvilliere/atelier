@@ -1,13 +1,5 @@
 const { createContext, useContext, useEffect, useState } = window.React;
 
-/// Helper functions
-
-/// API calls
-
-/// React context
-
-/// React components
-
 function Logo() {
   const handleLogoClick = (event) => {
     event.preventDefault();
