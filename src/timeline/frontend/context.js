@@ -28,6 +28,11 @@ const AtelierProvider = ({ children }) => {
   const polling = async () => {
     const fresh = await getArtworks(1, 32, lastPollingTime);
     setLastPollingTime(Date.now());
+    setNewArtworks(fresh.artworks.length);
+    console.log({ newArtworks });
+    console.log({ newArtworks });
+    setArtworks([...newArtworks, ...artworks]);
+    setArtworks([...newArtworks, ...artworks]);
 
     // this.timeline.entries = this.entries;
 
@@ -44,7 +49,6 @@ const AtelierProvider = ({ children }) => {
     //   document.getElementById("atelier-card-1").clientHeight;
     // this.newEntries += fresh.entries.length;
     // this.showNewEntriesPill = true;
-    return fresh.artworks;
   };
 
   useEffect(() => {
@@ -52,11 +56,7 @@ const AtelierProvider = ({ children }) => {
       return;
     }
 
-    const timer = setInterval(async () => {
-      const newArtworks = await polling();
-      console.log({ newArtworks });
-      setArtworks([...newArtworks, ...artworks]);
-    }, 3000);
+    const timer = setInterval(async () => await polling(), 3000);
     return () => clearInterval(timer);
   }, [status]);
 
