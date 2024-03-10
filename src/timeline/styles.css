@@ -76,7 +76,7 @@ body * {
   opacity: 0; */
   width: 12px;
   top: 12px;
-  right: 12px;
+  left: 12px;
   transition: all ease-in-out 200ms;
 }
 
