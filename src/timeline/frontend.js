@@ -103,7 +103,6 @@ document.addEventListener("alpine:init", () => {
     },
     loadNewEntries() {
       const when = this.entries[0]?.timestamp;
-      // Note: convert this to use Alpine's $fetch if necessary
       fetch(`/timeline/since/${when}`)
         .then((response) => response.json())
         .then((fresh) => {
