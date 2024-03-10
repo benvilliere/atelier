@@ -31,7 +31,6 @@ const AtelierProvider = ({ children }) => {
 
     const fetchSettings = async () => {
       const data = await getSettings();
-      console.log("Settings:", data);
       setSettings(data);
     };
 
