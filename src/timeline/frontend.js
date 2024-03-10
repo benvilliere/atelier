@@ -96,8 +96,8 @@ function CopyAction({ artwork }) {
 
   const handleCopy = (event) => {
     event.preventDefault();
-    setCopied(true);
     copyImageToClipboard(`atelier-screenshot-${artwork.timestamp}`);
+    setCopied(true);
   };
 
   return (
@@ -131,6 +131,7 @@ function DeleteAction({ artwork }) {
 
     // Remove from state
     setArtworks(artworks.filter((a) => a.timestamp != artwork.timestamp));
+
     // Send delete request
     await deleteArtwork(artwork);
   };
