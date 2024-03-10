@@ -94,7 +94,9 @@ document.addEventListener("alpine:init", () => {
       }
 
       setInterval(async () => {
-        const fresh = await getTimelineSince();
+        const fresh = await getTimelineSince(
+          this.timeline.entries[0].timestamp
+        );
 
         console.log(fresh);
 
