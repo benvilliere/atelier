@@ -202,7 +202,9 @@ function Card({ artwork, index }) {
                     : `/recordings/${artwork.recording}`
                 }
                 download
-                // :title="`Download ${artwork.screenshot ? artwork.screenshot : artwork.recording}`"
+                title={`Download ${
+                  artwork.screenshot ? artwork.screenshot : artwork.recording
+                }`}
               >
                 <span>Download</span>
                 <svg
