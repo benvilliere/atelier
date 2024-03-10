@@ -48,6 +48,7 @@ export function createBackend(settings) {
             const fileContents = await fs.readFile(filePath, "utf8");
             return JSON.parse(fileContents);
           })
+          .sort((a, b) => b.timestamp - a.timestamp)
       );
 
       res.json({
