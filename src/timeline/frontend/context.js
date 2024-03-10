@@ -14,6 +14,7 @@ const AtelierProvider = ({ children }) => {
   const [artworks, setArtworks] = useState([]);
   const [lastPollingTime, setLastPollingTime] = useState(Date.now());
   const [page, setPage] = useState(1);
+  const [wasInitialized, setWasInitialized] = useState(false);
 
   async function getArtworks(page = 1, limit = 32, since = 0) {
     return await get(`/artworks?page=${page}&limit=${limit}&since=${since}`);
