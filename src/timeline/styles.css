@@ -74,14 +74,14 @@ body * {
   position: absolute;
   opacity: 0;
   width: 18px;
-  top: 32px;
-  right: 0px;
+  top: 64px;
+  right: 64px;
   transition: all ease-in-out 200ms;
 }
 
 .header .logo a:hover svg {
   opacity: 1;
-  top: 12px;
+  top: 32px;
 }
 
 .container {
