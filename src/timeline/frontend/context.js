@@ -13,12 +13,13 @@ const AtelierProvider = ({ children }) => {
   const [status, setStatus] = useState(STATUS.INITIALIZING);
   const [artworks, setArtworks] = useState([]);
   const [lastPollingTime, setLastPollingTime] = useState(Date.now());
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchArtworks = async () => {
       const data = await getArtworks();
       setArtworks(data.artworks);
-      setCurrentPage(data.page)
+      setPage(data.page);
       setStatus(STATUS.INITIALIZED);
     };
 
@@ -43,7 +44,6 @@ const AtelierProvider = ({ children }) => {
   }, [status]);
 
   const [isFetchingMoreEntries, setIsFetchingMoreEntries] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
 
   const infiniteScroll = () => {
     if (isFetchingMoreEntries) {
