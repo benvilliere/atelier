@@ -35,6 +35,7 @@ function Header() {
 
   return (
     <header>
+      <Logo />
       <nav>
         <button onClick={() => navigate("/")}>Home (path is /)</button>
         &nbsp;
