@@ -33,7 +33,7 @@ const AtelierProvider = ({ children }) => {
 
   const polling = async () => {
     // const when = artworks[0].timestamp;
-    const fresh = await getArtworks(1, 32, lastPollingTime);
+    const fresh = await getArtworks({ since: lastPollingTime });
     console.log("Polling new artworks:", fresh.artworks.length);
     setLastPollingTime(Date.now());
     return fresh.artworks;
