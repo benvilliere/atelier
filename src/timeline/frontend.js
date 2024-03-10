@@ -185,7 +185,7 @@ function Deck({ children }) {
 //   x-text="JSON.stringify(entry, null, 2)"
 // ></pre>
 
-function Card() {
+function Card({ artwork }) {
   return (
     <div class="card" id="`atelier-card-${index}`">
       <div class="card-header">
