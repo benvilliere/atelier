@@ -147,6 +147,8 @@ document.addEventListener("alpine:init", () => {
             entries: [...this.timeline.entries, ...data.entries],
           };
 
+          this.entries = [...this.timeline.entries, ...data.entries];
+
           this.fetchingMoreEntries = false;
         }
       }
