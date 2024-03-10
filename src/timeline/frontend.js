@@ -95,9 +95,16 @@ document.addEventListener("alpine:init", () => {
         if (fresh.entries.length > 0) {
           this.newEntries += fresh.entries.length;
 
-          const newState = {};
+          const entries = [...fresh.entries, ...this.timeline.entries];
 
-          this.timeline.entries = [...fresh.entries, ...this.timeline.entries];
+          const newTimeline = {
+            ...this.timeline,
+            entries: entries.length,
+            total: entries.length,
+            // totalPages: Math.ceil(entries.length / limit),
+          };
+
+          this.timeline = newTimeline;
 
           // Show only if not viewing the top of the page
           // this.showNewEntriesPill =
