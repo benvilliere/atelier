@@ -27,10 +27,11 @@ const AtelierProvider = ({ children }) => {
 
   const polling = async () => {
     const fresh = await getArtworks(1, 32, lastPollingTime);
-    setNewArtworks(fresh.artworks.length);
-    setArtworks([...newArtworks, ...artworks]);
-    setLastPollingTime(Date.now());
-
+    if (fresh.artworks.length > 0) {
+      setNewArtworks(fresh.artworks.length);
+      setArtworks([...newArtworks, ...artworks]);
+      setLastPollingTime(Date.now());
+    }
     // this.timeline.entries = this.entries;
 
     // this.timeline = {
