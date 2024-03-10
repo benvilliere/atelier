@@ -89,9 +89,9 @@ async function deleteArtwork(artwork) {
 
 const AtelierContext = createContext();
 
-export const useAtelier = () => useContext(AtelierContext);
+const useAtelier = () => useContext(AtelierContext);
 
-export const AtelierProvider = ({ children }) => {
+const AtelierProvider = ({ children }) => {
   const [artworks, setArtworks] = useState([]);
   const [newArtworks, setNewArtworks] = useState(0);
 
