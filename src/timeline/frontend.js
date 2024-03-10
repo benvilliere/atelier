@@ -72,7 +72,9 @@ async function getTimelineSince(when) {
 
 document.addEventListener("alpine:init", () => {
   Alpine.store("atelier", {
-    timeline: {},
+    timeline: {
+      entries: [],
+    },
     settings: {},
     newEntries: 0,
     showNewEntriesPill: false,
