@@ -103,8 +103,6 @@ document.addEventListener("alpine:init", () => {
 
           this.timeline.entries = [...fresh.entries, ...this.timeline.entries];
 
-          console.log({ before: before.entries, after: updates.entries });
-
           // Show only if not viewing the top of the page
           // this.showNewEntriesPill =
           //   window.scrollY >
