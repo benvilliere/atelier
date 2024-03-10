@@ -239,6 +239,7 @@ function Card({ artwork }) {
 
 function App() {
   const { artworks, status, setArtworks } = useAtelier();
+
   return (
     <>
       <Header />
