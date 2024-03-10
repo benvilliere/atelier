@@ -32,7 +32,7 @@ const AtelierProvider = ({ children }) => {
 
   const polling = async () => {
     const when = artworks[0].timestamp;
-    const fresh = await getTimelineSince(Date.now() - 3000);
+    const fresh = await getTimelineSince(Date.now() - POLLING_INTERVAL);
     console.log("Polling new artworks:", fresh.artworks.length);
     return fresh.artworks;
 
@@ -62,7 +62,7 @@ const AtelierProvider = ({ children }) => {
       const newArtworks = await polling();
       console.log({ newArtworks });
       setArtworks([...newArtworks, ...artworks]);
-    }, 3000);
+    }, POLLING_INTERVAL);
     return () => clearInterval(timer);
   }, [status]);
 
