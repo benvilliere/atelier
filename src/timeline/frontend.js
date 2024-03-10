@@ -102,13 +102,13 @@ document.addEventListener("alpine:init", () => {
       );
     },
     async loadNewEntries() {
-      const when = this.timeline.entries[0].timestamp;
+      const when = this.entries[0].timestamp;
       const fresh = await getTimelineSince(when);
 
       if (fresh.entries.length > 0) {
         this.newEntries += fresh.entries.length;
 
-        const entries = [...fresh.entries, ...this.timeline.entries];
+        this.entries = [...fresh.entries, ...this.entries];
 
         this.timeline.entries = entries;
 
