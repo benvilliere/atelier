@@ -77,8 +77,6 @@ const AtelierProvider = ({ children }) => {
       value={{
         artworks,
         setArtworks,
-        status,
-        setStatus,
         polling,
       }}
     >
