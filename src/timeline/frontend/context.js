@@ -8,10 +8,10 @@ const STATUS = {
   INITIALIZING: 0,
   INITIALIZED: 1,
   POLLING: 2,
-}
+};
 
 const AtelierProvider = ({ children }) => {
-  const [status, setStatus]
+  const [status, setStatus] = useState(STATUS.INITIALIZING);
   const [artworks, setArtworks] = useState([]);
   const [newArtworks, setNewArtworks] = useState(0);
 
