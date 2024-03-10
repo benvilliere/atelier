@@ -223,7 +223,7 @@ function CopyAction({ artwork }) {
   const [copied, setCopied] = useState(false);
 
   return (
-    <div class="action" x-show="artwork.screenshot" x-data="{ copied: false }">
+    <div class="action">
       <button
       // @click.prevent="
       //   copyImageToClipboard(`atelier-screenshot-${index}`);
