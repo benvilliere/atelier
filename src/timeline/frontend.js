@@ -266,13 +266,7 @@ function DeleteAction({ artwork }) {
 
   return (
     <div class="action">
-      <button
-        type="button"
-        // @click.prevent="
-        //   await $store.atelier.delete(artwork);
-        //   $el.closest('.card').remove();
-        // "
-      >
+      <button type="button" onClick={handleDelete}>
         <span>Delete</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
