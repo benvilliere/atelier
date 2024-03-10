@@ -7,14 +7,15 @@ const { useRoutes, useNavigate } = window.ReactRouter;
 function Logo() {
 
   const handleClick = (event) => {
-    event.preventDefault()
+    event.preventDefault();
+    window.scrollTo(0, 0);
   }
 
   return (
     <h1 class="logo">
       <a
         href="#"
-        onClick={()window.scrollTo(0, 0)}
+        onClick={()}
         // @click.prevent="window.scrollTo(0, 0);"
       >
         <span>Atelier</span>
