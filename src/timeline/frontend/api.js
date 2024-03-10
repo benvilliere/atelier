@@ -9,7 +9,10 @@ async function getArtworks({ page = 1, limit = 32, since = 0 }) {
   page = page || 1;
   limit = limit || 32;
   since = since || 0;
-  console.log("Fetching page:", page);
+  console.log(
+    "Fetching page:",
+    `/timeline?page=${page}&limit=${limit}&since=${since}`
+  );
   return await get(`/timeline?page=${page}&limit=${limit}&since=${since}`);
 }
 
