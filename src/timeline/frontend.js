@@ -241,7 +241,7 @@ function App() {
   const { artworks, status, setArtworks } = useAtelier();
   const [isFetchingMoreEntries, setIsFetchingMoreEntries] = useState(false);
 
-  const handleScroll = () => {
+  const infiniteScroll = () => {
     if (isFetchingMoreEntries) {
       return;
     }
@@ -278,8 +278,8 @@ function App() {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", infiniteScroll);
+    return () => window.removeEventListener("scroll", infiniteScroll);
   }, [isFetchingMoreEntries]);
 
   return (
