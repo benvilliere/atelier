@@ -228,10 +228,7 @@ function Media({ artwork }) {
             artwork.timestamp
           ).toLocaleString()}`}
         >
-          <source
-            // :src="`/recordings/${artwork.recording}`"
-            type="video/mp4"
-          />
+          <source src={`/recordings/${artwork.recording}`} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       )}
