@@ -1,164 +1,72 @@
-async function get(endpoint) {
-  return await (await fetch(endpoint)).json();
+const { createBrowserRouter, RouterProvider, Route, Link } =
+  window.ReactRouterDOM;
+const { useRoutes, useNavigate } = window.ReactRouter;
+
+// Header component
+
+function Header() {
+  const navigate = useNavigate();
+
+  return (
+    <header>
+      <nav>
+        <button onClick={() => navigate("/")}>Home (path is /)</button>
+        &nbsp;
+        <button onClick={() => navigate("/about")}>
+          About Us (path is /about)
+        </button>
+      </nav>
+    </header>
+  );
 }
 
-function formatDate(timestamp) {
-  console.log(timestamp);
-  const date = new Date(timestamp * 1000);
-  return date.toLocaleString();
+// Footer component
+
+function Footer() {
+  return (
+    <pre>
+      Just view source this page and you will see all of the code there, easy to
+      follow and learn
+    </pre>
+  );
 }
 
-function timeAgo(timestamp) {
-  const intervals = [
-    { seconds: 31536000, text: "year" },
-    { seconds: 2592000, text: "month" },
-    { seconds: 604800, text: "week" },
-    { seconds: 86400, text: "day" },
-    { seconds: 3600, text: "hour" },
-    { seconds: 60, text: "minute" },
-  ];
+// Home component
 
-  const now = new Date();
-  const elapsed = Math.floor((now - new Date(timestamp)) / 1000);
-
-  if (elapsed < 60) {
-    return "New";
-  }
-
-  for (let { seconds, text } of intervals) {
-    const interval = Math.floor(elapsed / seconds);
-    if (interval >= 1) {
-      return `${interval} ${text}${interval > 1 ? "s" : ""} ago`;
-    }
-  }
+function Home() {
+  return (
+    <div>
+      <Header />
+      <h1>Welcome to the Home Page!</h1>
+      <p>This is the home page content.</p>
+      {/* <Link to="about">About Us</Link> */}
+      <Footer />
+    </div>
+  );
 }
 
-async function copyImageToClipboard(imgId) {
-  const img = document.getElementById(imgId);
+// About component
 
-  // Create an off-screen canvas
-  const canvas = document.createElement("canvas");
-  const ctx = canvas.getContext("2d");
-
-  // Set canvas dimensions to match the image
-  canvas.width = img.naturalWidth;
-  canvas.height = img.naturalHeight;
-
-  // Draw the image onto the canvas
-  ctx.drawImage(img, 0, 0);
-
-  // Convert the canvas to a Blob
-  canvas.toBlob(async (blob) => {
-    try {
-      // Create a new ClipboardItem object
-      const item = new ClipboardItem({ "image/png": blob });
-      // Copy the ClipboardItem to the clipboard
-      await navigator.clipboard.write([item]);
-    } catch (err) {
-      console.error("Failed to copy image: ", err);
-    }
-  }, "image/png");
+function About() {
+  return (
+    <div>
+      <Header />
+      <h1>About Us</h1>
+      <p>This is the about page content.</p>
+      {/* <Link to="/">Home</Link> */}
+      <Footer />
+    </div>
+  );
 }
 
-async function getTimeline(page = 1, limit = 32) {
-  console.log("Fetching page:", page);
-  return await get(`/timeline?page=${page}&limit=${limit}`);
-}
+const router = createBrowserRouter([
+  { path: "/", element: <Home /> },
+  { path: "/about", element: <About /> },
+]);
 
-async function getTimelineSince(when) {
-  console.log("Fetching since:", when);
-  return await get(`/timeline/since/${when}`);
-}
+// Render the router
 
-document.addEventListener("alpine:init", () => {
-  Alpine.store("atelier", {
-    entries: [],
-    timeline: {
-      entries: [],
-    },
-    settings: {},
-    newEntries: 0,
-    showNewEntriesPill: false,
-    fetchingMoreEntries: false,
-    async init() {
-      this.timeline = await getTimeline();
-      this.entries = this.timeline.entries;
-      this.settings = await get("/settings");
-
-      if (this.settings.verbose) {
-        console.info("Store was initiated:", this);
-      }
-
-      setInterval(() => {
-        this.loadNewEntries();
-      }, 3000);
-
-      window.addEventListener(
-        "scroll",
-        async () => {
-          await this.infiniteScroll();
-        },
-        { passive: true }
-      );
-    },
-    async loadNewEntries() {
-      const when = this.entries[0].timestamp;
-      const fresh = await getTimelineSince(when);
-
-      if (fresh.entries.length > 0) {
-        this.entries = [...fresh.entries, ...this.entries];
-        // console.log();
-        this.entries = fresh.entries;
-        Alpine.store("atelier").entries = [...fresh.entries, ...this.entries];
-
-        // this.timeline.entries = this.entries;
-
-        // this.timeline = {
-        //   ...this.timeline,
-        //   entries: entries,
-        //   total: entries.length,
-        //   // totalPages: Math.ceil(entries.length / limit),
-        // };
-
-        // Show only if not viewing the top of the page
-        // this.showNewEntriesPill =
-        //   window.scrollY >
-        //   document.getElementById("atelier-card-1").clientHeight;
-        this.newEntries += fresh.entries.length;
-        this.showNewEntriesPill = true;
-      }
-    },
-    async infiniteScroll() {
-      if (this.fetchingMoreEntries) {
-        return;
-      }
-
-      if (
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 300
-      ) {
-        if (this.timeline.page < this.timeline.totalPages) {
-          console.log("you're at the bottom of the page");
-
-          this.fetchingMoreEntries = true;
-
-          const data = await getTimeline(this.timeline.page + 1);
-
-          this.timeline = {
-            ...data,
-            entries: [...this.timeline.entries, ...data.entries],
-          };
-
-          this.entries = [...this.timeline.entries, ...data.entries];
-
-          this.fetchingMoreEntries = false;
-        }
-      }
-    },
-    async delete(entry) {
-      await fetch(`/delete/${entry.timestamp}`, {
-        method: "POST",
-      });
-    },
-  });
-});
+ReactDOM.render(
+  <RouterProvider router={router} />,
+  document.getElementById("root")
+);
