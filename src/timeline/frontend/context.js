@@ -35,6 +35,7 @@ const AtelierProvider = ({ children }) => {
     };
 
     fetchArtworks();
+    fetchSettings();
   }, []);
 
   const polling = async () => {
