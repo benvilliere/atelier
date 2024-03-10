@@ -327,7 +327,9 @@ function Card({ artwork }) {
 }
 
 function Home() {
-  useEffect(() => {}, []);
+  useEffect(async () => {
+    await getTimeline();
+  }, []);
 
   return (
     <>
