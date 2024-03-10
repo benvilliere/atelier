@@ -248,7 +248,7 @@ function App() {
 
     if (
       window.innerHeight + window.scrollY >=
-      document.documentElement.scrollHeight - 300
+      document.documentElement.scrollHeight
     ) {
       // if (this.timeline.page < this.timeline.totalPages) {
       //   console.log("you're at the bottom of the page");
