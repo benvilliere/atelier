@@ -284,7 +284,7 @@ function Card({ artwork }) {
 }
 
 function App() {
-  const { artworks } = useAtelier();
+  const { artworks, status } = useAtelier();
 
   const pollNewArtworks = async () => {
     const when = artworks[0].timestamp;
