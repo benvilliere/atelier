@@ -47,7 +47,6 @@ export function createBackend(settings) {
             const filePath = path.join(directories.data, file);
             const fileContents = await fs.readFile(filePath, "utf8");
             const artwork = JSON.parse(fileContents);
-
             artwork.debug = true;
             return artwork;
           })
