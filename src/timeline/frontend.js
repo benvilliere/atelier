@@ -318,8 +318,8 @@ function App() {
       return;
     }
 
-    const timer = setInterval(async () => {
-      await pollNewArtworks();
+    const timer = setInterval(() => {
+      pollNewArtworks();
     }, 2000);
     return () => clearInterval(timer);
   }, [status]);
