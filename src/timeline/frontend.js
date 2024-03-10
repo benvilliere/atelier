@@ -225,6 +225,7 @@ function CopyAction({ artwork }) {
   const handleCopyClick = (event) => {
     event.preventDefault();
     setCopied(true);
+    copyImageToClipboard(`atelier-screenshot-${artwork.timestamp}`);
   };
 
   return (
