@@ -64,7 +64,9 @@ function NewArtworksAlert() {
           class="label"
           x-show="$store.atelier.newEntries === 1"
           x-text="`${$store.atelier.newEntries} new artwork`"
-        ></span>
+        >
+          x new artworks
+        </span>
       </a>
     </div>
   );
