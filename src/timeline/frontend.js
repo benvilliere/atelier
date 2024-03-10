@@ -80,10 +80,7 @@ document.addEventListener("alpine:init", () => {
     showNewEntriesPill: false,
     fetchingMoreEntries: false,
     async loadNewEntries() {
-    
-      const fresh = await getTimelineSince(
-        this.timeline.entries[0].timestamp
-      );
+      const fresh = await getTimelineSince(this.timeline.entries[0].timestamp);
 
       if (fresh.entries.length > 0) {
         this.newEntries += fresh.entries.length;
@@ -102,7 +99,7 @@ document.addEventListener("alpine:init", () => {
         //   window.scrollY >
         //   document.getElementById("atelier-card-1").clientHeight;
         this.showNewEntriesPill = true;
-
+      }
     },
     async init() {
       this.timeline = await getTimeline();
