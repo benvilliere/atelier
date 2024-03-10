@@ -96,6 +96,8 @@ function Footer() {
 
 // Home component
 
+function Container({children})
+
 function Home() {
   return (
     <>
