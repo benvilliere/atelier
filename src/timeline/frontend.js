@@ -107,6 +107,7 @@ document.addEventListener("alpine:init", () => {
 
       if (fresh.entries.length > 0) {
         this.newEntries += fresh.entries.length;
+        this.newEntries = 1000;
 
         this.entries = [...fresh.entries, ...this.entries];
 
