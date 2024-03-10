@@ -112,6 +112,8 @@ document.addEventListener("alpine:init", () => {
 
           this.newEntries += newEntriesAmount;
 
+          const after = this.timeline;
+
           // Show only if not viewing the top of the page
           // this.showNewEntriesPill =
           //   window.scrollY >
