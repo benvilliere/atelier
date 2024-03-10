@@ -332,7 +332,8 @@ function Home() {
 
   useEffect(async () => {
     const { artworks } = await getTimeline();
-    console.log(timeline);
+    console.log(artworks);
+    setArtworks(artworks);
   }, []);
 
   return (
