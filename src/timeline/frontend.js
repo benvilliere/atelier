@@ -104,6 +104,8 @@ document.addEventListener("alpine:init", () => {
             // totalPages: Math.ceil(entries.length / limit),
           };
 
+          console.log(newTimeline);
+
           this.timeline = newTimeline;
 
           // Show only if not viewing the top of the page
