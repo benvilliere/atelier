@@ -1,7 +1,9 @@
 const { createBrowserRouter, RouterProvider, Route, Link } =
   window.ReactRouterDOM;
 const { useRoutes, useNavigate } = window.ReactRouter;
-const { useEffect, useState } = window.React;
+const { createContext, useContext, useEffect, useState } = window.React;
+
+/// Helper functions
 
 async function get(endpoint) {
   return await (await fetch(endpoint)).json();
@@ -65,6 +67,8 @@ async function copyImageToClipboard(imgId) {
   }, "image/png");
 }
 
+/// API calls
+
 async function getTimeline(page = 1, limit = 32) {
   console.log("Fetching page:", page);
   return await get(`/timeline?page=${page}&limit=${limit}`);
@@ -80,6 +84,40 @@ async function deleteArtwork(artwork) {
     method: "POST",
   });
 }
+
+/// React context
+
+const AtelierContext = createContext();
+
+export const useAtelier = () => useContext(AtelierContext);
+
+export const AtelierProvider = ({ children }) => {
+  const [artworks, setArtworks] = useState([]);
+  const [newArtworks, setNewArtworks] = useState(0);
+
+  useEffect(() => {
+    const fetchArtworks = async () => {
+      try {
+        const data = await getTimeline();
+        setArtworks(data.artworks);
+      } catch (error) {
+        console.error("Failed to fetch artworks", error);
+      }
+    };
+
+    fetchArtworks();
+  }, []);
+
+  return (
+    <AtelierContext.Provider
+      value={{ artworks, setArtworks, newArtworks, setNewArtworks }}
+    >
+      {children}
+    </AtelierContext.Provider>
+  );
+};
+
+/// React components
 
 function Logo() {
   const handleLogoClick = (event) => {
