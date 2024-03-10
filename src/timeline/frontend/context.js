@@ -30,7 +30,6 @@ const AtelierProvider = ({ children }) => {
   const polling = async () => {
     const fresh = await getArtworks(1, 32, lastPollingTime);
     setLastPollingTime(Date.now());
-    return fresh.artworks;
 
     // this.timeline.entries = this.entries;
 
@@ -47,6 +46,7 @@ const AtelierProvider = ({ children }) => {
     //   document.getElementById("atelier-card-1").clientHeight;
     // this.newEntries += fresh.entries.length;
     // this.showNewEntriesPill = true;
+    return fresh.artworks;
   };
 
   useEffect(() => {
