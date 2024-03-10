@@ -36,8 +36,6 @@ function Header() {
   );
 }
 
-// Footer component
-
 function Container({ children }) {
   return <div class="container">{children}</div>;
 }
@@ -45,18 +43,6 @@ function Container({ children }) {
 function Deck({ children }) {
   return <div class="deck">{children}</div>;
 }
-
-// <pre
-//   style="
-//     display: none;
-//     padding: 12px;
-//     border-radius: 12px;
-//     background: rgba(255, 255, 255, 0.75);
-//     font-family: monospace;
-//     color: black;
-//   "
-//   x-text="JSON.stringify(artwork, null, 2)"
-// ></pre>
 
 function DownloadAction({ artwork }) {
   return (
