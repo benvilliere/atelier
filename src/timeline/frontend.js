@@ -98,13 +98,13 @@ function Footer() {
 
 function Home() {
   return (
-    <div>
+    <>
       <Header />
       <h1>Welcome to the Home Page!</h1>
       <p>This is the home page content.</p>
       {/* <Link to="about">About Us</Link> */}
       <Footer />
-    </div>
+    </>
   );
 }
 
