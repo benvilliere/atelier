@@ -5,14 +5,15 @@ const { useRoutes, useNavigate } = window.ReactRouter;
 // Header component
 
 function Logo() {
-  const onLogoClick = (event) => {
+  const handleLogoClick = (event) => {
     event.preventDefault();
     console.log("test");
     window.scrollTo(0, 0);
   };
+
   return (
     <h1 class="logo">
-      <a href="#" onClick={onLogoClick}>
+      <a href="#" onClick={handleLogoClick}>
         <span>Atelier</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
