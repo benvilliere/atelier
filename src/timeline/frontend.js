@@ -292,8 +292,6 @@ function App() {
     console.log("polling new artworks", fresh.artworks.length);
 
     if (fresh.artworks.length > 0) {
-      console.log([...fresh.artworks, ...artworks]);
-      setArtworks([...fresh.artworks, ...artworks]);
       return [...fresh.artworks, ...artworks];
 
       // this.timeline.entries = this.entries;
@@ -319,8 +317,10 @@ function App() {
       return;
     }
 
-    const timer = setInterval(() => {
-      pollNewArtworks();
+    const timer = setInterval(async () => {
+      const newArtworks = await pollNewArtworks();
+
+      setArtworks(newArtworks);
     }, 3000);
     return () => clearInterval(timer);
   }, [status]);
