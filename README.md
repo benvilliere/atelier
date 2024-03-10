@@ -68,3 +68,4 @@ TODO: List out all configuration options.
 - Better console output (emoji as constants, everywhere applicable, colors etc)
 - Timeline: Ability to filter by time, type
 - Replay command: generate a video showing the evolution of the project (pass amount of frames, start, end timestamps, --now, --end and use ffmpeg to generate a video from screenshots)
+- Rename timeline to Atelier UI
