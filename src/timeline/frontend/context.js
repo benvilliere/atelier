@@ -7,7 +7,6 @@ const useAtelier = () => useContext(AtelierContext);
 const STATUS = {
   INITIALIZING: 0,
   INITIALIZED: 1,
-  POLLING: 2,
 };
 
 const AtelierProvider = ({ children }) => {
