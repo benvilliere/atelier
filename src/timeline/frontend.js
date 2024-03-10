@@ -340,7 +340,9 @@ function Home() {
       <Header />
       <Container>
         <Deck>
-          <Card />
+          {artworks.map((artwork, index) => (
+            <Card />
+          ))}
         </Deck>
       </Container>
     </>
