@@ -320,7 +320,7 @@ function App() {
 
     const timer = setInterval(() => {
       pollNewArtworks();
-    }, 2000);
+    }, 3000);
     return () => clearInterval(timer);
   }, [status]);
 
