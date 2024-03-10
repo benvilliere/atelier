@@ -341,7 +341,7 @@ function Home() {
       <Container>
         <Deck>
           {artworks.map((artwork, index) => (
-            <Card />
+            <Card artwork={artwork} />
           ))}
         </Deck>
       </Container>
