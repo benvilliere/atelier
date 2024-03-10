@@ -75,8 +75,8 @@ async function getTimelineSince(when) {
   return await get(`/timeline/since/${when}`);
 }
 
-async function deleteArtwork(entry) {
-  await fetch(`/delete/${entry.timestamp}`, {
+async function deleteArtwork(artwork) {
+  await fetch(`/delete/${artwork.timestamp}`, {
     method: "POST",
   });
 }
