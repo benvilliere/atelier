@@ -69,7 +69,7 @@ export function createBackend(settings) {
     }
   });
 
-  async function getTimeline(limit, page, offset, since) {
+  async function getTimeline({ limit, page, offset, since }) {
     const files = await fs.readdir(directories.data);
 
     let entries = await Promise.all(
@@ -97,6 +97,8 @@ export function createBackend(settings) {
   }
 
   backend.get("/timeline/html", async (req, res) => {
+    const timeline = await getTimeline();
+
     try {
       const limit = parseInt(req.query.limit, 10) || 32;
       const page = parseInt(req.query.page, 10) || 1;
