@@ -52,7 +52,7 @@ export function createBackend(settings) {
       );
 
       res.json({
-        artworks: artworks,
+        artworks,
       });
     } catch (err) {
       console.error("Failed to load data:", err);

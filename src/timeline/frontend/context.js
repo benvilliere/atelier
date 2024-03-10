@@ -33,7 +33,6 @@ const AtelierProvider = ({ children }) => {
     const when = artworks[0].timestamp;
     const fresh = await getTimelineSince(when);
     console.log("Polling new artworks:", fresh.artworks.length);
-
     return fresh.artworks;
 
     // this.timeline.entries = this.entries;
