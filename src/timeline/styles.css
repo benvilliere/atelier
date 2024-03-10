@@ -73,7 +73,7 @@ body * {
 .header .logo a svg {
   position: absolute;
   opacity: 0;
-  width: 18px;
+  width: 16px;
   top: 64px;
   right: 64px;
   transition: all ease-in-out 200ms;
