@@ -52,7 +52,7 @@ export function createBackend(settings) {
           })
       );
 
-      artworks = artworks.filter((artwork) => artwork.timestamp >= when);
+      // artworks = artworks.filter((artwork) => artwork.timestamp >= when);
 
       res.json({
         artworks,
