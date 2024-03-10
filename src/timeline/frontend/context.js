@@ -54,7 +54,6 @@ const AtelierProvider = ({ children }) => {
     }
 
     const timer = setInterval(async () => {
-      setStatus(STATUS.POLLING);
       const newArtworks = await polling();
       console.log({ newArtworks });
       setArtworks([...newArtworks, ...artworks]);
