@@ -187,10 +187,6 @@ function Deck({ children }) {
 // ></pre>
 
 function DownloadAction({ artwork }) {
-  if (!artwork.screenshot || !artwork.recording) {
-    return;
-  }
-
   return (
     <div class="action">
       <a
@@ -230,8 +226,9 @@ function Card({ artwork, index }) {
       <div class="card-header">
         <div class="time">{timeAgo(artwork.timestamp)}</div>
         <div class="actions">
-          <DownloadAction artwork={artwork} />
-
+          {(artwork.screenshot || artwork.recording) && (
+            <DownloadAction artwork={artwork} />
+          )}
           <div
             class="action"
             x-show="artwork.screenshot"
