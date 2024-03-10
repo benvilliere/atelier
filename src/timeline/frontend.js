@@ -238,7 +238,11 @@ function Media({ artwork }) {
 
 function Card({ artwork }) {
   return (
-    <div class="card" id={`atelier-card-${artwork.timestamp}`}>
+    <div
+      class="card"
+      id={`atelier-card-${artwork.timestamp}`}
+      style={artwork.debug && `background: red;`}
+    >
       <div class="card-header">
         <div class="time">{timeAgo(artwork.timestamp)}</div>
         <div class="actions">
