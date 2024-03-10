@@ -104,13 +104,13 @@ function Logo() {
 
 function Pill() {
   return (
-    <div class="alert" x-show="$store.atelier.showNewEntriesPill">
+    <div class="alert" x-show="$store.atelier.showNewArtworksPill">
       <a
         class="pill"
         href="/"
         // @click.prevent="
         //   window.scrollTo(0, 0);
-        //   $store.atelier.showNewEntriesPill = false;
+        //   $store.atelier.showNewArtworksPill = false;
         // "
       >
         <svg
@@ -128,13 +128,13 @@ function Pill() {
         </svg>
         <span
           class="label"
-          x-show="$store.atelier.newEntries > 1"
-          x-text="`${$store.atelier.newEntries} new artworks`"
+          x-show="$store.atelier.newArtworks > 1"
+          x-text="`${$store.atelier.newArtworks} new artworks`"
         ></span>
         <span
           class="label"
-          x-show="$store.atelier.newEntries === 1"
-          x-text="`${$store.atelier.newEntries} new artwork`"
+          x-show="$store.atelier.newArtworks === 1"
+          x-text="`${$store.atelier.newArtworks} new artwork`"
         >
           x new artworks
         </span>
@@ -182,24 +182,24 @@ function Deck({ children }) {
 //     font-family: monospace;
 //     color: black;
 //   "
-//   x-text="JSON.stringify(entry, null, 2)"
+//   x-text="JSON.stringify(artwork, null, 2)"
 // ></pre>
 
 function Card({ artwork }) {
   return (
     <div class="card" id="`atelier-card-${index}`">
       <div class="card-header">
-        <div class="time" x-text="timeAgo(entry.timestamp)"></div>
+        <div class="time" x-text="timeAgo(artwork.timestamp)"></div>
         <div class="actions">
-          <div class="action" x-show="entry.screenshot || entry.recording">
+          <div class="action" x-show="artwork.screenshot || artwork.recording">
             <a
               // :href="
-              //   entry.screenshot
-              //   ? `/screenshots/${entry.screenshot}`
-              //   : `/recordings/${entry.recording}`
+              //   artwork.screenshot
+              //   ? `/screenshots/${artwork.screenshot}`
+              //   : `/recordings/${artwork.recording}`
               // "
               download
-              // :title="`Download ${entry.screenshot ? entry.screenshot : entry.recording}`"
+              // :title="`Download ${artwork.screenshot ? artwork.screenshot : artwork.recording}`"
             >
               <span>Download</span>
               <svg
@@ -219,7 +219,7 @@ function Card({ artwork }) {
           </div>
           <div
             class="action"
-            x-show="entry.screenshot"
+            x-show="artwork.screenshot"
             x-data="{ copied: false }"
           >
             <button
@@ -247,15 +247,15 @@ function Card({ artwork }) {
           </div>
           {/* <!-- <form
                   class="action"
-                  x-show="entry.commitHash != ''"
-                  :action="`/revert/${entry.commitHash}`"
+                  x-show="artwork.commitHash != ''"
+                  :action="`/revert/${artwork.commitHash}`"
                   method="get"
                 >
                   <button
                     type="submit"
                     @click="
                       $el.closest('.card').remove();
-                      timeline = [entry, ...timeline];
+                      timeline = [artwork, ...timeline];
                     "
                   >
                     <span>Revert</span>
@@ -278,7 +278,7 @@ function Card({ artwork }) {
             <button
               type="button"
               // @click.prevent="
-              //   await $store.atelier.delete(entry);
+              //   await $store.atelier.delete(artwork);
               //   $el.closest('.card').remove();
               // "
             >
@@ -301,21 +301,21 @@ function Card({ artwork }) {
         </div>
       </div>
       <div class="media">
-        <template x-if="entry.screenshot">
+        <template x-if="artwork.screenshot">
           <img
           // :id="`atelier-screenshot-${index}`"
-          // :src="`/screenshots/${entry.screenshot}`"
-          // :alt="`Screenshot taken at ${new Date(entry.timestamp).toLocaleString()}`"
+          // :src="`/screenshots/${artwork.screenshot}`"
+          // :alt="`Screenshot taken at ${new Date(artwork.timestamp).toLocaleString()}`"
           />
         </template>
-        <template x-if="entry.recording">
+        <template x-if="artwork.recording">
           <video
             controls
             // :id="`atelier-recording-${index}`"
-            // :title="`Recording taken at ${new Date(entry.timestamp).toLocaleString()}`"
+            // :title="`Recording taken at ${new Date(artwork.timestamp).toLocaleString()}`"
           >
             <source
-              // :src="`/recordings/${entry.recording}`"
+              // :src="`/recordings/${artwork.recording}`"
               type="video/mp4"
             />
             Your browser does not support the video tag.
