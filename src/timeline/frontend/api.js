@@ -4,10 +4,6 @@ async function getTimeline(page = 1, limit = 32) {
 }
 
 async function getArtworks(page = 1, limit = 32, since = 0) {
-  console.log(
-    "Fetching artworks:",
-    `/artworks?page=${page}&limit=${limit}&since=${since}`
-  );
   return await get(`/artworks?page=${page}&limit=${limit}&since=${since}`);
 }
 
