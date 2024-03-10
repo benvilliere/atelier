@@ -187,6 +187,7 @@ function Deck({ children }) {
 // ></pre>
 
 function Card({ artwork }) {
+  console.log(artwork);
   return (
     <div class="card" id="`atelier-card-${index}`">
       <div class="card-header">
@@ -341,7 +342,7 @@ function Home() {
       <Container>
         <Deck>
           {artworks.map((artwork, index) => (
-            <Card artwork={artwork} />
+            <Card artwork />
           ))}
         </Deck>
       </Container>
