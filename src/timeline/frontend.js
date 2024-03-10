@@ -260,6 +260,7 @@ function CopyAction({ artwork }) {
 function DeleteAction({ artwork }) {
   const handleDelete = async (event) => {
     event.preventDefault();
+    console.log("delete");
 
     await deleteArtwork(artwork);
   };
