@@ -285,9 +285,6 @@ function Card({ artwork }) {
 
 function App() {
   const { artworks, status, setArtworks } = useAtelier();
-  const stuffToPrepend = [1, 2, 3];
-  const oldArr = [4, 5, 6];
-  const newArr = [...stuffToPrepend, ...oldArr];
 
   return (
     <>
