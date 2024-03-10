@@ -82,7 +82,7 @@ function Logo() {
 
   return (
     <h1 class="logo">
-      <a href="#" onClick={handleLogoClick}>
+      <a href="/" onClick={handleLogoClick}>
         <span>Atelier</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
