@@ -112,7 +112,7 @@ document.addEventListener("alpine:init", () => {
 
           const after = this.timeline;
 
-          console.log({ before, after });
+          console.log({ before: before.entries, after: after.entries });
 
           // Show only if not viewing the top of the page
           // this.showNewEntriesPill =
