@@ -89,8 +89,8 @@ document.addEventListener("alpine:init", () => {
         console.info("Store was initiated:", this);
       }
 
-      setInterval(async () => {
-        await this.loadNewEntries();
+      setInterval(() => {
+        this.loadNewEntries();
       }, 3000);
 
       window.addEventListener(
