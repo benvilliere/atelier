@@ -102,20 +102,22 @@ function Deck({ children }) {
   return <div class="deck">{children}</div>;
 }
 
+
+            // <pre
+            //   style="
+            //     display: none;
+            //     padding: 12px;
+            //     border-radius: 12px;
+            //     background: rgba(255, 255, 255, 0.75);
+            //     font-family: monospace;
+            //     color: black;
+            //   "
+            //   x-text="JSON.stringify(entry, null, 2)"
+            // ></pre>
+
 function Card() {
   return (
-    <div class="card" :id="`atelier-card-${index}`">
-            <pre
-              style="
-                display: none;
-                padding: 12px;
-                border-radius: 12px;
-                background: rgba(255, 255, 255, 0.75);
-                font-family: monospace;
-                color: black;
-              "
-              x-text="JSON.stringify(entry, null, 2)"
-            ></pre>
+    <div class="card" id="`atelier-card-${index}`">
             <div class="card-header">
               <div class="time" x-text="timeAgo(entry.timestamp)"></div>
               <div class="actions">
