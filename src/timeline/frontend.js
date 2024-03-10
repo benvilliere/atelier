@@ -229,6 +229,7 @@ function CopyAction({ artwork }) {
 }
 
 function DeleteAction({ artwork }) {
+  const [setArtworks] = useAtelier();
   const handleDelete = async (event) => {
     event.preventDefault();
 
