@@ -58,9 +58,7 @@ TODO: List out all configuration options.
 
 - Test on a new project
 - Refine & document configuration file
-- Fix video download
 - Timeline: revert to commit hash action
-- Timeline: cloak hide stuff
 - Timeline: handle empty state
 - Init script: add .atelier to .gitignore if exists
 - CLI Action: init project (generate customised config file)
@@ -68,6 +66,5 @@ TODO: List out all configuration options.
 - CLI Action: clear command to remove everything (with --since --after --days option?)
 - Ability to pass raw json as --config parameter to CLI
 - Better console output (emoji as constants, everywhere applicable, colors etc)
-- Check new version
 - Timeline: Ability to filter by time, type
 - Replay command: generate a video showing the evolution of the project (pass amount of frames, start, end timestamps, --now, --end and use ffmpeg to generate a video from screenshots)
