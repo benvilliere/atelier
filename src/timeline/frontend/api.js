@@ -3,10 +3,6 @@ async function getTimeline(page = 1, limit = 32) {
   return await get(`/timeline?page=${page}&limit=${limit}`);
 }
 
-async function getArtworks(page = 1, limit = 32, since = 0) {
-  return await get(`/artworks?page=${page}&limit=${limit}&since=${since}`);
-}
-
 async function getTimelineSince(when) {
   console.log("Fetching since:", when);
   console.log(`/timeline/since/${when}`);
