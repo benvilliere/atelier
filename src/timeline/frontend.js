@@ -100,7 +100,6 @@ document.addEventListener("alpine:init", () => {
       );
     },
     async loadNewEntries() {
-      console.log("loading new entries");
       const fresh = await getTimelineSince(this.timeline.entries[0].timestamp);
 
       if (fresh.entries.length > 0) {
