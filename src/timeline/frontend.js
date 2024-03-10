@@ -241,8 +241,7 @@ function Card({ artwork }) {
     <div
       class="card"
       id={`atelier-card-${artwork.timestamp}`}
-      // style={artwork.debug && `background: red;`}
-      style={true && { background: "red" }}
+      style={artwork.debug && { background: `red` }}
     >
       <div class="card-header">
         <div class="time">{timeAgo(artwork.timestamp)}</div>
