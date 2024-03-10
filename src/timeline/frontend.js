@@ -106,10 +106,9 @@ document.addEventListener("alpine:init", () => {
       const fresh = await getTimelineSince(when);
 
       if (fresh.entries.length > 0) {
-        // this.entries = [...fresh.entries, ...this.entries];
-        this.entries = this.entries.unshift(fresh.entries[0]);
+        this.entries = [...fresh.entries, ...this.entries];
 
-        this.timeline.entries = this.entries;
+        // this.timeline.entries = this.entries;
 
         // this.timeline = {
         //   ...this.timeline,
