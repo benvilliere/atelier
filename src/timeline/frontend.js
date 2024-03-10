@@ -107,6 +107,8 @@ document.addEventListener("alpine:init", () => {
           console.log(this.timeline);
           console.log(newTimeline);
 
+          console.log(this);
+
           this.timeline = newTimeline;
 
           // Show only if not viewing the top of the page
