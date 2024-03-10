@@ -89,9 +89,7 @@ document.addEventListener("alpine:init", () => {
         console.info("Store was initiated:", this);
       }
 
-      setInterval(() => {
-        this.loadNewEntries();
-      }, 3000);
+      setInterval(this.loadNewEntries, 3000);
 
       window.addEventListener(
         "scroll",
