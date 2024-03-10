@@ -21,7 +21,7 @@
     "publish-package": "npm publish --access public",
     "sort-package": "npx sort-package-json",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "timeline": "node ./src/timeline/backend/server.js"
+    "timeline": "node ./src/timeline/backend.js"
   },
   "nodemonConfig": {
     "exec": "node ./src/atelier.js --timeline-only",
