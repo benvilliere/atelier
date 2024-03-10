@@ -4,13 +4,7 @@ const AtelierContext = createContext();
 
 const useAtelier = () => useContext(AtelierContext);
 
-const STATUS = {
-  INITIALIZING: 0,
-  INITIALIZED: 1,
-};
-
 const AtelierProvider = ({ children }) => {
-  const [status, setStatus] = useState(STATUS.INITIALIZING);
   const [artworks, setArtworks] = useState([]);
   const [lastPollingTime, setLastPollingTime] = useState(Date.now());
   const [page, setPage] = useState(1);
