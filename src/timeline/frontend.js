@@ -102,8 +102,10 @@ document.addEventListener("alpine:init", () => {
             entries: this.timeline.entries,
           };
 
-          for (const newEntry of newEntries)
-            this.timeline.entries.unshift(newEntry);
+          for (const newEntry of newEntries) updates.entries.unshift(newEntry);
+          // this.timeline.entries.unshift(newEntry);
+
+          this.timeline = updates;
 
           this.newEntries += newEntriesAmount;
 
