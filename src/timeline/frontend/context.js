@@ -4,7 +4,7 @@ const AtelierContext = createContext();
 
 const useAtelier = () => useContext(AtelierContext);
 
-const State = {
+const Machine = {
   INITIALIZING: 0,
   INITIALIZED: 1,
   POLLING: 2,
