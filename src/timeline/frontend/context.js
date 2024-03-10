@@ -15,7 +15,6 @@ const AtelierProvider = ({ children }) => {
   const [lastPollingTime, setLastPollingTime] = useState(Date.now());
   const [page, setPage] = useState(1);
   const [initialized, setInitialized] = useState(false);
-
   const [isFetchingMoreEntries, setIsFetchingMoreEntries] = useState(false);
 
   async function getArtworks(page = 1, limit = 32, since = 0) {
@@ -48,7 +47,7 @@ const AtelierProvider = ({ children }) => {
 
     const timer = setInterval(async () => await polling(), 3000);
     return () => clearInterval(timer);
-  }, [status]);
+  }, [initialized]);
 
   const infiniteScroll = async () => {
     if (isFetchingMoreEntries) {
