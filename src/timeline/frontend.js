@@ -258,10 +258,10 @@ function CopyAction({ artwork }) {
 }
 
 function DeleteAction({ artwork }) {
-  const handleDelete = (event) => {
+  const handleDelete = async (event) => {
     event.preventDefault();
 
-    await;
+    await deleteArtwork(artwork);
   };
 
   return (
