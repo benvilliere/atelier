@@ -439,6 +439,8 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.render(
-  <RouterProvider router={router} />,
+  <AtelierProvider>
+    <RouterProvider router={router} />
+  </AtelierProvider>,
   document.getElementById("root")
 );
