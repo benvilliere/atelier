@@ -56,6 +56,10 @@ const AtelierProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    if (status !== STATUS.INITIALIZED) {
+      return;
+    }
+
     const timer = setInterval(pollNewArtworks, 2000);
     return () => clearInterval(timer);
   }, [status]);
