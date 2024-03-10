@@ -21,7 +21,7 @@ export function createBackend(settings) {
   const backend = express();
 
   backend.use(cors());
-  backend.use("..//", express.static(directories.frontend));
+  backend.use("/", express.static(directories.frontend));
   backend.use("/screenshots", express.static(directories.screenshots));
   backend.use("/recordings", express.static(directories.recordings));
 
