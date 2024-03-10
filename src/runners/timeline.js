@@ -1,4 +1,4 @@
-import { createBackend } from "../timeline/backend.js";
+import { createBackend } from "../timeline/backend/server.js";
 import { openBrowser } from "../helpers.js";
 
 export default async function timeline(settings) {
