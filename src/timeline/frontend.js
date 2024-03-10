@@ -189,9 +189,9 @@ function Deck({ children }) {
 function Card({ artwork, index }) {
   console.log(artwork);
   return (
-    <div class="card" id="`atelier-card-${index}`">
+    <div class="card" id={`atelier-card-${index}`}>
       <div class="card-header">
-        <div class="time" x-text="timeAgo(artwork.timestamp)"></div>
+        <div class="time">{timeAgo(artwork.timestamp)}</div>
         <div class="actions">
           <div class="action" x-show="artwork.screenshot || artwork.recording">
             <a
