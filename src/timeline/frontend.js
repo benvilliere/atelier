@@ -239,6 +239,23 @@ function Card({ artwork }) {
 
 function App() {
   const { artworks, status, setArtworks } = useAtelier();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop !==
+        document.documentElement.offsetHeight ||
+      isLoading
+    ) {
+      return;
+    }
+    fetchData();
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isLoading]);
 
   return (
     <>
