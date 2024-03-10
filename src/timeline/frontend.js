@@ -87,6 +87,7 @@ function Header() {
 
     <div class="header">
       <Logo />
+      <NewArtworksAlert />
     </div>
 
     // <div class="header">
