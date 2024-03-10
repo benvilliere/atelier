@@ -54,28 +54,12 @@ const AtelierProvider = ({ children }) => {
       window.innerHeight + window.scrollY >=
       document.documentElement.scrollHeight - 300
     ) {
+      console.log("Infinite scroll fetch data");
       setIsFetchingMoreEntries(true);
       const more = await getArtworks(page + 1);
       setPage(more.page);
       setArtworks([...artworks, ...more.artworks]);
       setIsFetchingMoreEntries(false);
-      // if (this.timeline.page < this.timeline.totalPages) {
-      //   console.log("you're at the bottom of the page");
-
-      //   this.fetchingMoreEntries = true;
-
-      //   const data = await getTimeline(this.timeline.page + 1);
-
-      //   this.timeline = {
-      //     ...data,
-      //     entries: [...this.timeline.entries, ...data.entries],
-      //   };
-
-      //   this.entries = [...this.timeline.entries, ...data.entries];
-
-      //   this.fetchingMoreEntries = false;
-      // }
-      console.log("Infinite scroll fetch data");
     }
     // if (
     //   window.innerHeight + document.documentElement.scrollTop !==
