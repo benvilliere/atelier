@@ -94,7 +94,7 @@ document.addEventListener("alpine:init", () => {
       window.addEventListener(
         "scroll",
         async () => {
-          await handleScroll();
+          await this.handleScroll();
         },
         { passive: true }
       );
