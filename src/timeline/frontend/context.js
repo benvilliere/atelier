@@ -1,3 +1,5 @@
+const { createContext, useContext, useEffect, useState } = window.React;
+
 const AtelierContext = createContext();
 
 const useAtelier = () => useContext(AtelierContext);
