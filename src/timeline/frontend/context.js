@@ -32,21 +32,6 @@ const AtelierProvider = ({ children }) => {
       setArtworks([...newArtworks, ...artworks]);
       setLastPollingTime(Date.now());
     }
-    // this.timeline.entries = this.entries;
-
-    // this.timeline = {
-    //   ...this.timeline,
-    //   entries: entries,
-    //   total: entries.length,
-    //   // totalPages: Math.ceil(entries.length / limit),
-    // };
-
-    // Show only if not viewing the top of the page
-    // this.showNewEntriesPill =
-    //   window.scrollY >
-    //   document.getElementById("atelier-card-1").clientHeight;
-    // this.newEntries += fresh.entries.length;
-    // this.showNewEntriesPill = true;
   };
 
   useEffect(() => {
