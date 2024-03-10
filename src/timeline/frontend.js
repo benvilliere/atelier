@@ -249,7 +249,7 @@ function App() {
     ) {
       return;
     }
-    fetchData();
+    console.log("Infinite scroll fetch data");
   };
 
   useEffect(() => {
