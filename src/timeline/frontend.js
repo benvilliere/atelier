@@ -97,7 +97,7 @@ document.addEventListener("alpine:init", () => {
 
           const entries = [...fresh.entries, ...this.timeline.entries];
 
-          const newTimeline = {
+          this.timeline = {
             ...this.timeline,
             entries: entries,
             total: entries.length,
@@ -105,13 +105,6 @@ document.addEventListener("alpine:init", () => {
           };
 
           console.log(this.timeline);
-          console.log(newTimeline);
-
-          console.log(this);
-
-          this.timeline.set("entries", entries);
-
-          // this.set("timeline", newTimeline);
 
           // Show only if not viewing the top of the page
           // this.showNewEntriesPill =
