@@ -230,6 +230,7 @@ function CopyAction({ artwork }) {
 
 function DeleteAction({ artwork }) {
   const { artworks, setArtworks } = useAtelier();
+
   const handleDelete = async (event) => {
     event.preventDefault();
 
@@ -331,12 +332,7 @@ function Card({ artwork }) {
 }
 
 function App() {
-  const [artworks, setArtworks] = useState([]);
-
-  useEffect(async () => {
-    const timeline = await getTimeline();
-    setArtworks(timeline.artworks);
-  }, []);
+  const { artworks } = useAtelier();
 
   return (
     <>
