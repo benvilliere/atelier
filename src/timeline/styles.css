@@ -108,6 +108,7 @@ body * {
     transform: rotate(360deg);
   }
 }
+
 .pill {
   display: flex;
   align-items: center;
@@ -138,6 +139,7 @@ body * {
 
 .deck {
   width: 92%;
+  padding-top: 64px;
 }
 
 .card {
