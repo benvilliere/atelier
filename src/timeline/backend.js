@@ -37,6 +37,7 @@ export function createBackend(settings) {
   backend.get("/timeline/since/:when", async (req, res) => {
     try {
       const when = req.params.when;
+      const files = await fs.readdir(directories.data);
 
       let entries = await Promise.all(
         files
