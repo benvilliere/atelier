@@ -101,31 +101,45 @@ document.addEventListener("alpine:init", () => {
         { passive: true }
       );
     },
-    async loadNewEntries() {
-      const when = this.entries[0].timestamp;
-      const fresh = await getTimelineSince(when);
-
-      if (fresh.entries.length > 0) {
-        this.newEntries += fresh.entries.length;
-
-        this.entries = [...fresh.entries, ...this.entries];
-
-        this.timeline.entries = this.entries;
-
-        // this.timeline = {
-        //   ...this.timeline,
-        //   entries: entries,
-        //   total: entries.length,
-        //   // totalPages: Math.ceil(entries.length / limit),
-        // };
-
-        // Show only if not viewing the top of the page
-        // this.showNewEntriesPill =
-        //   window.scrollY >
-        //   document.getElementById("atelier-card-1").clientHeight;
-        this.showNewEntriesPill = true;
-      }
+    loadNewEntries() {
+      const when = this.entries[0]?.timestamp;
+      // Note: convert this to use Alpine's $fetch if necessary
+      fetch(`/timeline/since/${when}`)
+        .then((response) => response.json())
+        .then((fresh) => {
+          if (fresh.entries.length > 0) {
+            this.newEntries += fresh.entries.length;
+            this.entries = [...fresh.entries, ...this.entries];
+            this.timeline.entries = this.entries;
+            this.showNewEntriesPill = true;
+          }
+        });
     },
+    // async loadNewEntries() {
+    //   const when = this.entries[0].timestamp;
+    //   const fresh = await getTimelineSince(when);
+
+    //   if (fresh.entries.length > 0) {
+    //     this.newEntries += fresh.entries.length;
+
+    //     this.entries = [...fresh.entries, ...this.entries];
+
+    //     this.timeline.entries = this.entries;
+
+    //     // this.timeline = {
+    //     //   ...this.timeline,
+    //     //   entries: entries,
+    //     //   total: entries.length,
+    //     //   // totalPages: Math.ceil(entries.length / limit),
+    //     // };
+
+    //     // Show only if not viewing the top of the page
+    //     // this.showNewEntriesPill =
+    //     //   window.scrollY >
+    //     //   document.getElementById("atelier-card-1").clientHeight;
+    //     this.showNewEntriesPill = true;
+    //   }
+    // },
     async infiniteScroll() {
       if (this.fetchingMoreEntries) {
         return;
