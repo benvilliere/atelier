@@ -9,6 +9,7 @@ function Logo() {
     <h1 class="logo">
       <a
         href="#"
+        onClick={window.scrollTo(0, 0)}
         // @click.prevent="window.scrollTo(0, 0);"
       >
         <span>Atelier</span>
