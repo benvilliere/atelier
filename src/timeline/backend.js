@@ -46,7 +46,7 @@ export function createBackend(settings) {
           .map(async (file) => {
             const filePath = path.join(directories.data, file);
             const fileContents = await fs.readFile(filePath, "utf8");
-            return JSON.parse(fileContents);
+            const artwork = JSON.parse(fileContents);
           })
           .sort((a, b) => b.timestamp - a.timestamp)
           .map((artwork) => {
