@@ -328,14 +328,7 @@ function Card({ artwork }) {
 }
 
 function Home() {
-  const [timeline, setTimeline] = useState({
-    artworks: [],{
-        page,
-        limit,
-        total: artworks.length,
-        totalPages: Math.ceil(artworks.length / limit),
-      }
-  });
+  const [artworks, setArtworks] = useState([]);
 
   useEffect(async () => {
     const timeline = await getTimeline();
