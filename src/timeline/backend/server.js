@@ -157,7 +157,7 @@ export function createBackend(settings) {
     if (req.method !== "GET") {
       return;
     }
-    res.sendFile(path.join(directories.frontend, "index.html"));
+    res.sendFile(path.join(directories.frontend, "../index.html"));
   });
 
   return backend;
