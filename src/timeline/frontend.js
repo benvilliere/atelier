@@ -2,7 +2,7 @@ const { createBrowserRouter, RouterProvider, Route, Link } =
   window.ReactRouterDOM;
 const { useRoutes, useNavigate } = window.ReactRouter;
 
-import Logo from "/components/Logo.jsx";
+import Logo from "/components/Logo.js";
 
 function Header() {
   const navigate = useNavigate();
