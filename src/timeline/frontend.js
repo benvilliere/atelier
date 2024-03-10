@@ -92,32 +92,8 @@ document.addEventListener("alpine:init", () => {
         const fresh = await getTimeline();
 
         if (fresh.total > this.timeline.total) {
-          const before = this.timeline;
-          const newEntriesAmount = fresh.total - this.timeline.total;
-          const newEntries = fresh.entries.slice(0, newEntriesAmount);
+          this.timeline.entries = fresh.entries;
 
-          console.log("New entries:", newEntriesAmount, newEntries);
-
-          const updates = {
-            ...fresh,
-            entries: this.timeline.entries,
-          };
-
-          for (const newEntry of newEntries) updates.entries.unshift(newEntry);
-          // this.timeline.entries.unshift(newEntry);
-
-          this.timeline = updates;
-
-          this.newEntries += newEntriesAmount;
-
-          const after = this.timeline;
-
-          console.log({ before: before.entries, after: updates.entries });
-
-          // Show only if not viewing the top of the page
-          // this.showNewEntriesPill =
-          //   window.scrollY >
-          //   document.getElementById("atelier-card-1").clientHeight;
           this.showNewEntriesPill = true;
         }
       }, 3000);
