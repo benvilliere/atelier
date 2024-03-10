@@ -327,6 +327,8 @@ function Card({ artwork }) {
 }
 
 function Home() {
+  useEffect(() => {}, []);
+
   return (
     <>
       <Header />
