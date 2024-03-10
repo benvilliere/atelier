@@ -107,6 +107,8 @@ document.addEventListener("alpine:init", () => {
 
           this.timeline = updates;
 
+          console.log(updates);
+
           this.newEntries += newEntriesAmount;
 
           // Show only if not viewing the top of the page
