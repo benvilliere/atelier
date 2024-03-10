@@ -96,7 +96,9 @@ function Footer() {
 
 // Home component
 
-function Container({children})
+function Container({ children }) {
+  return <div class="container">{childrens}</div>;
+}
 
 function Home() {
   return (
