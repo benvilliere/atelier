@@ -101,6 +101,8 @@ document.addEventListener("alpine:init", () => {
         if (fresh.entries.length > 0) {
           this.newEntries += fresh.entries.length;
 
+          this.timeline.entries = [...fresh.entries, ...this.timeline.entries];
+
           console.log({ before: before.entries, after: updates.entries });
 
           // Show only if not viewing the top of the page
