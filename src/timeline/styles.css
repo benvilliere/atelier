@@ -80,6 +80,7 @@ body * {
 }
 
 .header .logo a:hover svg {
+  display: block;
   opacity: 1;
 }
 
