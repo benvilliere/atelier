@@ -286,6 +286,42 @@ function Card({ artwork }) {
 function App() {
   const { artworks } = useAtelier();
 
+  const pollNewArtworks = async () => {
+    const when = artworks[0].timestamp;
+    const fresh = await getTimelineSince(when);
+    console.log("polling new artworks", fresh.artworks.length);
+
+    if (fresh.artworks.length > 0) {
+      console.log([...fresh.artworks, ...artworks]);
+      setArtworks([...fresh.artworks, ...artworks]);
+
+      // this.timeline.entries = this.entries;
+
+      // this.timeline = {
+      //   ...this.timeline,
+      //   entries: entries,
+      //   total: entries.length,
+      //   // totalPages: Math.ceil(entries.length / limit),
+      // };
+
+      // Show only if not viewing the top of the page
+      // this.showNewEntriesPill =
+      //   window.scrollY >
+      //   document.getElementById("atelier-card-1").clientHeight;
+      // this.newEntries += fresh.entries.length;
+      // this.showNewEntriesPill = true;
+    }
+  };
+
+  useEffect(() => {
+    if (status !== STATUS.INITIALIZED) {
+      return;
+    }
+
+    const timer = setInterval(pollNewArtworks, 2000);
+    return () => clearInterval(timer);
+  }, [status]);
+
   return (
     <>
       <Header />
