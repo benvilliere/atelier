@@ -51,11 +51,6 @@ export function createBackend(settings) {
             artwork.debug = true;
             return artwork;
           })
-          .sort((a, b) => b.timestamp - a.timestamp)
-          .map((artwork) => {
-            artwork.debug = true;
-            return artwork;
-          })
       );
 
       res.json({
