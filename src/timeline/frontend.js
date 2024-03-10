@@ -107,9 +107,9 @@ document.addEventListener("alpine:init", () => {
 
       if (fresh.entries.length > 0) {
         this.entries = [...fresh.entries, ...this.entries];
-        console.log([...fresh.entries, ...this.entries]);
+        // console.log();
         this.entries = fresh.entries;
-        Alpine.store("atelier").entries = fresh.entries;
+        Alpine.store("atelier").entries = [...fresh.entries, ...this.entries];
 
         // this.timeline.entries = this.entries;
 
