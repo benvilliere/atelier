@@ -75,7 +75,7 @@ body * {
   /* display: none;
   opacity: 0; */
   width: 12px;
-  top: 12px;
+  top: 64px;
   right: 64px;
   transition: all ease-in-out 200ms;
 }
