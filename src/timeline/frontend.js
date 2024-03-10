@@ -237,7 +237,6 @@ function Media({ artwork }) {
 }
 
 function Card({ artwork }) {
-  console.log(artwork);
   return (
     <div class="card" id={`atelier-card-${artwork.timestamp}`}>
       <div class="card-header">
