@@ -129,9 +129,9 @@ function DeleteAction({ artwork }) {
   const handleDelete = async (event) => {
     event.preventDefault();
 
-    // Update artworks state
+    // Remove from state
     setArtworks(artworks.filter((a) => a.timestamp != artwork.timestamp));
-
+    // Send delete request
     await deleteArtwork(artwork);
   };
 
