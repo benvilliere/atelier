@@ -52,7 +52,7 @@ const AtelierProvider = ({ children }) => {
 
     if (
       window.innerHeight + window.scrollY >=
-      document.documentElement.scrollHeight - 300
+      document.documentElement.scrollHeight - window.innerHeight
     ) {
       console.log("Infinite scroll fetch data");
       setIsFetchingMoreEntries(true);
@@ -61,13 +61,6 @@ const AtelierProvider = ({ children }) => {
       setArtworks([...artworks, ...more.artworks]);
       setIsFetchingMoreEntries(false);
     }
-    // if (
-    //   window.innerHeight + document.documentElement.scrollTop !==
-    //     document.documentElement.offsetHeight ||
-    //   isLoading
-    // ) {
-    //   return;
-    // }
   };
 
   useEffect(() => {
