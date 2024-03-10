@@ -104,7 +104,7 @@ document.addEventListener("alpine:init", () => {
             // totalPages: Math.ceil(entries.length / limit),
           };
 
-          console.log(Alpine.$store.atelier);
+          console.log(Alpine.$store);
           console.log(this.timeline);
 
           // Show only if not viewing the top of the page
