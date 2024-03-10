@@ -285,6 +285,7 @@ function Card({ artwork }) {
 
 function App() {
   const { artworks } = useAtelier();
+  const [status, setStatus] = useState(STATUS.INITIALIZING);
 
   return (
     <>
