@@ -60,7 +60,7 @@ const AtelierProvider = ({ children }) => {
 
     const timer = setInterval(async () => {
       const newArtworks = await pollNewArtworks();
-      setArtworks([...newArtworks, ...artworks]);
+      setArtworks([...artworks, ...newArtworks]);
     }, 3000);
     return () => clearInterval(timer);
   }, [status]);
