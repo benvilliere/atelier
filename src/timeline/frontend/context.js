@@ -14,7 +14,9 @@ const AtelierProvider = ({ children }) => {
   const [artworks, setArtworks] = useState([]);
   const [lastPollingTime, setLastPollingTime] = useState(Date.now());
   const [page, setPage] = useState(1);
-  const [wasInitialized, setWasInitialized] = useState(false);
+  const [initialized, setInitialized] = useState(false);
+
+  const [isFetchingMoreEntries, setIsFetchingMoreEntries] = useState(false);
 
   async function getArtworks(page = 1, limit = 32, since = 0) {
     return await get(`/artworks?page=${page}&limit=${limit}&since=${since}`);
@@ -25,7 +27,7 @@ const AtelierProvider = ({ children }) => {
       const data = await getArtworks();
       setArtworks(data.artworks);
       setPage(data.page);
-      setStatus(STATUS.INITIALIZED);
+      setInitialized(true);
     };
 
     fetchArtworks();
@@ -40,15 +42,13 @@ const AtelierProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (status !== STATUS.INITIALIZED) {
+    if (!initialized) {
       return;
     }
 
     const timer = setInterval(async () => await polling(), 3000);
     return () => clearInterval(timer);
   }, [status]);
-
-  const [isFetchingMoreEntries, setIsFetchingMoreEntries] = useState(false);
 
   const infiniteScroll = async () => {
     if (isFetchingMoreEntries) {
