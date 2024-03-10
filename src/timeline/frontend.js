@@ -38,15 +38,6 @@ function Header() {
 
 // Footer component
 
-function Footer() {
-  return (
-    <pre>
-      Just view source this page and you will see all of the code there, easy to
-      follow and learn
-    </pre>
-  );
-}
-
 function Container({ children }) {
   return <div class="container">{children}</div>;
 }
