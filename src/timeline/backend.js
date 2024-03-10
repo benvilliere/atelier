@@ -52,9 +52,7 @@ export function createBackend(settings) {
           })
       );
 
-      artworks = artworks.filter(
-        (file) => parseInt(file.replace(".json", "")) >= when
-      );
+      artworks = artworks.filter((artwork) => artwork.timestamp >= when);
 
       res.json({
         artworks,
