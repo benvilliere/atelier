@@ -1,6 +1,7 @@
 const { createBrowserRouter, RouterProvider, Route, Link } =
   window.ReactRouterDOM;
 const { useRoutes, useNavigate } = window.ReactRouter;
+const { useEffect, useState } = window.ReactDOM;
 
 async function get(endpoint) {
   return await (await fetch(endpoint)).json();
