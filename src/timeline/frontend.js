@@ -208,6 +208,35 @@ function DeleteAction({ artwork }) {
   );
 }
 
+function Media({ artwork }) {
+  return (
+    <div class="media">
+      {artwork.screenshot && (
+        <img
+          id={`atelier-screenshot-${artwork.timestamp}`}
+          src={`/screenshots/${artwork.screenshot}`}
+          alt={`Screenshot taken at ${new Date(
+            artwork.timestamp
+          ).toLocaleString()}`}
+        />
+      )}
+      <template x-if="artwork.recording">
+        <video
+          controls
+          // :id="`atelier-recording-${index}`"
+          // :title="`Recording taken at ${new Date(artwork.timestamp).toLocaleString()}`"
+        >
+          <source
+            // :src="`/recordings/${artwork.recording}`"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+      </template>
+    </div>
+  );
+}
+
 function Card({ artwork }) {
   console.log(artwork);
   return (
