@@ -34,6 +34,7 @@ const AtelierProvider = ({ children }) => {
     const fetchArtworks = async () => {
       try {
         const data = await getTimeline();
+        console.log(data);
         setArtworks(data.artworks);
       } catch (error) {
         console.error("Failed to fetch artworks", error);
