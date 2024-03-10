@@ -292,7 +292,7 @@ function App() {
       <Container>
         <Deck>
           {artworks
-            .sort((a, b) => a.timestamp - b.timestamp)
+            .sort((a, b) => a.timestamp + b.timestamp)
             .map((artwork, index) => (
               <Card key={`artwork-${index}`} artwork={artwork} />
             ))}
