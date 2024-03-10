@@ -126,13 +126,13 @@ function Card() {
                   x-show="entry.screenshot || entry.recording"
                 >
                   <a
-                    :href="
-                      entry.screenshot 
-                      ? `/screenshots/${entry.screenshot}`
-                      : `/recordings/${entry.recording}`
-                    "
+                    // :href="
+                    //   entry.screenshot 
+                    //   ? `/screenshots/${entry.screenshot}`
+                    //   : `/recordings/${entry.recording}`
+                    // "
                     download
-                    :title="`Download ${entry.screenshot ? entry.screenshot : entry.recording}`"
+                    // :title="`Download ${entry.screenshot ? entry.screenshot : entry.recording}`"
                   >
                     <span>Download</span>
                     <svg
