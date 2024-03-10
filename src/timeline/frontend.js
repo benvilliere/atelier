@@ -342,7 +342,7 @@ function Home() {
       <Container>
         <Deck>
           {artworks.map((artwork, index) => (
-            <Card artwork={artwork} index={index} />
+            <Card key={`artwork-${index}`} artwork={artwork} />
           ))}
         </Deck>
       </Container>
