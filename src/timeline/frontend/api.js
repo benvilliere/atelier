@@ -8,7 +8,7 @@ async function getTimeline(page = 1, limit = 32) {
 async function getArtworks({ page = 1, limit = 32, since = 0 }) {
   page = page || 1;
   limit = limit || 32;
-  since ||= CHAR_0;
+  since ||= 0;
   console.log("Fetching page:", page);
   return await get(`/timeline?page=${page}&limit=${limit}&since=${since}`);
 }
