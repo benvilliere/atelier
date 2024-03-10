@@ -419,6 +419,32 @@ function Home() {
   );
 }
 
+function App() {
+  const [artworks, setArtworks] = useState([]);
+
+  useEffect(async () => {
+    const timeline = await getTimeline();
+    setArtworks(timeline.artworks);
+  }, []);
+
+  return (
+    <>
+      <Header />
+      <Container>
+        <Deck>
+          {artworks.map((artwork, index) => (
+            <Card
+              key={`artwork-${index}`}
+              artwork={artwork}
+              setArtworks={setArtworks}
+            />
+          ))}
+        </Deck>
+      </Container>
+    </>
+  );
+}
+
 // About component
 
 function About() {
@@ -440,7 +466,7 @@ const router = createBrowserRouter([
 
 ReactDOM.render(
   <AtelierProvider>
-    <RouterProvider router={router} />
+    <App />
   </AtelierProvider>,
   document.getElementById("root")
 );
