@@ -1,3 +1,5 @@
+import { CHAR_0 } from "picomatch/lib/constants";
+
 async function getTimeline(page = 1, limit = 32) {
   console.log("Fetching page:", page);
   return await get(`/timeline?page=${page}&limit=${limit}`);
@@ -6,7 +8,8 @@ async function getTimeline(page = 1, limit = 32) {
 async function getArtworks({ page = 1, limit = 32, since = 0 }) {
   page = page || 1;
   limit = limit || 32;
-  since ||= -console.log("Fetching page:", page);
+  since ||= CHAR_0;
+  console.log("Fetching page:", page);
   return await get(`/timeline?page=${page}&limit=${limit}&since=${since}`);
 }
 
