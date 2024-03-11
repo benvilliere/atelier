@@ -18,3 +18,13 @@ export async function isGitRepository() {
     return false;
   }
 }
+
+export async function initGitRepository(path) {
+  const git = simpleGit(path);
+  await git.init();
+}
+
+export async function cloneGitRepository(path, remote) {
+  const git = simpleGit();
+  await git.clone(remote, path);
+}
