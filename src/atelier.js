@@ -2,12 +2,23 @@
 
 import process from "process";
 import { program } from "commander";
-import { loadJson } from "./helpers.js";
+import { loadPackageJson } from "./helpers.js";
+import create from "./commands/create.js";
 import start from "./commands/start.js";
 
-const { version } = await loadJson("package.json");
+const { version } = await loadPackageJson("package.json");
 
 program.version(version, "-v, --version", "prints current version");
+
+program
+  .command("create <name>")
+  .description("create a new project")
+  .option(
+    "-b, --boilerplate <name>",
+    "create project from a specified template"
+  )
+  .option("-c, --clone <remote>", "clone a specific remote url")
+  .action((name, options) => create(name, options));
 
 program
   .command("start", { isDefault: true })

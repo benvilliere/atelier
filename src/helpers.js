@@ -1,5 +1,7 @@
 import { exec } from "child_process";
 import { promises as fs } from "fs";
+import { fileURLToPath } from "url";
+import path from "path";
 import {
   ATELIER_BASE_DIR,
   ATELIER_SCREENSHOT_DIR,
@@ -8,10 +10,26 @@ import {
 } from "./constants.js";
 
 export async function printWelcomeMessage() {
-  const { version } = await loadJson("package.json");
+  const { version } = await loadPackageJson("package.json");
   console.log(`------------------------`);
   console.log(`| 🎨 Atelier (v${version}) |`);
   console.log(`------------------------`);
+}
+
+export async function loadPackageJson() {
+  try {
+    // Convert the file URL to a file path
+    const __filename = fileURLToPath(import.meta.url);
+    // Resolve the directory name from the file path
+    const __dirname = path.dirname(__filename);
+    // Correctly construct the package.json path using the path module
+    const packageJsonPath = path.join(__dirname, "..", "package.json");
+    const content = await fs.readFile(packageJsonPath, "utf8");
+    return JSON.parse(content);
+  } catch (error) {
+    console.log(`Error loading package.json:`, error);
+    return null;
+  }
 }
 
 export async function loadJson(filePath) {
