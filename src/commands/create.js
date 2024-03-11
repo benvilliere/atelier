@@ -1,8 +1,8 @@
 import { printWelcomeMessage } from "../helpers.js";
-import defaultSettings from "../config/default.js";
 import { initGitRepository, cloneGitRepository } from "../features/git.js";
 import { rm, mkdir } from "fs/promises";
 import path from "path";
+import inquirer from "inquirer";
 
 export const TEMPLATE = {
   fxhash: {
@@ -15,6 +15,21 @@ export const TEMPLATE = {
   },
 };
 
+async function askForTemplate() {
+  const answers = await inquirer.prompt([
+    {
+      type: "list",
+      name: "boilerplate",
+      message: "Choose a template for your project:",
+      choices: Object.entries(TEMPLATE).map(([key, { name }]) => ({
+        name,
+        value: key,
+      })),
+    },
+  ]);
+  return answers.boilerplate;
+}
+
 export default async function create(name, options) {
   await printWelcomeMessage();
 
@@ -22,7 +37,12 @@ export default async function create(name, options) {
   const projectDir = path.resolve(process.cwd(), name);
   await mkdir(projectDir, { recursive: true });
 
-  // Assuming the template URL is in the options or TEMPLATE object
+  // When no template or clone URL is provided, ask for a template
+  if (!options.boilerplate && !options.clone) {
+    options.boilerplate = await askForTemplate();
+  }
+
+  // Either find the template or resort to use the clone value as remote
   const remote = options.boilerplate
     ? TEMPLATE[options.boilerplate]?.remote
     : options.clone;
@@ -31,7 +51,7 @@ export default async function create(name, options) {
     // Clone the repository into the project directory
     await cloneGitRepository(projectDir, remote);
     // Remove the .git directory to detach from the original repository
-    await rm(path.join(projectDir, ".git"), { recursive: true });
+    await rm(path.join(projectDir, ".git"), { recursive: true, force: true });
   }
 
   // Initialize a new git repository
