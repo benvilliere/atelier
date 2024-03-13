@@ -57,6 +57,9 @@ TODO: List out all configuration options.
 ## TODOs
 
 - Test on a new project
+- Create command: mkdir timeline data folder
+- Create command: add basic config file (optional)
+- Create command: insert .vite .atelier in .gitignore
 - Refine & document configuration file
 - Timeline: revert to commit hash action
 - Timeline: handle empty state
