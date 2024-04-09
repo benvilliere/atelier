@@ -27,7 +27,7 @@ For now, it is the most simple thing ever. But I have plans to add more useful f
 Atelier being a self-contained CLI application, it is recommended to install it globally as such:
 
 ```bash
-npm install --global @genart/atelier
+npm install --global @benvilliere/atelier
 ```
 
 ## Usage
